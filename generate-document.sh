@@ -31,7 +31,7 @@ generate() {
         cd "SBOM/$1"
         generate_docx $1
         # generate_html $1
-        cd ..
+        cd ../..
         echo " done."
     else
         echo " No CycloneDX guide found in directory $1"
