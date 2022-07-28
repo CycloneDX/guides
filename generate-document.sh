@@ -26,7 +26,7 @@ generate_docx() {
 
 generate() {
     echo -n "Generating CycloneDX SBOM Guide ($1)..."
-    if [ -d "$1" ];
+    if [ -d "SBOM/$1" ];
     then
         cd "SBOM/$1"
         generate_docx $1
