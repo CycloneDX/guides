@@ -21,7 +21,12 @@ generate_docx() {
 }
 
 generate_pdf() {
-    docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        abiword --to=pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx"
+        mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.docx"
+    else
+        docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+    fi
     pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
     rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"

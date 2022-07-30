@@ -19,7 +19,7 @@ jobs:
         sudo dpkg -i pandoc-2.9-1-amd64.deb
         python -m pip install --upgrade pip
         pip install pandoc
-        pip install docx2pdf
+        pip install abiword
         pip install pdfcli
     - name: Generate document
       run: |
