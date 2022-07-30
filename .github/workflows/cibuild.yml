@@ -22,6 +22,7 @@ jobs:
         pip install pdfcli
         sudo apt-get install abiword
     - name: Generate document
+      uses: GabrielBB/xvfb-action@v1
       run: |
         chmod +x generate-document.sh
         ./generate-document.sh
