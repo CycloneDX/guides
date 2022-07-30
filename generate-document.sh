@@ -20,6 +20,13 @@ generate_docx() {
         -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" *.md
 }
 
+generate_pdf() {
+    docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+    pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+    rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+    pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+}
+
 # generate_html() {
 #     pandoc -s -f markdown_github -t html5 -o "../OWASP_SCVS-SNAPSHOT-$1.html" *.md
 # }
@@ -30,6 +37,7 @@ generate() {
     then
         cd "SBOM/$1"
         generate_docx $1
+        generate_pdf $1
         # generate_html $1
         cd ../..
         echo " done."
