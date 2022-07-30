@@ -23,9 +23,10 @@ jobs:
         sudo apt-get install abiword
     - name: Generate document
       uses: GabrielBB/xvfb-action@v1
-      run: |
-        chmod +x generate-document.sh
-        ./generate-document.sh
+      with:
+        run: |
+          chmod +x generate-document.sh
+          ./generate-document.sh
     - name: Archive document
       uses: actions/upload-artifact@v1
       with:
