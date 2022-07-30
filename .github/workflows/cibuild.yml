@@ -19,8 +19,8 @@ jobs:
         sudo dpkg -i pandoc-2.9-1-amd64.deb
         python -m pip install --upgrade pip
         pip install pandoc
-        pip install abiword
         pip install pdfcli
+        sudo apt-get install abiword
     - name: Generate document
       run: |
         chmod +x generate-document.sh
