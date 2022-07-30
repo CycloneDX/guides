@@ -22,7 +22,9 @@ generate_docx() {
 
 generate_pdf() {
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        libreoffice --help
         libreoffice --headless --convert-to pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" --outdir ../
+        ls -las ../
         mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.docx"
     else
         docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
