@@ -30,3 +30,8 @@ jobs:
       with:
         name: OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-en.docx
         path: SBOM/OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-en.docx
+    - name: Archive document
+      uses: actions/upload-artifact@v1
+      with:
+        name: OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-en.pdf
+        path: SBOM/OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-en.pdf
