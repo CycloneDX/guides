@@ -16,7 +16,7 @@ generate_docx() {
     pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
         --lua-filter=../../templates/pagebreak.lua \
         --columns 10000 \
-        --metadata title="My Doc Title"
+        --metadata title="My Doc Title" \
         -t docx \
         -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" *.md
 }
