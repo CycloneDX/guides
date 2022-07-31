@@ -31,6 +31,7 @@ generate_pdf() {
     pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
     rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+    exiftool -Title="My Doc Title" -Author="OWASP CycloneDX" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
 }
 
 # generate_html() {
