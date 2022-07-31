@@ -1,8 +1,3 @@
----
-title:  'This is the title: it contains a colon'
-
----
-
 # Frontispiece
 
 ## About the guide
