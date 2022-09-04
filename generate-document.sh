@@ -17,6 +17,8 @@ generate_docx() {
         --lua-filter=../../templates/pagebreak.lua \
         --columns 10000 \
         --metadata title="My Doc Title" --metadata author="OWASP CycloneDX" \
+        --toc \
+        --toc-depth=1 \
         -t docx \
         -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" *.md
 }
@@ -34,6 +36,18 @@ generate_pdf() {
     exiftool -Title="My Doc Title" -Author="OWASP CycloneDX" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
 }
 
+generate_epub() {
+    pandoc -s -f gfm --css=../../templates/book.css \
+        --lua-filter=../../templates/pagebreak.lua \
+        --columns 10000 \
+        --metadata title="My Doc Title" --metadata author="OWASP CycloneDX" \
+        --epub-cover-image=../en/images/cover.jpg \
+        --toc \
+        --toc-depth=1 \
+        -t epub \
+        -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.epub" *.md
+}
+
 # generate_html() {
 #     pandoc -s -f markdown_github -t html5 -o "../OWASP_SCVS-SNAPSHOT-$1.html" *.md
 # }
@@ -45,6 +59,7 @@ generate() {
         cd "SBOM/$1"
         generate_docx $1
         generate_pdf $1
+        generate_epub $1
         # generate_html $1
         cd ../..
         echo " done."
