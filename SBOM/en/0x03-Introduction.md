@@ -14,7 +14,7 @@ the inclusion of services as a foundational component necessary in software bill
 
 ## High-Level SBOM Use Cases
 A complete and accurate inventory of all first-party and third-party components is essential for risk identification. 
-BOMs should ideally contain all direct and transitive components and the dependency relationships between them.
+SBOMs should ideally contain all direct and transitive components and the dependency relationships between them.
 
 CycloneDX far exceeds the [Minimum Elements for Software Bill of Materials](https://www.ntia.gov/files/ntia/publications/sbom_minimum_elements_report.pdf) 
 as defined by the [National Telecommunications and Information Administration (NTIA)](https://www.ntia.gov/) in response 
@@ -24,11 +24,11 @@ Adopting CycloneDX allows organizations to quickly meet these minimum requiremen
 sophisticated use cases over time. CycloneDX is capable of achieving all SBOM requirements defined in the 
 [OWASP Software Component Verification Standard (SCVS)](https://owasp.org/scvs).
 
-### TODO
-
-### Procurement and M&A
-
-### Supply Chain Transparency
+* Product security, architectural, and license risk
+* Procurement and M&A
+* Software component transparency
+* Supply chain transparency
+* Vendor risk management
 
 
 ## CycloneDX Object Model
@@ -80,21 +80,31 @@ CycloneDX can be represented in JSON, XML and Protocol Buffers (protobuf) and ha
 
 ### JSON
 
-| **Resource**  | **URL**                                 |
-|---------------|-----------------------------------------|
-| Documentation | https://cyclonedx.org/docs/latest/json/ |
-| Schema        | TODO                                    |
+| **Resource**  | **URL**                                          |
+|---------------|--------------------------------------------------|
+| Documentation | https://cyclonedx.org/docs/latest/json/          |
+| Schema        | https://cyclonedx.org/schema/bom-1.4.schema.json |
 
 
 ### XML
 
-| **Resource**  | **URL**                                |
-|---------------|----------------------------------------|
-| Documentation | https://cyclonedx.org/docs/latest/xml/ |
-| Schema        | TODO                                   |
+| **Resource**  | **URL**                                  |
+|---------------|------------------------------------------|
+| Documentation | https://cyclonedx.org/docs/latest/xml/   |
+| Schema        | https://cyclonedx.org/schema/bom-1.4.xsd |
+
+
+### Protocol Buffers
+
+| **Resource**  | **URL**                                    |
+|---------------|--------------------------------------------|
+| Schema        | https://cyclonedx.org/schema/bom-1.4.proto |
 
 
 ### A note on validation
+CycloneDX relies upon JSON Schema, XML Schema, and protobuf for validation. The entirety of the specification can be
+validated using officially support CycloneDX tools or via hundreds of available validators that support these schema
+specifications.
 
 
 <div style="page-break-after: always; visibility: hidden">
