@@ -15,6 +15,10 @@
 
 ## Using Modified Open Source Software
 
+## SBOM in Release Management
+
+lifecycle, threat modeling, testing, etc
+
 
 
 <div style="page-break-after: always; visibility: hidden">

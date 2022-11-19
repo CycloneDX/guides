@@ -86,7 +86,7 @@ or instrumentation. Examples of platforms capable of runtime generation include:
 * Mobile Application Security Testing (MAST)
 
 Generating SBOMs at runtime has many benefits including:
-* Capturing the dependencies that are used and those that may be distributed but are unused
+* Capturing the dependencies that are invoked and those which are not
 * Capturing system dependencies of the underlying platform or operating system
 * Capturing information and configuration about the runtime environment
 * Capturing the use and reliance on external services such as those provided via HTTP and MQTT
@@ -106,11 +106,12 @@ be used by security firms specializing in firmware forensics associated with med
 TODO: reach out to IWG for guidance...
 
 ## SBOM generation as a process
-As we've seen, there are many different ways to generate SBOMs, each method having various trade-offs. CycloneDX
-recommends organizations establish a process around SBOM generation that aligns with the needs of the business and that
-of the SBOM consumer. In practice, SBOM generation is a process, not a one-time event. As organizations mature their SBOM
+As we've seen, there are many ways to generate SBOMs, each method having various trade-offs. CycloneDX recommends 
+organizations establish a process around SBOM generation that aligns with the needs of the business and that of the 
+SBOM consumer. In practice, SBOM generation is a process, not a one-time event. As organizations mature their SBOM
 efforts and consumers expect increased accuracy and expanded data, having an established process that can accommodate
-multiple generation methods along with the ability to augment and correct SBOM data will provide a strategic advantage.
+multiple generation methods along with the ability to augment and correct SBOM data throughout the generation process,
+will provide strategic advantages.
 
 TODO: possible SBOM process flow
 
@@ -135,13 +136,15 @@ CycloneDX highly encourages organizations to exceed the NTIA minimum elements wh
 types of data will vary by use case, but generally should include (but not be limited to):
 
 
-| **Field**              | **CycloneDX Field**                    | **Description**                                                 |
-|------------------------|----------------------------------------|-----------------------------------------------------------------|
-| BOM Generation Tools   | bom.metadata.tools[]                   | The tool(s) used to create the BOM                              |
-| Component Provenance   | bom.components[].supplier              | The name of the entity who supplied an individual component     |
-| Component Hash         | bom.components[].hashes[]              | The hash values of the file or package                           |
-| Component License      | bom.components[].licenses[]            | The license(s) in which the component is released under         |
-| External References    | bom.components[].externalReferences[]  | Locations to advisories, version control and build systems, etc |
+| **Field**            | **CycloneDX Field**                   | **Description**                                                                                                                           |
+|----------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| BOM Generation Tools | bom.metadata.tools[]                  | The tool(s) used to create the BOM                                                                                                        |
+| Component Provenance | bom.components[].supplier             | The name of the entity who supplied an individual component                                                                               |
+| Component Hash       | bom.components[].hashes[]             | The hash values of the file or package                                                                                                     |
+| Component License    | bom.components[].licenses[]           | The license(s) in which the component is released under                                                                                   |
+| External References  | bom.components[].externalReferences[] | Locations to advisories, version control and build systems, etc                                                                           |
+| Services             | bom.services[].*                      | A complete inventory of services including endpoint URLs, data classifications, etc which the product and/or individual components rely on |
+| Known Unknowns       | bom.compositions[].*                  | Assertions on the completeness of the inventory of components and services, along with the completeness of dependency relationships       |
 
 
 
