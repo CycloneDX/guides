@@ -16,9 +16,8 @@ generate_docx() {
     pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
         --lua-filter=../../templates/pagebreak.lua \
         --columns 10000 \
-        --metadata title="My Doc Title" --metadata author="OWASP CycloneDX" \
         --toc \
-        --toc-depth=1 \
+        --toc-depth=2 \
         -t docx \
         -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" *.md
 }
@@ -26,14 +25,14 @@ generate_docx() {
 generate_pdf() {
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         libreoffice --headless --convert-to pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" --outdir ../
-        mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+        #mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     else
-        docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+        docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
     fi
-    pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
-    rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
+    #pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+    #rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
-    exiftool -Title="My Doc Title" -Author="OWASP CycloneDX" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+    exiftool -Title="My Doc Title" -Author="Open Web Application Security Project (OWASP)" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
 }
 
 generate_epub() {
