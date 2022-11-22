@@ -6,7 +6,7 @@ standard began life in 2017 in the Open Web Application Security Project (OWASP)
 matured into an OWASP Flagship project, has adopted a formal standardization process and governance model, and is 
 supported by the global information security community.
 
-## Defining Software Bill of Materials
+## Defining Software as a Service (SaaSBOM) Bill of Materials
 The U.S. National Telecommunications and Information Administration (NTIA) defines software bill as materials as 
 "_a formal, machine-readable inventory of software components and dependencies, information about those components, 
 and their hierarchical relationships_". OWASP CycloneDX implements this definition and extends it in many ways, including

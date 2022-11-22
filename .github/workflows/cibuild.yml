@@ -26,7 +26,7 @@ jobs:
     - name: Generate document
       run: |
         chmod +x generate-document.sh
-        ./generate-document.sh
+        ./generate-document.sh sbom
     - name: Archive document
       uses: actions/upload-artifact@v1
       with:

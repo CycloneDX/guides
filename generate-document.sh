@@ -1,7 +1,20 @@
 #!/bin/bash
 
 echo "OWASP Markdown Conversion Tool"
-echo ""
+
+BOMTYPE=;
+
+case $1 in
+  ([Ss][Bb][Oo][Mm]) BOMTYPE="SBOM";;
+  ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
+  ([Vv][Dd][Rr]) BOMTYPE="VDR+VEX";;
+  ([Vv][Ee][Xx]) BOMTYPE="VDR+VEX";;
+  (*)
+    echo Invalid argument. Valid arguments are "SBOM", "SaaSBOM", and "VDR"
+    exit;;
+esac
+
+echo "Task: Generate CycloneDX $BOMTYPE guide"
 
 function command_exists () {
     command -v $1 >/dev/null 2>&1;
@@ -13,29 +26,33 @@ if ! command_exists pandoc; then
 fi
 
 generate_docx() {
-    pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
-        --lua-filter=../../templates/pagebreak.lua \
-        --columns 10000 \
-        --toc \
-        --toc-depth=2 \
-        -t docx \
-        -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" *.md
+  BOMTYPE=$1
+  LANG=$2
+  pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
+      --lua-filter=../../templates/pagebreak.lua \
+      --columns 10000 \
+      --toc \
+      --toc-depth=2 \
+      -t docx \
+      -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" *.md
 }
 
 generate_pdf() {
+    BOMTYPE=$1
+    LANG=$2
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        libreoffice --headless --convert-to pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" --outdir ../
+        libreoffice --headless --convert-to pdf "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" --outdir ../
         #mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     else
-        docx2pdf "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.docx" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+        docx2pdf "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
     fi
-    #pdfcli delete "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf" 0 -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
-    #rm "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
-    pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
-    exiftool -Title="My Doc Title" -Author="Open Web Application Security Project (OWASP)" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf"
+    pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
+    exiftool -Title="My Doc Title" -Author="Open Web Application Security Project (OWASP)" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
 }
 
 generate_epub() {
+    BOMTYPE=$1
+    LANG=$2
     pandoc -s -f gfm --css=../../templates/book.css \
         --lua-filter=../../templates/pagebreak.lua \
         --columns 10000 \
@@ -44,7 +61,7 @@ generate_epub() {
         --toc \
         --toc-depth=1 \
         -t epub \
-        -o "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.epub" *.md
+        -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.epub" *.md
 }
 
 # generate_html() {
@@ -52,13 +69,15 @@ generate_epub() {
 # }
 
 generate() {
-    echo -n "Generating CycloneDX SBOM Guide ($1)..."
-    if [ -d "SBOM/$1" ];
+    BOMTYPE=$1
+    LANG=$2
+    echo -n "Generating CycloneDX $BOMTYPE Guide ($LANG)..."
+    if [ -d "$BOMTYPE/$LANG" ];
     then
-        cd "SBOM/$1"
-        generate_docx $1
-        generate_pdf $1
-        generate_epub $1
+        cd "$BOMTYPE/$LANG"
+        generate_docx $BOMTYPE $LANG
+        generate_pdf $BOMTYPE $LANG
+        generate_epub $BOMTYPE $LANG
         # generate_html $1
         cd ../..
         echo " done."
@@ -68,43 +87,43 @@ generate() {
 }
 
 # Arabic
-#generate "ar"
+#generate $BOMTYPE "ar"
 
 # Brazil
-#generate "br"
+#generate $BOMTYPE "br"
 
 # Chinese
-#generate "cn"
+#generate $BOMTYPE "cn"
 
 # Czech
-#generate "cz"
+#generate $BOMTYPE "cz"
 
 # English
-generate "en"
+generate $BOMTYPE "en"
 
 # French
-#generate "fr"
+#generate $BOMTYPE "fr"
 
 # German
-# generate "de"
+# generate $BOMTYPE "de"
 
 # Hebrew
-#generate "heb"
+#generate $BOMTYPE "heb"
 
 # Italian
-#generate "it"
+#generate $BOMTYPE "it"
 
 # Japanese
-#generate "jp"
+#generate $BOMTYPE "jp"
 
 # Korean
-#generate "kr"
+#generate $BOMTYPE "kr"
 
 # Spanish
-# generate "es"
+# generate $BOMTYPE "es"
 
 # Ukraine
-#generate "ukr"
+#generate $BOMTYPE "ukr"
 
 echo
-echo "Generated OWASP CycloneDX Guide"
+echo "Generated OWASP CycloneDX $BOMTYPE Guide"
