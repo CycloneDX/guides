@@ -17,7 +17,7 @@
 
 ## SBOM in Release Management
 
-lifecycle, threat modeling, testing, etc
+releaes notes, lifecycle, threat modeling, testing, etc
 
 
 

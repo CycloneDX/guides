@@ -30,51 +30,6 @@ sophisticated use cases over time. CycloneDX is capable of achieving all SBOM re
 * Supply chain transparency
 * Vendor risk management
 
-
-## CycloneDX Object Model
-The CycloneDX object model is defined in JSON Schema, XML Schema, and Protocol Buffers and consists of metadata, 
-components, services, dependencies, compositions, and vulnerabilities. CycloneDX is prescriptive, can easily describe 
-complex relationships, and is extensible to support specialized and future use cases.
-
-The root elements of a CycloneDX BOM are:
-
-### BOM Metadata
-BOM metadata includes the supplier, manufacturer, and the target component for which the BOM describes. It also includes 
-the tools used to create the BOM, and license information for the BOM document itself.
-
-### Components
-Components describe the complete inventory of first-party and third-party components. The specification can represent 
-applications, frameworks, libraries, containers, operating systems, devices, firmware, files, along with the manufacturer 
-information, license and copyright details, and complete pedigree and provenance for every component.
-
-### Services
-Services describe external APIs that the software may call. Services describe endpoint URI’s, authentication 
-requirements, and trust boundary traversals. The flow of data between software and services can also be described 
-including the data classifications, and the flow direction of each type.
-
-### Dependencies
-CycloneDX provides the ability to describe components and their dependency on other components. The dependency graph is 
-capable of representing both direct and transitive relationships. Components that depend on services can be represented 
-in the dependency graph and services that depend on other services can be represented as well.
-
-### Compositions
-Compositions describe constituent parts (including components, services, and dependency relationships) and their 
-completeness. The aggregate of each composition can be described as complete, incomplete, incomplete first-party only, 
-incomplete third-party only, or unknown.
-
-### Vulnerabilities
-Known vulnerabilities inherited from the use of third-party and open source software and the exploitability of the 
-vulnerabilities can be communicated with CycloneDX. Previously unknown vulnerabilities affecting both components and 
-services may also be disclosed using CycloneDX, making it ideal for both VEX and security advisory use cases.
-
-### Extensions
-Multiple extension points exist throughout the CycloneDX object model allowing fast prototyping of new capabilities and 
-support for specialized and future use cases. The CycloneDX project maintains extensions that are beneficial to the 
-larger community. The project encourages community participation and development of extensions that target specialized 
-or industry-specific use cases.
-
-![CycloneDX Object Model](../../images/CycloneDX-Object-Model-Swimlane.png)
-
 ## Serialization Formats
 CycloneDX can be represented in JSON, XML and Protocol Buffers (protobuf) and has corresponding schemas for each.
 
@@ -93,19 +48,6 @@ CycloneDX relies upon JSON Schema, XML Schema, and protobuf for validation. The 
 validated using officially supported CycloneDX tools or via hundreds of available validators that support JSON Schema, 
 XML Schema, or protobuf.
 
-
-## BOM Identity
-
-## CycloneDX component types defined
-
-### Application
-
-### Firmware
-
-### ...
-
-### Service
-Although not a component, services are just as important...
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
