@@ -44,9 +44,11 @@ generate_pdf() {
         libreoffice --headless --convert-to pdf "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" --outdir ../
         #mv "../OWASP_CycloneDX-SBOM-Guide-SNAPSHOT-$1.pdf" "../OWASP_CycloneDX-SBOM-Guide-TEMP-$1.pdf"
     else
+        pyenv local 3.10.8
         docx2pdf "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
+        pdfcli watermark -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" "../../templates/watermark.pdf"
     fi
-    pdfcli merge "../en/images/cover.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
+    pdfcli join "../en/images/cover.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
     exiftool -Title="My Doc Title" -Author="Open Web Application Security Project (OWASP)" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
 }
 
