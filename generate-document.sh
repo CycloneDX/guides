@@ -30,11 +30,14 @@ generate_docx() {
   LANG=$2
   pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
       --lua-filter=../../templates/pagebreak.lua \
+      --filter=../../templates/pandoc-svg.py \
       --columns 10000 \
       --toc \
       --toc-depth=2 \
       -t docx \
       -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" *.md
+  echo -n "\nRemoving temporary eps files...\n"
+  find ../.. -type f -name '*.eps' -print -delete
 }
 
 generate_pdf() {

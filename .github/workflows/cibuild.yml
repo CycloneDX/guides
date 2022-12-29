@@ -23,6 +23,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandoc
         pip install pdfcli
+        pip install pandocfilters
+        sudo add-apt-repository --yes ppa:inkscape.dev/stable
+        sudo apt update
+        sudo apt-get install inkscape
     - name: Generate document
       run: |
         chmod +x generate-document.sh
