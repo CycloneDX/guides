@@ -33,16 +33,12 @@ CycloneDX can be used to describe services including the provider, endpoint URIâ
 trust boundary traversals. The flow of data between software and services can also be described including the data 
 classifications, and the directional flow of each type.
 
-BOMs that include services can be used for various forms of deployment and runtime verification, seed dynamic analysis 
-security tools, and used to populate data flow diagrams and threat models. They can also aid in identifying potential 
-privacy or regulatory concerns.
-
 The inclusion of services may appear in traditional SBOMs alongside software components, or in SaaSBOMs, which describe 
 the service inventory that powers cloud-native applications. Regardless of the type of BOM, VDR support in CycloneDX
-supports both known vulnerabilities that may appear in the National Vulnerability Database (NVD) for software
-and hardware components, and unknown vulnerabilities that may affect services. The support for unknown vulnerabilities 
-goes beyond services to include software and hardware as well. This opens up many use cases that would not otherwise be 
-possible. These will be covered in subsequent sections.
+supports both known vulnerabilities that may appear in the National Vulnerability Database (NVD), and previously unknown
+vulnerabilities that may affect services. However, support for unknown vulnerabilities is not limited to services. 
+CycloneDX can describe previously unknown vulnerabilities against software and hardware components as well. This opens 
+up many use cases that would not otherwise be possible. These will be covered in subsequent sections.
 
 ## How CycloneDX Implements VDR
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ipsum sapien, vehicula et turpis varius, ornare consectetur lorem. Nulla finibus tellus in feugiat efficitur. Ut lacinia ultricies diam eget dictum. Maecenas sit amet pretium urna. Curabitur finibus lobortis leo nec facilisis. Nullam et varius nunc, quis vehicula lorem. In blandit pharetra leo tincidunt placerat. Vestibulum gravida molestie velit egestas feugiat. Sed nec ultrices ipsum. Vestibulum sit amet tellus non lectus auctor iaculis.\

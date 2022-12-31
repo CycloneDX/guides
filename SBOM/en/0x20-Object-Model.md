@@ -7,7 +7,7 @@ easily describe complex relationships, and is extensible to support specialized 
 
 Within the root `bom` element, CycloneDX defines the following data types:
 
-![BOM Metadata](../../images/Object-Model/CycloneDX-Object-Type-Overview.png)
+![BOM Metadata](../../images/Object-Model/CycloneDX-Object-Type-Overview.svg)
 
 ## BOM Identity
 In addition, the `bom` element has properties for `serialNumber` and `version`. Together these two properties form the
