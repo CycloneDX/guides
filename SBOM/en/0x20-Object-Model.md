@@ -1,6 +1,6 @@
 # CycloneDX Object Model
 The CycloneDX object model is defined in JSON Schema, XML Schema, and Protocol Buffers and consists of metadata,
-components, services, dependencies, compositions, vulnerabilities, formulation, annotations, and data. CycloneDX is
+components, services, dependencies, compositions, vulnerabilities, formulation, and annotations. CycloneDX is
 prescriptive, can easily describe complex relationships, and is extensible to support specialized and future use cases.
 
 Within the root `bom` element, CycloneDX defines the following object types:
@@ -15,7 +15,7 @@ The object types are arranged in order and contain (but are not limited to) the 
 ## BOM Identity
 In addition, the `bom` element has properties for `serialNumber` and `version`. Together these two properties form the
 identity of a BOM. A BOMs identity can be expressed using a BOM-Link, a formally registered URN capable of referencing
-a BOM or any component, service, or vulnerability in a BOM. Refer to the chapter on BOM-Link for more information.
+a BOM or any component, service, or vulnerability in a BOM. Refer to the chapter on Relationships for more information.
 
 ### Serial Number
 Every BOM generated SHOULD have a unique serial number, even if the contents of the BOM have not changed over time.
@@ -31,7 +31,6 @@ BOM metadata includes the supplier, manufacturer, and the target component for w
 the tools used to create the BOM, and license information for the BOM document itself.
 
 ![Metadata](../../images/Object-Model/Metadata.svg)
-
 
 ## Components
 Components describe the complete inventory of first-party and third-party components. The specification can represent
@@ -69,7 +68,9 @@ services may also be disclosed using CycloneDX, making it ideal for both VEX and
 ![Vulnerabilities](../../images/Object-Model/Vulnerabilities.svg)
 
 ## Formulation
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et nibh justo. Fusce ornare eros at venenatis dapibus. In dignissim luctus pellentesque. Pellentesque blandit odio lorem, varius hendrerit metus elementum quis. Vestibulum eget dictum urna. Donec lacinia et ipsum non blandit. Praesent arcu risus, feugiat et arcu id, fermentum cursus elit. Fusce nec orci auctor, laoreet turpis in, tincidunt arcu. Ut faucibus nibh sit amet magna pharetra consequat. Fusce eu leo enim. Phasellus ac libero nisl. Nam congue dolor vitae metus tempor euismod. Nam viverra felis eu nulla rhoncus, at rhoncus sem gravida. In tempor libero vel turpis vehicula, non aliquam urna venenatis. Etiam tincidunt est nec bibendum commodo.
+Formulation describes how something was manufactured or deployed. CycloneDX achieves this through support of multiple
+formulas, workflows, tasks, and steps which represent how the declared formula detailing precise steps to reproduce 
+along with the observed formula describing the steps which transpired in the manufacturing process.
 
 ![Formulation](../../images/Object-Model/Formulation.svg)
 
@@ -80,10 +81,12 @@ individuals or organizations. Annotations can be independently signed and verifi
 
 ![Annotations](../../images/Object-Model/Annotations.svg)
 
-## Data
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et nibh justo. Fusce ornare eros at venenatis dapibus. In dignissim luctus pellentesque. Pellentesque blandit odio lorem, varius hendrerit metus elementum quis. Vestibulum eget dictum urna. Donec lacinia et ipsum non blandit. Praesent arcu risus, feugiat et arcu id, fermentum cursus elit. Fusce nec orci auctor, laoreet turpis in, tincidunt arcu. Ut faucibus nibh sit amet magna pharetra consequat. Fusce eu leo enim. Phasellus ac libero nisl. Nam congue dolor vitae metus tempor euismod. Nam viverra felis eu nulla rhoncus, at rhoncus sem gravida. In tempor libero vel turpis vehicula, non aliquam urna venenatis. Etiam tincidunt est nec bibendum commodo.
+## Attestations
+Attestations contain claims, evidence, and testimony in compliance with regulations, standards, and frameworks. They 
+additionally contain reasoning why evidence supports the claims, assessments on compliance with given claims and 
+mitigation strategies for non or partial compliance.
 
-![Data](../../images/Object-Model/Data.svg)
+![Attestations](../../images/Object-Model/Attestations.svg)
 
 ## Extensions
 Multiple extension points exist throughout the CycloneDX object model allowing fast prototyping of new capabilities and
