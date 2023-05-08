@@ -1,4 +1,4 @@
-# Relationships
+# Establishing Relationships in CycloneDX
 CycloneDX has a rich set of relationships that provide additional context and information about the objects in the BOMs
 inventory. All relationships in CycloneDX are expressed explicitly. Some relationships are declared through the natural
 use of the CycloneDX format. These include assemblies, dependencies, and pedigree. Other relationships are formed via
