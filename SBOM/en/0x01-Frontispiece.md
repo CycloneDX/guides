@@ -4,8 +4,12 @@
 # Frontispiece
 
 ## About the Guide
+OWASP CycloneDX is a full-stack Bill of Materials (BOM) standard.
 
-TODO
+The content in this guide is the result of continuous community feedback and input from leading experts in the field
+of software supply chain security. This guide would not be possible without valuable feedback from the CycloneDX Industry 
+Working Group (IWG), the CycloneDX Core Working Group (CWG), the many CycloneDX Feature Working Groups (FWG), 
+CycloneDX maintainers, and a global network of contributors and supporters.
 
 ## Copyright and License
 
@@ -13,9 +17,10 @@ TODO
 
 Copyright © 2023 The OWASP Foundation. 
 
-This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/). For any reuse or distribution, you must make clear to others the license terms of this work.
+This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+For any reuse or distribution, you must make clear to others the license terms of this work.
 
-Version 0.2 SNAPSHOT, 08 May 2023
+Version 0.2 SNAPSHOT, 09 May 2023
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
