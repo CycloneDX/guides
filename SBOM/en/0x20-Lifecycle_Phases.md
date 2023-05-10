@@ -6,13 +6,11 @@ to provide a structured and systematic approach to software development that ens
 requirements, is of high quality, is delivered on time and within budget, and can be maintained and supported throughout
 its lifecycle.
 
-Lifecycle phases are supported by CycloneDX and communicate the points in which data in the BOM was captured. This
-support extends beyond software to capture hardware, IoT, and cloud-native use cases.
-
-Different types of data may be available at various phases of a lifecycle and thus a BOM may include data specific or
-only obtainable in a given lifecycle. Incorporating lifecycle phases in a CycloneDX BOM provides additional context
-of when and how the BOM was created. It becomes an additional datapoint that may be useful in the overall analysis of
-the BOM.
+Lifecycle phases communicate the stage in which data in the BOM was captured. This support extends beyond software to 
+capture hardware, IoT, and cloud-native use cases. Different types of data may be available at various phases of a 
+lifecycle and thus a BOM may include data specific or only obtainable in a given lifecycle. Incorporating lifecycle phases
+in a CycloneDX BOM provides additional context of when and how the BOM was created. It becomes an additional datapoint 
+that may be useful in the overall analysis of the BOM.
 
 CycloneDX defines the following phases:
 
@@ -28,12 +26,18 @@ CycloneDX defines the following phases:
 
 In additional, CycloneDX provides a mechanism to supply user-defined lifecycle phases as well.
 
-In IT governance, Software Asset Management (SAM) is a set of processes, policies, and procedures that help organizations
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
+Software Asset Management (SAM) is a set of processes, policies, and procedures that help organizations
 manage and optimize their software assets throughout their lifecycle. SAM involves the identification, acquisition,
 deployment, maintenance, utilization, and disposal of software assets to ensure compliance with licensing agreements,
-mitigate risks associated with software usage, and optimize costs.
+mitigate risks associated with software usage, and optimize costs. SAM is an essential part of IT governance.
 
 Lifecycle phases in CycloneDX compliment both SDLC and SAM processes.
+
+![Lifecycles](../../images/Lifecycles.svg)
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
