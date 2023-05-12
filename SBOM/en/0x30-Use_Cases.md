@@ -1,8 +1,7 @@
-# Applications For Using SBOMs
+# Use Cases
+Applications For Using SBOMs
 
 User managed software, IoT, IIoT, developer (p.24)
-
-# Use Cases
 
 
 ## What is Affected and Where (Impact Analysis)

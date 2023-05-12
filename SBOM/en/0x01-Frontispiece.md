@@ -6,8 +6,8 @@
 ## About the Guide
 OWASP CycloneDX is a full-stack Bill of Materials (BOM) standard.
 
-The content in this guide is the result of continuous community feedback and input from leading experts in the field
-of software supply chain security. This guide would not be possible without valuable feedback from the CycloneDX Industry 
+The content in this guide results from continuous community feedback and input from leading experts in the software 
+supply chain security field. This guide would not be possible without valuable feedback from the CycloneDX Industry 
 Working Group (IWG), the CycloneDX Core Working Group (CWG), the many CycloneDX Feature Working Groups (FWG), 
 CycloneDX maintainers, and a global network of contributors and supporters.
 
