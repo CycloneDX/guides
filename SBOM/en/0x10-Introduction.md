@@ -2,13 +2,13 @@
 CycloneDX is a modern standard for the software supply chain. At its core, CycloneDX is a general-purpose Bill of
 Materials (BOM) standard capable of representing software, hardware, services, and other types of inventory. The CycloneDX
 standard began in 2017 in the Open Worldwide Application Security Project (OWASP) community. CycloneDX is an OWASP 
-Flagship project, has a formal standardization process and governance model, and is supported by the global information 
+flagship project, has a formal standardization process and governance model, and is supported by the global information 
 security community.
 
 ## Design Philosophy and Guiding Principles
-The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily approachable by a wide 
+The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily approachable to a wide 
 range of technical and non-technical roles. CycloneDX is a full-stack BOM format with many advanced capabilities that 
-are achieved without sacrificing its design philosophy. Some guiding principles influencing its design include:
+are achieved without sacrificing the design philosophy. Some guiding principles influencing its design include:
 
 * Be easy to adopt and easy to contribute to
 * Identify risk to as many adopters as possible, as quickly as possible
@@ -34,7 +34,7 @@ software and ensuring that it is safe, secure, and reliable.
 
 SBOMs are the vehicle through which software transparency can be achieved. With SBOMs, parties throughout the software
 supply chain can leverage the information within to enable various use cases that would not otherwise be
-easily achievable. SBOMs play a vital role in promoting software transparency, allowing the users to make informed 
+easily achievable. SBOMs play a vital role in promoting software transparency, allowing users to make informed 
 decisions about the software they use.
 
 ## High-Level SBOM Use Cases
@@ -56,7 +56,7 @@ sophisticated use cases over time. CycloneDX is capable of achieving all SBOM re
 * Vendor risk management
 
 ## High-Level Capabilities
-CycloneDX provides advanced, supply chain capabilities for cyber risk reduction. Among these capabilities are:
+CycloneDX provides advanced supply chain capabilities for cyber risk reduction. Among these capabilities are:
 
 * Software Bill of Materials (SBOM)
 * Software-as-a-Service Bill of Materials (SaaSBOM)
@@ -86,14 +86,14 @@ flow of data between services. Optionally, SaaSBOMs may also include the softwar
 
 ### Hardware Bill of Materials (HBOM)
 CycloneDX supports many types of components, including hardware devices, making it ideal for use with consumer
-electronics, IoT, ICS, and other types of embedded devices. CycloneDX fills an important role in-between traditional
+electronics, IoT, ICS, and other types of embedded devices. CycloneDX fills an important role in between traditional
 eBOM and mBOM use cases for hardware devices.
 
 ###  Machine Learning Bill of Materials (ML-BOM)
 ML-BOMs provide transparency for machine learning models and datasets, which provide visibility into possible security,
 privacy, safety, and ethical considerations. CycloneDX standardizes model cards in a way where the inventory of models 
-and datasets can be used independently or combined with inventory of software and hardware components or services defined 
-in HBOMs, SBOMs and SaaSBOMs.
+and datasets can be used independently or combined with the inventory of software and hardware components or services 
+defined in HBOMs, SBOMs, and SaaSBOMs.
 
 ### Operations Bill of Materials (OBOM)
 OBOMs provide a full-stack inventory of runtime environments, configurations, and additional dependencies. CycloneDX is a
@@ -117,10 +117,10 @@ industries and for a wide variety of purposes. This may include compliance with 
 ASVS.
 
 ### Bill of Vulnerabilities (BOV)
-CycloneDX BOMs may consist solely of vulnerabilities, and thus can be used to share vulnerability data between systems 
+CycloneDX BOMs may consist solely of vulnerabilities and thus can be used to share vulnerability data between systems 
 and sources of vulnerability intelligence. Complex vulnerability data can be represented, including the vulnerability 
-source, references, multiple severity and risk ratings, details and recommendations, and the affected software and 
-hardware along with their versions.
+source, references, multiple severities, and risk ratings, details and recommendations, and the affected software and 
+hardware, along with their versions.
 
 ### Vulnerability Disclosure Report (VDR)
 VDRs communicate known and unknown vulnerabilities affecting components and services. Known vulnerabilities inherited
