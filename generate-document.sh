@@ -30,6 +30,7 @@ generate_docx() {
   LANG=$2
   pandoc -s -f gfm --reference-doc=../../templates/reference.docx \
       --lua-filter=../../templates/pagebreak.lua \
+      --lua-filter=../../templates/emptyparagraph.lua \
       --filter=../../templates/pandoc-svg.py \
       --columns 10000 \
       --toc \
