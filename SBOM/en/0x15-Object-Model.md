@@ -11,6 +11,9 @@ The object types are arranged in order and contain (but are not limited to) the 
 
 ![CycloneDX Object Model](../../images/CycloneDX-Object-Model-Swimlane.svg)
 
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## BOM Identity
 In addition, the `bom` element has properties for `serialNumber` and `version`. Together these two properties form the
@@ -73,8 +76,8 @@ services may also be disclosed using CycloneDX, making it ideal for both VEX and
 
 ### Formulation
 Formulation describes how something was manufactured or deployed. CycloneDX achieves this through the support of multiple
-formulas, workflows, tasks, and steps, which represent how the declared formula details precise steps to reproduce 
-along with the observed formula describing the steps which transpired in the manufacturing process.
+formulas, workflows, tasks, and steps, which represent the declared formulation for reproduction along with the observed 
+formula describing the steps which transpired in the manufacturing process.
 
 ![Formulation](../../images/Object-Model/Formulation.svg)
 
@@ -84,13 +87,6 @@ object(s) being annotated. They are often automatically added to a BOM via a too
 individuals or organizations. Annotations can be independently signed and verified using digital signatures.
 
 ![Annotations](../../images/Object-Model/Annotations.svg)
-
-### Attestations
-Attestations contain claims, evidence, and testimony in compliance with regulations, standards, and frameworks. They 
-additionally contain reasoning why evidence supports the claims, assessments on compliance with given claims and 
-mitigation strategies for non or partial compliance.
-
-![Attestations](../../images/Object-Model/Attestations.svg)
 
 ### Extensions
 Multiple extension points exist throughout the CycloneDX object model, allowing fast prototyping of new capabilities and

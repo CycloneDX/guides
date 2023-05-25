@@ -37,7 +37,48 @@ mitigate risks associated with software usage, and optimize costs. SAM is an ess
 
 Lifecycle phases in CycloneDX compliment both SDLC and SAM processes.
 
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
 ![Lifecycles](../../images/Lifecycles.svg)
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+The following example illustrates a BOM that was produced in the `build` and `post-build` lifecycle phases.
+In addition, a custom phase (platform-integration-testing) was involved as well.
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+```json
+"metadata": {
+  "lifecycles": [
+    {
+      "phase": "build"
+    },
+    {
+      "phase": "post-build"
+    },
+    {
+      "name": "platform-integration-testing",
+      "description": "Integration testing specific to the runtime platform"
+    }
+  ]
+}
+```
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+Support for SAM use cases is critical for enterprise adoption. An interesting distinction between SDLC and SAM use cases
+center around license compliance. Solutions supporting the SDLC typically involve open source license compliance or 
+intellectual property use cases. Whereas SAM is largely concerned with commercial license and procurement use cases. 
+OWASP CycloneDX has extensive support for both. Refer to the "Use Cases" chapter for more information.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
