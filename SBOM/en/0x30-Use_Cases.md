@@ -25,16 +25,14 @@ CycloneDX is capable of describing the following types of components:
 | Platform               | Component | A runtime environment which interprets or executes software. This may include runtimes such as those that execute bytecode or low-code/no-code application platforms.                                                                                                                                           |
 | Service                | Service   | A service including microservices, function-as-a-service, and other types of network or intra-process services.                                                                                                                                                                                                 |
 
-<div style="page-break-after: always; visibility: hidden">
-\emptyparagraph
-</div>
 
 > The component type is a required property for every component. It is an abstract concept to aid with separation of 
 > concerns. For example, a development team focused on application creation may not be the same team responsible for 
 > maintaining container images or operating systems. When viewing components and their dependency relationships, 
 > component type helps to identify inventory that may be in scope for that team, and the inventory that may not.
 
-Component identity is an essential requirement for managing inventory and supports multiple methods of identity
+
+Component identity is an essential requirement for managing inventory. CycloneDX supports multiple methods of identity
 including:
 
 - Coordinates: The combination of the group, name, and version fields form the coordinates of a component.
@@ -375,7 +373,43 @@ Project risk
 
 ## Formulation Assurance and Verification
 
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
+## SBOM Quality
+SBOMs can be analyzed for their overall usefulness for given use cases. What is a "quality" SBOM may be different 
+depending on the stakeholder role and type of analysis required for that role. Quality is a multidimensional construct 
+and not a single characteristic. OWASP supports a holistic view of quality. The following illustrates an example
+of dimensions to consider in determining quality.
+
+![Quality Dimensions](../../images/quality-dimensions.svg)
+
+| **Dimension** | **Supported**                                                                                                       |
+|---------------|---------------------------------------------------------------------------------------------------------------------|
+| Breadth       | The coverage in the types of data represented for a component within a BOM.                                         |
+| Depth         | The amount of detail or difficulty needed to represent data for a component within a BOM.                           |
+| Lifecycles    | The number of lifecycles or the favorability of specific lifecycles in the creation of a BOM.                       |
+| Techniques    | The approaches used to determine component identity.                                                                |
+| Confidence    | The confidence of individual techniques, and the analysis of the sum of all techniques used to identity components. |
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+The [OWASP SCVS BOM Maturity Model](https://scvs.owasp.org/bom-maturity-model/) is a formal taxonomy of different types 
+of data possible in a Bill of Materials along with the level of complexity or difficulty in supporting different types of 
+data. The BOM Maturity Model can be used as the basis for the Breadth and Depth dimensions.
+
+Lifecycles are supported in CycloneDX. Refer to the "Lifecycle Phases" chapter for more information. Evidence is also a 
+capability of CycloneDX. Identity evidence consists of:
+- The field for which the evidence describes (name, version, purl, etc)
+- The overall confidence derived from all supporting evidence
+- The methods which include the techniques used to determine component identity and the confidence of each technique
+- The tools used which performed the analysis
+
+Together, The BOM Maturity Model and native features of CycloneDX can be leveraged to form a high-quality, high-confidence
+assessment of SBOM quality.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
