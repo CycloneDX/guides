@@ -87,7 +87,7 @@ for known vulnerabilities.
 There are many tools and platforms that support vulnerability management use cases using CycloneDX, including [OWASP
 Dependency-Track](https://dependencytrack.org/), often cited as a reference implementation for consuming and 
 analyzing SBOMs. Using a platform such as Dependency-Track, organizations can quickly identify what is affected, and
-where in their environment they are affected by a vulnerable component.
+where in their environment they are affected.
 
 ## Enterprise Configuration Management Database (CMDB)
 A Configuration Management Database (CMDB) is a repository that stores information about an organization's assets, 
@@ -97,12 +97,9 @@ information helps organizations manage their assets more effectively, including 
 identifying potential risks, and supporting incident management.
 
 There is tremendous benefits in capturing BOMs for assets tracked in a CMDB. By including BOMs in a CMDB, organizations 
-can gain a more comprehensive view of their assets, which can help them make more informed decisions about managing their 
-IT/OT infrastructure.
-
-
-Reduce unused dependencies, standardize libraries, etc
-
+gain a more comprehensive view of their assets, which can help them make more informed decisions about managing their 
+IT and OT infrastructure. Organizations that integrate SBOMs with a CMDB have the broadest array of possible use cases 
+including DevOps, vendor risk management, procurement, vulnerability response, supply chain management, among others.
 
 ## Integrity Verification
 Integrity verification is the process of ensuring that the software components have not been modified or tampered with 
@@ -169,16 +166,19 @@ By leveraging CycloneDX for integrity verification, organizations can enhance th
 software applications and systems.
 
 ## Authenticity
-Authenticity refers to the assurance that the BOM came from the expected source and has not been tampered with. 
-Authenticity can be verified through the use of digital signatures and code signing certificates, which are issued by 
-trusted certificate authorities. These signatures provide a way for users to verify the identity of the supplier and 
-ensure that the BOM has not been modified since it was signed.
+Authenticity refers to the assurance that a component, or the BOM itself came from the expected source and has not been 
+tampered with. Authenticity can be verified through the use of digital signatures and code signing certificates, which are 
+issued by trusted certificate authorities. These signatures provide a way for users to verify the identity of the supplier 
+and ensure that the artifact has not been modified since it was signed.
 
-When an SBOM is signed, the authenticity and integrity of the BOM can been verified by a trusted third party, such as a 
+When a BOM is signed, the authenticity and integrity of the BOM can been verified by a trusted third party, such as a 
 software vendor or a security researcher. This verification can provide assurance that the components listed in the BOM 
 have not been tampered with or replaced with malicious components, and that the product was built with the intended 
 components and dependencies. The use of a signed BOM can help increase trust and confidence in a software product, 
 particularly in cases where the product is used in sensitive or critical applications.
+
+CycloneDX supports enveloped signing including XML Signature (xmlsig) and JSON Signature Format (JSF). In addition, 
+detached signatures are also supported.
 
 ## License Compliance
 CycloneDX can be used for open source and commercial license compliance. By leveraging the licensing capabilities of
@@ -363,6 +363,14 @@ can enable organizations to identify potential export control issues, such as th
 countries or containing encryption technology, and take appropriate measures to ensure compliance. 
 
 ## Packaging and Distribution
+
+## Vendor Risk Management
+
+## Procurement
+
+## Supply Chain Management
+
+Reduce unused dependencies, standardize libraries, etc
 
 ## Supplier Risk Assessment
 Project risk
