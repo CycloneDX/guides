@@ -13,7 +13,7 @@ CycloneDX maintainers, and a global network of contributors and supporters.
 
 ## Copyright and License
 
-![license](../../images/license.png)
+![license](../../images/license.svg)
 
 Copyright © 2023 The OWASP Foundation. 
 
