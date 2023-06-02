@@ -1,7 +1,61 @@
 # Use Cases
-Applications For Using SBOMs
+CycloneDX provides a comprehensive inventory of all software components, libraries, frameworks, and dependencies in a 
+particular software application or system. It provides a detailed breakdown of the software supply chain, enabling 
+transparency and accountability in software development. The benefits of BOMs are far-reaching and apply to various 
+software, systems, and devices across different domains. Let's explore the types of software, systems, and devices that 
+can significantly benefit from the transparency provided by Bills of Materials.
 
-User managed software, IoT, IIoT, developer (p.24)
+1. **Operating Systems**:
+Operating systems are the foundation for all software and devices, making them a critical component to benefit from software transparency. By having an SBOM for an operating system, developers, IT administrators, and end-users can understand the underlying software components, identify vulnerabilities, and apply patches when necessary. This allows them to make informed decisions regarding security, updates, and mitigating potential risks.
+
+2. **Software Applications**:
+From productivity tools to enterprise applications, software applications of all types can benefit from an SBOM. It helps developers and users understand the software's building blocks, including open-source libraries, commercial components, and all other third-party dependencies. With an SBOM, developers can track vulnerabilities, identify license obligations, and facilitate timely updates to ensure the security and stability of their applications.
+
+3. **Internet of Things (IoT) Devices**:
+IoT devices encompass a wide range of connected physical objects, such as smart home devices, industrial sensors, healthcare wearables, and more. Unfortunately, these devices often rely on software components that may introduce security risks. By implementing an SBOM, manufacturers and users can gain visibility into the software supply chain of IoT devices, identify vulnerabilities, and implement necessary security measures. This transparency can enhance the security and privacy of IoT ecosystems.
+
+4. **Medical Devices**:
+In the healthcare sector, medical devices play a crucial role in patient care and safety. Transparency in the software components used in medical devices is paramount to ensure their reliability and security. An SBOM can help manufacturers, regulatory authorities, and healthcare providers understand the software components, identify potential vulnerabilities or risks, and establish appropriate maintenance and update protocols. This can enhance patient safety and regulatory compliance.
+
+5. **Automotive Systems**:
+Modern vehicles heavily rely on software-driven systems for various functionalities, including infotainment, advanced driver assistance, and autonomous driving features. Transparency in the software components used in automotive systems is vital to ensure safety, security, and effective maintenance. An SBOM provides the transparency necessary to identify vulnerabilities, increase license compliance, and manage potential risks effectively.
+
+6. **Critical Infrastructure**:
+Software systems that underpin critical infrastructure, such as power grids, transportation networks, and financial systems, demand utmost transparency and security. An SBOM can offer visibility into the software components used in these systems, helping stakeholders assess vulnerabilities, apply security patches, and mitigate potential risks. This transparency contributes to the resilience, reliability, and stability of critical infrastructure.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
+In the context of national security and military operations, the transparency provided by Software Bill of Materials 
+is of utmost importance. Let's explore the specific types of software, systems, and devices in the national security and 
+military domain that greatly benefit from software transparency:
+
+1. **Command and Control Systems**:
+Command and control systems are crucial in military operations, facilitating real-time decision-making and coordination of forces. Transparency in the software components used in these systems allows military authorities to assess potential vulnerabilities and ensure the integrity and security of the systems. In addition, it enables the identification of potential backdoors, unauthorized access points, or malicious components, helping safeguard critical military operations and information.
+
+2. **Cybersecurity and Information Assurance Tools**:
+In the realm of national security, robust cybersecurity and information assurance tools are vital to protect against cyber threats and ensure secure communication and data management. Software transparency in these tools enables military authorities to evaluate the software supply chain, identify vulnerabilities, and ensure the use of trusted and up-to-date components. This enhances the resilience and effectiveness of cybersecurity measures and helps counter potential attacks or data breaches.
+
+3. **Cryptographic Systems and Algorithms**:
+Cryptographic systems and algorithms are critical in securing sensitive information, communications, and strategic operations. Transparency in the software components underpinning cryptographic systems allows military authorities to analyze the security properties of these components. In addition, it helps assess potential vulnerabilities, validate the use of approved cryptographic standards, and ensure the integrity of encryption algorithms employed in national security and military applications.
+
+4. **Intelligence Analysis and Data Processing Software**:
+Intelligence analysis and data processing software are vital in gathering, analyzing, and interpreting vast amounts of information for national security purposes. Software transparency in these software systems provides military intelligence agencies with insights into the underlying components and dependencies. It helps identify potential vulnerabilities that could compromise the accuracy, confidentiality, or integrity of intelligence data. This transparency assists in maintaining the security and reliability of intelligence operations.
+
+5. **Unmanned Aerial Vehicles (UAVs) and Autonomous Systems**:
+Unmanned Aerial Vehicles (UAVs) and autonomous systems are increasingly employed in national security and military operations. Transparency in the software components used in these systems enables military authorities to evaluate potential vulnerabilities and ensure the secure and reliable operation of UAVs. In addition, it helps identify potential risks associated with software-dependent functions, such as autonomous navigation, target acquisition, and mission execution, contributing to the overall effectiveness and safety of military operations.
+
+6. **Communication and Encryption Devices**:
+Secure and reliable communication is critical for national security and military operations. Software transparency in communication and encryption devices, such as radios, cryptographic hardware, and secure communication protocols, ensures the evaluation of software components involved. It helps identify vulnerabilities, ensure compliance with encryption standards, and protect against potential interception, tampering, or unauthorized access, strengthening the confidentiality and integrity of sensitive communications.
+
+The transparency provided by a Software Bill of Materials is vital to national security, benefiting a range of software, 
+systems, and devices. The software transparency capabilities of CycloneDX enables military authorities to assess 
+vulnerabilities, identify risks, and enhance the security and effectiveness of these critical assets. This transparency 
+contributes to the protection of national security interests and the successful execution of military operations.
+
+Let's explore some specific use cases that CycloneDX BOMs unlock.
+
 
 ## Inventory
 A complete and accurate inventory of all first-party and third-party components is essential for risk identification. 
@@ -29,7 +83,7 @@ CycloneDX is capable of describing the following types of components:
 > The component type is a required property for every component. It is an abstract concept to aid with separation of 
 > concerns. For example, a development team focused on application creation may not be the same team responsible for 
 > maintaining container images or operating systems. When viewing components and their dependency relationships, 
-> component type helps to identify inventory that may be in scope for that team, and the inventory that may not.
+> component type helps to identify inventory that may be in scope for that team and the inventory that may not.
 
 
 Component identity is an essential requirement for managing inventory. CycloneDX supports multiple methods of identity
@@ -40,19 +94,19 @@ including:
 - SWID: Software ID (SWID) as defined in [ISO/IEC 19770-2:2015](https://www.iso.org/standard/65666.html) is used primarily to identify installed software.
 - CPE: The [Common Platform Enumeration](https://nvd.nist.gov/products/cpe) (CPE) specification was designed for operating systems, applications, and hardware devices. CPE is maintained by the NVD.
 
-Assertion of identity can also be substantiated in the form of evidence, which include the methods and techniques used 
+Assertion of identity can also be substantiated in the form of evidence, which includes the methods and techniques used 
 during analysis, the confidence, and the tool(s) that performed the analysis. Refer to the "Evidence" chapter for more
 information.
 
-The follow example illustrates component identity in CycloneDX.
+The following example illustrates component identity in CycloneDX.
 
 ```json
 "components": [
   {
     "type": "library",
-    "group": "org.apache.tomcat",
-    "name": "tomcat-catalina",
-    "version": "9.0.14",
+    "group": "com.example",
+    "name": "awesome-library",
+    "version": "1.0.0",
     "cpe": "cpe:2.3:a:acme:awesome:1.0.0:*:*:*:*:*:*:*",
     "purl": "pkg:maven/com.example/awesome-library@1.0.0",
     "swid": {
@@ -73,21 +127,24 @@ CycloneDX also supports several identifiers specific to hardware devices. Refer 
 for more information.
 
 ## Vulnerability Management
-CycloneDX is ideal for vulnerability management and impact analysis through support of comprehensive inventory and
+CycloneDX is ideal for vulnerability management and impact analysis through the support of comprehensive inventory and
 assertions of component identity. With this information, security teams can identify which components are affected
-by known vulnerabilities, estimate effort, and quickly prioritize remediation efforts.
+by known vulnerabilities, estimate effort, and quickly prioritize remediation.
 
 By leveraging CycloneDX in this way, organizations can enhance their software supply chain security and reduce the
 risks associated with software vulnerabilities.
 
 > Identifying known vulnerabilities in components can be achieved through the use of three fields: `cpe`, `purl`, and
-`swid`. Not all fields apply to all types of components. Components that have a cpe, purl, or swid defined can be analyzed
+`swid`. Not all fields apply to all types of components. Components with a cpe, purl, or swid defined can be analyzed
 for known vulnerabilities.
 
 There are many tools and platforms that support vulnerability management use cases using CycloneDX, including [OWASP
 Dependency-Track](https://dependencytrack.org/), often cited as a reference implementation for consuming and 
-analyzing SBOMs. Using a platform such as Dependency-Track, organizations can quickly identify what is affected, and
+analyzing SBOMs. Using a platform such as Dependency-Track, organizations can quickly identify what is affected and
 where in their environment they are affected.
+
+> Not all sources of vulnerability intelligence support all three fields. The use of multiple sources may be required to 
+> obtain accurate and actionable results.
 
 ## Enterprise Configuration Management Database (CMDB)
 A Configuration Management Database (CMDB) is a repository that stores information about an organization's assets, 
@@ -96,21 +153,26 @@ accurate information about each asset's configuration, location, status, and rel
 information helps organizations manage their assets more effectively, including monitoring their performance, 
 identifying potential risks, and supporting incident management.
 
-There is tremendous benefits in capturing BOMs for assets tracked in a CMDB. By including BOMs in a CMDB, organizations 
-gain a more comprehensive view of their assets, which can help them make more informed decisions about managing their 
-IT and OT infrastructure. Organizations that integrate SBOMs with a CMDB have the broadest array of possible use cases 
-including DevOps, vendor risk management, procurement, vulnerability response, supply chain management, among others.
+Software Asset Management (SAM) and IT Asset Management (ITAM) are typical applications that build upon CMDBs.
+There are tremendous benefits in capturing BOMs for assets tracked in a CMDB. Organizations gain a more comprehensive 
+view of their assets, which can help them make more informed decisions about managing their IT and OT infrastructure. 
+They also benefit from having the broadest array of possible use cases, including DevOps, vendor risk management, 
+procurement, vulnerability response, and supply chain management.
+
+CycloneDX compliments and meets the requirements of [ISO/IEC 19770-1:2017](https://www.iso.org/standard/68531.html)
+which defines IT asset management systems, including license management, security management, and asset lifecycles, making
+it uniquely applicable for enterprise adoption.
 
 ## Integrity Verification
 Integrity verification is the process of ensuring that the software components have not been modified or tampered with 
 since they were released. This helps to identify unauthorized modifications to software components that may introduce 
 security vulnerabilities or cause the software to malfunction. Integrity verification uses a cryptographic hash function 
-that used to generate a unique digital fingerprint, or hash value, for each software component. The hash value can then 
+that is used to generate a unique digital fingerprint, or hash value, for each software component. The hash value can then 
 be compared with the expected hash value for that component to ensure that it has not been altered.
 
 CycloneDX can be used for integrity verification using cryptographic hashing algorithms. The specification allows for the 
 inclusion of cryptographic hashes, such as SHA-256, SHA-384, or SHA-512, for each software component listed in the BOM. 
-By calculating the hash of each file, package, or library, and comparing it with the hash value listed in the BOM, 
+By calculating the hash of each file, package, or library and comparing it with the hash value listed in the BOM, 
 organizations can verify the integrity of the software and detect unauthorized modifications. 
 
 The following example illustrates how to represent hashes on a component.
@@ -133,7 +195,7 @@ The following example illustrates how to represent hashes on a component.
 }
 ```
 
-In addition, external references (covered later in the "Relationships" chapter) also supports hashes. The following 
+In addition, external references (covered later in the "Relationships" chapter) also support hashes. The following 
 example illustrates how CycloneDX can refer to an external BOM and include the hashes for that BOM. In doing so, the
 integrity of the external BOM can be evaluated prior to use.
 
@@ -141,7 +203,7 @@ integrity of the external BOM can be evaluated prior to use.
 "components": [
   {
     "type": "library",
-    "group": "org.example",
+    "group": "com.example",
     "name": "persistence",
     "version": "5.2.0",
     "externalReferences": [
@@ -166,27 +228,39 @@ By leveraging CycloneDX for integrity verification, organizations can enhance th
 software applications and systems.
 
 ## Authenticity
-Authenticity refers to the assurance that a component, or the BOM itself came from the expected source and has not been 
-tampered with. Authenticity can be verified through the use of digital signatures and code signing certificates, which are 
-issued by trusted certificate authorities. These signatures provide a way for users to verify the identity of the supplier 
-and ensure that the artifact has not been modified since it was signed.
+Authenticity refers to the assurance that a component, or the BOM itself, came from the expected source and has not been 
+tampered with. Authenticity can be verified through the use of digital signatures and code-signing certificates, which are 
+issued by trusted certificate authorities. These signatures allow users to verify the supplier's identity and ensure that
+the artifact has not been modified since it was signed.
 
-When a BOM is signed, the authenticity and integrity of the BOM can been verified by a trusted third party, such as a 
-software vendor or a security researcher. This verification can provide assurance that the components listed in the BOM 
-have not been tampered with or replaced with malicious components, and that the product was built with the intended 
-components and dependencies. The use of a signed BOM can help increase trust and confidence in a software product, 
-particularly in cases where the product is used in sensitive or critical applications.
+When a BOM is signed, the authenticity and integrity of the BOM can be verified. This verification can ensure that the 
+data in the BOM has not been altered. Using signed BOMs increases trust and confidence in a software product, particularly 
+in cases where the product is used in sensitive or critical applications.
 
-CycloneDX supports enveloped signing including XML Signature (xmlsig) and JSON Signature Format (JSF). In addition, 
+CycloneDX supports enveloped signing, including XML Signature (xmlsig) and JSON Signature Format (JSF). In addition, 
 detached signatures are also supported.
 
+The following example illustrates the use of enveloped signing using JSF.
+
+```json
+"signature": {
+  "algorithm": "RS512",
+  "publicKey": {
+    "kty": "RSA",
+    "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
+    "e": "AQAB"
+  },
+  "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+}
+```
+
 ## License Compliance
-CycloneDX can be used for open source and commercial license compliance. By leveraging the licensing capabilities of
+CycloneDX can be used for open-source and commercial license compliance. By leveraging the licensing capabilities of
 CycloneDX, organizations can identify any licenses that may be incompatible or require specific compliance obligations, 
 such as attribution or sharing of source code. 
 
 ### Open Source Licensing
-The following is an example of a components license. CycloneDX communicates this information using the SPDX license ID's 
+The following is an example of a components license. CycloneDX communicates this information using the SPDX license IDs 
 along with optionally including a Base64 encoded representation of the full license text.
 
 ```json
@@ -221,20 +295,12 @@ found in a given component. For example:
 ```json
 "evidence": {
   "licenses": [
-    {
-      "license": { "id": "Apache-2.0" }
-    },
-    {
-      "license": { "id": "LGPL-2.1-only" }
-    }
+    { "license": { "id": "Apache-2.0" } },
+    { "license": { "id": "LGPL-2.1-only" } }
   ],
   "copyright": [
-    { 
-      "text": "Copyright 2012 Acme Inc. All Rights Reserved." 
-    },
-    { 
-      "text": "Copyright (C) 2004,2005 University of Example" 
-    }
+    { "text": "Copyright 2012 Acme Inc. All Rights Reserved." },
+    { "text": "Copyright (C) 2004,2005 University of Example" }
   ]
 }
 ```
@@ -243,9 +309,9 @@ Refer to the "Evidence" chapter for more information.
 ### Commercial Licensing
 CycloneDX can also help organizations manage their commercial software licenses by providing a clear understanding of 
 what licenses are in use and which ones require renewal or additional purchases, which may impact the operational aspects
-of applications or systems. By leveraging CycloneDX for open source and commercial license compliance, organizations can
-reduce the risks associated with license violations, enhance their license management practices, and ensure compliance 
-with regulatory requirements.
+of applications or systems. By leveraging CycloneDX for commercial license compliance, organizations can reduce the risks
+associated with license violations, enhance their license management practices, and align their SBOM practice with
+Software Asset Management (SAM) and IT Asset Management (ITAM) systems for enterprise visibility.
 
 The following example illustrates a commercial license for a given component. 
 
@@ -293,8 +359,8 @@ Multiple license types may be specified and include:
 | concurrent-user  | A Concurrent User license (aka floating license) limits the number of licenses for a software application and licenses are shared among a larger number of users. |
 | core-points      | A license where the core of a computer's processor is assigned a specific number of points.                                                                       |
 | custom-metric    | A license for which consumption is measured by non-standard metrics.                                                                                              |
-| device           | A license which covers a defined number of installations on computers and other types of devices.                                                                 |
-| evaluation       | A license which grants permission to install and use software for trial purposes.                                                                                 |
+| device           | A license that covers a defined number of installations on computers and other types of devices.                                                                  |
+| evaluation       | A license that grants permission to install and use software for trial purposes.                                                                                  |
 | named-user       | A license that grants access to the software to one or more pre-defined users.                                                                                    |
 | node-locked      | A license that grants access to the software on one or more pre-defined computers or devices.                                                                     |
 | oem              | An Original Equipment Manufacturer license that is delivered with hardware, cannot be transferred to other hardware, and is valid for the life of the hardware.   |
@@ -305,23 +371,25 @@ Multiple license types may be specified and include:
 | other            | Another license type.                                                                                                                                             |
 
 
-Solutions supporting the Software Development Life Cycle (SDLC) typically involve open source license compliance or 
-intellectual property use cases. Whereas Software Asset Management (SAM) is largely concerned with commercial license 
+Solutions supporting the Software Development Life Cycle (SDLC) typically involve open-source license compliance or 
+intellectual property use cases. Whereas Software Asset Management (SAM) is primarily concerned with commercial license 
 and procurement use cases. OWASP CycloneDX has extensive support for both and can be applied to any component or service
 within a BOM.
 
 ## Outdated Component Analysis
-Relying on outdated components can have a significant impact on the security, stability, and performance of software. 
+Relying on outdated components can have a significant impact on the security, stability, and performance of the software. 
 Outdated components may have known vulnerabilities that can be exploited by attackers, leading to data breaches or other
 security issues. Additionally, newer versions of components may include bug fixes or performance improvements that can 
 enhance the overall functionality of the software. 
 
 Updating components is not a one-time task but a continuous process. New vulnerabilities and bugs are constantly being 
-discovered, and new updates are being released to fix them. Thus, it is crucial to regularly check for updates and keep 
-components up to date. Ignoring updates and running software with outdated components can lead to increased time to 
+discovered, and the latest updates are being released to fix them. Thus, it is crucial to regularly check for updates and 
+keep components up to date. Ignoring updates and running software with outdated components can lead to increased time to 
 mitigate vulnerabilities should a previously unknown vulnerability become known.
 
-open source, end-of-life
+Identifying end-of-life components can be challenging as the data may be difficult to obtain. However, some sources of
+commercial vulnerability intelligence do provide this data, which can help identify up-to-date components, but 
+are otherwise no longer supported.
 
 ## Provenance
 Provenance refers to the history of the origin and ownership of a component. In the context of a software supply chain, 
@@ -338,29 +406,38 @@ reliability and quality of their software products.
 Furthermore, regulatory compliance requirements, such as those related to data privacy, data protection, and intellectual 
 property, often mandate the use of provenance tracking to ensure compliance with legal and ethical standards.
 
-## Pedigree
-CycloneDX can represent component pedigree including ancestors, descendants, and variants which describe component 
-lineage from any viewpoint and the commits, patches, and diffs which make it unique. The addition of a digital signature
-applied to a component with detailed pedigree information serves as affirmation to the accuracy of the pedigree.
+CycloneDX supports provenance via four distinct fields: `author`, `publisher`, `supplier`, and `manufacturer`. In addition,
+components that are modified from the original can be described along with the complete authorship, including commits 
+and the person or account that authored and committed the modifications.
 
-Maintaining accurate pedigree information is especially important with open source components whos source code is readily
+## Pedigree
+CycloneDX can represent component pedigree, including ancestors, descendants, and variants that describe component 
+lineage from any viewpoint and the commits, patches, and diffs which make it unique. The addition of a digital signature
+applied to a component with detailed pedigree information serves as an affirmation of the accuracy of the pedigree.
+
+Maintaining accurate pedigree information is especially important with open-source components whose source code is readily
 available, modifiable, and redistributable. Identifying changes to a component or a components coordinates along with 
 information describing the original component, may be necessary for the analysis of various forms of risk.
+
+Refer to the "Relationships" chapter for detailed information on pedigree.
 
 ## Foreign Ownership, Control, or Influence (FOCI)
 Foreign Ownership, Control, or Influence (FOCI) is a critical concern in the software supply chain that should be taken 
 seriously by all organizations involved. FOCI refers to the degree to which foreign entities have control or influence
-over the operations or assets of companies in another governments' jurisdiction. FOCI is a term specific to the U.S., but
+over the operations or assets of companies in another government's jurisdiction. FOCI is a term specific to the U.S., but
 many world governments have similar concepts.
 
-
-## Architectural Analysis
+Indicators that may be relevant in identifying FOCI concerns can be derived from several fields, including `author`, 
+`publisher`, `manufacturer`, and `supplier` but can also be extended to other fields such as the components `group` name.
+The CPE may also indicate the vendor and the PURL can identify a potentially foreign namespace or repository or download
+URL for the package. Many external references may also provide a clue, especially those pointing to the version control
+system (vcs), issue tracker, distribution, and documentation websites.
 
 ## Export Compliance
 CycloneDX can help organizations achieve export compliance in the software supply chain by providing a comprehensive 
 inventory of all software components used in a product, including their origin, version, and licensing. This information 
-can enable organizations to identify potential export control issues, such as the use of components developed in foreign
-countries or containing encryption technology, and take appropriate measures to ensure compliance. 
+can enable organizations to identify potential export control issues, such as using components developed in foreign
+countries or containing encryption technology, and take appropriate measures to ensure compliance.
 
 ## Packaging and Distribution
 
@@ -393,13 +470,13 @@ of dimensions to consider in determining quality.
 
 ![Quality Dimensions](../../images/quality-dimensions.svg)
 
-| **Dimension** | **Supported**                                                                                                       |
-|---------------|---------------------------------------------------------------------------------------------------------------------|
-| Breadth       | The coverage in the types of data represented for a component within a BOM.                                         |
-| Depth         | The amount of detail or difficulty needed to represent data for a component within a BOM.                           |
-| Lifecycles    | The number of lifecycles or the favorability of specific lifecycles in the creation of a BOM.                       |
-| Techniques    | The approaches used to determine component identity.                                                                |
-| Confidence    | The confidence of individual techniques, and the analysis of the sum of all techniques used to identity components. |
+| **Dimension** | **Support** | **Description**                                                                                                     |
+|---------------|-------------|---------------------------------------------------------------------------------------------------------------------|
+| Breadth       | SCVS        | The coverage in the types of data represented within a BOM.                                                         |
+| Depth         | SCVS        | The amount of detail or difficulty needed to represent data within a BOM.                                           |
+| Lifecycles    | CycloneDX   | The number of lifecycles or the favorability of specific lifecycles in the creation of a BOM.                       |
+| Techniques    | CycloneDX   | The approaches used to determine component identity.                                                                |
+| Confidence    | CycloneDX   | The confidence of individual techniques, and the analysis of the sum of all techniques used to identity components. |
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
