@@ -57,7 +57,7 @@ A few high-level use cases for SBOM include:
 * Supply chain transparency
 * Vendor risk management
 
-## High-Level Capabilities
+## xBOM Capabilities
 CycloneDX provides advanced supply chain capabilities for cyber risk reduction. Among these capabilities are:
 
 * Software Bill of Materials (SBOM)
