@@ -39,8 +39,8 @@ SAM and ITAM lifecycles may vary. For example, the lifecycles defined in [ISO/IE
 which specifies requirements for IT asset management systems, are different from the lifecycles defined in [NIST SP 1800-5](https://csrc.nist.gov/publications/detail/sp/1800-5/final).
 The out-of-the-box lifecycles provided by enterprise ITAM solutions also vary by vendor and can further be customized
 by organizations adopting these products. Therefore, CycloneDX includes predefined lifecycles that apply to both SDLC and
-SAM/ITAM, while also providing the flexibility in defining custom lifecycles. This allows CycloneDX to be successfully 
-integrated with existing enterprise SAM/ITAM practices.
+SAM/ITAM, while also providing the flexibility in defining custom lifecycles. This allows CycloneDX to be fully integrated 
+with existing enterprise SAM/ITAM practices.
 
 
 <div style="page-break-after: always; visibility: hidden">
