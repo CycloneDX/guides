@@ -33,9 +33,15 @@ In addition, CycloneDX provides a mechanism to supply user-defined lifecycle pha
 Software Asset Management (SAM) is a set of processes, policies, and procedures that help organizations
 manage and optimize their software assets throughout their lifecycle. SAM involves the identification, acquisition,
 deployment, maintenance, utilization, and disposal of software assets to ensure compliance with licensing agreements,
-mitigate risks associated with software usage, and optimize costs. SAM is an essential part of IT governance.
+mitigate risks associated with software usage, and optimize costs. Likewise, IT Asset Management (ITAM) has a similar 
+function, encompassing hardware, software, and other IT assets. Unlike the SDLC, which has widely accepted phases, 
+SAM and ITAM lifecycles may vary. For example, the lifecycles defined in [ISO/IEC 19770-1:2017](https://www.iso.org/standard/68531.html),
+which specifies requirements for IT asset management systems, are different from the lifecycles defined in [NIST SP 1800-5](https://csrc.nist.gov/publications/detail/sp/1800-5/final).
+The out-of-the-box lifecycles provided by enterprise ITAM solutions also vary by vendor and can further be customized
+by organizations adopting these products. Therefore, CycloneDX includes predefined lifecycles that apply to both SDLC and
+SAM/ITAM, while also providing the flexibility in defining custom lifecycles. This allows CycloneDX to be successfully 
+integrated with existing enterprise SAM/ITAM practices.
 
-Lifecycle phases in CycloneDX complement both SDLC and SAM processes.
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -75,9 +81,9 @@ In addition, a custom phase (platform-integration-testing) was involved as well.
 \emptyparagraph
 </div>
 
-Support for SAM use cases is critical for enterprise adoption. An interesting distinction between SDLC and SAM use cases
-center around license compliance. Solutions supporting the SDLC typically involve open-source license compliance or 
-intellectual property use cases. Whereas SAM is largely concerned with commercial license and procurement use cases. 
+Support for SAM and ITAM use cases is critical for enterprise adoption. An interesting distinction between SDLC and SAM 
+use cases center around license compliance. Solutions supporting the SDLC typically involve open-source license compliance
+or intellectual property use cases. Whereas SAM is largely concerned with commercial license and procurement use cases. 
 OWASP CycloneDX has extensive support for both. Refer to the "Use Cases" chapter for more information.
 
 <div style="page-break-after: always; visibility: hidden">

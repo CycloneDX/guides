@@ -433,24 +433,39 @@ The CPE may also indicate the vendor and the PURL can identify a potentially for
 URL for the package. Many external references may also provide a clue, especially those pointing to the version control
 system (vcs), issue tracker, distribution, and documentation websites.
 
+Commercial sources of supply chain intelligence, including both physical and cyber, are available and can aid in 
+identifying FOCI and other supply chain risk.
+
 ## Export Compliance
 CycloneDX can help organizations achieve export compliance in the software supply chain by providing a comprehensive 
 inventory of all software components used in a product, including their origin, version, and licensing. This information 
 can enable organizations to identify potential export control issues, such as using components developed in foreign
 countries or containing encryption technology, and take appropriate measures to ensure compliance.
 
-## Packaging and Distribution
+## Procurement
+Purchasing of software and IT assets can be enhanced with bill of materials. Model contact language that would require
+BOMs for all new procurements and renewals of deployable software and any IT asset containing software should be considered.
+Sourcing may then strategically favor vendors who provide BOMs or further negotiate costs with vendors that don't. 
+Procurement processes can be enhanced to request BOMs from vendors, which may then be consumed by the procurement 
+system and shared with enterprise Software Asset Management (SAM) or IT Asset Management (ITAM) systems. Automating BOM 
+requests, retrieval, consumption, and sharing across systems should be considered for organizations on a quest for digital
+transformation.
 
 ## Vendor Risk Management
-
-## Procurement
+A Vendor Risk Assessment (VRA) is a process used to identify and evaluate potential risks or hazards associated with a 
+vendor's operations and products and their potential impact on an organization. VRA is part of an overall Vendor Risk
+Management process. VRAs are often an integrated part of the procurement process for new vendors. VRAs may also be
+triggered periodically for existing vendors. VRA processes can be enhanced through the use of BOMs. With BOMs, not only 
+can the supplier of the software or asset can be evaluated, but every supplier of the constituent components that make 
+up the software or asset can be evaluated. The transparency that CycloneDX BOMs provide can result in more impactful 
+assessments and significant risk reduction.
 
 ## Supply Chain Management
 
 Reduce unused dependencies, standardize libraries, etc
 
-## Supplier Risk Assessment
-Project risk
+## Open Source Project Risk
+
 
 ## Vulnerability Remediation
 
