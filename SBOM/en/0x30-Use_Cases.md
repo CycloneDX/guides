@@ -457,12 +457,36 @@ vendor's operations and products and their potential impact on an organization. 
 Management process. VRAs are often an integrated part of the procurement process for new vendors. VRAs may also be
 triggered periodically for existing vendors. VRA processes can be enhanced through the use of BOMs. With BOMs, not only 
 can the supplier of the software or asset can be evaluated, but every supplier of the constituent components that make 
-up the software or asset can be evaluated. The transparency that CycloneDX BOMs provide can result in more impactful 
+up the software or asset can be evaluated. Additionally, the report from a VRA can be specified in CycloneDX using the
+`risk-assessment` external reference type. The transparency that CycloneDX BOMs provide can result in more impactful 
 assessments and significant risk reduction.
 
 ## Supply Chain Management
+Supply chain management is a strategic discipline that encompasses the coordinated planning, implementation, and control
+of the flow of goods, services, and information from the point of origin to the point of consumption. It involves a 
+systematic approach to optimizing every aspect of the supply chain. 
 
-Reduce unused dependencies, standardize libraries, etc
+Dr. W. Edwards Deming, a renowned quality management expert, emphasized the importance of collaboration, data-driven 
+decision-making, and a relentless pursuit of excellence throughout the entire supply chain. Deming believed that by 
+focusing on quality and process improvement, organizations can achieve higher levels of customer satisfaction and 
+long-term success.
+
+Deming's supply chain management strategy included using fewer and better suppliers, utilizing the best 
+quality components from those suppliers, and tracking component usage across the entire supply chain. By focusing on 
+fewer suppliers, organizations can reduce variability and drive efficiency. Deming emphasized the importance of selecting 
+suppliers who consistently deliver top-quality components, which improves the overall quality of products or services.
+Additionally, tracking component usage across the supply chain allows organizations to identify inefficiencies, optimize 
+processes, and eliminate waste.
+
+Supply chain management of physical goods shares several similarities with software supply chain management. Both 
+disciplines involve sourcing, production, distribution, and inventory management to ensure the smooth flow of goods or 
+software throughout the supply chain. Just as physical goods move from suppliers to manufacturers to end-users, software
+components are sourced, developed, and integrated to create a final software product. While there are differences in the 
+nature of the products being managed, the core principles of efficient sourcing, production, and distribution are 
+applicable to physical goods and software.
+
+CycloneDX BOMs play a crucial role in supply chain management as they enhance collaboration and enable effective 
+supply chain management and governance of software components from sourcing to deployment.
 
 ## Open Source Project Risk
 
