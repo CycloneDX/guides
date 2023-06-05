@@ -94,6 +94,9 @@ TODO
 ## Best Practices for Generating Accurate and Useful CycloneDX BOMs
 TODO
 
+TODO - Get SBOM with "enrichment" slide from DJ.
+
+
 <div style="page-break-after: always; visibility: hidden">
 \newpage
 </div>

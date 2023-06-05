@@ -431,7 +431,7 @@ Indicators that may be relevant in identifying FOCI concerns can be derived from
 `publisher`, `manufacturer`, and `supplier` but can also be extended to other fields such as the components `group` name.
 The CPE may also indicate the vendor and the PURL can identify a potentially foreign namespace or repository or download
 URL for the package. Many external references may also provide a clue, especially those pointing to the version control
-system (vcs), issue tracker, distribution, and documentation websites.
+system (vcs) and commit history, issue tracker, distribution, and documentation websites.
 
 Commercial sources of supply chain intelligence, including both physical and cyber, are available and can aid in 
 identifying FOCI and other supply chain risk.
