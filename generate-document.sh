@@ -52,7 +52,7 @@ generate_pdf() {
         docx2pdf "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
         pdfcli watermark -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" "../../templates/watermark.pdf"
     fi
-    pdfcli join "../en/images/cover.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
+    pdfcli join "../en/images/cover.pdf" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf" "../../images/back.pdf" -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
     exiftool -Title="My Doc Title" -Author="Open Web Application Security Project (OWASP)" -Subject="CycloneDX BOM Standard" "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.pdf"
 }
 
