@@ -80,10 +80,10 @@ CycloneDX is capable of describing the following types of components:
 | Service                | Service   | A service including microservices, function-as-a-service, and other types of network or intra-process services.                                                                                                                                                                                                 |
 
 
-> The component type is a required property for every component. It is an abstract concept to aid with separation of 
-> concerns. For example, a development team focused on application creation may not be the same team responsible for 
-> maintaining container images or operating systems. When viewing components and their dependency relationships, 
-> component type helps to identify inventory that may be in scope for that team and the inventory that may not.
+> The component type is a required property for every component. It is an abstract concept to aid development and 
+> security teams with separation of concerns. The types represent the highest level of abstraction in a modular 
+> system or design. They also aid Software Asset Management (SAM) and IT Asset Management (ITAM) systems in classifying
+> the inventory of software and constituent parts.
 
 
 Component identity is an essential requirement for managing inventory. CycloneDX supports multiple methods of identity
@@ -125,6 +125,10 @@ The following example illustrates component identity in CycloneDX.
 
 CycloneDX also supports several identifiers specific to hardware devices. Refer to https://cyclonedx.org/capabilities/hbom/
 for more information.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## Vulnerability Management
 CycloneDX is ideal for vulnerability management and impact analysis through the support of comprehensive inventory and
@@ -488,15 +492,6 @@ applicable to physical goods and software.
 CycloneDX BOMs play a crucial role in supply chain management as they enhance collaboration and enable effective 
 supply chain management and governance of software components from sourcing to deployment.
 
-## Open Source Project Risk
-
-
-## Vulnerability Remediation
-
-## Security Advisories
-
-## Formulation Assurance and Verification
-
 ## Composition Completeness and "Known Unknowns"
 The inventory of components, services, and their relationships to one another can be described through the use of 
 compositions. Compositions describe constituent parts (including components, services, and dependency relationships) and
@@ -514,6 +509,15 @@ to describe how complete the BOM is or if there are components in the BOM where 
 | incomplete_third_party_proprietary_only | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are proprietary.      |
 | incomplete_third_party_opensource_only  | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are opensource.       |
 | unknown                                 | The relationship may be complete or incomplete. This usually signifies a 'best-effort' to obtain constituent components, services, or dependencies but the completeness is inconclusive. |
+
+## Formulation Assurance and Verification
+CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components
+and services. This advanced capability provides transparency into how components were made, how a model was trained, or
+how a service was created or deployed. Generally, the formulation is externalized from the SBOM into a dedicated Manufacturing
+Bill of Material (MBOM). The SBOM references the MBOM that describes the environment, configuration, tools, and
+all other considerations necessary to replicate a build with utmost precision. This capability allows other parties to
+independently verify inputs and outputs from a build which can increase the software's assurance.
+
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
