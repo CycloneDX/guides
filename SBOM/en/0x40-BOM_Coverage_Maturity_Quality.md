@@ -19,7 +19,7 @@ The U.S. [National Telecommunications and Information Administration](https://nt
 </div>
 
 CycloneDX highly encourages organizations to exceed the NTIA minimum elements whenever possible. Suggestions for other
-types of data will vary by use case, but generally should include (but not limited to):
+types of data will vary by use case but generally should include:
 
 
 | **Field**            | **CycloneDX Field**                    | **Description**                                                                                                                            |
@@ -50,9 +50,9 @@ The model can be used to evaluate:
 
 - Incoming BOMs adhere to organizational policy by supporting the data required by various stakeholders
 - BOM generation and consumption tools
-- Current and future BOM formats against each other and their alignment to organizational requirements
+- Current and future BOM formats against each other and their alignment with organizational requirements
 
-Combined with the ability to create "profiles", SCVS will facilitate:
+Combined with the ability to create profiles, SCVS will facilitate:
 
 - The creation of a new breed of tools (SBOM Profilers) which evaluate BOMs against various profiles so that end users may know what types of analysis can be performed on them
 - The adoption of organizational policy, defined in profiles, for what is acceptable and not acceptable for various use cases
