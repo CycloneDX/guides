@@ -18,8 +18,8 @@ A data "type" describes the general theme or subject matter of the data being sp
 \emptyparagraph
 </div>
 
-To help visualize a common scenario, lets describe an application with a few different data components that represent
-custom source code and configurations that are included in the application.
+To help visualize a typical scenario, let's describe an application with a few different data components that represent
+custom source code and configurations bundled in an application.
 
 ![Nested Component Data](../../images/Nested_Component_Data.svg)
 
@@ -27,7 +27,7 @@ Other possible scenarios include:
 - Inclusion of all source code that makes up a component.
 - Inclusion of inline datasets bundled with a component.
 - Externalizing the data components using an External Reference of type 'bom'.
-- Leveraging CycloneDX lifecycles and External References to create an Operations Bill of Materials (OBOM) linking the SBOM of the application, the HBOM of the hardware its running on, and describing the runtime configuration of the system in the OBOM. 
+- Leveraging CycloneDX lifecycles and External References to create an Operations Bill of Materials (OBOM) linking the SBOM of the application, the HBOM of the hardware it's running on, and describing the runtime configuration of the system in the OBOM. 
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
@@ -67,8 +67,8 @@ for a shutdown hook. In this case, both are from different suppliers.
 ]
 ```
 
-CycloneDX does not attempt to normalize configurations into a common vernacular. Systems and applications may have 
-specialized ways of representing configuration that are specific to them. Rather, CycloneDX leverages existing support for
+CycloneDX does not attempt to normalize configurations into a common vocabulary. Systems and applications may have 
+specialized ways of representing configurations that are specific to them. Rather, CycloneDX leverages existing support for
 name/value pairs (properties), attachments, and URLs to external resources. With this approach, common and specialized
 configuration mechanisms are supported. Consumers of BOMs with data components will need to understand the context and
 semantics of the data specified.
