@@ -63,13 +63,13 @@ the individual microservices that make up that consumer-facing service. They may
 SBOM defining the individual software components powering individual services.
 
 ### Linking to Objects Within The Same BOM
-With BOM-Link, relationships can also be established between objects in the same BOM. As an example, let's establish
-a relationship where one component defines a threat model. In the example below, `acme-application` defines an external 
+With BOM-Link, relationships can also be established between objects in the same BOM. For example, let's establish
+a relationship where a component defines a threat model. In the example below, `acme-application` defines an external 
 reference of type `threat-model` and uses BOM-Link to reference another component in the same BOM. The threat model
-components scope is `excluded` indicating that it's omitted from inventory. The `acme-threatmodel` component in this 
-example is a data component, but could easily have been a file component. Using a data component allows for the inclusion
-of the threat model itself to be captured in the BOM. This approach may be ideal for audit use case or for instances 
-where access to external systems are prohibited, such as air-gapped environments.
+components scope is `excluded`, indicating that it's omitted from inventory. The `acme-threatmodel` component in this 
+example is a data component but could easily have been a file component. Using a data component allows for the inclusion
+of the threat model itself to be captured in the BOM. This approach may be ideal for audit use cases or for instances 
+where access to external systems is prohibited, such as air-gapped environments.
 
 ```json
 {
@@ -116,9 +116,9 @@ Whether the goal is a separation of concerns or increased cost efficiency and qu
 provides is immensely powerful.
 
 ### Linking External VEX to BOM Inventory
-Vulnerability Exploitability eXchange (VEX) is core capability of CycloneDX that can convey the exploitability of 
+Vulnerability Exploitability eXchange (VEX) is a core capability of CycloneDX that can convey the exploitability of 
 vulnerable components in the context of the product in which they're used. VEX information may be very dynamic and
-subject to change while the product's SBOM will typically remain static until such time the inventory changes.
+subject to change, while the product's SBOM will typically remain static until such time the inventory changes.
 Therefore, it is recommended to decouple the VEX from the BOM. This allows VEX information to be updated without having 
 to create and track additional BOMs.
 
