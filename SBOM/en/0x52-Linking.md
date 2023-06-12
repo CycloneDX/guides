@@ -1,4 +1,4 @@
-## Linking BOMs with BOM-Link
+## Establishing Relationships With BOM-Link
 With CycloneDX, it is possible to reference a component, service, or vulnerability inside a BOM from other systems or
 other BOMs. This deep-linking capability is referred to as BOM-Link and is a
 [formally registered URN](https://www.iana.org/assignments/urn-formal/cdx), governed by [IANA](https://www.iana.org),
@@ -26,10 +26,10 @@ There are many use cases that BOM-Link supports. Two common scenarios are:
 * Reference a specific component or service in one BOM from another BOM
 
 ### Linking to External BOMs
-External references provide a way to document systems, sites, and information related to the component. External 
-references can be applied to individual components, services, or to the BOM itself. One external reference type is 
-`bom`, which can point to a URL of where the BOM is located or BOM-Link URI that references the precise serial number 
-and version of the BOM.
+As mentioned earlier, external references point to resources outside the object they're associated with and may be 
+external to the BOM, or may refer to resources within the BOM. External references can be applied to individual 
+components, services, or to the BOM itself. For example, a component could specify an external reference pointing to the
+BOM describing that component.
 
 ```json
 "externalReferences": [
