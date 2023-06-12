@@ -55,6 +55,13 @@ pattern is the use of API gateways which proxy and orchestrate connections to re
 themselves may not be directly accessible; rather, they are accessed exclusively through the API gateway. For this 
 scenario, the API gateway service may contain an assembly of microservices behind it.
 
+In the following example, Components A-E and Service A are included in the metadata component, in this case, an application.
+Component C further includes an assembly of Components D and E which is how they were introduced as components of the 
+application. An assembly is not an indication that Component C depends on Component D or E, rather Component C bundles
+Component D and E. If Component C depends on either D or E, dependency relationships should also be established.
+
+![Assemblies](images/assemblies.svg)
+
 ## Dependencies
 CycloneDX provides the ability to describe components and their dependency on other components. This relies on a 
 components `bom-ref` to associate the component with the dependency element in the graph. The only requirement for bom-ref 
@@ -62,7 +69,13 @@ is that it is unique within the BOM. Package URL (PURL) is an ideal choice for b
 readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.
 A dependency graph is typically one node deep and capable of representing both direct and transitive relationships.
 
-TODO - Design a BOX representation of components - and only list the dependencies section.
+![Sample Dependency Graph](images/dependency-graph.svg)
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
+The dependency graph above can be codified with the following:
 
 ```json
 "dependencies": [
@@ -76,7 +89,8 @@ TODO - Design a BOX representation of components - and only list the dependencie
   {
   "ref": "pkg:maven/org.acme/web-framework@1.0.0",
     "dependsOn": [
-      "pkg:maven/org.acme/common-util@3.0.0"
+      "pkg:maven/org.acme/common-util@3.0.0",
+      "pkg:maven/org.acme/rest-api@2.5.0"
     ]
   },
   {
