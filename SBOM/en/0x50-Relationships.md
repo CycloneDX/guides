@@ -48,19 +48,19 @@ applications as part of its assembly.
 \newpage
 </div>
 
+In the following example, Components A-F are included in the metadata component, in this case, an application.
+Component C further includes an assembly of Components D and E which is how they were introduced as components of the
+application. An assembly is not an indication that Component C depends on Component D or E, rather Component C bundles
+Component D and E. If Component C depends on either D or E, dependency relationships should also be established.
+
+![Assemblies](images/assemblies.svg)
+
 ## Service Assemblies
 Services also have assemblies and work identically to those of components. While component assemblies describe a component
 that _includes_ another component, service assemblies describe a service with other services _behind_ it. A common cloud 
 pattern is the use of API gateways which proxy and orchestrate connections to relevant microservices. The microservices 
 themselves may not be directly accessible; rather, they are accessed exclusively through the API gateway. For this 
 scenario, the API gateway service may contain an assembly of microservices behind it.
-
-In the following example, Components A-E and Service A are included in the metadata component, in this case, an application.
-Component C further includes an assembly of Components D and E which is how they were introduced as components of the 
-application. An assembly is not an indication that Component C depends on Component D or E, rather Component C bundles
-Component D and E. If Component C depends on either D or E, dependency relationships should also be established.
-
-![Assemblies](images/assemblies.svg)
 
 ## Dependencies
 CycloneDX provides the ability to describe components and their dependency on other components. This relies on a 
@@ -95,6 +95,10 @@ The dependency graph above can be codified with the following:
   },
   {
     "ref": "pkg:maven/org.acme/common-util@3.0.0",
+    "dependsOn": []
+  },
+  {
+    "ref": "pkg:maven/org.acme/rest-api@2.5.0",
     "dependsOn": []
   }
 ]

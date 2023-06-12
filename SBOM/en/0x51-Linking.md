@@ -21,15 +21,15 @@ urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
 | version      | The version of the BOM. The default version is `1`.                               |
 | bom-ref      | The unique identifier of the component, service, or vulnerability within the BOM. |
 
-There are many use cases that BOM-Link supports. Two common scenarios are to:
+There are many use cases that BOM-Link supports. Two common scenarios are:
 * Reference one BOM from another BOM
 * Reference a specific component or service in one BOM from another BOM
 
 ### Linking to External BOMs
-External references provide a way to document systems, sites, and information that may be relevant but which are not
-included with the BOM. External references can be applied to individual components, services, or to the BOM itself.
-One external reference type is `bom` which can point to a URL of where the BOM is located, or BOM-Link URI that
-references the precise serial number and version of the BOM.
+External references provide a way to document systems, sites, and information related to the component. External 
+references can be applied to individual components, services, or to the BOM itself. One external reference type is 
+`bom`, which can point to a URL of where the BOM is located or BOM-Link URI that references the precise serial number 
+and version of the BOM.
 
 ```json
 "externalReferences": [
@@ -48,21 +48,71 @@ references the precise serial number and version of the BOM.
 ```
 
 There are many common use cases where referencing external BOMs is desirable. One common case involves a component in a 
-BOM where the supplier of the component has published their own BOM, specific to that component. The BOM for the 
-application may simply list the component and refer to that components externalized BOM for details of the inventory 
-specific to that component. This is especially useful for proprietary components where the inventory may not otherwise 
-be easily obtainable.
+BOM, where the supplier of the component has published their own BOM specific to that component. The BOM for the 
+application may simply list the component and refer to that component's externalized BOM for details of the inventory 
+specific to that component. This is especially useful for proprietary components where the inventory may not be easily 
+obtainable.
 
 Another common case involves individual BOMs, per layer, in a deployed stack. For example, a BOM may contain multiple 
-components, each with external references to their own individual BOMs. A hardware component could link out to the 
-corresponding Harware Bill of Material (HBOM), the operating system component could link out to its corresponding SBOM, 
+components, each with external references to its own individual BOMs. A hardware component could link to the 
+corresponding Hardware Bill of Material (HBOM), the operating system component could link to its corresponding SBOM, 
 and an application component could do the same.
 
 A third case involves a service defined in a BOM where the provider of the service has published a SaaSBOM containing 
 the individual microservices that make up that consumer-facing service. They may also have published a corresponding 
 SBOM defining the individual software components powering individual services.
 
-Whether the goal is separation of concerns or increased cost efficiency and quality, the modularity that CycloneDX
+### Linking to Objects Within The Same BOM
+With BOM-Link, relationships can also be established between objects in the same BOM. As an example, let's establish
+a relationship where one component defines a threat model. In the example below, `acme-application` defines an external 
+reference of type `threat-model` and uses BOM-Link to reference another component in the same BOM. The threat model
+components scope is `excluded` indicating that it's omitted from inventory. The `acme-threatmodel` component in this 
+example is a data component, but could easily have been a file component. Using a data component allows for the inclusion
+of the threat model itself to be captured in the BOM. This approach may be ideal for audit use case or for instances 
+where access to external systems are prohibited, such as air-gapped environments.
+
+```json
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "components": [
+    {
+      "bom-ref": "acme-application",
+      "type": "application",
+      "name": "Acme Application",
+      "version": "1.0.0",
+      "externalReferences": [
+        {
+          "type": "threat-model",
+          "url": "urn:cdx:3e671687-395b-41f5-a30f-a58921a69b79/1#acme-threatmodel"
+        }
+      ]
+    },
+    {
+      "bom-ref": "acme-threatmodel",
+      "type": "data",
+      "name": "Acme Threat Model",
+      "scope": "excluded",
+      "data": [
+        {
+          "type": "other",
+          "contents": {
+            "attachment": {
+              "encoding": "base64",
+              "contentType": "application/pdf",
+              "content": "VGhyZWF0IG1vZGVsIGdvZXMgaGVyZQ=="
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+Whether the goal is a separation of concerns or increased cost efficiency and quality, the modularity that CycloneDX
 provides is immensely powerful.
 
 ### Linking External VEX to BOM Inventory
