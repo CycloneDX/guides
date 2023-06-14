@@ -1,10 +1,14 @@
 # Preface
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper laoreet neque, id lobortis neque tincidunt quis. Cras eu dui diam. Mauris volutpat mattis est id ultricies. Vivamus eu semper ipsum. Sed aliquam ut enim consectetur maximus. Cras eu finibus dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas lorem mi, tincidunt sed elit in, malesuada tempor magna.
+Secure supply chains are the foundational building block of modern cyber security. Without being able to describe a system’s components in a machine-consumable way, organizations and software consumers are in the dark if they are at risk of exploitation of known defects or vulnerabilities.
 
-Sed maximus ligula non condimentum condimentum. Fusce id augue tempus, egestas ligula vehicula, volutpat purus. Duis ut nisi nec massa rhoncus bibendum tristique nec enim. Nulla facilisi. Donec dui lectus, condimentum vel nisi at, porta iaculis velit. Fusce nec tortor justo. Proin eget tellus fermentum, mollis nisl id, hendrerit justo. Quisque eget libero ut neque vestibulum lacinia in viverra dui. Nam semper lacus vel neque gravida cursus. Curabitur eu purus pulvinar, feugiat justo in, mattis ante. Donec ex nisl, elementum sit amet dui et, sollicitudin finibus lorem. Morbi nec eleifend purus.
+Innovation drives the evolution of Software Bill of Materials (SBOM). I was lucky enough to attend one of the meetings held between the CycloneDX and SPDX teams at a Linux Foundation conference moderated by the fine folks at CISA. The drivers for CycloneDX 1.5 include improvements in interoperability and transparency.
 
-Mauris vestibulum in nulla eget sodales. Praesent sit amet dictum lacus. Donec urna magna, egestas vitae nisi sed, cursus sagittis turpis. Ut ut pellentesque nisi. Sed ac risus nisl. Maecenas at ultrices lorem, tempus sagittis nisi. Nulla eu ante iaculis, placerat risus laoreet, dignissim ligula. Fusce purus orci, efficitur id sodales hendrerit, fringilla ac eros. Maecenas congue sem urna, id feugiat tellus venenatis quis. Nullam sem tortor, sodales sit amet turpis eget, porta commodo tortor.
+Software authors, from hobbyists to software vendors, can quickly adopt CycloneDX in their tooling, producing artifacts that will help consumers understand and manage the risk of the multitude of software that most organizations rely on daily.
+
+A few years ago, I was involved in a project to review 1700 business-critical applications in 90 days for known software vulnerabilities. If the organization had access to CycloneDX SBOMs, this would have been a trivial task, time that could have been more usefully spent on remediation rather than discovery. Sadly, most of the time was spent working out what software had old faulty components rather than addressing the very real risk of known software vulnerabilities. We were plagued with false positives from the tooling we used simply because scanning software without SBOMs is a heuristic-driven discovery process that is inefficient and wastes a great deal of time we didn’t have. SBOMs resolve these issues, reduce costs, and reduce risk to all involved.
+
+I commend the CycloneDX team for a highly polished revision of their standard, one that evolves the state of the art.
 
 ---
 
