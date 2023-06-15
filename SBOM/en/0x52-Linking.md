@@ -69,7 +69,7 @@ they can resolve and process externally referencable BOMs when encountered.
 \emptyparagraph
 </div>
 
-The following example helps to illustrate what Component E may look like when represented in the BOM for Acme Application:
+The following example helps to illustrate what Component F may look like when represented in the BOM for Acme Application:
 
 ```json
 "components": [
