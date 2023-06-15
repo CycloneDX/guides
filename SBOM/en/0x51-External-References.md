@@ -82,7 +82,3 @@ The following are example external references applied to a component:
   }
 ]
 ```
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>

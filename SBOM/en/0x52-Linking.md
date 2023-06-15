@@ -53,6 +53,47 @@ application may simply list the component and refer to that component's external
 specific to that component. This is especially useful for proprietary components where the inventory may not be easily 
 obtainable.
 
+The following illustration provides an example of such a scenario. In this case, the supplier of the Acme Application 
+includes Components A-F, Component C includes an assembly of D and E, and components D, E, and F are included in the BOM 
+for Acme Application. The BOMs for D, E, and F are external and provided by other suppliers. The supplier of the Acme 
+Application can leverage the BOMs provided by those suppliers by utilizing external references. Consumers should ensure
+they can resolve and process externally referencable BOMs when encountered.
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+![BOM Linking BOMs](images/bom-linking-boms.svg)
+
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
+The following example helps to illustrate what Component E may look like when represented in the BOM for Acme Application:
+
+```json
+"components": [
+  {
+    "bom-ref": "component-f",
+    "type": "library",
+    "name": "Component F",
+    "version": "1.0.0",
+    "externalReferences": [
+      {
+        "type": "bom",
+        "url": "https://example.com/sbom/component-f-1.0.0.cdx.json",
+        "hashes": [
+          {
+            "alg": "SHA-256",
+            "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
 Another common case involves individual BOMs, per layer, in a deployed stack. For example, a BOM may contain multiple 
 components, each with external references to its own individual BOMs. A hardware component could link to the 
 corresponding Hardware Bill of Material (HBOM), the operating system component could link to its corresponding SBOM, 
