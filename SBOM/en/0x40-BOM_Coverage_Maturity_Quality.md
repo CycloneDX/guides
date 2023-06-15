@@ -88,7 +88,7 @@ capability of CycloneDX. Identity evidence consists of:
 - The methods which include the techniques used to determine component identity and the confidence of each technique
 - The tools used which performed the analysis
 
-Together, The BOM Maturity Model and native features of CycloneDX can be leveraged to form a high-quality, high-confidence
+Together, the BOM Maturity Model and native features of CycloneDX can be leveraged to form a high-quality, high-confidence
 assessment of SBOM quality.
 
 <div style="page-break-after: always; visibility: hidden">
