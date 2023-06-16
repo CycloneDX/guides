@@ -6,7 +6,7 @@ flagship project, has a formal standardization process and governance model, and
 security community.
 
 ## Design Philosophy and Guiding Principles
-The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily approachable to a wide 
+The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily understandable by a wide 
 range of technical and non-technical roles. CycloneDX is a full-stack BOM format with many advanced capabilities that 
 are achieved without sacrificing the design philosophy. Some guiding principles influencing its design include:
 
@@ -28,7 +28,7 @@ adding services as a foundational component in a Software Bill of Materials.
 ## The Role of SBOM in Software Transparency
 Software transparency involves providing clear and accurate information about the components used in an application,
 including their name, version, supplier, and any dependencies required by the component. This information helps
-identify and manage the risks associated with the software while also enabling compliance with relevant regulations and
+identify and manage the risks associated with the software whilst also enabling compliance with relevant regulations and
 standards. With the growing importance of software in our daily lives, transparency is critical to building trust in
 software and ensuring that it is safe, secure, and reliable.
 
