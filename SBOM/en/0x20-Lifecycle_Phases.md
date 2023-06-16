@@ -4,11 +4,11 @@ conception to deployment and maintenance. It typically includes planning, analys
 deployment, and maintenance; each phase has its own activities and deliverables. The purpose of the SDLC is
 to provide a structured and systematic approach to software development that ensures the final product meets the customer's
 requirements, is of high quality, is delivered on time and within budget, and can be maintained and supported throughout
-its lifecycle.
+its' lifecycle.
 
 Lifecycle phases communicate the stage in which data in the BOM was captured. This support extends beyond software to 
 capture hardware, IoT, and cloud-native use cases. Different types of data may be available at various phases of a 
-lifecycle, and thus a BOM may include data specific or only obtainable in a given lifecycle. Incorporating lifecycle phases
+lifecycle, and thus a BOM may include data specific to or only obtainable in a given lifecycle. Incorporating lifecycle phases
 in a CycloneDX BOM provides additional context of when and how the BOM was created. It becomes an additional datapoint 
 that may be useful in the overall analysis of the BOM.
 
