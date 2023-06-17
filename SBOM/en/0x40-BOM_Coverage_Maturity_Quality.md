@@ -39,7 +39,7 @@ The [OWASP Software Component Verification Standard](https://scvs.owasp.org/) (S
 and improve their software supply chain assurance. SCVS is required in 
 [NIST SP 800-218](https://csrc.nist.gov/publications/detail/sp/800-218/final) (SSDF v1.1) and similar frameworks. 
 
-In addition to the supply chain controls it recommends, SCVS also has a complimentary[BOM Maturity Model](https://scvs.owasp.org/bom-maturity-model/) 
+In addition to the supply chain controls it recommends, SCVS also has a complementary [BOM Maturity Model](https://scvs.owasp.org/bom-maturity-model/) 
 which allows bill of materials to be evaluated. The model consists of:
 
 - a formal taxonomy of different types of data possible in a bill of materials, independent of BOM format
@@ -48,7 +48,7 @@ which allows bill of materials to be evaluated. The model consists of:
 
 The model can be used to evaluate:
 
-- Incoming BOMs adhere to organizational policy by supporting the data required by various stakeholders
+- Incoming BOMs adherance to organizational policy by supporting the data required by various stakeholders
 - BOM generation and consumption tools
 - Current and future BOM formats against each other and their alignment with organizational requirements
 
@@ -58,8 +58,8 @@ Combined with the ability to create profiles, SCVS will facilitate:
 - The adoption of organizational policy, defined in profiles, for what is acceptable and not acceptable for various use cases
 
 ## SBOM Quality
-SBOMs can be analyzed for their overall usefulness for given use cases. What is a "quality" SBOM may be different
-depending on the stakeholder role and type of analysis required for that role. Quality is a multidimensional construct
+SBOMs can be analyzed for their overall usefulness for given use cases. The "quality" of an SBOM may differ depending
+on the stakeholder role and type of analysis required for that role. Quality is a multidimensional construct
 and not a single characteristic. OWASP supports a holistic view of quality. The following illustrates an example
 of dimensions to consider in determining quality.
 
