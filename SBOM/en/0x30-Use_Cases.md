@@ -71,7 +71,7 @@ CycloneDX is capable of describing the following types of components:
 | Device                 | Component | A hardware device such as a processor, or chip-set. A hardware device containing firmware SHOULD include a component for the physical hardware itself, and another component of type 'firmware' or 'operating-system' (whichever is relevant), describing information about the software running on the device. |
 | Device Driver          | Component | A special type of software that operates or controls a particular type of device.                                                                                                                                                                                                                               |
 | File                   | Component | A computer file.                                                                                                                                                                                                                                                                                                |
-| Firmware               | Component | A special type of software that provides low-level control over a devices hardware.                                                                                                                                                                                                                             |
+| Firmware               | Component | A special type of software that provides low-level control over a device's hardware.                                                                                                                                                                                                                             |
 | Framework              | Component | A software framework                                                                                                                                                                                                                                                                                            |
 | Library                | Component | A software library. Many third-party and open source reusable components are libraries. If the library also has key features of a framework, then it should be classified as a framework. If not, or is unknown, then specifying library is RECOMMENDED.                                                        |
 | Machine Learning Model | Component | A model based on training data that can make predictions or decisions without being explicitly programmed to do so.                                                                                                                                                                                             |
@@ -90,7 +90,7 @@ Component identity is an essential requirement for managing inventory. CycloneDX
 including:
 
 - Coordinates: The combination of the group, name, and version fields form the coordinates of a component.
-- Package URL: [Package URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located regardless of what vendor, project, or ecosystem the packages belongs. 
+- Package URL: [Package URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located regardless of what vendor, project, or ecosystem the packages belongs to. 
 - SWID: Software ID (SWID) as defined in [ISO/IEC 19770-2:2015](https://www.iso.org/standard/65666.html) is used primarily to identify installed software.
 - CPE: The [Common Platform Enumeration](https://nvd.nist.gov/products/cpe) (CPE) specification was designed for operating systems, applications, and hardware devices. CPE is maintained by the NVD.
 
@@ -163,7 +163,7 @@ view of their assets, which can help them make more informed decisions about man
 They also benefit from having the broadest array of possible use cases, including DevOps, vendor risk management, 
 procurement, vulnerability response, and supply chain management.
 
-CycloneDX compliments and meets the requirements of [ISO/IEC 19770-1:2017](https://www.iso.org/standard/68531.html)
+CycloneDX complements and meets the requirements of [ISO/IEC 19770-1:2017](https://www.iso.org/standard/68531.html)
 which defines IT asset management systems, including license management, security management, and asset lifecycles, making
 it uniquely applicable for enterprise adoption.
 
@@ -392,8 +392,8 @@ keep components up to date. Ignoring updates and running software with outdated 
 mitigate vulnerabilities should a previously unknown vulnerability become known.
 
 Identifying end-of-life components can be challenging as the data may be difficult to obtain. However, some sources of
-commercial vulnerability intelligence do provide this data, which can help identify up-to-date components, but 
-are otherwise no longer supported.
+commercial vulnerability intelligence do provide this data, and also help identify up-to-date components that are
+otherwise no longer supported.
 
 ## Provenance
 Provenance refers to the history of the origin and ownership of a component. In the context of a software supply chain, 
@@ -407,8 +407,8 @@ By maintaining a record of provenance information throughout the software supply
 ability to detect and mitigate security risks, reduce the likelihood of supply chain attacks, and increase the overall 
 reliability and quality of their software products.
 
-Furthermore, regulatory compliance requirements, such as those related to data privacy, data protection, and intellectual 
-property, often mandate the use of provenance tracking to ensure compliance with legal and ethical standards.
+Furthermore, regulatory compliance requirements (such as those related to data privacy, data protection, and intellectual 
+property) often mandate the use of provenance tracking to ensure compliance with legal and ethical standards.
 
 CycloneDX supports provenance via four distinct fields: `author`, `publisher`, `supplier`, and `manufacturer`. In addition,
 components that are modified from the original can be described along with the complete authorship, including commits 
@@ -447,7 +447,7 @@ can enable organizations to identify potential export control issues, such as us
 countries or containing encryption technology, and take appropriate measures to ensure compliance.
 
 ## Procurement
-Purchasing of software and IT assets can be enhanced with bill of materials. Model contact language that would require
+Purchasing of software and IT assets can be enhanced with bill of materials. Model contract language that would require
 BOMs for all new procurements and renewals of deployable software and any IT asset containing software should be considered.
 Sourcing may then strategically favor vendors who provide BOMs or further negotiate costs with vendors that don't. 
 Procurement processes can be enhanced to request BOMs from vendors, which may then be consumed by the procurement 
