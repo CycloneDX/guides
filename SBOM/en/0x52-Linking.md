@@ -159,7 +159,7 @@ provides is immensely powerful.
 ### Linking External VEX to BOM Inventory
 Vulnerability Exploitability eXchange (VEX) is a core capability of CycloneDX that can convey the exploitability of 
 vulnerable components in the context of the product in which they're used. VEX information may be very dynamic and
-subject to change, while the product's SBOM will typically remain static until such time the inventory changes.
+subject to change, while the product's SBOM will typically remain static until such time that the inventory changes.
 Therefore, it is recommended to decouple the VEX from the BOM. This allows VEX information to be updated without having 
 to create and track additional BOMs.
 
