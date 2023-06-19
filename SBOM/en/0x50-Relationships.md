@@ -1,5 +1,5 @@
 # Establishing Relationships in CycloneDX
-CycloneDX has a rich set of relationships that provide additional context and information about the objects in the BOMs
+CycloneDX has a rich set of relationships that provide additional context and information about the objects in the BOM's
 inventory. All relationships in CycloneDX are expressed explicitly. Some relationships are declared through the natural
 use of the CycloneDX format. These include assemblies, dependencies, and pedigree. Other relationships are formed via
 references to the object's identity in the BOM, referred to as `bom-ref`. The combination of these two approaches 
@@ -64,7 +64,7 @@ scenario, the API gateway service may contain an assembly of microservices behin
 
 ## Dependencies
 CycloneDX provides the ability to describe components and their dependency on other components. This relies on a 
-components `bom-ref` to associate the component with the dependency element in the graph. The only requirement for bom-ref 
+component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for bom-ref 
 is that it is unique within the BOM. Package URL (PURL) is an ideal choice for bom-ref as it will be both unique and 
 readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.
 A dependency graph is typically one node deep and capable of representing both direct and transitive relationships.

@@ -55,7 +55,7 @@ and is covered later in the "Relationships" chapter.
 </div>
 
 As the SBOM process evolves, it may become an integrated part of building software. One vision of this type of process
-comes from DJ Schleen who proposed the following reference architecture.
+comes from DJ Schleen who proposed the following reference architecture:
 
 ![Advanced SBOM Process](images/advanced_sbom_process.pdf)
 

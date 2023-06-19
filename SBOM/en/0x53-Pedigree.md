@@ -6,7 +6,7 @@ applied to a component with detailed pedigree information serves as affirmation 
 
 | **Pedigree** | **Description**                                                                                                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ancestors    | Describes zero or more components in which a component is derived from. This is commonly used to describe forks from existing projects where the forked version contains a ancestor node containing the original component it was forked from.                                     |
+| ancestors    | Describes zero or more components from which a component is derived. This is commonly used to describe forks from existing projects where the forked version contains a ancestor node containing the original component it was forked from.                                     |
 | descendants  | Descendants are the exact opposite of ancestors. This provides a way to document all forks (and their forks) of an original or root component.                                                                                                                                     |
 | variants     | Variants describe relations where the relationship between the components are not known. For example, if Component A contains nearly identical code to Component B. They are both related, but it is unclear if one is derived from the other, or if they share a common ancestor. |
 
@@ -39,7 +39,7 @@ The example above illustrates two important aspects of pedigree:
 1) log4j-core from the Apache LOG4J 2™ project was modified. The modified version has an identity that is unique from its upstream source. Both the modified and original components are represented in the pedigree relationship.
 2) According to the Package URL (purl), the original component was obtained from Maven Central (the default for Maven artifacts) while the modified component resides in a repository controlled by example.com. The provenance of the artifacts are maintained.
 
-The pedigree capabilities in CycloneDX go much further than establishing relationships, the specification can also 
+The pedigree capabilities in CycloneDX go much further than establishing relationships; the specification can also 
 optionally provide transparency into the changes that were made and their purpose. For example, the precise commits 
 made to the version control system can be represented.
 
