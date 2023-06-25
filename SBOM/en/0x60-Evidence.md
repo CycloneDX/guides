@@ -3,8 +3,8 @@ As we've seen, a BOM is crucial for understanding the composition of the softwar
 vulnerabilities and licensing obligations. CycloneDX can include evidence substantiating the declared identity of 
 components within the BOM to ensure accuracy and integrity, prevent the inclusion of unauthorized components, and 
 facilitate effective vulnerability management. CycloneDX includes other observations about the component inventory, such 
-as multiple occurrences, call stack reachability, and evidence of licenses and copyrights, enhances the understanding of 
-dependencies, potential risks, and compliance obligations, enabling organizations to manage security, quality, legal, 
+as multiple occurrences, call stack reachability, and evidence of licenses and copyrights. This enhances the understanding 
+of dependencies, potential risks, and compliance obligations, enabling organizations to manage security, quality, legal, 
 and intellectual property concerns effectively.
 
 ## Component Identity
