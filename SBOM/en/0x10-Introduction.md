@@ -66,7 +66,6 @@ CycloneDX provides advanced supply chain capabilities for cyber risk reduction. 
 * Machine Learning Bill of Materials (ML-BOM)
 * Operations Bill of Materials (OBOM)
 * Manufacturing Bill of Materials (MBOM)
-* Bill of Attestations (BOA)
 * Bill of Vulnerabilities (BOV)
 * Vulnerability Disclosure Report (VDR)
 * Vulnerability Exploitability eXchange (VEX)
