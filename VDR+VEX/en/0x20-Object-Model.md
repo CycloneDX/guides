@@ -5,7 +5,7 @@ prescriptive, can easily describe complex relationships, and is extensible to su
 
 Within the root `bom` element, CycloneDX defines the following object types:
 
-![BOM Metadata](../../images/Object-Model/CycloneDX-Object-Type-Overview.svg)
+![BOM Metadata](../../images/Object-Model/CycloneDX-Object-Type-Overview_with-Attestations.svg)
 
 The object types are arranged in order and contain (but are not limited to) the following types of data:
 

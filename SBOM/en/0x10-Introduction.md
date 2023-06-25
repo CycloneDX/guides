@@ -116,12 +116,6 @@ can link to MBOMs for their components and services, and access control can be m
 organizations to maintain tighter control over what parties gain access to inventory information in a BOM and what parties 
 have access to MBOM information which may have higher sensitivity and data classification.
 
-### Bill of Attestations (BOA)
-BOA's are machine-readable statements of claims, evidence, and testimony in compliance with regulations, standards, and
-frameworks. CycloneDX implements a general-purpose attestation strategy that allows it to be leveraged across many
-industries and for a wide variety of purposes. This may include compliance with ISO 27001, SOC 2, NIST SSDF, and OWASP
-ASVS.
-
 ### Bill of Vulnerabilities (BOV)
 CycloneDX BOMs may consist solely of vulnerabilities and thus can be used to share vulnerability data between systems 
 and sources of vulnerability intelligence. Complex vulnerability data can be represented, including the vulnerability 
