@@ -9,8 +9,9 @@ case $1 in
   ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
   ([Vv][Dd][Rr]) BOMTYPE="VDR+VEX";;
   ([Vv][Ee][Xx]) BOMTYPE="VDR+VEX";;
+  ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
   (*)
-    echo Invalid argument. Valid arguments are "SBOM", "SaaSBOM", and "VDR"
+    echo Invalid argument. Valid arguments are "SBOM", "SaaSBOM", "VDR", and "Attestations"
     exit;;
 esac
 
