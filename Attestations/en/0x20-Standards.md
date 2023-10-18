@@ -22,8 +22,8 @@ TODO
 ## OWASP Mobile Application Security Verification Standard (MASVS)
 TODO
 
-## OWASP TODO
-Software Component Verification Standard (SCVS)
+## OWASP Software Component Verification Standard (SCVS)
+TODO
 
 ## OWASP Software Assurance Maturity Model (SAMM) 
 TODO
