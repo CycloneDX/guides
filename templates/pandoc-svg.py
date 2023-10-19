@@ -15,7 +15,7 @@ from pandocfilters import toJSONFilter, Image
 fmt_to_option = {
     #use PNG because EMF and WMF break transparency
     #"docx": ("--export-type=png", "png"),
-    "docx": ("--export-type=eps", "eps")
+    "docx": ("--export-type=emf", "emf")
 }
 
 

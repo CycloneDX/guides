@@ -38,8 +38,8 @@ generate_docx() {
       --toc-depth=2 \
       -t docx \
       -o "../OWASP_CycloneDX-$BOMTYPE-Guide-SNAPSHOT-$LANG.docx" *.md
-  echo -n "\nRemoving temporary eps files...\n"
-  find ../.. -type f -name '*.eps' -print -delete
+  echo -n "\nRemoving temporary emf files...\n"
+  find ../.. -type f -name '*.emf' -print -delete
 }
 
 generate_pdf() {
