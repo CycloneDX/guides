@@ -3,7 +3,7 @@
 ## Claims
 `Claims` in the CycloneDX Attestation specification refer to statements about the attestation, such as the identity of the component, the identity of the entity that created the attestation, and the date and time of the attestation. Claims can also be made about the specific aspects of the component that are being attested to, such as its provenance, integrity, and security.
 
-Claims are important because they provide context for the attestation and help consumers to understand what the attestation is saying. For example, a consumer can use the claims to determine whether or not the attestation is relevant to their needs, and whether or not they can trust the entity that created the attestation. Consumers of CycloneDX Attestations can use the claims to assess the trustworthiness of the attestation and to determine whether or not the attestation meets their needs.
+Claims are important because they provide context for the attestation and help consumers to understand what the attestation is saying. For example, a consumer can use the claims to determine whether or not the attestation is relevant to their needs, and whether or not they can trust the entity that created the attestation. The needs of a consumer are encoded in the form of `requirements` in CycloneDX Attestation. The claims are made against the requirements i.e. claims in an attestation references the requirements they satisfy. The consumer of the attestation can use the referenced requirements in the claim to verify if a claim satifies their needs.  
 
 Some examples of claims that can be made in a CycloneDX Attestation:
 
