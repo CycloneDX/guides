@@ -28,6 +28,12 @@ TODO
 ## OWASP Software Assurance Maturity Model (SAMM) 
 TODO
 
+
+
+TODO / Add table that lists standards and the CDX version of those standards
+
+TODO / Include example standard snippet
+
 <div style="page-break-after: always; visibility: hidden">
 \newpage
 </div>
