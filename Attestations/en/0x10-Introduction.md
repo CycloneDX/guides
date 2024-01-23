@@ -31,6 +31,12 @@ We believe:
 * The use of Attestations will enable all forms of assessors, certifiers, and accreditors to more quickly evaluate compliance and provide feedback to producers
 * Attestations will enable faster compliance feedback loops and less surprises and delays
 
+## Intended Use Cases
+// TODO
+// * Supplier to consumer use case where the consumer requires adherence to something (e.g. SSDF)
+// * Internal use case where an internal policy is created from requirements defined in CDXA
+// * Regulatory and industry compliance requirements
+
 ## Tool Support
 
 Over time, we expect better tools for managing all aspects of security attestation to emerge. As a producer, imagine being able to select appropriate standards for a project, eliminate duplication, articulate compliance rationales, automatically generate and include supporting evidence, manage reviews, and digitally sign attestations. From the assessor point of view, imagine being able to quickly evaluate claims and evidence, easily identify changes, point out gaps, and digitally sign approvals.

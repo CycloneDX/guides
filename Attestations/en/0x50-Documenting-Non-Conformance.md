@@ -1,10 +1,10 @@
 # Documenting Non-Conformance
 TODO
 
-## Plan of Action and Milestones (POAM)
+## Mitigation Strategies
 TODO
 
-## Mitigation Strategies
+### Plan of Action and Milestones (POAM)
 TODO
 
 ## Counter Evidence
