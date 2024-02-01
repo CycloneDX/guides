@@ -11,6 +11,8 @@ supply chain security field. This guide would not be possible without valuable f
 Working Group (IWG), the CycloneDX Core Working Group (CWG), the many CycloneDX Feature Working Groups (FWG), 
 CycloneDX maintainers and a global network of contributors and supporters.
 
+Portions of this guide were contributed by IBM under the Apache License Version 2.0.
+
 ## Copyright and License
 
 ![license](../../images/license.svg)
