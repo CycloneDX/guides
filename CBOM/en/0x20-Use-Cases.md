@@ -25,8 +25,7 @@ approach to inventorying cryptographic assets and evaluating their resilience ag
 cryptographic algorithms and their respective parameters, CBOM enables organizations to identify vulnerable or weak 
 components that require mitigation or replacement with quantum-resistant alternatives recommended by NSA and NIST. 
 Through comprehensive analysis and strategic planning facilitated by CBOM, organizations can proactively transition to 
-post-quantum cryptographic primitives, ensuring the long-term security and integrity of their systems and applications 
-in the face of evolving technological landscapes.
+post-quantum cryptographic primitives, ensuring the long-term security and integrity of their systems and applications.
 
 ## Cryptographic Requirements and Certifications
 CBOM facilitates the assessment of whether cryptographic implementations meet the stringent criteria outlined by 
