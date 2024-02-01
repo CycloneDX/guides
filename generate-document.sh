@@ -6,12 +6,13 @@ BOMTYPE=;
 
 case $1 in
   ([Ss][Bb][Oo][Mm]) BOMTYPE="SBOM";;
+  ([Cc][Bb][Oo][Mm]) BOMTYPE="CBOM";;
   ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
   ([Vv][Dd][Rr]) BOMTYPE="VDR+VEX";;
   ([Vv][Ee][Xx]) BOMTYPE="VDR+VEX";;
   ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
   (*)
-    echo Invalid argument. Valid arguments are "SBOM", "SaaSBOM", "VDR", and "Attestations"
+    echo Invalid argument. Valid arguments are "SBOM", "CBOM", "SaaSBOM", "VDR", and "Attestations"
     exit;;
 esac
 
