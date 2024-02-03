@@ -23,8 +23,8 @@ using and facilitate the assessment of the risk posture to provide a starting po
 CBOM for this purpose.
 
 ## CBOM Design
-The overall design goal of CBOM is to provide an abstraction that allows modeling and representing crypto assets in a
-structured object format. This comprises the following points.
+The overall design goal of CBOM is to provide an abstraction that allows modeling and representing cryptographic assets
+in a structured object format. This comprises the following points.
 
 1. Modelling cryptographic assets
    Cryptographic assets occur in several forms. Algorithms and protocols are most commonly implemented in specialized cryptographic libraries. They may, however, also be 'hardcoded' in software components. Certificates and related cryptographic material like keys, tokens, secrets, or passwords are other cryptographic assets to be modeled.
