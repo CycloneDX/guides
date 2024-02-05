@@ -28,9 +28,9 @@ Version 1.0.0, xx February 2024
 \emptyparagraph
 </div>
 
-| Version | Changes         | Updated On | Updated By                   |
-|---------|-----------------|------------|------------------------------|
-| 0.0.0   | Initial Release | 2024-xx-xx | CycloneDX Core Working Group |
+| Version       | Changes         | Updated On | Updated By                                      |
+|---------------|-----------------|------------|-------------------------------------------------|
+| First Edition | Initial Release | 2024-xx-xx | CycloneDX Feature Working Group on Cryptography |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

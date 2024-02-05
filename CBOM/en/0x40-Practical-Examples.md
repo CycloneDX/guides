@@ -59,8 +59,7 @@ AES-128-GCM and SHA512withRSA.
 An example with the QSC Signature algorithm Dilithium5 is listed below.
 
 ```json
-"components": [
-  {
+"components": [ {
     "name": "Dilithium5",
     "type": "cryptographic-asset",
     "cryptoProperties": {
@@ -75,12 +74,8 @@ An example with the QSC Signature algorithm Dilithium5 is listed below.
       },
       "oid": "1.3.6.1.4.1.2.267.7.8.7"
     }
-  }
-]
+  } ]
 ```
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ## Key
 The following example demonstrates how an RSA-2048 public key can be included in a CBOM.
@@ -107,45 +102,24 @@ The following example demonstrates how an RSA-2048 public key can be included in
       },
       "oid": "1.2.840.113549.1.1.1"
     }
-  }, 
-  {
+  }, {
     "name": "RSA-2048",
     "type": "cryptographic-asset",
     "bom-ref": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "parameterSetIdentifier": "2048",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "cryptoFunctions": [ "encapsulate", "decapsulate" ]
-      },
-      "oid": "1.2.840.113549.1.1.1"
-    }
-  }, 
-  {
+    "cryptoProperties": { ... }
+  }, {
     "name": "AES-128-GCM",
     "type": "cryptographic-asset",
     "bom-ref": "crypto/algorithm/aes-128-gcm@2.16.840.1.101.3.4.1.6",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "parameterSetIdentifier": "128",
-        "primitive": "ae",
-        "mode": "gcm",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "cryptoFunctions": [ "keygen", "encrypt", "decrypt" ],
-        "classicalSecurityLevel": 128,
-        "nistQuantumSecurityLevel": 1
-      },
-      "oid": "2.16.840.1.101.3.4.1.6"
-    }
-  } ]
+    "cryptoProperties": { ... }
+  } 
+]
 ```
+A complete example can be found at [https://cyclonedx.org/shortcut/example/key](https://cyclonedx.org/shortcut/example/key)
+
 
 ## Protocol
-A cryptographic protocol is added to the components array of the BOM. The example below lists an instance of the protocol TLS v1.2 with a number of TLS cipher suites.
+The following example lists an instance of the TLS v1.2 protocol with a number of cipher suites.
 
 ```json
 "components": [
@@ -171,7 +145,7 @@ A cryptographic protocol is added to the components array of the BOM. The exampl
           }
         ],
         "cryptoRefArray": [
-          "crypto/certificate/google.com@sha256:1e15e0fbd3ce95bde5945633ae96add551341b11e5bae7bba12e98ad84a5beb4"
+          "crypto/certificate/google.com@sha256:1e15...beb4"
         ]
       },
       "oid": "1.3.18.0.2.32.104"
@@ -180,7 +154,7 @@ A cryptographic protocol is added to the components array of the BOM. The exampl
   {
     "name": "google.com",
     "type": "cryptographic-asset",
-    "bom-ref": "crypto/certificate/google.com@sha256:1e15e0fbd3ce95bde5945633ae96add551341b11e5bae7bba12e98ad84a5beb4",
+    "bom-ref": "crypto/certificate/google.com@sha256:1e15...beb4",
     "cryptoProperties": {
       "assetType": "certificate",
       "certificateProperties": {
@@ -305,6 +279,11 @@ A cryptographic protocol is added to the components array of the BOM. The exampl
   }
 ]
 ```
+A complete example can be found at [https://cyclonedx.org/shortcut/example/protocol](https://cyclonedx.org/shortcut/example/protocol)
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## Certificate 
 The following example details an X.509 certificate in a CBOM.
@@ -314,7 +293,7 @@ The following example details an X.509 certificate in a CBOM.
   {
     "name": "google.com",
     "type": "cryptographic-asset",
-    "bom-ref": "crypto/certificate/google.com@sha256:1e15e0fbd3ce95bde5945633ae96add551341b11e5bae7bba12e98ad84a5beb4",
+    "bom-ref": "crypto/certificate/google.com@sha256:1e15...beb4",
     "cryptoProperties": {
       "assetType": "certificate",
       "certificateProperties": {
@@ -333,59 +312,24 @@ The following example details an X.509 certificate in a CBOM.
     "name": "SHA512withRSA",
     "type": "cryptographic-asset",
     "bom-ref": "crypto/algorithm/sha-512-rsa@1.2.840.113549.1.1.13",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "parameterSetIdentifier": "512",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "certificationLevel": [ "none" ],
-        "cryptoFunctions": [ "digest" ],
-        "nistQuantumSecurityLevel": 0
-      },
-      "oid": "1.2.840.113549.1.1.13"
-    }
+    "cryptoProperties": { ... }
   },
   {
     "name": "RSA-2048",
     "type": "cryptographic-asset",
     "bom-ref": "crypto/key/rsa-2048@1.2.840.113549.1.1.1",
-    "cryptoProperties": {
-      "assetType": "related-crypto-material",
-      "relatedCryptoMaterialProperties": {
-        "type": "public-key",
-        "id": "2e9ef09e-dfac-4526-96b4-d02f31af1b22",
-        "state": "active",
-        "size": 2048,
-        "algorithmRef": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
-        "securedBy": {
-          "mechanism": "None"
-        },
-        "creationDate": "2016-11-21T08:00:00Z",
-        "activationDate": "2016-11-21T08:20:00Z"
-      },
-      "oid": "1.2.840.113549.1.1.1"
-    }
+    "cryptoProperties": { ... }
   },
   {
     "name": "RSA-2048",
     "type": "cryptographic-asset",
     "bom-ref": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "parameterSetIdentifier": "2048",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "certificationLevel": [ "none" ],
-        "cryptoFunctions": [ "encapsulate", "decapsulate" ]
-      },
-      "oid": "1.2.840.113549.1.1.1"
-    }
+    "cryptoProperties": { ... }
   }
 ]
 ```
 
+A complete example can be found at [https://cyclonedx.org/shortcut/example/cert](https://cyclonedx.org/shortcut/example/cert)
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
