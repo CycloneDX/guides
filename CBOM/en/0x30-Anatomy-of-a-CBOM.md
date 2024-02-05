@@ -18,13 +18,13 @@ CycloneDX can represent the following types of cryptographic assets:
 
 | Type | Description                                                                                                                                                              |
 | ---- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| algorithm | Mathematical function commonly used for data encryption, authentication, and digital signatures.                                                                         |
+| algorithm | Cryptographic function commonly used for data encryption, authentication, and digital signatures or other primitives.                                                    |
 | certificate | An electronic document that is used to provide the identity or validate a public key.                                                                                    |
 | protocol | A set of rules and guidelines that govern the behavior and communication with each other.                                                                                |
 | private-key | The confidential key of a key pair used in asymmetric cryptography.                                                                                                      |
 | public-key | The non-confidential key of a key pair used in asymmetric cryptography.                                                                                                  |
 | secret-key | A key used to encrypt and decrypt messages in symmetric cryptography.                                                                                                    |
-| key | A piece of information, usually a string of characters, which, when processed through a cryptographic algorithm, can encode or decode cryptographic data.                |
+| key | A piece of information, usually an octet string, which, when processed through a cryptographic algorithm, process cryptographic data.                   |
 | ciphertext | The result of encryption performed on plaintext using an algorithm (or cipher).                                                                                          |
 | signature | A cryptographic value that is calculated from the data and a key known only by the signer.                                                                               |
 | digest | The output of the hash function.                                                                                                                                         |
@@ -34,7 +34,7 @@ CycloneDX can represent the following types of cryptographic assets:
 | salt | A non-secret value used in a cryptographic process, usually to ensure that the results of computations for one instance cannot be reused by an attacker.                 |
 | shared-secret | A piece of data, known only to the parties involved, in a secure communication.                                                                                          |
 | tag | A message authentication code (MAC), sometimes known as an authentication tag, is a short piece of information used for authenticating and integrity-checking a message. |
-| additional-data | ???? TODO ????                                                                                                                                                           |
+| additional-data | An unspecified collection of data with relevance to cryptographic activity.                                                                                              |
 | password | A secret word, phrase, or sequence of characters used during authentication or authorization.                                                                            |
 | credential | Establishes the identity of a party to communication, usually in the form of cryptographic keys or passwords.                                                            |
 | token | An object encapsulating a security identity.                                                                                                                             |
