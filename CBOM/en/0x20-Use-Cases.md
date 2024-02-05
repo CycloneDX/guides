@@ -14,7 +14,7 @@ and streamlined auditing processes. With CBOM, organizations can effectively saf
 mitigate risks associated with unauthorized access or misuse, and maintain the integrity and confidentiality of sensitive
 data across diverse digital environments.
 
-## Identifying Weak Algorithms
+## Identifying Weak Cryptographic Algorithms
 CBOM enables organizations to conduct thorough assessments and discover weak algorithms or flawed implementations that 
 could compromise security. Through analysis of CBOM data, including cryptographic algorithms, key management practices, 
 and usage patterns, organizations can pinpoint areas of concern and prioritize remediation efforts. CBOM facilitates 
