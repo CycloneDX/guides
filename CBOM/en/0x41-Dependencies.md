@@ -8,12 +8,12 @@ A dependency graph is typically one node deep and capable of representing both d
 Refer to the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/) for additional details. In the 
 context cryptographic dependencies, CycloneDX provides some additional capabilities.
 
-As of CycloneDX v1.6, there are two types of dependencies, dependsOn and provides. 
+As of CycloneDX v1.6, there are two types of dependencies: dependsOn and provides. 
 
-| Dependency Type | Description                                                                                                                                                                                                                                                                                                                                         |
-| --------------- |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dependsOn | The bom-ref identifiers of the components or services that are dependencies of this dependency object.                                                                                                                                                                                                                                                                                                                                                   |
-| provides | The bom-ref identifiers of the components or services that define a given specification or standard, which are provided or implemented by this dependency object. For example, a cryptographic library which implements a cryptographic algorithm. A component which implements another component does not imply that the implementation is in use. |
+| Dependency Type | Description                                                                                                                                                                                                                                                                                                                                       |
+| --------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dependsOn | The bom-ref identifiers of the components or services that are dependencies of this dependency object.                                                                                                                                                                                                                                            |
+| provides | The bom-ref identifiers of the components or services that define a given specification or standard, which are provided or implemented by this dependency object. For example, a cryptographic library that implements a cryptographic algorithm. A component that implements another component does not imply that the implementation is in use. |
 
 
 The dependency type, dependsOn, is leveraged by classic SBOMs to define a complete graph of direct and transitive 
@@ -21,11 +21,11 @@ dependencies. However, for cryptographic and similar assets, "provides" allows f
 
 ![Dependencies](./images/dependencies.svg)
 
-The example shows an application (nginx) that uses the libssl cryptographic library. This library implements the TLSv1.2 protocol. The relationship between the application, the library and the protocol can be expressed by using the depenedencies properties of the SBOM standard.
+The example shows an application (nginx) that uses the libssl cryptographic library. This library implements the TLSv1.2 protocol. The relationship between the application, the library and the protocol can be expressed by using the dependencies properties of the SBOM standard.
 
-Since a TLS protocol supports different cipher suites that include multiple algorithms, there should be a way to represent these relationships as part of the CBOM. Compared to adding the algorithms as "classic" dependencies to the protocol, we defined special property fields that allow referencing the deployment with additional meaning. The protocolProperties allow adding an array of algorithms to a cipher suite as part of the cipher suite array. By modeling and then referencing these algorithms, we can still have only one classical component at the SBOM level, but a subtree of crypto dependencies within the crypto asset components.
+Since a TLS protocol supports different cipher suites that include multiple algorithms, there should be a way to represent these relationships as part of the CBOM. Compared to adding the algorithms as "classic" dependencies to the protocol, we defined special property fields that allow referencing the deployment with additional meaning. The protocolProperties allows adding an array of algorithms to a cipher suite as part of the cipher suite array. By modeling and then referencing these algorithms, we can still have only one classical component at the SBOM level but a subtree of crypto dependencies within the crypto asset components.
 
-The following example illustrates a simple application with a dependency on a cryptographic library, which in turn, 
+The following example illustrates a simple application with a dependency on a cryptographic library, which, in turn, 
 implements AES-128-GCM. The cryptographic library also has a dependency on another library.
 
 ```json

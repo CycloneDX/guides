@@ -3,12 +3,12 @@ Examples of assets typically cataloged within a CBOM include algorithms, keys, p
 associated metadata crucial for effective management and security. Algorithms refer to the mathematical functions 
 utilized for encryption, hashing, and digital signatures, while keys encompass cryptographic keys used for encryption, 
 decryption, and authentication. Protocols delineate the rules and procedures governing secure communication between 
-entities and certificates authenticate the identities of entities within a cryptographic system. Associated CBOM metadata
+entities, and certificates authenticate the identities of entities within a cryptographic system. Associated CBOM metadata
 includes details such as algorithm versions, key lengths, protocol configurations, and certificate attributes, providing 
 comprehensive insights necessary for the management and security of cryptographic assets.
 
 ## Algorithm
-A cryptographic algorithm is added in the components array of the BOM. The examples below lists the algorithm 
+A cryptographic algorithm is added in the components array of the BOM. The examples below list the algorithm 
 AES-128-GCM and SHA512withRSA.
 
 ```json

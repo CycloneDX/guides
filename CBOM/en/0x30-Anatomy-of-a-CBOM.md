@@ -1,8 +1,8 @@
 # Anatomy of a CBOM
 The Cryptography Bill of Materials (CBOM) presents a structured approach to inventory management of cryptographic assets,
-leveraging the CycloneDX component model to represent a diverse array of cryptographic assets comprehensively. 
-CBOM is implemented within the CycloneDX object model, which facilitates the standardized representation of 
-cryptographic assets, including algorithms, keys, protocols, and certificates. The CycloneDX component model provides a
+leveraging the CycloneDX component model to comprehensively represent a diverse array of cryptographic assets.
+CBOM is implemented within the CycloneDX object model, facilitating the standardized representation of
+cryptographic assets, including algorithms, keys, protocols, and certificates. The CycloneDX object model provides a
 flexible and extensible framework that accommodates the complexity and diversity of cryptographic infrastructure.
 
 ## Structure and Cryptographic Asset Types
@@ -16,30 +16,30 @@ flexible and extensible framework that accommodates the complexity and diversity
 CycloneDX can represent the following types of cryptographic assets:
 
 
-| Type | Description                                                                                                                                                              |
-| ---- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| algorithm | Cryptographic function commonly used for data encryption, authentication, and digital signatures or other primitives.                                                    |
-| certificate | An electronic document that is used to provide the identity or validate a public key.                                                                                    |
-| protocol | A set of rules and guidelines that govern the behavior and communication with each other.                                                                                |
-| private-key | The confidential key of a key pair used in asymmetric cryptography.                                                                                                      |
-| public-key | The non-confidential key of a key pair used in asymmetric cryptography.                                                                                                  |
-| secret-key | A key used to encrypt and decrypt messages in symmetric cryptography.                                                                                                    |
-| key | A piece of information, usually an octet string, which, when processed through a cryptographic algorithm, process cryptographic data.                   |
-| ciphertext | The result of encryption performed on plaintext using an algorithm (or cipher).                                                                                          |
-| signature | A cryptographic value that is calculated from the data and a key known only by the signer.                                                                               |
-| digest | The output of the hash function.                                                                                                                                         |
-| initialization-vector | A fixed-size random or pseudo-random value used as an input parameter for cryptographic algorithms.                                                                      |
-| nonce | A random or pseudo-random number that can only be used once in a cryptographic communication.                                                                            |
-| seed | The input to a pseudorandom number generator. Different seeds generate different pseudorandom sequences.                                                                 |
-| salt | A non-secret value used in a cryptographic process, usually to ensure that the results of computations for one instance cannot be reused by an attacker.                 |
-| shared-secret | A piece of data, known only to the parties involved, in a secure communication.                                                                                          |
+| Type | Description                                                                                                                                                             |
+| ---- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| algorithm | Cryptographic function commonly used for data encryption, authentication, and digital signatures or other primitives.                                                   |
+| certificate | An electronic document that provides the identity or validates a public key.                                                                                            |
+| protocol | A set of rules and guidelines that govern the behavior and communication with each other.                                                                               |
+| private-key | The confidential key of a key pair used in asymmetric cryptography.                                                                                                     |
+| public-key | The non-confidential key of a key pair used in asymmetric cryptography.                                                                                                 |
+| secret-key | A key used to encrypt and decrypt messages in symmetric cryptography.                                                                                                   |
+| key | A piece of information, usually an octet string, which, when processed through a cryptographic algorithm, processes cryptographic data.                                 |
+| ciphertext | The result of encryption performed on plaintext using an algorithm (or cipher).                                                                                         |
+| signature | A cryptographic value that is calculated from the data and a key known only by the signer.                                                                              |
+| digest | The output of the hash function.                                                                                                                                        |
+| initialization-vector | A fixed-size random or pseudo-random value used as an input parameter for cryptographic algorithms.                                                                     |
+| nonce | A random or pseudo-random number that can only be used once in a cryptographic communication.                                                                           |
+| seed | The input to a pseudo-random number generator. Different seeds generate different pseudo-random sequences.                                                              |
+| salt | A value used in a cryptographic process, usually to ensure that the results of computations for one instance cannot be reused by an attacker.                 |
+| shared-secret | A piece of data known only to the parties involved, in a secure communication.                                                                                          |
 | tag | A message authentication code (MAC), sometimes known as an authentication tag, is a short piece of information used for authenticating and integrity-checking a message. |
-| additional-data | An unspecified collection of data with relevance to cryptographic activity.                                                                                              |
-| password | A secret word, phrase, or sequence of characters used during authentication or authorization.                                                                            |
-| credential | Establishes the identity of a party to communication, usually in the form of cryptographic keys or passwords.                                                            |
-| token | An object encapsulating a security identity.                                                                                                                             |
-| other | Another type of cryptographic asset.                                                                                                                                     |
-| unknown | The type of cryptographic asset is not known.                                                                                                                            |
+| additional-data | An unspecified collection of data with relevance to cryptographic activity.                                                                                             |
+| password | A secret word, phrase, or sequence of characters used during authentication or authorization.                                                                           |
+| credential | Establishes the identity of a party to communication, usually in the form of cryptographic keys or passwords.                                                           |
+| token | An object encapsulating a security identity.                                                                                                                            |
+| other | Another type of cryptographic asset.                                                                                                                                    |
+| unknown | The type of cryptographic asset is not known.                                                                                                                           |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
@@ -78,8 +78,8 @@ CycloneDX fully supports key states as detailed in the example below:
 ## Intersection of Key Management States and Lifecycle Phases
 As outlined in the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/), CycloneDX supports lifecycles
 that encompass those in the Software Development Life Cycle (SDLC) and those commonly used in Software Asset Management
-(SAM). CycloneDX lifecycle phases can be used together with the key management states defined by NIST to help in 
-identifying and preventing risks associated with compromised keys and operational anomalies.
+(SAM). CycloneDX lifecycle phases can be used together with the key management states defined by NIST to help identify 
+and prevent risks associated with compromised keys and operational anomalies.
 
 CycloneDX defines the following phases:
 
@@ -108,7 +108,7 @@ cryptographic assets and can identify potential risks more effectively.
 </div>
 
 ### Manage Keys From Inception
-In the CycloneDX lifecycle, the "Design" and "Pre-build" phases corresponds to the pre-activation state in key 
+In the CycloneDX lifecycle, the "Design" and "Pre-build" phases correspond to the pre-activation state in key 
 management. During development, cryptographic keys are generated but not yet put into active use. By linking 
 pre-activation with these phases, organizations can ensure that cryptographic keys are securely managed from their 
 inception, minimizing the risk of unauthorized access or compromise before deployment.
@@ -139,19 +139,19 @@ Any deviances from expected lifecycle mappings to key management states should b
 ![Lifecycles](../../images/Lifecycles.svg)
 
 ### Prevention of Compromised Keys During Build or Deployment
-The compromised key management state, plays a crucial role in preventing software supply chain attacks when integrated 
+The compromised key management state is crucial in preventing software supply chain attacks when integrated 
 into the "Build" lifecycle phase in CycloneDX. During the build phase, cryptographic keys are utilized to sign software 
 artifacts, ensuring their authenticity and integrity. By leveraging the "compromised" state within CycloneDX, 
-organizations can detect compromised keys promptly and prevent their unauthorized usage during the build process. 
+organizations can detect compromised keys promptly and prevent unauthorized usage during the build process. 
 For instance, if a key used for code signing is compromised, CycloneDX metadata can flag the key as compromised, 
 triggering automated processes to revoke its access privileges and prevent its use in signing software artifacts. 
 This proactive approach mitigates the risk of adversaries leveraging compromised keys to inject malicious code into the 
 software supply chain, enhancing the security and trustworthiness of software builds distributed to software consumers.
 
-By leveraging key management states within the context of the CycloneDX lifecycle phases, organizations can enhance 
-their risk management practices, proactively identify security vulnerabilities, and maintain the integrity of 
-cryptographic operations throughout the software development lifecycle. This integrated approach enables organizations 
-to effectively safeguard sensitive data and mitigate potential risks associated with cryptographic assets.
+By leveraging key management states within the CycloneDX lifecycle phases, organizations can enhance their risk 
+management practices, proactively identify security vulnerabilities, and maintain the integrity of cryptographic 
+operations throughout the software development lifecycle. This integrated approach enables organizations to safeguard 
+sensitive data and mitigate potential risks associated with cryptographic assets.
 
 
 <div style="page-break-after: always; visibility: hidden">
