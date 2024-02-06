@@ -59,7 +59,7 @@ SaaSBOMs provide an inventory of services, endpoints, and data flows and classif
 CycloneDX is capable of describing any type of service including microservices, Service Orientated Architecture (SOA),
 Function as a Service (FaaS), and System of Systems.
 
-SaaSBOMs compliment Infrastructure-as-Code (IaC) by providing a logical representation of a complex system, complete
+SaaSBOMs complement Infrastructure-as-Code (IaC) by providing a logical representation of a complex system, complete
 with inventory of all services, their reliance on other services, endpoint URLs, data classifications, and the directional
 flow of data between services. Optionally, SaaSBOMs may also include the software components that make up each service.
 
