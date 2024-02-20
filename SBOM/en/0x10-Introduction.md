@@ -64,11 +64,13 @@ CycloneDX provides advanced supply chain capabilities for cyber risk reduction. 
 * Software-as-a-Service Bill of Materials (SaaSBOM)
 * Hardware Bill of Materials (HBOM)
 * Machine Learning Bill of Materials (ML-BOM)
+* Cryptography Bill of Materials (CBOM)
 * Operations Bill of Materials (OBOM)
 * Manufacturing Bill of Materials (MBOM)
 * Bill of Vulnerabilities (BOV)
 * Vulnerability Disclosure Report (VDR)
 * Vulnerability Exploitability eXchange (VEX)
+* CycloneDX Attestations (CDXA)
 * Common Release Notes Format
 
 <div style="page-break-after: always; visibility: hidden">
@@ -99,6 +101,13 @@ ML-BOMs provide transparency for machine learning models and datasets, which pro
 privacy, safety, and ethical considerations. CycloneDX standardizes model cards in a way where the inventory of models 
 and datasets can be used independently or combined with the inventory of software and hardware components or services 
 defined in HBOMs, SBOMs, and SaaSBOMs.
+
+###  Cryptography Bill of Materials (CBOM)
+A Cryptography Bill of Materials (CBOM) describes cryptographic assets and their dependencies. Discovering, managing,
+and reporting on cryptographic assets is necessary as the first step on the migration journey to quantum-safe systems
+and applications. Cryptography is typically buried deep within components that are used to compose and build systems
+and applications. As part of an agile cryptographic approach, organizations should seek to understand what cryptographic
+assets they are using and facilitate the assessment of the risk posture to provide a starting point for mitigation.
 
 ### Operations Bill of Materials (OBOM)
 OBOMs provide a full-stack inventory of runtime environments, configurations, and additional dependencies. CycloneDX is a
@@ -133,6 +142,11 @@ VEX conveys the exploitability of vulnerable components in the context of the pr
 subset of VDR. Oftentimes, products are not affected by a vulnerability simply by including an otherwise vulnerable
 component. VEX allows software vendors and other parties to communicate the exploitability status of vulnerabilities,
 providing clarity on the vulnerabilities that pose a risk and the ones that do not.
+
+### CycloneDX Attestations (CDXA)
+CycloneDX Attestations enable organizations to communicate security standards, claims and evidence about security 
+requirements, and attestations to the veracity and completeness of those claims. CycloneDX Attestations is a way to 
+manage "compliance as code."
 
 ### Common Release Notes Format
 CycloneDX standardizes release notes into a common, machine-readable format. This capability unlocks new workflow

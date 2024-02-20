@@ -87,6 +87,21 @@ individuals or organizations. Annotations can be independently signed and verifi
 
 ![Annotations](../../images/Object-Model/Annotations.svg)
 
+### Definitions
+Standards, requirements, levels, and all supporting documentation are defined here. CycloneDX provides a general-purpose,
+machine-readable way to define virtually any type of standard. Security standards such as OWASP ASVS, MASVS, SCVS, and 
+SAMM are available in CycloneDX format. Standards from other bodies are available as well. Additionally, organizations
+can create internal standards and represent them in CycloneDX.
+
+![Definitions](../../images/Object-Model/Definitions.svg)
+
+### Declarations
+Declarations describe the conformance to standards. Each declaration may include attestations, claims, counter-claims, 
+evidence, counter-evidence, along with conformance and confidence. Signatories can also be declared and supports both
+digital and analog signatures. Declarations provide the basis for "compliance-as-code".
+
+![Declarations](../../images/Object-Model/Declarations.svg)
+
 ### Extensions
 Multiple extension points exist throughout the CycloneDX object model, allowing fast prototyping of new capabilities and
 support for specialized and future use cases. The CycloneDX project maintains extensions that are beneficial to the
@@ -101,10 +116,10 @@ CycloneDX can be represented in JSON, XML, and Protocol Buffers (protobuf) and h
 | **Format** | **Resource**  | **URL**                                          |
 |------------|---------------|--------------------------------------------------|
 | JSON       | Documentation | https://cyclonedx.org/docs/latest/json/          |
-| JSON       | Schema        | https://cyclonedx.org/schema/bom-1.5.schema.json |
+| JSON       | Schema        | https://cyclonedx.org/schema/bom-1.6.schema.json |
 | XML        | Documentation | https://cyclonedx.org/docs/latest/xml/           |
-| XML        | Schema        | https://cyclonedx.org/schema/bom-1.5.xsd         |
-| Protobuf   | Schema        | https://cyclonedx.org/schema/bom-1.5.proto       |
+| XML        | Schema        | https://cyclonedx.org/schema/bom-1.6.xsd         |
+| Protobuf   | Schema        | https://cyclonedx.org/schema/bom-1.6.proto       |
 
 
 CycloneDX relies exclusively on JSON Schema, XML Schema, and protobuf for validation. The entirety of the specification
