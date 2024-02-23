@@ -105,8 +105,8 @@ defined in HBOMs, SBOMs, and SaaSBOMs.
 ###  Cryptography Bill of Materials (CBOM)
 A Cryptography Bill of Materials (CBOM) describes cryptographic assets and their dependencies. Discovering, managing,
 and reporting on cryptographic assets is necessary as the first step on the migration journey to quantum-safe systems
-and applications. Cryptography is typically buried deep within components that are used to compose and build systems
-and applications. As part of an agile cryptographic approach, organizations should seek to understand what cryptographic
+and applications. Cryptography is typically buried deep within components used to compose and build systems and 
+applications. As part of an agile cryptographic approach, organizations should seek to understand what cryptographic
 assets they are using and facilitate the assessment of the risk posture to provide a starting point for mitigation.
 
 ### Operations Bill of Materials (OBOM)
@@ -144,8 +144,8 @@ component. VEX allows software vendors and other parties to communicate the expl
 providing clarity on the vulnerabilities that pose a risk and the ones that do not.
 
 ### CycloneDX Attestations (CDXA)
-CycloneDX Attestations enable organizations to communicate security standards, claims and evidence about security 
-requirements, and attestations to the veracity and completeness of those claims. CycloneDX Attestations is a way to 
+CycloneDX Attestations enable organizations to communicate security standards, claims, and evidence about security
+requirements, and attestations to the veracity and completeness of those claims. CycloneDX Attestations is a way to
 manage "compliance as code."
 
 ### Common Release Notes Format
