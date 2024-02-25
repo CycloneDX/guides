@@ -59,6 +59,10 @@ External references provide an extensible and data-rich method of forming relati
 | rfc-9116                  | Document that complies with RFC-9116 (A File Format to Aid in Security Vulnerability Disclosure)                                                                                                                                                                                                                                                                     |
 | other                     | Use this if no other types accurately describe the purpose of the external reference                                                                                                                                                                                                                                                                                 |
 
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
 The following are example external references applied to a component:
 
 ```json
@@ -90,3 +94,7 @@ The following are example external references applied to a component:
   }
 ]
 ```
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
