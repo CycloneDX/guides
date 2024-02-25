@@ -22,16 +22,17 @@ CycloneDX highly encourages organizations to exceed the NTIA minimum elements wh
 types of data will vary by use case but generally should include:
 
 
-| **Field**            | **CycloneDX Field**                    | **Description**                                                                                                                            |
-|----------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| BOM Lifecycles       | bom.metadata.lifecycles[]              | The stage in which data in the BOM was captured                                                                                            |
-| BOM Generation Tools | bom.metadata.tools[]                   | The tool(s) used to create the BOM                                                                                                         |
-| Component Hash       | bom.components[].hashes[]              | The hash values of the file or package                                                                                                     |
-| Component License    | bom.components[].licenses[]            | The license(s) in which the component is released under                                                                                    |
-| Component Evidence   | bom.components[].evidence[].identity.* | The evidence of identity including the methods, techniques, and confidence of how components were identified                               |
-| External References  | bom.components[].externalReferences[]  | Locations to advisories, version control and build systems, etc                                                                            |
-| Services             | bom.services[].*                       | A complete inventory of services including endpoint URLs, data classifications, etc which the product and/or individual components rely on |
-| Known Unknowns       | bom.compositions[].*                   | Assertions on the completeness of the inventory of components and services, along with the completeness of dependency relationships        |
+| **Field**                | **CycloneDX Field**                    | **Description**                                                                                                                            |
+|--------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| BOM Lifecycles           | bom.metadata.lifecycles[]              | The stage in which data in the BOM was captured                                                                                            |
+| BOM Generation Tools     | bom.metadata.tools[]                   | The tool(s) used to create the BOM                                                                                                         |
+| Component Hash           | bom.components[].hashes[]              | The hash values of the file or package                                                                                                     |
+| Component License        | bom.components[].licenses[]            | The license(s) in which the component is released under                                                                                    |
+| Component Evidence       | bom.components[].evidence[].identity.* | The evidence of identity including the methods, techniques, and confidence of how components were identified                               |
+| Cryptographic Properties | bom.components[].cryptoProperties.*    | The properties specific to cryptographic assets detailing the algorithms, keys, protocols, and other cryptographic material                |
+| External References      | bom.components[].externalReferences[]  | Locations to advisories, version control and build systems, etc                                                                            |
+| Services                 | bom.services[].*                       | A complete inventory of services including endpoint URLs, data classifications, etc which the product and/or individual components rely on |
+| Known Unknowns           | bom.compositions[].*                   | Assertions on the completeness of the inventory of components and services, along with the completeness of dependency relationships        |
 
 
 ## SCVS BOM Maturity Model
