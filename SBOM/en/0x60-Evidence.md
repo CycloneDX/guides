@@ -69,7 +69,7 @@ The tools (components or services) which extracted the evidence, performed the a
 
 ### Example
 ```json
-"identity": {
+"identity": [ {
   "field": "purl",
   "confidence": 1,
   "methods": [
@@ -84,7 +84,7 @@ The tools (components or services) which extracted the evidence, performed the a
       "value": "7c547a9d67cc7bc315c93b6e2ff8e4b6b41ae5be454ac249655ecb5ca2a85abf"
     }
   ]
-}
+} ]
 ```
 
 ## Recommendations
