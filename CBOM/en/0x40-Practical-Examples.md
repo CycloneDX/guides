@@ -51,6 +51,7 @@ AES-128-GCM and SHA512withRSA.
   }
 ]
 ```
+A complete example can be found at [https://cyclonedx.org/shortcut/example/algorithm](https://cyclonedx.org/shortcut/example/algorithm)
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
