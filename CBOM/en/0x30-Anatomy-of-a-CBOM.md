@@ -58,6 +58,8 @@ including various key states and their purposes. The key states defined in SP 80
 
 These key states play a critical role in the lifecycle management of cryptographic keys, ensuring that keys are properly managed, secured, and monitored throughout their operational lifespan, thereby maintaining the integrity and confidentiality of sensitive data and systems.
 
+![Key Management Lifecycles](./images/Key-Management-Lifecycles.svg)
+
 CycloneDX fully supports key states as detailed in the example below:
 
 ```json
