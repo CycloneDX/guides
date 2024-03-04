@@ -46,7 +46,7 @@ CycloneDX can represent the following types of cryptographic assets:
 </div>
 
 ## Key Management
-[NIST Special Publication 800-57]((https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final)) outlines key management guidelines,
+[NIST Special Publication 800-57](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final) outlines key management guidelines,
 including various key states and their purposes. The key states defined in SP 800-57 include:
 
 1. **Pre-activation**: Keys in this state are generated but not yet placed into active use. They are securely stored until needed, awaiting activation for cryptographic operations.
