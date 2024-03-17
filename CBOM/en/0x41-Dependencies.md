@@ -3,12 +3,11 @@ CycloneDX provides the ability to describe components and their dependency on ot
 component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for bom-ref
 is that it is unique within the BOM. Package URL (PURL) is an ideal choice for bom-ref as it will be both unique and
 readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.
-A dependency graph is typically one node deep and capable of representing both direct and transitive relationships.
+A dependency graph is capable of representing both direct and transitive relationships. Refer to the 
+[CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/) for additional details. 
 
-Refer to the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/) for additional details. In the 
-context cryptographic dependencies, CycloneDX provides some additional capabilities.
-
-As of CycloneDX v1.6, there are two types of dependencies: dependsOn and provides. 
+In the context of cryptographic dependencies, CycloneDX provides some additional capabilities. As of CycloneDX v1.6, 
+there are two types of dependencies: dependsOn and provides. 
 
 | Dependency Type | Description                                                                                                                                                                                                                                                                                                                                       |
 | --------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

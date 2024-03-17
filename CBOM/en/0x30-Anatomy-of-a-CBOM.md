@@ -148,7 +148,7 @@ organizations can detect compromised keys promptly and prevent unauthorized usag
 For instance, if a key used for code signing is compromised, CycloneDX metadata can flag the key as compromised, 
 triggering automated processes to revoke its access privileges and prevent its use in signing software artifacts. 
 This proactive approach mitigates the risk of adversaries leveraging compromised keys to inject malicious code into the 
-software supply chain, enhancing the security and trustworthiness of software builds distributed to software consumers.
+software supply chain, enhancing the security and trustworthiness of software builds distributed to consumers.
 
 By leveraging key management states within the CycloneDX lifecycle phases, organizations can enhance their risk 
 management practices, proactively identify security vulnerabilities, and maintain the integrity of cryptographic 

@@ -1,19 +1,17 @@
 # Standards
-In CDXA, a "standard" is just a collection of security requirements. Each "standard" has a version number, description, an owner, and a list of requirements. The requirements themselves may be very specific and concrete, best practices, guidance, or even just priniciples. That's up to the standard creator. Many security standards are available in CDXA. You can see a list below.
+In CDXA, a "standard" is just a collection of security requirements. Each "standard" has a version number, description, an owner, and a list of requirements. The requirements themselves may be very specific and concrete, with best practices, guidance, or even just principles. That's up to the standard creator. Many security standards are available in CDXA. You can see a list below.
 
 In CDXA every requirement has:
 * Identifier - should tie back to the original standard as much as possible
 * Title - a short description
 * Text - the actual text of the requirement
-* Descriptions - an array of supplental text that provides guidance but is not directly part of the text
+* Descriptions - an array of supplemental text that provides guidance but is not directly part of the text
 * OpenCRE Identifier (where possible)
 * Parent (to support a hierarchy of requirements)
 * External References
 
 ## Creating Your Own Standard
-Every system is a beautiful and unique snowflake. It has it's own resources, connections, algorithms, data stores, and security mechanisms. An organization built it and an organization operates it. In short, it has a threat model all its own.  That means that it probably has a unique set of security defenses, assurance techniques, and stakeholders.
-
-In CDXA, you're free to create your own security standard. It could be a subset or superset of an existing standard. There are a lot of good reasons to tailor a security standard to your particular system. But remember, you may be required to follow one or more external security standards.  As we move into making claims and substantiating those claims in CDXA, you'll see how you can capture your approach to existing requirements to show compliance.
+In CDXA, you're free to create your own security standard. It could be a subset or superset of an existing standard. There are a lot of good reasons to tailor a security standard to your particular system. But remember, you may be required to follow one or more external security standards. As we move into making claims and substantiating those claims in CDXA, you'll see how you can capture your approach to existing requirements to show compliance.
 
 # TODO - add links for CDXA versions of PCI SSS and OWASP SAMM
 | Original Standard | CDXA Version |

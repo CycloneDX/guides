@@ -52,8 +52,22 @@ CycloneDX supports signing to ensure the authenticity and integrity of the attes
 ## Digital Signatures
 CycloneDX supports multiple digital signing methods to accommodate various preferences and security requirements - xmlsig, JSF, and detached signatures. 
 
-Example of a CycloneDX attestation with a digital signature:
+The following are examples of digital signatures in a CycloneDX attestation:
 
+### JSON
+```json
+"signature": {
+  "algorithm": "RS512",
+  "publicKey": {
+    "kty": "RSA",
+    "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
+    "e": "AQAB"
+  },
+  "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+}
+```
+
+### XML
 ```xml
 <attestation>
   <signature algorithm="RS512">
@@ -65,18 +79,6 @@ Example of a CycloneDX attestation with a digital signature:
     <value>HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS...</value>
   </signature>
 </attestation>
-```
-
-```json
-"signature": {
-  "algorithm": "RS512",
-  "publicKey": {
-    "kty": "RSA",
-    "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
-    "e": "AQAB"
-  },
-  "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
-}
 ```
 
 <!-- TODO: Detached Signature example -->
