@@ -1,18 +1,16 @@
 # Dependencies
-CycloneDX provides the ability to describe components and their dependency on other components. This relies on a
-component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for bom-ref
-is that it is unique within the BOM. Package URL (PURL) is an ideal choice for bom-ref as it will be both unique and
-readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.
-A dependency graph is capable of representing both direct and transitive relationships. Refer to the 
-[CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/) for additional details. 
 
-In the context of cryptographic dependencies, CycloneDX provides some additional capabilities. As of CycloneDX v1.6, 
-there are two types of dependencies: dependsOn and provides. 
+CycloneDX provides the ability to describe components and their dependency on other components.
+This relies on a component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for `bom-ref` is that it is unique within the BOM. Package URL (PURL) is an ideal choice for `bom-ref` as it will be both unique and readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.  
+A general dependency graph is unspecified deep and capable of representing both direct and transitive relationships. In CycloneDX representation `dependencies`, a dependency graph SHOULD be codified to be one node deep, meaning no nested child-graphs but all relations on the same level.
+Refer to the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/) for additional details.
 
-| Dependency Type | Description                                                                                                                                                                                                                                                                                                                                       |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| dependsOn       | The bom-ref identifiers of the components or services that are dependencies of this dependency object.                                                                                                                                                                                                                                            |
-| provides        | The bom-ref identifiers of the components or services that define a given specification or standard, which are provided or implemented by this dependency object. For example, a cryptographic library that implements a cryptographic algorithm. A component that implements another component does not imply that the implementation is in use. |
+In the context of cryptographic dependencies, CycloneDX provides some additional capabilities. As of CycloneDX v1.6, there are two types of dependencies: `dependsOn` and `provides`.
+
+| Dependency Type | Description |
+| --------------- | ------------|
+| `dependsOn` | The `bom-ref` identifiers of the components or services that are dependencies of this dependency object. |
+| `provides` | The `bom-ref` identifiers of the components or services that define a given specification or standard, which are provided or implemented by this dependency object. For example, a cryptographic library that implements a cryptographic algorithm. A component that implements another component does not imply that the implementation is in use. |
 
 
 The dependency type, dependsOn, is leveraged by classic SBOMs to define a complete graph of direct and transitive 
