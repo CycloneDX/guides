@@ -20,7 +20,7 @@ Copyright © 2024 The OWASP Foundation.
 This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 For any reuse or distribution, you must make clear to others the license terms of this work.
 
-Second Edition, 26 March 2024
+Second Edition, 02 April 2024
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -28,7 +28,7 @@ Second Edition, 26 March 2024
 
 | Version        | Changes                    | Updated On | Updated By                   |
 |----------------|----------------------------|------------|------------------------------|
-| Second Edition | Updated for CycloneDX v1.6 | 2024-03-26 | CycloneDX Core Working Group |
+| Second Edition | Updated for CycloneDX v1.6 | 2024-04-02 | CycloneDX Core Working Group |
 | First Edition  | Initial Release            | 2023-06-25 | CycloneDX Core Working Group |
 
 <div style="page-break-after: always; visibility: hidden">
