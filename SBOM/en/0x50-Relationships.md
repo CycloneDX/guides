@@ -108,6 +108,25 @@ The dependency graph above can be codified with the following:
 > represented in the dependency graph MAY have unknown dependencies. It is RECOMMENDED that implementations assume this 
 > to be opaque and not an indicator of a component being dependency-free.
 
+As of CycloneDX v1.6, there are two types of dependencies: dependsOn and provides.
+
+| Dependency Type | Description                                                                                                                                                                                                                                                                                                                                       |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| dependsOn       | The bom-ref identifiers of the components or services that are dependencies of this dependency object.                                                                                                                                                                                                                                            |
+| provides        | The bom-ref identifiers of the components or services that define a given specification or standard, which are provided or implemented by this dependency object. For example, a cryptographic library that implements a cryptographic algorithm. A component that implements another component does not imply that the implementation is in use. |
+
+The dependency type, dependsOn, is leveraged by classic SBOMs to define a complete graph of direct and transitive
+dependencies. However, for cryptographic and similar assets, "provides" allows for many additional use cases.
+
+![Dependencies](../../CBOM/en/images/dependencies.svg)
+
+The example shows an application (nginx) that uses the libssl cryptographic library. This library implements the 
+TLSv1.2 protocol. The relationship between the application, the library and the protocol can be expressed by using the 
+dependencies properties of the SBOM standard.
+
+Refer to the [Authoritative Guide to CBOM](https://cyclonedx.org/guides/) for in-depth information about leveraging
+CycloneDX for cryptographic use cases.
+
 <div style="page-break-after: always; visibility: hidden">
 \newpage
 </div>

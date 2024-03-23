@@ -1,4 +1,4 @@
-# Leveraging Cryptographic Components
+# Introduction to Cryptographic Components
 
 CycloneDX can describe cryptographic assets and their dependencies. Discovering, managing, and reporting on cryptographic
 assets is necessary as the first step on the migration journey to quantum-safe systems and applications. Cryptography is

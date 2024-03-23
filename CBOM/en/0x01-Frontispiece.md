@@ -11,8 +11,6 @@ supply chain security field. This guide would not be possible without valuable f
 Working Group (IWG), the CycloneDX Core Working Group (CWG), the many CycloneDX Feature Working Groups (FWG),
 Ecma International Technical Committee 54, and a global network of contributors and supporters.
 
-Portions of this guide were contributed by IBM under the Apache License Version 2.0.
-
 ## Copyright and License
 
 ![license](../../images/license.svg)
@@ -22,7 +20,9 @@ Copyright © 2024 The OWASP Foundation.
 This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 For any reuse or distribution, you must make clear to others the license terms of this work.
 
-First Edition, 26 March 2024
+Portions of this guide were contributed by IBM under the Apache License Version 2.0.
+
+First Edition, 02 April 2024
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -30,7 +30,7 @@ First Edition, 26 March 2024
 
 | Version       | Changes         | Updated On | Updated By                                      |
 |---------------|-----------------|------------|-------------------------------------------------|
-| First Edition | Initial Release | 2024-03-26 | CycloneDX Feature Working Group on Cryptography |
+| First Edition | Initial Release | 2024-04-02 | CycloneDX Feature Working Group on Cryptography |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

@@ -20,7 +20,7 @@ Copyright © 2024 The OWASP Foundation.
 This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 For any reuse or distribution, you must make clear to others the license terms of this work.
 
-First Edition, 26 March 2024
+First Edition, 02 April 2024
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -28,7 +28,7 @@ First Edition, 26 March 2024
 
 | Version       | Changes         | Updated On | Updated By                                      |
 |---------------|-----------------|------------|-------------------------------------------------|
-| First Edition | Initial Release | 2024-03-26 | CycloneDX Feature Working Group on Attestations |
+| First Edition | Initial Release | 2024-04-02 | CycloneDX Feature Working Group on Attestations |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
