@@ -383,23 +383,11 @@ applicable to physical goods and software.
 CycloneDX BOMs play a crucial role in supply chain management as they enhance collaboration and enable effective 
 supply chain management and governance of software components from sourcing to deployment.
 
-## Composition Completeness and "Known Unknowns"
+## Composition Completeness, "Known Unknowns", and Redactions
 The inventory of components, services, and their relationships to one another can be described through the use of 
 compositions. Compositions describe constituent parts (including components, services, and dependency relationships) and
 their completeness. The completeness of vulnerabilities expressed in a BOM may also be described. This allows BOM authors
-to describe how complete the BOM is or if there are components in the BOM where completeness is unknown.
-
-| Aggregate                               | Description                                                                                                                                                                              |
-|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| complete                                | The relationship is complete. No further relationships including constituent components, services, or dependencies are known to exist.                                                   |
-| incomplete                              | The relationship is incomplete.                                                                                                                                                          |
-| incomplete_first_party_only             | The relationship is incomplete. Only relationships for first-party components, services, or their dependencies are represented.                                                          |
-| incomplete_first_party_proprietary_only | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are proprietary.      |
-| incomplete_first_party_opensource_only  | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are opensource.       |
-| incomplete_third_party_only             | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented.                                                          |
-| incomplete_third_party_proprietary_only | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are proprietary.      |
-| incomplete_third_party_opensource_only  | The relationship is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are opensource.       |
-| unknown                                 | The relationship may be complete or incomplete. This usually signifies a 'best-effort' to obtain constituent components, services, or dependencies but the completeness is inconclusive. |
+to describe how complete the BOM is or if there are components in the BOM where completeness is unknown. | The information may be complete or incomplete. This usually signifies a 'best-effort' to obtain constituent components, services, or dependencies but the completeness is inconclusive. |
 
 ## Formulation Assurance and Verification
 CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components

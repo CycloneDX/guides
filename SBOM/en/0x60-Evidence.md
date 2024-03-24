@@ -32,6 +32,13 @@ The identity field of the component which the evidence describes.
 \newpage
 </div>
 
+### Confidence
+Confidence is supported per-technique along with a cumulative of all methods used. The confidence is specified as a decimal,
+from 0 to 1, where 1 is 100% confidence.
+
+### Concluded Value
+The value of the field (cpe, purl, etc) that has been concluded based on the aggregate of all methods (if available).
+
 ### Methods
 Multiple methods may be specified. Each method includes the specific technique used, the confidence of each technique, 
 and the value of the evidence that the technique revealed. 
@@ -56,52 +63,88 @@ The technique used in this method of analysis.
 \emptyparagraph
 </div>
 
-### Confidence
-Confidence is supported per-technique along with a cumulative of all methods used. The confidence is specified as a decimal, 
-from 0 to 1, where 1 is 100% confidence.
 
 ### Tools
 The tools (components or services) which extracted the evidence, performed the analysis, or evaluated the results.
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
-### Example
+### Example #1
+The following example illustrates how different methods can be combined to substantiate a component's identity.
+
 ```json
-"identity": [ {
-  "field": "purl",
-  "confidence": 1,
-  "methods": [
-    {
-      "technique": "filename",
-      "confidence": 0.1,
-      "value": "findbugs-project-3.0.0.jar"
-    },
-    {
-      "technique": "hash-comparison",
-      "confidence": 0.8,
-      "value": "7c547a9d67cc7bc315c93b6e2ff8e4b6b41ae5be454ac249655ecb5ca2a85abf"
-    }
-  ]
-} ]
+"components": [
+  {
+    "group": "com.google.code.findbugs",
+    "name": "findbugs-project",
+    "version": "3.0.0",
+    "purl": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
+    "evidence": {
+      "identity": [
+        {
+          "field": "purl",
+          "confidence": 1,
+          "concludedValue": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
+          "methods": [
+            {
+              "technique": "filename",
+              "confidence": 0.1,
+              "value": "findbugs-project-3.0.0.jar"
+            },
+            {
+              "technique": "hash-comparison",
+              "confidence": 0.8,
+              "value": "7c547a9d67cc7bc315c93b6e2ff8e4b6b41ae5be454ac249655ecb5ca2a85abf"
+            }
+          ]
+        }
+      ]
+    }      
+  }
+]
 ```
 
-## Recommendations
+### Example #2
+In the following example, two identity objects provide lower-confidence alternate CPEs. Vulnerability databases
+such as the National Vulnerability Database, which rely exclusively on CPE, often have erroneous or data fidelity issues
+that prevent precise reporting on affected products. CycloneDX solves this issue by allowing BOM authors to assert
+component identity, and optionally specify evidence of other possible identifiers to aid in vulnerability identification.
+
+```json
+"evidence": {
+  "identity": [
+    {
+      "field": "cpe",
+      "confidence": 0.4,
+      "concludedValue": "cpe:2.3:a:acme:acme-application:1.0.0:*:*:*:*:*:*:*"
+    },
+    {
+      "field": "cpe",
+      "confidence": 0.4,
+      "concludedValue": "cpe:2.3:a:acme-systems:acme-application:1.0.0:*:*:*:*:*:*:*"
+    }        
+  ]
+}
+```
+
+### Technique Confidence Recommendations
 The following are recommendations for tool creators and BOM consumers. Each technique is a general category. Tools
 may employ general purpose or highly specialized rules and analysis, each with varying degrees of confidence.
 
-| Technique            | Confidence | Guidance |
-|----------------------|------------|--|
-| source-code-analysis | 0.3 - 1.0  | Confidence will vary based on rules, type of analyzers used, or 1:1 matching of source with a known good dataset. | 
-| binary-analysis      | 0.2 - 0.7  | The individual rules, analyzers, and dataset coverage will influence confidence. |
-| manifest-analysis    | 0.4 - 0.6  | Manifests have known limitations and abuse cases and have moderate confidence. |
-| ast-fingerprint      | 0.3 - 1.0  | Wide range of possible confidence due to source and binary variations, but it has the potential for precise results.  |
+| Technique            | Confidence | Guidance                                                                                                                                                     |
+|----------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| source-code-analysis | 0.3 - 1.0  | Confidence will vary based on rules, type of analyzers used, or 1:1 matching of source with a known good dataset.                                            | 
+| binary-analysis      | 0.2 - 0.7  | The individual rules, analyzers, and dataset coverage will influence confidence.                                                                             |
+| manifest-analysis    | 0.4 - 0.6  | Manifests have known limitations and abuse cases and have moderate confidence.                                                                               |
+| ast-fingerprint      | 0.3 - 1.0  | Wide range of possible confidence due to source and binary variations, but it has the potential for precise results.                                         |
 | hash-comparison      | 0.7 - 1.0  | Can successfully match components given a large dataset. Confidence may vary based on the cryptographic hash function used and its resistance to collisions. |
-| instrumentation      | 0.3 - 0.8 | Confidence similar to source-code-analysis with the added benefit of supporting call-stack evidence |
-| dynamic-analysis     | 0.2 - 0.6 | Low to moderate confidence due to the "black box" approach of many tools. |
-| filename             | 0 - 0.1    | Filename matching is low-confidence |
-| attestation          | 0.7 - 1.0  | The testimony of a supplier or trusted third-party, especially when legally binding, may have high confidence. |
+| instrumentation      | 0.3 - 0.8  | Confidence similar to source-code-analysis with the added benefit of supporting call-stack evidence                                                          |
+| dynamic-analysis     | 0.2 - 0.6  | Low to moderate confidence due to the "black box" approach of many tools.                                                                                    |
+| filename             | 0 - 0.1    | Filename matching is low-confidence                                                                                                                          |
+| attestation          | 0.7 - 1.0  | The testimony of a supplier or trusted third-party, especially when legally binding, may have high confidence.                                               |
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## Occurrences
 CycloneDX provides a mechanism to describe identical components spread across multiple locations. For example,
