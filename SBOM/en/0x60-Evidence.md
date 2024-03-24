@@ -1,11 +1,8 @@
 # Evidence
-As we've seen, a BOM is crucial for understanding the composition of the software and its associated risks, including 
-vulnerabilities and licensing obligations. CycloneDX can include evidence substantiating the declared identity of 
-components within the BOM to ensure accuracy and integrity, prevent the inclusion of unauthorized components, and 
-facilitate effective vulnerability management. CycloneDX includes other observations about the component inventory, such 
-as multiple occurrences, call stack reachability, and evidence of licenses and copyrights. This enhances the understanding 
-of dependencies, potential risks, and compliance obligations, enabling organizations to manage security, quality, legal, 
-and intellectual property concerns effectively.
+As we've seen, a BOM is crucial for understanding the composition of the software and its associated risks. CycloneDX 
+BOMs may include evidence substantiating the declared identity of components within the BOM. Additionally, the 
+specification includes other observations about the component inventory such as multiple occurrences, call stack 
+reachability, and evidence of licenses and copyrights.
 
 ## Component Identity
 CycloneDX includes evidence substantiating the declared identity of components within the BOM. This is vital for 
@@ -25,7 +22,9 @@ The identity field of the component which the evidence describes.
 | version | The component version                                                                                                                                                     |
 | purl    | The Package URL (purl) specification                                                                                                                                      |
 | cpe     | The Common Platform Enumeration (CPE) conforming to the CPE 2.2 or 2.3 specification                                                                                      |
-| swid    | ISO-IEC 19770-2: Software Identification (SWID) Tags                                                                                                                      |
+| omnibor | The OmniBOR Artifact ID (gitoid)                                                                                                                                          |
+| swhid   | The Software Heritage persistent identifier                                                                                                                               |
+| swid    | ISO-IEC 19770-2: Software Identification (SWID) Tags<br/>                                                                                                                 |
 | hash    | The cryptographic hash of the component                                                                                                                                   |
 
 <div style="page-break-after: always; visibility: hidden">
