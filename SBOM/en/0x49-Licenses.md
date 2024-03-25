@@ -1,5 +1,5 @@
 # License Compliance
-CycloneDX can be used for open-source and commercial license compliance. By leveraging the licensing capabilities of
+CycloneDX facilitates open-source and commercial license compliance. By leveraging the licensing capabilities of
 CycloneDX, organizations can identify any licenses that may be incompatible or require specific compliance obligations,
 such as attribution or sharing of source code.
 
@@ -135,6 +135,31 @@ Solutions supporting the Software Development Life Cycle (SDLC) typically involv
 intellectual property use cases. Whereas Software Asset Management (SAM) is primarily concerned with commercial license
 and procurement use cases. OWASP CycloneDX has extensive support for both and can be applied to any component or service
 within a BOM.
+
+## Security and Quality Considerations for Tracking Commercial Licenses
+
+When a commercial software license expires or the software has reached its licensed limits, a cascading series of 
+events may occur, leading to security and quality issues, posing significant risks to users and systems. One of the 
+immediate concerns is the denial of service, where the software ceases to function. If the software is part of a 
+larger system, the entirety of the system may be at risk. Moreover, expired or exceeded licenses may trigger altered
+application behavior, as certain features or functionalities tied to the license may become disabled or restricted. 
+This alteration can introduce instability, unexpected errors, or even malicious behavior, potentially compromising 
+the integrity and confidentiality of data.
+
+Expired licenses may lead to being abruptly cut off from essential updates, patches, and support channels provided 
+by the software vendor. This leaves systems vulnerable to newly discovered vulnerabilities and exploits, as security
+patches may no longer be available. Without access to ongoing support, users are left without recourse in the event 
+of technical glitches or critical issues, leading to prolonged downtime and increased susceptibility to cyberattacks.
+Thus, ensuring software licenses remain current is vital for maintaining both the security and quality of software 
+systems.
+
+Providing commercial license information in CycloneDX BOMs offers a comprehensive solution to these challenges. 
+By including license details within BOMs, software consumers gain transparency into the licensing status of 
+components used within a software application. This transparency facilitates effective license management, 
+enabling organizations to track and monitor license expiration dates and renewal requirements. Consequently, 
+software consumers can proactively address license expirations, ensuring uninterrupted access to critical 
+support services, including software updates and security patches. Overall, integrating commercial license 
+information into CycloneDX BOMs enhances security, quality, and compliance across the software supply chain.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

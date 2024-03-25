@@ -18,6 +18,19 @@ primitive is discovered to be vulnerable or no longer complies with policies and
 As part of an agile cryptographic approach, organizations should seek to understand what cryptographic assets they are
 using and facilitate the assessment of the risk posture to provide a starting point for mitigation.
 
+The following is a high-level architecture illustrating how cryptographic assets are implemented in CycloneDX.
+
+![CBOM Component Architecture](../../CBOM/en/images/CBOM-Component-Architecture.svg)
+
+Organizations should consider including cryptographic assets in their SBOMs and optionally producing a BOM specific for
+cryptographic material, otherwise known as a Cryptographic Bill of Material (CBOM).
+
+Refer to the [Authoritative Guide to CBOM](https://cyclonedx.org/guides/) for in-depth information about leveraging
+CycloneDX for cryptographic use cases.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ### Algorithm Example
 A cryptographic algorithm is added in the components array of the BOM. The examples below list the algorithm
@@ -46,12 +59,6 @@ AES-128-GCM.
   }
 ]
 ```
-
-Organizations should consider including cryptographic assets in their SBOMs and optionally producing a BOM specific for
-cryptographic material, otherwise known as a Cryptographic Bill of Material (CBOM).
-
-Refer to the [Authoritative Guide to CBOM](https://cyclonedx.org/guides/) for in-depth information about leveraging
-CycloneDX for cryptographic use cases.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

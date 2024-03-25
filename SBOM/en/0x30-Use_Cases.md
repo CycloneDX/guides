@@ -89,13 +89,12 @@ CycloneDX is capable of describing the following types of components:
 CycloneDX supports multiple methods to assert identity including:
 
 - Coordinates: The combination of the group, name, and version fields form the coordinates of a component.
-- Package URL: [Package URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located regardless of what vendor, project, or ecosystem the packages belongs to. 
-- SWID: Software ID (SWID) as defined in [ISO/IEC 19770-2:2015](https://www.iso.org/standard/65666.html) is used primarily to identify installed software.
+- Package URL: [Package URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located.
 - CPE: The [Common Platform Enumeration](https://nvd.nist.gov/products/cpe) (CPE) specification was designed for operating systems, applications, and hardware devices. CPE is maintained by the NVD.
+- SWID: Software ID (SWID) as defined in [ISO/IEC 19770-2:2015](https://www.iso.org/standard/65666.html) is used primarily to identify installed software.
+- OmniBOR: The [OmniBOR](https://omnibor.io/) Artifact ID is capable of identifying every source code file incorporated into each built artifact.
+- SWHID: A [Software Heritage ID](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html) is a unique identifier assigned to software artifacts to facilitate their identification, tracking, and preservation.
 
-Assertion of identity can also be substantiated in the form of evidence, which includes the methods and techniques used 
-during analysis, the confidence, and the tool(s) that performed the analysis. Refer to the "Evidence" chapter for more
-information.
 
 The following example illustrates component identity in CycloneDX.
 
@@ -107,6 +106,8 @@ The following example illustrates component identity in CycloneDX.
   "version": "1.0.0",
   "cpe": "cpe:2.3:a:acme:awesome:1.0.0:*:*:*:*:*:*:*",
   "purl": "pkg:maven/com.example/awesome-library@1.0.0",
+  "omnibor": "gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+  "swhid": "swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2",
   "swid": {
     "tagId": "swidgen-242eb18a-503e-ca37-393b-cf156ef09691_1.0.0",
     "name": "Acme Awesome Library",
@@ -123,9 +124,10 @@ The following example illustrates component identity in CycloneDX.
 CycloneDX also supports several identifiers specific to hardware devices. Refer to https://cyclonedx.org/capabilities/hbom/
 for more information.
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
+Assertion of identity can also be substantiated in the form of evidence, which includes the methods and techniques used
+during analysis, the confidence, and the tool(s) that performed the analysis. Refer to the "Evidence" chapter for more
+information.
+
 
 ## Vulnerability Management
 CycloneDX is ideal for vulnerability management and impact analysis through the support of comprehensive inventory and

@@ -71,9 +71,7 @@ A general dependency graph is unspecified deep and capable of representing both 
 
 ![Sample Dependency Graph](images/dependency-graph.svg)
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
+
 
 The dependency graph above can be codified with the following:
 
@@ -118,11 +116,15 @@ As of CycloneDX v1.6, there are two types of dependencies: dependsOn and provide
 The dependency type, dependsOn, is leveraged by classic SBOMs to define a complete graph of direct and transitive
 dependencies. However, for cryptographic and similar assets, "provides" allows for many additional use cases.
 
-![Dependencies](../../CBOM/en/images/dependencies.svg)
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
-The example shows an application (nginx) that uses the libssl cryptographic library. This library implements the 
-TLSv1.2 protocol. The relationship between the application, the library and the protocol can be expressed by using the 
+The following example shows an application (nginx) that uses the libssl cryptographic library. This library implements the
+TLSv1.2 protocol. The relationship between the application, the library and the protocol can be expressed by using the
 dependencies properties of the SBOM standard.
+
+![Dependencies](../../CBOM/en/images/dependencies.svg)
 
 Refer to the [Authoritative Guide to CBOM](https://cyclonedx.org/guides/) for in-depth information about leveraging
 CycloneDX for cryptographic use cases.
