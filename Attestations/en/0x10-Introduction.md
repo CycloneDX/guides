@@ -32,10 +32,14 @@ We believe:
 * Attestations will enable faster compliance feedback loops and fewer surprises and delays.
 
 ## Intended Use Cases
-// TODO
-// * Supplier to consumer use case where the consumer requires adherence to something (e.g. SSDF)
-// * Internal use case where an internal policy is created from requirements defined in CDXA
-// * Regulatory and industry compliance requirements
+
+Cyclone DX Attestations provides a non-repudiatable way to communicate compliance to standards. It is intended to be used in a variety of use cases, including:
+* Standard authorities - Authors of security standards that want to create a machine-readable version of their requirements. E.g., Cyclone DX may be used to represent the requirements of the OWASP Software Security Framework. NIST may use Cyclone DX to represent the requirements of CISA attestations form for federal agencies.
+* Providers in highly regulated verticals - Adherence to existing regulatory and industry compliance requirements like PCI DSS, HIPAA, NIST, etc. Cyclone DX can be used to provide non-repudiatable evidence of compliance.
+* Providers who want to build trust with their customers by demonstrating compliance with a specific security standard - Adherence to a specific security standard like ISO 27001, NIST 800-53, etc.
+* Policy as code in Governance, Risk, and Compliance (GRC) teams - GRC teams may use Cyclone DX to represent internal policies and security standards requirements. This can be used to automate the compliance process, collect and manage evidence of compliance. This can in turn be used to estimate the risk of non-compliance and provide assurance to the board and other stakeholders.
+* Evidence as code for Engineering teams - Cyclone DX makes it easy for engineering teams to collect and manage evidence of compliance with internal security standards. Engineering teams can automate the process of collecting evidence and provide assurance to the security and GRC team that they are compliant with the internal security standards.
+* Consumers who want to restrict the use of software to only those that meet specific security standards - Consumers of software may use Cyclone DX to ensure that the software they are using meets specific security standards. This can be used to reduce the risk of using software that does not meet specific security standards.
 
 ## Tool Support
 Over time, we expect tools to emerge to manage all aspects of security attestation. As a producer, imagine being able to select appropriate standards for a project, eliminate duplication, articulate compliance rationales, automatically generate and include supporting evidence, manage reviews, and digitally sign attestations. From the assessor's point of view, imagine being able to quickly evaluate claims and evidence, easily identify changes, point out gaps, and digitally sign approvals.
