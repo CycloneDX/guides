@@ -53,10 +53,6 @@ AES-128-GCM and SHA512withRSA.
 ```
 A complete example can be found at [https://cyclonedx.org/shortcut/example/algorithm](https://cyclonedx.org/shortcut/example/algorithm)
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 An example with the QSC Signature algorithm Dilithium5 is listed below.
 
 ```json
@@ -282,10 +278,6 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
 ```
 A complete example can be found at [https://cyclonedx.org/shortcut/example/protocol](https://cyclonedx.org/shortcut/example/protocol)
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 ## Certificate 
 The following example details an X.509 certificate in a CBOM.
 
@@ -331,7 +323,3 @@ The following example details an X.509 certificate in a CBOM.
 ```
 
 A complete example can be found at [https://cyclonedx.org/shortcut/example/cert](https://cyclonedx.org/shortcut/example/cert)
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
