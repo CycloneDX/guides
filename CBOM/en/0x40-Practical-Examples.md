@@ -220,7 +220,8 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
         "executionEnvironment": "software-plain-ram",
         "implementationPlatform": "x86_64",
         "certificationLevel": [ "none" ],
-        "cryptoFunctions": [ "keygen" ]
+        "cryptoFunctions": [ "keygen" ],
+        "nistQuantumSecurityLevel": 0
       },
       "oid": "1.3.132.1.12"
     }
@@ -236,7 +237,8 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
         "executionEnvironment": "software-plain-ram",
         "implementationPlatform": "x86_64",
         "certificationLevel": [ "none" ],
-        "cryptoFunctions": [ "encapsulate", "decapsulate" ]
+        "cryptoFunctions": [ "encapsulate", "decapsulate" ],
+        "nistQuantumSecurityLevel": 0
       },
       "oid": "1.2.840.113549.1.1.1"
     }
@@ -255,8 +257,8 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
         "implementationPlatform": "x86_64",
         "certificationLevel": [ "none" ],
         "cryptoFunctions": [ "encrypt", "decrypt" ],
-        "classicalSecurityLevel": 128,
-        "nistQuantumSecurityLevel": 1
+        "classicalSecurityLevel": 256,
+        "nistQuantumSecurityLevel": 5
       },
       "oid": "2.16.840.1.101.3.4.1.46"
     }
@@ -273,7 +275,8 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
         "implementationPlatform": "x86_64",
         "certificationLevel": [ "none" ],
         "cryptoFunctions": [ "digest" ],
-        "nistQuantumSecurityLevel": 2
+        "classicalSecurityLevel": 192,
+        "nistQuantumSecurityLevel": 4
       },
       "oid": "2.16.840.1.101.3.4.2.9"
     }
