@@ -51,11 +51,7 @@ AES-128-GCM and SHA512withRSA.
   }
 ]
 ```
-A complete example can be found at [https://cyclonedx.org/shortcut/example/algorithm](https://cyclonedx.org/shortcut/example/algorithm)
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
+A complete example can be found at [https://cyclonedx.org/shortcut/example/algorithm](https://cyclonedx.org/shortcut/example/algorithm)  
 
 An example with the QSC Signature algorithm Dilithium5 is listed below.
 

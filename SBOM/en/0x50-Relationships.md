@@ -63,11 +63,13 @@ themselves may not be directly accessible; rather, they are accessed exclusively
 scenario, the API gateway service may contain an assembly of microservices behind it.
 
 ## Dependencies
-CycloneDX provides the ability to describe components and their dependency on other components. This relies on a 
-component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for `bom-ref` 
-is that it is unique within the BOM. Package URL (PURL) is an ideal choice for `bom-ref` as it will be both unique and 
+CycloneDX provides the ability to describe components and their dependency on other components. This relies on a
+component's `bom-ref` to associate the component with the dependency element in the graph. The only requirement for `bom-ref`
+is that it is unique within the BOM. Package URL (PURL) is an ideal choice for `bom-ref` as it will be both unique and
 readable. If PURL is not an option or not all components represented in the BOM contain a PURL, then UUID is recommended.
-A general dependency graph is unspecified deep and capable of representing both direct and transitive relationships. In CycloneDX representation `dependencies`, a dependency graph SHOULD be codified to be one node deep, meaning no nested child-graphs but all relations on the same level.
+A dependency graph is capable of representing both direct and transitive relationships. In CycloneDX representation
+`dependencies`, a dependency graph SHOULD be codified to be one node deep, meaning no nested child graphs. All
+relations are on the same level.
 
 ![Sample Dependency Graph](images/dependency-graph.svg)
 
