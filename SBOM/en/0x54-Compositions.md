@@ -1,4 +1,4 @@
-## Composition Completeness, "Known Unknowns", and Redactions
+## Composition Completeness and "Known Unknowns"
 The inventory of components, services, and their relationships to one another can be described through the use of
 compositions. Compositions describe constituent parts (including components, services, and dependency relationships) and
 their completeness. The completeness of vulnerabilities expressed in a BOM may also be described. This allows BOM authors
@@ -15,7 +15,6 @@ redacted.
 | incomplete_third_party_only             | The information is incomplete. Only relationships for third-party components, services, or their dependencies are represented.                                                          |
 | incomplete_third_party_proprietary_only | The information is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are proprietary.      |
 | incomplete_third_party_opensource_only  | The information is incomplete. Only relationships for third-party components, services, or their dependencies are represented, limited specifically to those that are opensource.       |
-| redacted                                | The information has been redacted.                                                                                                                                                      |
 | unknown                                 | The information may be complete or incomplete. This usually signifies a 'best-effort' to obtain constituent components, services, or dependencies but the completeness is inconclusive. |
 
 <div style="page-break-after: always; visibility: hidden">

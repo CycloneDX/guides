@@ -22,7 +22,7 @@ For any reuse or distribution, you must make clear to others the license terms o
 
 Portions of this guide were contributed by IBM under the Apache License Version 2.0.
 
-First Edition, 02 April 2024
+First Edition, 09 April 2024
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -30,7 +30,7 @@ First Edition, 02 April 2024
 
 | Version       | Changes         | Updated On | Updated By                                      |
 |---------------|-----------------|------------|-------------------------------------------------|
-| First Edition | Initial Release | 2024-04-02 | CycloneDX Feature Working Group on Cryptography |
+| First Edition | Initial Release | 2024-04-09 | CycloneDX Feature Working Group on Cryptography |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

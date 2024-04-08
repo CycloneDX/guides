@@ -15,21 +15,18 @@ Component identity evidence is made up of the following elements:
 ### Field
 The identity field of the component which the evidence describes.
 
-| Field   | Description                                                                                                                                                               |
-|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| group   | The grouping name or identifier. This will often be a shortened, single name of the company or project that produced the component, or the source package or domain name. |
-| name    | The name of the component. This will often be a shortened, single name of the component.                                                                                  |
-| version | The component version                                                                                                                                                     |
-| purl    | The Package URL (purl) specification                                                                                                                                      |
-| cpe     | The Common Platform Enumeration (CPE) conforming to the CPE 2.2 or 2.3 specification                                                                                      |
-| omnibor | The OmniBOR Artifact ID (gitoid)                                                                                                                                          |
-| swhid   | The Software Heritage persistent identifier                                                                                                                               |
-| swid    | ISO-IEC 19770-2: Software Identification (SWID) Tags<br/>                                                                                                                 |
-| hash    | The cryptographic hash of the component                                                                                                                                   |
+| Field     | Description                                                                                                                                                   |
+|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| group     | The grouping name or identifier. This is often a shortened, single name of the company or project that produced the component, or its associated domain name. |
+| name      | The name of the component. This will often be a shortened, single name of the component.                                                                      |
+| version   | The component version                                                                                                                                         |
+| purl      | The Package URL (purl) specification                                                                                                                          |
+| cpe       | The Common Platform Enumeration (CPE) conforming to the CPE 2.2 or 2.3 specification                                                                          |
+| omniborId | The OmniBOR Artifact ID (gitoid)                                                                                                                              |
+| swhid     | The Software Heritage persistent identifier                                                                                                                   |
+| swid      | ISO-IEC 19770-2: Software Identification (SWID) Tags<br/>                                                                                                     |
+| hash      | The cryptographic hash of the component                                                                                                                       |
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ### Confidence
 Confidence is supported per-technique along with a cumulative of all methods used. The confidence is specified as a decimal,

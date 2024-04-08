@@ -1,9 +1,8 @@
 # Introduction
 CycloneDX is a modern standard for the software supply chain. At its core, CycloneDX is a general-purpose Bill of
-Materials (BOM) standard capable of representing software, hardware, services, and other types of inventory. The CycloneDX
-standard began in 2017 in the Open Worldwide Application Security Project (OWASP) community. CycloneDX is an OWASP 
-flagship project, has a formal standardization process and governance model, and is supported by the global information 
-security community.
+Materials (BOM) standard capable of representing software, hardware, services, and other types of inventory. CycloneDX 
+is an OWASP flagship project, has a formal standardization process and governance model through 
+[Ecma Technical Committee 54](https://tc54.org), and is supported by the global information security community.
 
 ## Design Philosophy and Guiding Principles
 The simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily understandable by a wide 

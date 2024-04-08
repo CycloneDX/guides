@@ -385,11 +385,11 @@ applicable to physical goods and software.
 CycloneDX BOMs play a crucial role in supply chain management as they enhance collaboration and enable effective 
 supply chain management and governance of software components from sourcing to deployment.
 
-## Composition Completeness, "Known Unknowns", and Redactions
+## Composition Completeness and "Known Unknowns"
 The inventory of components, services, and their relationships to one another can be described through the use of 
 compositions. Compositions describe constituent parts (including components, services, and dependency relationships) and
 their completeness. The completeness of vulnerabilities expressed in a BOM may also be described. This allows BOM authors
-to describe how complete the BOM is or if there are components in the BOM where completeness is unknown. | The information may be complete or incomplete. This usually signifies a 'best-effort' to obtain constituent components, services, or dependencies but the completeness is inconclusive. |
+to describe how complete the BOM is or if there are components in the BOM where completeness is unknown. 
 
 ## Formulation Assurance and Verification
 CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components
@@ -451,10 +451,10 @@ With a cryptographic inventory that documents the use of LMS and XMSS by such sy
 assessed in an automated way.
 
 ## Identify Expiring and Long-Term Cryptographic Material
-An RSA certificate expiring in one week poses less cryptographic risk than the same certificate expiring in 20 years.
-Service downtime due to an expired certificate is another risk to be considered. Therefore, we argue that an inventory
-that captures the life cycle of cryptographic material as allowed by CycloneDX gives context to an inventory that is
-instrumental for managing cryptographic risk.
+CycloneDX significantly enhances the ability to identify and manage the risks associated with expiring and long-term 
+cryptographic material. For instance, an RSA certificate set to expire in one week inherently presents a lower 
+cryptographic risk compared to an identical certificate with a 20-year expiry period. This consideration is crucial, as
+an expired certificate can lead to significant service downtime, compounding the risk to operational security and reliability.
 
 ## Ensure Cryptographic Certifications
 Higher cryptographic assurance is provided by certifications such as [FIPS 140-3](https://csrc.nist.gov/pubs/fips/140-3/final)
