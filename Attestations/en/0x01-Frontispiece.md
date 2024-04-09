@@ -20,6 +20,10 @@ Copyright © 2024 The OWASP Foundation.
 This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 For any reuse or distribution, you must make clear to others the license terms of this work.
 
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
 First Edition, 09 April 2024
 
 <div style="page-break-after: always; visibility: hidden">

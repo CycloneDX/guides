@@ -1,7 +1,9 @@
 # Introduction
 CycloneDX Attestations is a modern standard for security compliance. It enables organizations to use a machine-readable format for communication about security standards, claims, and evidence about security requirements, as well as attestations to the veracity and completeness of those claims. You can think of Attestations as a way to manage "compliance as code." The Attestations project began in 2023 as part of the broader CycloneDX project.
 
-CycloneDX Attestations is part of OWASP CycloneDX. CycloneDX is an OWASP flagship project with a formal standardization process and governance model and is supported by the global information security community.
+CycloneDX Attestations is part of OWASP CycloneDX. CycloneDX is an OWASP flagship project, has a formal standardization 
+process and governance model through [Ecma Technical Committee 54](https://tc54.org), and is supported by the global 
+information security community.
 
 ## Intended Audience
 CycloneDX Attestations is intended for use by:

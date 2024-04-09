@@ -22,6 +22,10 @@ For any reuse or distribution, you must make clear to others the license terms o
 
 Portions of this guide were contributed by IBM under the Apache License Version 2.0.
 
+<div style="page-break-after: always; visibility: hidden">
+\emptyparagraph
+</div>
+
 First Edition, 09 April 2024
 
 <div style="page-break-after: always; visibility: hidden">
