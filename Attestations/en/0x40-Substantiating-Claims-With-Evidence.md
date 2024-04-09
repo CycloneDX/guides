@@ -16,7 +16,51 @@ Once we have a specific claim, we can consider the types of evidence that might 
 
 * `Mitigation Strategy:` If the evidence is not compelling or counter evidence is present, the producer can detail their plans for improving conformance in this section. Ideally, the strategy should detail the change or enhancement, the rough schedule, and the expected effect on the evidence supporting the claim.
 
-// TODO Small snippet for Evidence
+The following table details the makeup of evidence.
+
+| Property     | Description                                                                       |
+|--------------|-----------------------------------------------------------------------------------|
+| bom-ref      | An identifier, unique to the CDXA document, that identifies the evidence.         |
+| propertyName | The reference to the property name as defined in the CycloneDX Property Taxonomy. |
+| description  | The written description of what this evidence is and how it was created.          |
+| data         | The output or analysis that supports claims.                                      |
+| created      | The date and time (timestamp) when the evidence was created.                      |
+| expires      | The optional date and time (timestamp) when the evidence is no longer valid.      |
+| author       | The author of the evidence.                                                       |
+| reviewer     | The reviewer of the evidence.                                                     |
+
+
+```json
+"evidence": [
+  {
+    "bom-ref": "evidence-1",
+    "propertyName": "internal.com.acme.someProperty",
+    "description": "Description here",
+    "data": [
+      {
+        "name": "Name of the data",
+        "contents": {
+          "attachment": {
+            "content": "Evidence here",
+            "contentType": "text/plain"
+          }
+        },
+        "classification": "PII",
+        "sensitiveData": [ "Describe sensitive data here" ]
+      }
+    ],
+    "created": "2023-04-25T00:00:00+00:00",
+    "expires": "2023-05-25T00:00:00+00:00",
+    "author": { "name": "Mary" },
+    "reviewer": { "name": "Sanford" }, 
+    "signature": {
+      "algorithm": "ES256",
+      "certificatePath": [ "MIIB...", "MIID..." ],
+      "value": "tqIT..."
+    }
+  }
+]
+```
 
 ## Reasoning
 
@@ -26,7 +70,6 @@ Simply providing claims and evidence is not sufficient to determine whether the 
 
 Your reasoning for a claim about not being susceptible to SQL injection might tie together several pieces of evidence (and address any counter evidence). For example, a strong argument would be that "Acme corporation policy, secure coding guidelines, and training progam ensure that developers are aware of SQL injection and how to prevent it. All database access is performed through Hibernate which uses parameterized SQL queries in most cases. We test our software for all types of SQL injection using IAST and have remediated all instances discovered. Finally, we use RASP in production to detect SQL injection attacks and prevent exploitation."
 
-// TODO Small snippet for Reasoning
 
 ## Other
 
@@ -34,7 +77,6 @@ Your reasoning for a claim about not being susceptible to SQL injection might ti
 
 * `Signature:` Enveloped signature in [JSON Signature Format (JSF)](https://cyberphone.github.io/doc/security/jsf.html).
 
-// TODO Small snippet that ties everything together
 
 ## Another Example
 

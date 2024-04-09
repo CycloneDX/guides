@@ -81,4 +81,6 @@ The following are examples of digital signatures in a CycloneDX attestation:
 </attestation>
 ```
 
-<!-- TODO: Detached Signature example -->
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
