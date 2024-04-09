@@ -106,8 +106,8 @@ The following example illustrates component identity in CycloneDX.
   "version": "1.0.0",
   "cpe": "cpe:2.3:a:acme:awesome:1.0.0:*:*:*:*:*:*:*",
   "purl": "pkg:maven/com.example/awesome-library@1.0.0",
-  "omnibor": "gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
-  "swhid": "swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2",
+  "omniborId": [ "gitoid:blob:sha1:261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64" ],
+  "swhid": [ "swh:1:cnt:94a9ed024d3859793618152ea559a168bbcbb5e2" ],
   "swid": {
     "tagId": "swidgen-242eb18a-503e-ca37-393b-cf156ef09691_1.0.0",
     "name": "Acme Awesome Library",
