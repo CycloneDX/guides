@@ -45,6 +45,9 @@ jobs:
       - name: Run Docker container
         run: docker run -e CLOUDCONVERT_API_KEY=${{ secrets.CLOUDCONVERT_API_KEY }} -v $(pwd)/docs:/workspace/docs cdx-guides-builder ${{ github.event.inputs.document_type }}
 
+      - name: List files in docs directory
+        run: ls -l docs
+
       - name: Upload .docx and .pdf files
         uses: actions/upload-artifact@v4
         with:
