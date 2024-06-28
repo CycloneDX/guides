@@ -1,12 +1,6 @@
 name: Generate Guide
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       document_type:
