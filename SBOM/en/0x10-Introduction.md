@@ -19,7 +19,7 @@ are achieved without sacrificing the design philosophy. Some guiding principles 
 * Provide a smooth path to specification compliance through prescriptive design
 
 ## Defining Software Bill of Materials
-The U.S. National Telecommunications and Information Administration (NTIA) defines software bill as materials as
+The U.S. National Telecommunications and Information Administration (NTIA) defines software bill of materials as
 "_a formal, machine-readable inventory of software components and dependencies, information about those components,
 and their hierarchical relationships_." OWASP CycloneDX implements this definition and extends it in many ways, including
 adding services as a foundational component in a Software Bill of Materials.
