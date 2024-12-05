@@ -4,7 +4,7 @@
 # Frontispiece
 
 ## About the Guide
-CycloneDX is a modern standard for the software supply chain.
+CycloneDX is a modern standard for the software supply chain. It has been ratified as [ECMA-424](https://ecma-international.org/publications-and-standards/standards/ecma-424/) by Ecma International.
 
 The content in this guide results from continuous community feedback and input from leading experts in the software 
 supply chain security field. This guide would not be possible without valuable feedback from the CycloneDX Industry 

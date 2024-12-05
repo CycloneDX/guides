@@ -13,10 +13,9 @@ community-driven ecosystem for security standards development. This collaboratio
 their expertise and insights, ensuring that standards like CycloneDX reflect the collective wisdom of the global
 cybersecurity community.
 
-One standout example of this model is OWASP CycloneDX, which is on track to becoming an Ecma International
-standard through Technical Committee 54 (TC54). By leveraging the strengths of both organizations, CycloneDX is poised
-to become a cornerstone of security best practices, providing organizations with a universal standard for software and
-system transparency.
+One standout example of this model is OWASP CycloneDX, which has been ratified as an Ecma International standard and is 
+now known as ECMA-424. By leveraging the strengths of both organizations, CycloneDX serves as a cornerstone of security 
+best practices, providing organizations with a universal standard for software and system transparency.
 
 As you embark on your journey through this Authoritative Guide, we encourage you to engage actively with the content
 and join us in shaping the future of cybersecurity standards. Together, we can build a safer and more resilient digital

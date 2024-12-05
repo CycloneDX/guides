@@ -1,10 +1,25 @@
 # Preface
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper laoreet neque, id lobortis neque tincidunt quis. Cras eu dui diam. Mauris volutpat mattis est id ultricies. Vivamus eu semper ipsum. Sed aliquam ut enim consectetur maximus. Cras eu finibus dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas lorem mi, tincidunt sed elit in, malesuada tempor magna.
+Welcome to the Authoritative Guide series by the OWASP Foundation and OWASP CycloneDX. In this series, we aim to
+provide comprehensive insights and practical guidance, ensuring that security professionals, developers, and
+organizations alike have access to the latest best practices and methodologies.
 
-Sed maximus ligula non condimentum condimentum. Fusce id augue tempus, egestas ligula vehicula, volutpat purus. Duis ut nisi nec massa rhoncus bibendum tristique nec enim. Nulla facilisi. Donec dui lectus, condimentum vel nisi at, porta iaculis velit. Fusce nec tortor justo. Proin eget tellus fermentum, mollis nisl id, hendrerit justo. Quisque eget libero ut neque vestibulum lacinia in viverra dui. Nam semper lacus vel neque gravida cursus. Curabitur eu purus pulvinar, feugiat justo in, mattis ante. Donec ex nisl, elementum sit amet dui et, sollicitudin finibus lorem. Morbi nec eleifend purus.
+At the heart of the OWASP Foundation lies a commitment to inclusivity and openness. We firmly believe that everyone
+deserves a seat at the table when it comes to shaping the future of cybersecurity standards. Our collaborative
+model fosters an environment where diverse perspectives converge to drive innovation and excellence.
 
-Mauris vestibulum in nulla eget sodales. Praesent sit amet dictum lacus. Donec urna magna, egestas vitae nisi sed, cursus sagittis turpis. Ut ut pellentesque nisi. Sed ac risus nisl. Maecenas at ultrices lorem, tempus sagittis nisi. Nulla eu ante iaculis, placerat risus laoreet, dignissim ligula. Fusce purus orci, efficitur id sodales hendrerit, fringilla ac eros. Maecenas congue sem urna, id feugiat tellus venenatis quis. Nullam sem tortor, sodales sit amet turpis eget, porta commodo tortor.
+In line with this ethos, the OWASP Foundation has partnered with Ecma International to create an inclusive,
+community-driven ecosystem for security standards development. This collaboration empowers individuals to contribute
+their expertise and insights, ensuring that standards like CycloneDX reflect the collective wisdom of the global
+cybersecurity community.
+
+One standout example of this model is OWASP CycloneDX, which has been ratified as an Ecma International standard and is
+now known as ECMA-424. By leveraging the strengths of both organizations, CycloneDX serves as a cornerstone of security
+best practices, providing organizations with a universal standard for software and system transparency.
+
+As you embark on your journey through this Authoritative Guide, we encourage you to engage actively with the content
+and join us in shaping the future of cybersecurity standards. Together, we can build a safer and more resilient digital
+world for all.
 
 ---
 
