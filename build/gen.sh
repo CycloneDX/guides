@@ -10,8 +10,11 @@ case $1 in
   ([Vv][Dd][Rr]) BOMTYPE="VDR_VEX";;
   ([Vv][Ee][Xx]) BOMTYPE="VDR_VEX";;
   ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
+  ([Mm][Ll][Bb][Oo][Mm]) BOMTYPE="ML-BOM";;
+  ([Mm][Bb][Oo][Mm]) BOMTYPE="MBOM";;
+  ([Hh][Bb][Oo][Mm]) BOMTYPE="HBOM";;
   (*)
-    echo Invalid argument. Valid arguments are "SBOM", "CBOM", "SaaSBOM", "VDR", and "Attestations"
+    echo Invalid argument. Valid arguments are "SBOM", "CBOM", "SaaSBOM", "MLBOM", "MBOM", "HBOM", "VDR", and "Attestations"
     exit;;
 esac
 
