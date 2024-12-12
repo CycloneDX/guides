@@ -13,7 +13,7 @@ on:
           - CBOM
           - HBOM
           - MBOM
-          - ML-BOM
+          - MLBOM
           - OBOM
           - SaaSBOM
           - SBOM
