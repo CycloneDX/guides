@@ -6,9 +6,11 @@ is an OWASP flagship project, has a formal standardization process and governanc
 
 ## Design Philosophy and Guiding Principles
 
-Some guiding principles influencing the design of the formulation include:
+Some guiding principles influencing the design of formulation schema include:
 
-* Capture key elements of a typical Continuous Integration and Continuous  Delivery (CI/CD) processes used to produce and release software and hardware products.
+* Assure the capture of general manufacturing processes, including those related to producing components against security and compliance standards.
+* Capture key elements of a typical Continuous Integration and Continuous  Delivery (CI/CD) processes used to release and produce software and hardware products.
+* Leverage patterns and semantics from workflow management and CI/CD tooling. 
 
 ## Defining Software Bill of Materials
 
