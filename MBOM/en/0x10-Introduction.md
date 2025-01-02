@@ -29,6 +29,7 @@ A few high-level use cases for MBOM and its compatibility with other CycloneDX x
   * *This include capturing simple application builds using traditional `Makefiles`  or more complex, multi-tier software using CI/CD platforms such as Jenkins, Tekton, CircleCI, etc.*
 * **Hardware (HBOM)** - Describe how a hardware component or service is manufactured.
 * **Machine Learning (MLBOM)** - Describe the process of training, quantizing, optimizing and deploying ML models.
+* **Data Processing Pipelines** - Describes how data is marshalled, transformed, enhanced, curated, stored, analyzed and used. 
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
