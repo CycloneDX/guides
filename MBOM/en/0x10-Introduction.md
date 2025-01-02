@@ -17,7 +17,7 @@ Some guiding principles influencing the design of formulation schema include:
 
 The information of an MBOM is designed to be compatible with standards such as:
 
-* **Security Levels for Software Assurance (SLSA)** (https://slsa.dev/) which is a specification for describing and incrementally improving supply chain security.
+* **Supply-chain Levels for Software Assurance (SLSA)** (https://slsa.dev/) which is a specification for describing and incrementally improving supply chain security from the [Open Source Security Foundation (OpenSSF)](https://openssf.org/).
 
 
 ## High-Level MBOM Use Cases
