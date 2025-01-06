@@ -12,7 +12,7 @@ Formulation describes how something was manufactured or deployed. CycloneDX achi
 
 ## Formula relationships
 
-![Object Model - Formula](images/Object-Model/Formula.svg)
+![Object Model - Formula](images/Object-Model/formula.svg)
 
 #### `formulation`
 
@@ -42,17 +42,17 @@ For example, services used for security scanning, artifact and data storage, log
 
 **Note**: *Any service referenced by the formula must be declared within the same BOM document for the formula to be considered valid.*
 
-## Workflow relationships
+## Task relationships
 
-#### `workflow`
+![Object Model - Formula](images/Object-Model/task.svg)
 
-A `workflow` can describe a logical phase of the manufacturing process as a directed acyclic graph of dependent typed `task` objects.
+#### trigger
 
-**Note**: *The `workflow` object is also a `task` object as this allows it to be referenced as a task in another workflow.*
+Describes the manual (human) or automated action or event that triggered the task execution (i.e., caused its `steps` to be executed). 
 
 #### Task types
 
-Describes the types of tasks that are included in the associated `workflow`. The following `taskType` values are defined:
+Describes the types of `tasks`, as a list, that are included in the associated `workflow` for informational purposes. The following `taskType` values are defined:
 
 - **copy**: A task that copies software or data used to accomplish other tasks in the workflow.
 - **clone**: A task that clones a software repository into the workflow in order to retrieve its source code or data for use in a build step.
@@ -67,22 +67,72 @@ Describes the types of tasks that are included in the associated `workflow`. The
 - **clean**: A task that cleans unnecessary tools, build artifacts and/or data from workflow storage.
 - **other**: A workflow task that does not match current task type definitions.
 
-**Note:** *The current set of task types currently favor those that typically appear in modern Continuous Integration and Continuous Delivery (CI/CD) applications and platforms for software.* *Future versions of this specification may add additional task types for other domains.* 
+**Note:** *The current set of task types currently favor those that typically appear in modern Continuous Integration and Continuous Delivery (CI/CD) applications and platforms for software.* *Future versions of this specification may add additional task types for other domains.*
+
+#### `workspaces`
+
+The list of `workspace` objects that are associated with the `workflow`. A workspace is an accepted abstraction of a filesystem that is shared between `tasks` and their steps. For example, a workspace can hold the source for the BOM component being built, the binary produced by a build step, output from scanning tools, etc.
+
+#### `steps`
+
+Describes the sequence of steps, which may include the actual commands, that were executed by the `task`.
+
+#### `inputs`
+
+Describes references to resources or data made accessible, as input, to the task (and its step's commands) at runtime by the executor. For example, a `configuration` file used by a `tool`.  
+
+**Note**: the actual configuration file would be declared as a `component` or `externalReference` within the task itself or its parent workflow.
+
+#### `outputs`
+
+Describes references to resources or data produced, as output, by the task (and its step's commands). For example, a `log` file or `metrics` data.
+
+**Note**: the actual `log` or `metrics` data files would be declared as `components` or `externalReferences` within the task itself or its parent workflow.
+
+#### `resourceReferences`
+
+References to `component` or `service` resources that are used to realize the resource instance within the execution environment.  For example, a `logging` service or artifqct `storage` service reference.
+
+#### `runtimeTopology`
+
+A graph of the component runtime topology for workflow's instance.
+
+## Workflow relationships
+
+![Object Model - Formula](images/Object-Model/workflow.svg)
+
+#### `workflow`
+
+A `workflow` can describe a logical phase of the manufacturing process as a directed acyclic graph of dependent typed `task` objects.
+
+The `workflow` object is a viewed (and can be treated) as a specialized "task" which shares most of the same attributes or fields as the `task` object. This  allows a `workflow` to be referenced as a task in another workflow as part of the `taskDependencies` graph. 
+
+The `workflow` object uniquely adds the following object attributes described below:
+
+* tasks
+* taskDependencies  
+
+and duplicates the attributes described for the `task` object:
+
+* trigger
+* taskTypes
+* workspaces
+* inputs
+* outputs
+* resourceReferences
+* runtimeTopology
+
+**Note**: The concept of the `workflow` object as a "near subclass" of a `task` object was too complex to map easily to JSON schema so it is described here.* 
 
 #### `tasks`
 
-- detail the low-level steps or commands
-- with components and services used (observed) in those processes
-
+The list of `task` objects that contain the the low-level steps or commands
 
 #### `taskDependencies`
 
-TODO
+A dependency graph of the `tasks` for the `workflow` indicating (observed) execution order.
 
-#### `workspace`
-
-TODO
-
+**Note:** *The task dependency graph should be acyclic and map to the production of one or more output artifacts* 
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
