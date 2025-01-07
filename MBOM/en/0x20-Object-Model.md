@@ -46,11 +46,11 @@ For example, services used for security scanning, artifact and data storage, log
 
 ![Object Model - Formula](images/Object-Model/task.svg)
 
-#### trigger
+#### `trigger`
 
 Describes the manual (human) or automated action or event that triggered the task execution (i.e., caused its `steps` to be executed). 
 
-#### Task types
+#### `taskTypes`
 
 Describes the types of `tasks`, as a list, that are included in the associated `workflow` for informational purposes. The following `taskType` values are defined:
 
@@ -122,7 +122,7 @@ and duplicates the attributes described for the `task` object:
 * resourceReferences
 * runtimeTopology
 
-**Note**: The concept of the `workflow` object as a "near subclass" of a `task` object was too complex to map easily to JSON schema so it is described here.* 
+**Note**: *The concept of the `workflow` object as a "near subclass" of a `task` object was too complex to map easily to JSON schema so it is described here.* 
 
 #### `tasks`
 

@@ -44,5 +44,11 @@ $ make build
 
 which would cause the Makefile's `build` target (task) to be executed which would, in turn, case the dependent `clean` and `hello` targets to be executed in order and result in the creation of an executable file called `hello`.
 
-## MLBOM Representation
+## MBOM Representation
 
+### Components
+
+### 
+
+
+### MLBOM Formula
