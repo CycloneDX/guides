@@ -134,6 +134,17 @@ A dependency graph of the `tasks` for the `workflow` indicating (observed) execu
 
 **Note:** *The task dependency graph should be acyclic and map to the production of one or more output artifacts* 
 
+## Trigger relationships
+
+![Object Model - Formula](images/Object-Model/trigger.svg)
+
+
+## Step relationships
+
+![Object Model - Formula](images/Object-Model/step.svg)
+
+#### 
+
 <div style="page-break-after: always; visibility: hidden">
 \newpage
 </div>
