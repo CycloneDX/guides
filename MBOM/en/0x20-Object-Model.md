@@ -62,11 +62,13 @@ Describes the inputs, sequence of steps and resources used to accomplish a task 
 
 #### `trigger`
 
-Describes the manual (human) or automated action or event that triggered the task execution (i.e., caused its `steps` to be executed). 
+Describes the **manual** (human) or **automated** action or event that triggered the task execution (i.e., caused its `steps` to be executed). 
 
 #### `taskTypes`
 
-Describes the types of `tasks`, as a list, that are included in the associated `workflow` for informational purposes. The following `taskType` values are defined:
+Describes the types of `tasks`, as a list of human-readable, single-word strings, for informational purposes. 
+
+The following `taskType` values are defined:
 
 - **copy**: A task that copies software or data used to accomplish other tasks in the workflow.
 - **clone**: A task that clones a software repository into the workflow in order to retrieve its source code or data for use in a build step.
@@ -125,18 +127,18 @@ The `workflow` object is a viewed (and can be treated) as a specialized "task" w
 
 The `workflow` object uniquely adds the following object attributes described below:
 
-* tasks
-* taskDependencies  
+* **tasks** - *see section below for details.*
+* **taskDependencies** - *see section below for details.*
 
-and duplicates the attributes described for the `task` object:
+and duplicates the attributes described for the `task` object, but are instead relative to the `workflow` as a whole:
 
-* trigger
-* taskTypes
-* workspaces
-* inputs
-* outputs
-* resourceReferences
-* runtimeTopology
+* **trigger** - *for the workflow as a whole.*
+* **taskTypes** - *inclusive of all tasks listed in the workflow.*
+* **workspaces** - *inclusive of all workspaces available, subject to access control, to all tasks in the workflow.*
+* **inputs** - *to the workflow as a whole which may selectively be provided as inputs to the workflow's tasks.*
+* **outputs** - *from the workflow as a whole.*
+* **resourceReferences** - *made available to the workflow as a whole which may selectively be referenced to the workflow's tasks.*
+* **runtimeTopology** - *Please note that in some execution environments, tasks within a workflow may be configured to run independently in separate runtime environments.*
 
 **Note**: *The concept of the `workflow` object as a "near subclass" of a `task` object was too complex to map easily to JSON schema so it is described here.* 
 
