@@ -138,12 +138,51 @@ A dependency graph of the `tasks` for the `workflow` indicating (observed) execu
 
 ![Object Model - Formula](images/Object-Model/trigger.svg)
 
+### `trigger`
+
+Describes a resource that can conditionally activate (or "fire") tasks based upon associated events and their data.  Triggers are a common event-driven concept that can be defined and managed within the context of typical CI/CD platforms or systems.  They enable the conditional execution of associated workflows or tasks in response to manual or automated events.
+
+Triggers are an important part in understanding the context of why a workflow was run and affirm that any security and compliance policies were adhered to.
+
+#### `resourceReferences`
+
+References to component or service resources that are used to instantiate the trigger.  These can include references to component or service resources, apart from the event data, that were used by the trigger to evaluate conditions (along with inputs) or produce outputs that would be consumed by the associated task or workflow.
+
+#### `event`
+
+Describes the event data that caused the associated trigger to be executed.
+
+#### `conditions`
+
+A list of conditions used to determine if a trigger should be activated and cause its associated task or workflow to be executed.
+
+#### `inputs`
+
+Represents resources and data provided to the trigger at runtime by the underlying execution environment that provide additional information used to evaluate `conditions`.
+
+#### `outputs`
+
+Represents resources and data provided by the trigger at runtime to the associate task or workflow.
 
 ## Step relationships
 
 ![Object Model - Formula](images/Object-Model/step.svg)
 
-#### 
+#### `commands`
+
+A text representation of the executed command.  For example, this might be an interpolated shell command that copied files or ran a tool.
+
+## Workspace relationships
+
+![Object Model - Formula](images/Object-Model/workspace.svg)
+
+#### `resourceReferences`
+
+References to component or service resources that are used to realize the workspace.  These could include references to resources such as storage services.
+
+#### `volume`
+
+Information about the actual volume instance, if applicable, allocated to workspace.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
