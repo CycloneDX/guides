@@ -12,7 +12,7 @@ Formulation describes how something was manufactured or deployed. CycloneDX achi
 
 ## Formula relationships
 
-![Object Model - Formula](images/Object-Model/formula.svg)
+![Object Model - formula](images/Object-Model/formula.svg)
 
 #### `formulation`
 
@@ -44,7 +44,7 @@ For example, services used for security scanning, artifact and data storage, log
 
 ## Task relationships
 
-![Object Model - Formula](images/Object-Model/task.svg)
+![Object Model - task](images/Object-Model/task.svg)
 
 #### `trigger`
 
@@ -99,7 +99,7 @@ A graph of the component runtime topology for workflow's instance.
 
 ## Workflow relationships
 
-![Object Model - Formula](images/Object-Model/workflow.svg)
+![Object Model - workflow](images/Object-Model/workflow.svg)
 
 #### `workflow`
 
@@ -136,7 +136,7 @@ A dependency graph of the `tasks` for the `workflow` indicating (observed) execu
 
 ## Trigger relationships
 
-![Object Model - Formula](images/Object-Model/trigger.svg)
+![Object Model - trigger](images/Object-Model/trigger.svg)
 
 ### `trigger`
 
@@ -154,7 +154,7 @@ Describes the event data that caused the associated trigger to be executed.
 
 #### `conditions`
 
-A list of conditions used to determine if a trigger should be activated and cause its associated task or workflow to be executed.
+A list of conditions used to determine if a trigger should be activated and cause its associated task or workflow to be executed.  Each condition captures the logical expression, and optionally any interpolated values, that the execution environment used to evaluate the condition.
 
 #### `inputs`
 
@@ -166,7 +166,7 @@ Represents resources and data provided by the trigger at runtime to the associat
 
 ## Step relationships
 
-![Object Model - Formula](images/Object-Model/step.svg)
+![Object Model - step](images/Object-Model/step.svg)
 
 #### `commands`
 
@@ -174,7 +174,7 @@ A text representation of the executed command.  For example, this might be an in
 
 ## Workspace relationships
 
-![Object Model - Formula](images/Object-Model/workspace.svg)
+![Object Model - workspace](images/Object-Model/workspace.svg)
 
 #### `resourceReferences`
 
@@ -183,6 +183,18 @@ References to component or service resources that are used to realize the worksp
 #### `volume`
 
 Information about the actual volume instance, if applicable, allocated to workspace.
+
+## inputType relationships
+
+![Object Model - output type](images/Object-Model/inputType.svg)
+
+## outputType relationships
+
+![Object Model - input type](images/Object-Model/inputType.svg)
+
+## resourceReferenceChoice explained
+
+![Object Model - resource reference choice](images/Object-Model/resourceReferenceChoice.svg)
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
