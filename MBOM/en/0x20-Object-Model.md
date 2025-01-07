@@ -2,7 +2,13 @@
 
 ## Overview
 
-Formulation describes how something was manufactured or deployed. CycloneDX achieves this through the support of multiple formulas, workflows, tasks, and steps, which represent the declared formulation for reproduction along with the observed formula describing the manufacturing process.
+In general, the term formulation describes how something was "formed" or manufactured by mixing together ingredients in a specific way.
+
+CycloneDX is able to represent a formulation by providing a means to capture manufacturing processes using formulas which describe the workflows, tasks, steps and their relationships along with all referenced resources used during the processes.  
+
+The formulation object model, described in this section, is intended to enable the verification of manufacturing compliance with any requirements or policies for the associated component or product described by its BOM.  Additionally, the level-of-detail that can be represented by the model could potentially be leveraged to provide enough information to enable independent reproduction of a component's manufacturing process.
+
+The following diagram shows some of the significant objects that are specifically included in the CycloneDX Formulation Object Model:
 
 ![Formulation](images/Object-Model/Formulation.svg)
 
@@ -18,13 +24,15 @@ Formulation describes how something was manufactured or deployed. CycloneDX achi
 
 The `formulation` attribute of the CycloneDX BOM object can be used to describe the *set of processes*, as `formula`, which detail how the top-level component or service described by the BOM was manufactured.
 
+#### `formula`
+
+A `formula` can describe a set of `workflow` objects each detailing one or more phases of how the associated component or service was tested, built, delivered, or deployed as a set of dependent `tasks`. 
+
 #### `workflows`
 
 The list of workflows which were executed in order to manufacture a BOM's respective `component`.
 
-#### `formula`
-
-A `formula` can describe a set of `workflow` objects each detailing one or more phases of how the associated component or service was tested, built, delivered, or deployed as a set of dependent `tasks`. 
+**Note**: *In the context of software Continuous Integration and Delivery (CI/CD), workflows may also we referred to as "pipelines".*
 
 #### `components`
 
@@ -45,6 +53,12 @@ For example, services used for security scanning, artifact and data storage, log
 ## Task relationships
 
 ![Object Model - task](images/Object-Model/task.svg)
+
+#### `task`
+
+Describes the inputs, sequence of steps and resources used to accomplish a task in order to produce its outputs.
+
+**Note**: *In the context of software Continuous Integration and Delivery (CI/CD), tasks are sometimes referred to as "actions".*
 
 #### `trigger`
 
