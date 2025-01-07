@@ -91,7 +91,9 @@ Describes references to resources or data produced, as output, by the task (and 
 
 #### `resourceReferences`
 
-References to `component` or `service` resources that are used to realize the resource instance within the execution environment.  For example, a `logging` service or artifqct `storage` service reference.
+References to `component` or `service` resources that are used to realize the resource instance within the execution environment.  For example, a `logging` service or artifact `storage` service reference.
+
+See section [resourceReferenceChoice explained](#resourcereferencechoice-explained) for more details on how to specify resource references.
 
 #### `runtimeTopology`
 
@@ -168,6 +170,10 @@ Represents resources and data provided by the trigger at runtime to the associat
 
 ![Object Model - step](images/Object-Model/step.svg)
 
+#### `step` 
+
+Describes the specific the ordered set of commands executed in order to accomplish its owning task. 
+
 #### `commands`
 
 A text representation of the executed command.  For example, this might be an interpolated shell command that copied files or ran a tool.
@@ -176,9 +182,15 @@ A text representation of the executed command.  For example, this might be an in
 
 ![Object Model - workspace](images/Object-Model/workspace.svg)
 
+#### `workspace`
+
+A named, logical resource typically backed by a filesystem or data resource shareable by workflow tasks.  In some cases, these workspaces are implemented with access control to limit access to specific workflows or tasks.
+
 #### `resourceReferences`
 
 References to component or service resources that are used to realize the workspace.  These could include references to resources such as storage services.
+
+See section [resourceReferenceChoice explained](#resourcereferencechoice-explained) for more details on how to specify resource references.
 
 #### `volume`
 
@@ -188,13 +200,53 @@ Information about the actual volume instance, if applicable, allocated to worksp
 
 ![Object Model - output type](images/Object-Model/inputType.svg)
 
+#### `inputType`
+
+Describes different types of possible inputs to workflows, tasks, triggers and other objects in the model.
+
+#### `resourceReferenceChoice` 
+
+This type is used to reference one of the CycloneDX types that points to a resource. 
+
+Specifically for inputs, they can describe the `source` of the input data, the `target` for the input data and/or a `resource` that adds additional data to the input.
+
+For example, the `source` of input data may be the output from a previous `task`, while conversely the output of a `task` can declare its intended `target`. 
+
+#### `parameter`
+
+A representation of a functional parameter.
+
+#### `property`
+
+A `property` is a lightweight, name-value pair and defined as part of the core CycloneDX specification.
+
+#### `attachment`
+
+An `attachment` Specifies the metadata (e.g., content type, encoding, etc.) and content for an content data and defined as part of the core CycloneDX specification.
+
 ## outputType relationships
 
 ![Object Model - input type](images/Object-Model/inputType.svg)
 
+#### `outputType`
+
+Describes different types of possible outputs from workflows, tasks, triggers and other objects in the model.
+
+Most of the object attributes are identical to those described in the [inputType relationships](#inputtype-relationships) section. 
+
 ## resourceReferenceChoice explained
 
 ![Object Model - resource reference choice](images/Object-Model/resourceReferenceChoice.svg)
+
+#### `resourceReferenceChoice`
+
+This type is used composite existing  CycloneDX reference types allowing different parts of a model to "point to" resources either defined within other parts with the same BOM document, another BOM or external to the BOM using a URL.
+
+These include:
+
+* **bomLinkElementType** - Descriptor for an element in a BOM document. See https://cyclonedx.org/capabilities/bomlink/.
+* **refLinkType** - Descriptor for an element identified by the attribute `bom-ref` in the same BOM document. In contrast to `bomLinkElementType`.
+* **externalReference** - This type is used to reference a resource external to the current BOM document using a `url`.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
