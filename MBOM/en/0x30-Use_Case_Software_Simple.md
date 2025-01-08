@@ -121,10 +121,27 @@ This section defines the essential `component` objects referenced in building th
     }
     ```
 
+### Trigger
+
+TODO
+
+### Tasks
+
+TODO
+
+### Workflow
+
+TOD
+
 ### Formula
 
 TODO
 
+---
+
+## Advanced representation of the build process
+
+For many security and compliance use cases, it is necessary to represent the runtime topology (i.e., the build or manufacturing platform) of a software application and allowing independent verification the process is repeatable.  This section shows how to add some of this information to the MBOM for this example. 
 
 ### Runtime topology
 
@@ -145,18 +162,18 @@ This section will show how to represent the runtime topology for the simple appl
     </br>
     ```
     {
-      "bom-ref": "file://bin/bash",
+      "bom-ref": "device://macosx@14.6.1+23G93",
       "type": "operating-system",
-      "name": "GNU bash",
-      "version": "3.2.57(1)-release (arm64-apple-darwin23)"
+      "name": "macOS",
+      "version": "14.6.1+23G93"
     }
     ```
-
 
 ### Hardware
 
 - `Mac OS X` machine
 
+  TODO
     </br>
     ```
     {
@@ -166,5 +183,3 @@ This section will show how to represent the runtime topology for the simple appl
       "version": "TODO"
     }
     ```
-
-TODO
