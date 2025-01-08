@@ -134,10 +134,10 @@ This would be the event would be represented as follows:
 ```
 {
   "bom-ref": "urn:cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
-  "uid": "1a9b2c8d-9957-0414-0067-081678660a66".",
+  "uid": "1a9b2c8d-9957-0414-0067-081678660a66",
   "type": "manual",
   "name": "make trigger",
-  "description": "Bash, command-line build trigger",
+  "description": "Bash, command-line build trigger"
 }
 ```
 
@@ -145,15 +145,84 @@ This would be the event would be represented as follows:
 
 ### Tasks
 
-TODO
+In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
+
+```
+{
+  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "taskTypes": ["clean", "build"],
+  "name": "make build task",
+  "description": "A task that captures 'make build' step.",
+  ...
+}
+```
+
+As you can see we provide the two logical `taskType` values of `clean` and `build` to represent the logical steps the `make` command would perform as a result of resolving the target dependencies within the `Makefile`.
+
+#### Adding steps to the task
+
+The single command-line, build `step` can be added to the task:
+
+```
+{
+  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "name": "make build task",
+  ...
+  "steps": [
+    {
+      "name": "run make build",
+      "commands": [ 
+        {
+          "executed": "make build"
+        }
+      ]
+    }
+  ]
+}
+```
+
+The `trigger` defined previously can be added to the task as follows:
+
+```
+{
+  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "name": "make build task",
+  ...
+  "trigger": {
+    "bom-ref": "urn:cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
+    "uid": "1a9b2c8d-9957-0414-0067-081678660a66",
+    "type": "manual",
+    "name": "make trigger",
+    "description": "Bash, command-line build trigger",
+  },
+  ...
+}
+```
 
 ### Workflow
 
-TOD
+In this example, the workflow represents the single `task` execution as follows:
+
+```
+
+```
 
 ### Formula
 
-TODO
+This `workflow` can then be packaged into a `formula` using the following syntax:
+
+```
+
+```
+
+and placed under the CycloneDX BOM's `formulation` key:
+
+```
+
+```
 
 ---
 
