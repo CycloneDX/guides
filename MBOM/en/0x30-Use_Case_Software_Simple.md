@@ -123,7 +123,25 @@ This section defines the essential `component` objects referenced in building th
 
 ### Trigger
 
-TODO
+In this example, the "trigger" event that starts the build process is a person manually executing the following command in a Bash command prompt:
+
+```
+make build
+```
+
+This would be the event would be represented as follows:
+
+```
+{
+  "bom-ref": "urn:cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
+  "uid": "1a9b2c8d-9957-0414-0067-081678660a66".",
+  "type": "manual",
+  "name": "make trigger",
+  "description": "Bash, command-line build trigger",
+}
+```
+
+**Note**: *The `event` object is not shown in the `trigger` above as there is currently no clear method to represent a "human" resource as a `source` (or `target`). A proposal for this has been made for future versions of the core CycloneDX specification.*
 
 ### Tasks
 
