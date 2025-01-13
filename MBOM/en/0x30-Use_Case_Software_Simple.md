@@ -53,13 +53,19 @@ When representing the manufacturing process in CycloneDX format, this example as
 * For readability, component `name` values will use "short" names. For example, `helloworld.c` will be used instead of a best practice name `CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c`; however, the corresponding `bom-ref` values will be based on the GitHub repository URL and commit hash to preserve uniqueness of identity.
 * We will not attempt to encode the non-essential components for the Software Bill-of-Materials (SBOM) which is better show in other guides. For example use case, the "include" (header) file `stdio.h` is not represented.
 
+---
+
 ## MBOM Representation
 
 For effectively conveying the essential representation of the build process using the CycloneDX Formulation objects, this example will initially focus on capturing only the key build artifacts, tools, and information.  Then, we will show how additional information can be added to encode a more complete picture of the entire manufacturing process.
 
+In order to simplify the readability of relationships in an MBOM, CycloneDX `bom-ref` values shown in the example will take the URI form: `"cdx:mbom:<CycloneDX entity name>:uuid:<uuid>"` although this is not a requirement of the CycloneDX Formulation.
+
 ### Components
 
-This section defines the essential `component` objects referenced in building the simple application.
+This section defines the essential `component` objects referenced in building the simple application. For files in this example, we will use the `file://` URI scheme with an empty `host` to reference the local file system.  
+
+The `component` objects are defined as follows:
 
 #### Source components
 
@@ -67,7 +73,7 @@ This section defines the essential `component` objects referenced in building th
     </br>
     ```
     {
-      "bom-ref": "file://github.com/CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
+      "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
       "type": "file",
       "name": "helloworld.c",
       "version": "1.0",
@@ -86,7 +92,7 @@ This section defines the essential `component` objects referenced in building th
     </br>
     ```
     {
-      "bom-ref": "file://github.com/CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
+      "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
       "type": "file",
       "name": "Makefile",
       "version": "1.0",
@@ -103,7 +109,7 @@ This section defines the essential `component` objects referenced in building th
     </br>
     ```
     {
-      "bom-ref": "file://Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
+      "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
       "type": "application",
       "name": "gcc",
       "version": "16.0.0 (clang-1600.0.26.4)"
@@ -168,14 +174,16 @@ This could be represented as follows:
 
 **Note**: *In this simple example, the trigger directly represents the event itself so the event's `timestamp` value is the same as the  trigger's `timeActivated` value. However, in more complex event-driven build systems, the trigger represents a separable action subject to external rules such that the event `timestamp` value would reflect an earlier date-time than the trigger's `timestamp` value.*
 
-### Tasks
+### Task-workflow relationship
+
+#### Tasks
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
 
 ```
 {
-  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
-  "uid": "uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
+  "uid": "uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "taskTypes": ["clean", "build"],
   "name": "make build task",
   "description": "A task that captures 'make build' step.",
@@ -185,14 +193,14 @@ In this example, there is only one logical "task"; that is, the build process in
 
 As you can see we provide the two logical `taskType` values of `clean` and `build` to represent the logical steps the `make` command would perform as a result of resolving the target dependencies within the `Makefile`.
 
-#### Adding steps to the task
+##### Adding steps to the task
 
 The single command-line, build `step` can be added to the task:
 
 ```
 {
-  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
-  "uid": "uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:dbb6....",
+  "uid": "uuid:dbb6...",
   "name": "make build task",
   ...
   "steps": [
@@ -212,13 +220,13 @@ The `trigger` defined previously can be added to the task as follows:
 
 ```
 {
-  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
-  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:dbb6....",
+  "uid": "uuid:dbb6...",
   "name": "make build task",
   ...
   "trigger": {
-    "bom-ref": "cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
-    "uid": "uuid:1a9b2c8d-9957-0414-0067-081678660a66",
+    "bom-ref": "cdx:mbom:trigger:uuid:1a9b...",
+    "uid": "uuid:1a9b....",
     "type": "manual",
     "name": "make trigger",
     "description": "Bash, command-line build trigger",
@@ -227,7 +235,7 @@ The `trigger` defined previously can be added to the task as follows:
 }
 ```
 
-### Workflow
+#### Workflow
 
 In this example, the workflow represents the single `task` execution as follows:
 
