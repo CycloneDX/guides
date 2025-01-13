@@ -1,6 +1,6 @@
 ## Use Case: Simple software application
 
-This example shows how a simple `helloworld` application's build process can be captured by an MLBOM. 
+This example shows how a simple `helloworld` application's build process can be captured by an MBOM. 
 
 ### Workflow overview
 
@@ -120,7 +120,7 @@ The `component` objects are defined as follows:
     </br>
     ```
     {
-      "bom-ref": "file://Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
+      "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
       "type": "application",
       "name": "GNU Make",
       "version": "3.81"
