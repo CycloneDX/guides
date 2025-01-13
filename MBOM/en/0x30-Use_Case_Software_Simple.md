@@ -176,6 +176,8 @@ This could be represented as follows:
 
 ### Task-workflow relationship
 
+![Relationship - Event-Trigger](images/Object-Model/relationship-workflow-task.svg)
+
 #### Tasks
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
@@ -240,21 +242,39 @@ The `trigger` defined previously can be added to the task as follows:
 In this example, the workflow represents the single `task` execution as follows:
 
 ```
-
+{
+  “bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
+  “uid": ”uuid:431ff656-8f90-410b-a614-c3916b842036",
+  “taskTypes”: [“clean”, “build”],
+  “tasks”: [
+    // task goes here
+  ],
+  “taskDependencies”: [
+    { 
+      “ref”: “cdx:mbom:task:uuid:dbb6…"
+    }
+  ],
+  “trigger”: {
+    // trigger goes here
+  },
+  “resourceReferences”: [...],
+  “runtimeTopology”: [...],
+  ...
+}
 ```
 
 ### Formula
 
-This `workflow` can then be packaged into a `formula` using the following syntax:
+The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
 ```
-
+TODO
 ```
 
-and placed under the CycloneDX BOM's `formulation` key:
+and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname:
 
 ```
-
+TODO
 ```
 
 ---
@@ -271,7 +291,7 @@ This section will show how to represent the runtime topology for the simple appl
     </br>
     ```
     {
-      "bom-ref": "file://bin/bash",
+      "bom-ref": "file:///bin/bash",
       "type": "platform",
       "name": "GNU bash",
       "version": "3.2.57(1)-release (arm64-apple-darwin23)"
