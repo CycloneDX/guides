@@ -176,7 +176,7 @@ This could be represented as follows:
 
 ### Task-workflow relationship
 
-![Relationship - Event-Trigger](images/Object-Model/relationship-workflow-task.svg)
+![Relationship - workflow-task](images/Object-Model/relationship-workflow-task.svg)
 
 #### Tasks
 
@@ -263,7 +263,11 @@ In this example, the workflow represents the single `task` execution as follows:
 }
 ```
 
-### Formula
+### Formulation-Formula-Components relationship
+
+![Relationship - Formulation-Formula-Components](images/Object-Model/relationship-formula-workflow-component.svg)
+
+#### Formula
 
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
@@ -315,13 +319,17 @@ For many security and compliance use cases, it is necessary to represent the run
 
 ### Runtime topology
 
+![Relationship - Runtime topology](images/Object-Model/relationship-runtime-topology.svg)
+
 The runtime topology represents any software frameworks, platforms, tools, hardware and other resources used to create the software application used to run the workflow and its tasks.
 
 This section will show how to represent the runtime topology for the simple application's build process which includes a Bash shell running on a Mac OS X machine.
 
-### Platform
 
-For this example, we can choose to represent the key platform elements used to run the `make` command.  This could include the shell and the operating system used to run the build process. For example:
+
+#### Platform
+
+For this example, we can choose to represent the key platform elements used to run the `make` command.  This could include the shell and the operating system used to run the build process as CycloneDX `components`. For example:
 
 - The `Bash` shell used to run the `make` command:
     </br>
@@ -338,14 +346,14 @@ For this example, we can choose to represent the key platform elements used to r
     </br>
     ```
     {
-      "bom-ref": "device://macosx@14.6.1+23G93",
+      "bom-ref": "urn:cdx:os://macosx@14.6.1+23G93",
       "type": "operating-system",
       "name": "macOS",
       "version": "14.6.1+23G93"
     }
     ```
 
-### Hardware
+#### Hardware
 
 Additionally, we could describe the actual device used for the build process to an appropriate level of detail:
 
@@ -353,12 +361,16 @@ Additionally, we could describe the actual device used for the build process to 
     </br>
     ```
     {
-      "bom-ref": "TODO",
+      "bom-ref": "urn:cdx:device:sn:CBFX71DM3",
       "type": "device",
-      "name": "GNU bash",
-      "version": "TODO"
+      "name": "Matt's MacBook Pro",
+      "description": "Apple M3 Max, 16 inch"
     }
     ```
+
+### Runtime topology relationships
+
+
 ---
 
 ### Including the BOM creation in the Makefile
