@@ -121,27 +121,52 @@ This section defines the essential `component` objects referenced in building th
     }
     ```
 
-### Trigger
+### Event-Trigger relationship
 
-In this example, the "trigger" event that starts the build process is a person manually executing the following command in a Bash command prompt:
+This section describes how the human action `make build` can be represented in `event` and `trigger` data structures as shown here:
+
+![Relationship - Event-Trigger](images/Object-Model/relationship-event-trigger.svg)
+
+#### Event
+
+In all cases, workflows are triggered by some sort of explicit, human or automated event. In this example, a person manually executed the following command in a Bash command prompt:
 
 ```
 make build
 ```
 
-This would be the event would be represented as follows:
+this event could be represented as follows:
+
+```
+timestamp: “2025-01-01T14:00:00+00:00”,
+name: “make build”,
+description: “Command line build”
+```
+
+**Note**: *Workflows may be triggered by events dynamically received from other systems or services. In these cases, the event could include the raw event `data` itself as well as information.about the `source` system or service the event was sent by.* 
+
+#### Trigger
+
+The trigger provides context about an event, as well as describing any additional information or resources used to augment an event before "triggering" an associated workflow. For this use case, the event and trigger represents a "manual" event `type` with a clear `name` and identifier (i.e., a `uid`) along with a more detailed `description`.
+
+This could be represented as follows:
 
 ```
 {
-  "bom-ref": "urn:cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
-  "uid": "1a9b2c8d-9957-0414-0067-081678660a66",
-  "type": "manual",
-  "name": "make trigger",
-  "description": "Bash, command-line build trigger"
+  “timeActivated”: “2025-01-01T14:00:00+00:00”
+  “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
+  “uid": ”uuid:1a9b…",
+  “type": "manual",
+  “name": "make trigger",
+  “description": "Bash, command-line build trigger”
+  “event”: {
+    // event content goes here
+  },
+  ...
 }
 ```
 
-**Note**: *The `event` object is not shown in the `trigger` above as there is currently no clear method to represent a "human" resource as a `source` (or `target`). A proposal for this has been made for future versions of the core CycloneDX specification.*
+**Note**: *In this simple example, the trigger directly represents the event itself so the event's `timestamp` value is the same as the  trigger's `timeActivated` value. However, in more complex event-driven build systems, the trigger represents a separable action subject to external rules such that the event `timestamp` value would reflect an earlier date-time than the trigger's `timestamp` value.*
 
 ### Tasks
 
@@ -149,8 +174,8 @@ In this example, there is only one logical "task"; that is, the build process in
 
 ```
 {
-  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
-  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "uid": "uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
   "taskTypes": ["clean", "build"],
   "name": "make build task",
   "description": "A task that captures 'make build' step.",
@@ -166,8 +191,8 @@ The single command-line, build `step` can be added to the task:
 
 ```
 {
-  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
-  "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "uid": "uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
   "name": "make build task",
   ...
   "steps": [
@@ -187,13 +212,13 @@ The `trigger` defined previously can be added to the task as follows:
 
 ```
 {
-  "bom-ref": "urn:cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
+  "bom-ref": "cdx:mbom:task:uuid:86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
   "uid": "86bed8ad-f4b3-4e6c-913b-0912fce0d5a0",
   "name": "make build task",
   ...
   "trigger": {
-    "bom-ref": "urn:cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
-    "uid": "1a9b2c8d-9957-0414-0067-081678660a66",
+    "bom-ref": "cdx:mbom:trigger:uuid:1a9b2c8d-9957-0414-0067-081678660a66",
+    "uid": "uuid:1a9b2c8d-9957-0414-0067-081678660a66",
     "type": "manual",
     "name": "make trigger",
     "description": "Bash, command-line build trigger",
