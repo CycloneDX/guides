@@ -159,7 +159,7 @@ This could be represented as follows:
 
 ```
 {
-  “timeActivated”: “2025-01-01T14:00:00+00:00”
+  “timeActivated”: “2025-01-01T14:00:00+00:00”,
   “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
   “uid": ”uuid:1a9b…",
   “type": "manual",
@@ -268,13 +268,27 @@ In this example, the workflow represents the single `task` execution as follows:
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
 ```
-TODO
+{
+  components: [ 
+       // components go here
+  ],
+  workflows: [
+      // workflow goes here
+  ]
+}
 ```
 
-and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname:
+and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname of the Software Bill of Materials (SBOM):
 
 ```
-TODO
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:2820...",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2023-02-16T15:15:55-06:00",
+}
 ```
 
 ---
