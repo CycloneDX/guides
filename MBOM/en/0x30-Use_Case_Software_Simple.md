@@ -288,8 +288,16 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
   "version": 1,
   "metadata": {
     "timestamp": "2025-01-01T14:00:02+00:00",
+    ...
+  },
 }
 ```
+
+#### Why list components under the `formula`?
+
+In our example, we chose to list components used to build the application under the `formula` keyname. However, it is possible to instead list them under the top-level `components` array's keyname.  
+
+This choice was made since this allows the MBOM information to be separated into a separate document from the associated SBOM and linked via the [CycloneDX `BOM-Link` capability](https://cyclonedx.org/capabilities/bomlink/).  This would be accomplished in the same manner as described for separating vulnerability information using the [CycloneDX Vulnerability Disclosure Report (VDR) capability](https://cyclonedx.org/capabilities/vdr/).*
 
 ---
 
