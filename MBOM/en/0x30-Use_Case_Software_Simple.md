@@ -287,7 +287,7 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
   "serialNumber": "urn:uuid:2820...",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-02-16T15:15:55-06:00",
+    "timestamp": "2025-01-01T14:00:02+00:00",
 }
 ```
 
@@ -299,9 +299,15 @@ For many security and compliance use cases, it is necessary to represent the run
 
 ### Runtime topology
 
+The runtime topology represents any software frameworks, platforms, tools, hardware and other resources used to create the software application used to run the workflow and its tasks.
+
 This section will show how to represent the runtime topology for the simple application's build process which includes a Bash shell running on a Mac OS X machine.
 
-- `Bash` shell
+### Platform
+
+For this example, we can choose to represent the key platform elements used to run the `make` command.  This could include the shell and the operating system used to run the build process. For example:
+
+- The `Bash` shell used to run the `make` command:
     </br>
     ```
     {
@@ -312,7 +318,7 @@ This section will show how to represent the runtime topology for the simple appl
     }
     ```
 
-- `OS X` operating system
+- The `OS X` operating system the Bash terminal was running on:
     </br>
     ```
     {
@@ -325,9 +331,9 @@ This section will show how to represent the runtime topology for the simple appl
 
 ### Hardware
 
-- `Mac OS X` machine
+Additionally, we could describe the actual device used for the build process to an appropriate level of detail:
 
-  TODO
+- `Mac OS X` machine
     </br>
     ```
     {
@@ -337,3 +343,8 @@ This section will show how to represent the runtime topology for the simple appl
       "version": "TODO"
     }
     ```
+---
+
+### Including the BOM creation in the Makefile
+
+It is envisioned that Software-Bill-of-Materials (SBOM) will be created as part of the build process including Manufacturing (MBOM) information. This could be reflected as a post-build target in the `Makefile` which would bring additional SBOM generation tooling into the manufacturing process itself and be reflected in the SBOM/MBOM document as well.
