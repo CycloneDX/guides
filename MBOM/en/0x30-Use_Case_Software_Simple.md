@@ -270,10 +270,10 @@ The `formula`for building this example application, in addition to describing th
 ```
 {
   components: [ 
-       // components go here
+       // component content goes here
   ],
   workflows: [
-      // workflow goes here
+      // workflow content goes here
   ]
 }
 ```
@@ -285,11 +285,19 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "serialNumber": "urn:uuid:2820...",
-  "version": 1,
   "metadata": {
-    "timestamp": "2025-01-01T14:00:02+00:00",
+    "component": {
+      "type": "application",
+      "name": "simple-application",
+      ...
+    },
     ...
   },
+  "formulation: [{
+      // formula content goes here
+    }
+  ],
+  ...
 }
 ```
 
