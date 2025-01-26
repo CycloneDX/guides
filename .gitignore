@@ -3,3 +3,6 @@
 .DS_Store
 .vscode/settings.json
 *.pyc
+
+# ignore PowerPoint temp files
+~*.pptx

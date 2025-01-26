@@ -1,14 +1,11 @@
 ## Formulation
-CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of 
-components and services. This advanced capability provides transparency into how components were made, how a model was 
-trained, or how a service was created or deployed. Generally, the formulation is externalized from the SBOM into a 
-dedicated Manufacturing Bill of Materials (MBOM). The SBOM references the MBOM that describes the environment, configuration,
-tools, and all other considerations necessary to replicate a build with utmost precision. This capability allows other 
-parties to independently verify inputs and outputs from a build which can increase the software's assurance.
+CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components and services. Formulation establishes relationships with components and services, each of which can be referenced in a given formula through a series of workflows, tasks, and steps.
 
-Formulation establishes relationships with components and services, each of which can be referenced in a given formula 
-through a series of workflows, tasks, and steps. As of this writing, the "Authoritative Guide to MBOM" is being drafted.
-When complete, it will serve as a reference for effectively using formulation for a wide variety of use cases.
+This advanced capability provides transparency into how components were made, how a model was trained, or how a service was created or deployed. 
+
+## Composability
+
+Generally, a component or service's formulation information is externalized from the SBOM into a dedicated Manufacturing Bill of Materials (MBOM). The SBOM references the MBOM that describes the environment, configuration, tools, and all other considerations necessary to replicate a build with utmost precision. This capability allows other parties to independently verify inputs and outputs from a build which can increase the software's assurance. 
 
 The following example illustrates an SBOM where a component referenced the corresponding MBOM describing how the 
 component was made. Independent access controls can be established by separating the SBOM inventory from potentially 
