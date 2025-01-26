@@ -18,7 +18,7 @@ The following diagram shows some of the significant objects that are specificall
 
 ## Formula relationships
 
-![Object Model - formula](images/Object-Model/formula.svg)
+![Object Model - formula](images/Object-Model/Formula.svg)
 
 #### `formulation`
 
