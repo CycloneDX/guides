@@ -51,9 +51,9 @@ generate_pdf() {
   printf "Creating pdf\n"
   cloudconvert convert -f pdf --overwrite --outputdir "../../docs" -p.engine=office -p.engine_version=2.1 -p,optimize_print=false "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.docx"
   printf "Adding watermark to pdf...\n"
-  pdf watermark -o "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../templates/watermark.pdf"
+  pdfcli watermark -o "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../templates/watermark.pdf"
   printf "Applying cover page...\n"
-  pdf join "../en/images/cover.pdf" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../images/back.pdf" -o "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
+  pdfcli join "../en/images/cover.pdf" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../images/back.pdf" -o "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
   printf "Updating Exif...\n"
   exiftool -Title="Authoritative Guide to $BOMTYPE" -Author="OWASP Foundation" -Subject="CycloneDX BOM Standard" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
 }

@@ -1,4 +1,6 @@
-FROM ubuntu:24.04
+FROM pandoc/core:3.7.0-ubuntu
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 ENV TZ=UTC
 
@@ -7,7 +9,6 @@ RUN apt-get update && \
     curl \
     wget \
     gnupg2 \
-    pandoc \
     inkscape \
     exiftool \
     python3 \
@@ -15,7 +16,7 @@ RUN apt-get update && \
     unzip \
     tzdata \
     git && \
-    python3 -m pip install pandocfilters docxcompose pdf-cli requests Flask --break-system-packages && \
+    python3 -m pip install pandocfilters==1.5.1 docxcompose==1.4.0 pdf-cli==0.2.0 --break-system-packages && \
     curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs=18.18.0-1nodesource1 && \
     npm install -g npm@9.8.1 && \
