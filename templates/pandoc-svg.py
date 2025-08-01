@@ -33,8 +33,20 @@ def svg_to_any(key, value, fmt, meta):
                 mtime = -1
             if mtime < os.path.getmtime(src):
                 cmd_line = ['inkscape', option[0], src]
-                sys.stderr.write("Running %s\n" % " ".join(cmd_line))
-                subprocess.call(cmd_line, stdout=sys.stderr.fileno())
+                sys.stderr.write("Running %s" % " ".join(cmd_line))
+                env = os.environ.copy()
+                env["GDK_BACKEND"] = "cairo"
+                process = subprocess.Popen(
+                    cmd_line,
+                    stdout=sys.stderr,
+                    stderr=subprocess.PIPE,
+                    env=env,
+                    text=True
+                )
+                for line in process.stderr:
+                    if "GtkRecentManager" not in line:
+                        sys.stderr.write(line)
+                process.wait()
             return Image(attrs, alt, [eps_name, title])
 
 if __name__ == "__main__":
