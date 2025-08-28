@@ -26,15 +26,16 @@ Portions of this guide were contributed by IBM under the Apache License Version 
 \emptyparagraph
 </div>
 
-First Edition, 09 April 2024
+Second Edition, TBD
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
 </div>
 
-| Version       | Changes         | Updated On | Updated By                                      |
-|---------------|-----------------|------------|-------------------------------------------------|
-| First Edition | Initial Release | 2024-04-09 | CycloneDX Feature Working Group on Cryptography |
+| Version        | Changes         | Updated On | Updated By                                      |
+|----------------|-----------------|------------|-------------------------------------------------|
+| Second Edition | Second Release  | TBD        | CycloneDX Feature Working Group on Cryptography |
+| First Edition  | Initial Release | 2024-04-09 | CycloneDX Feature Working Group on Cryptography |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
