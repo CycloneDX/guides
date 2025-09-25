@@ -155,6 +155,56 @@ management practices, proactively identify security vulnerabilities, and maintai
 operations throughout the software development lifecycle. This integrated approach enables organizations to safeguard 
 sensitive data and mitigate potential risks associated with cryptographic assets.
 
+## Certificate management
+
+Certificate lifecycle management documents the state of certificates associated with cryptographic assets. The BOM schema exposes a certificateState property (see schema: `#/definitions/certificateProperties/certificateState`) which is an array of state objects. Each state object can be either a pre-defined state (recommended) or a custom state.
+
+Pre-defined states (use the `state` attribute):
+- pre-activation — The certificate has been issued by the issuing certificate authority (CA) but has not been authorized for use.
+- active — The certificate may be used to cryptographically protect information, cryptographically process previously protected information, or both.
+- suspended — The use of a certificate may be suspended for several possible reasons.
+- deactivated — Certificates in the deactivated state shall not be used to apply cryptographic protection but, in some cases, may be used to process cryptographically protected information.
+- revoked — A revoked certificate is a digital certificate that has been invalidated by the issuing certificate authority (CA) before its scheduled expiration date.
+- destroyed — The certificate has been destroyed.
+
+Each pre-defined state may optionally include a `reason` string to explain rationale (for example: "key compromise", "decommissioned", "policy update").
+
+Custom states (use the `name` attribute) are supported when an organization has domain-specific lifecycle stages that do not map to the pre-defined set. Custom states should include a `description` and may include a `reason`.
+
+The following example defines both pre-defined as well as custom certificate states.
+
+```json
+{
+  "certificateProperties": {
+    "certificateState": [
+      {
+        "state": "active"
+      },
+      {
+        "state": "revoked",
+        "reason": "private key compromise detected 2024-08-01"
+      },
+      {
+        "name": "archived",
+        "description": "Moved to long-term archive after rotation",
+        "reason": "rotation completed"
+      }
+    ]
+  }
+}
+```
+
+Recommendations
+- Prefer the pre-defined `state` values to maximize interoperability.
+- Use `reason` to capture context for status changes (who, when, why).
+- Use custom states sparingly, document custom meanings in your BOM or supporting policy.
+- Record lifecycle timestamps in the certificate's metadata using the corresponding properties:
+  - pre-activation → `certificateProperties.creationDate`
+  - active → `certificateProperties.activationDate`
+  - deactivated → `certificateProperties.deactivationDate`
+  - revoked → `certificateProperties.revocationDate`
+  - destroyed → `certificateProperties.destructionDate`
+
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

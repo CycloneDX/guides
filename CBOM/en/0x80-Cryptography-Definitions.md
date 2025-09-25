@@ -59,3 +59,42 @@ A cryptographic asset can reference the pattern in the component `name`. The fol
     }
 ]
 ```
+
+## Elliptic curve definitions
+
+The cryptography definitions also define a list of elliptic curves. The definitions include the standardization body (e.g., NIST), a description, Object Identifier (OID), form (e.g., Weierstrass). Since the same elliptic curve might be standardized by different bodies under different names, the curve also contains aliases. The source data is obtained from [neuromancer.sk](https://neuromancer.sk/std).
+
+## Elliptic curve example
+
+The following example defines the P-256 NIST curve, along with its aliases secp256r1 and prime256v1.
+
+```json
+"ellipticCurves": [
+    {
+      "name": "nist",
+      "description": "RECOMMENDED ELLIPTIC CURVES FOR FEDERAL GOVERNMENT USE  July 1999",
+      "curves": [
+        {
+          "name": "P-256",
+          "description": null,
+          "oid": "1.2.840.10045.3.1.7",
+          "form": "Weierstrass",
+          "aliases": [
+            {
+              "category": "secg",
+              "name": "secp256r1"
+            },
+            {
+              "category": "x962",
+              "name": "prime256v1"
+            }
+          ]
+        }
+      ]
+    }
+]
+```
+
+All elliptic curves are defined in the enum `cryptography-defs.schema.json#/definitions/algorithmFamiliesEnum`.
+
+A cryptographic asset can reference an elliptic curve with the `ellipticCurve` property.
