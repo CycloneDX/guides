@@ -121,7 +121,7 @@ The following example illustrates component identity in CycloneDX.
 }
 ```
 
-CycloneDX also supports several identifiers specific to hardware devices. Refer to https://cyclonedx.org/capabilities/hbom/
+CycloneDX also supports several identifiers specific to hardware devices. Refer to <https://cyclonedx.org/capabilities/hbom/>
 for more information.
 
 Assertion of identity can also be substantiated in the form of evidence, which includes the methods and techniques used

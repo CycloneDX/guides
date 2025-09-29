@@ -2,19 +2,19 @@
 
 The following resources may be useful to users and adopters of this standard:
 
-* Package URL specification: [https://github.com/package-url/purl-spec/](https://github.com/package-url/purl-spec/)
+* Package URL specification: <https://github.com/package-url/purl-spec/>
   * Specifically, the pURL types reference in examples:
     * [github](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst#github)
       * *Example*: `pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs`
     * [golang](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst#golang)
-      * *Example*:`pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api`
+      * *Example*: `pkg:golang/github.com/gorilla/context@234fd47e07d1004f0aed9c#api`
     * [huggingface](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst#huggingface)
       * *Example*: `pkg:huggingface/microsoft/deberta-v3-base@559062ad13d311b87b2c455e67dcd5f1c8f65111?repository_url=https://hub-ci.huggingface.co`
 
 ##### References in examples
 
-* gcc [https://gcc.gnu.org/](https://gcc.gnu.org/)
-* Tekton [https://tekton.dev/](https://tekton.dev/)
+* gcc <https://gcc.gnu.org/>
+* Tekton <https://tekton.dev/>
 
 
 ---

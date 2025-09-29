@@ -8,7 +8,7 @@ This example shows how a simple `helloworld` application's build process can be 
 
 The application itself is composed a single "C" source file, `helloworld.c`, which contains the following code:
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -21,7 +21,7 @@ int main() {
 
 The application is built using the GCC compiler using the following `Makefile`:
 
-```
+```make
 CC = gcc
 CFLAGS = -Wall
 
@@ -38,7 +38,7 @@ clean:
 
 The application can be built by manually running the following command in a terminal/shell of a suitable operating system:
 
-```
+```shellSession
 $ make build
 ```
 
@@ -69,63 +69,59 @@ The `component` objects are defined as follows:
 
 #### Source components
 
-- `helloworld.c`:
-    </br>
-    ```
-    {
-      "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
-      "type": "file",
-      "name": "helloworld.c",
-      "version": "1.0",
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "..."
-        }
-      ]
-    }
-    ```
+- `helloworld.c`:  
+  ```json
+  {
+    "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
+    "type": "file",
+    "name": "helloworld.c",
+    "version": "1.0",
+    "hashes": [
+      {
+        "alg": "SHA-256",
+        "content": "..."
+      }
+    ]
+  }
+  ```
 
 #### Build components
 
-- `Makefile`
-    </br>
-    ```
-    {
-      "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
-      "type": "file",
-      "name": "Makefile",
-      "version": "1.0",
-      "hashes": [
-        {
-          "alg": "SHA-256",
-          "content": "..."
-        }
-      ]
-    }
-    ```
+- `Makefile`  
+  ```json
+  {
+    "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
+    "type": "file",
+    "name": "Makefile",
+    "version": "1.0",
+    "hashes": [
+      {
+        "alg": "SHA-256",
+        "content": "..."
+      }
+    ]
+  }
+  ```
 
-- `gcc` - GCC compiler
-    </br>
-    ```
-    {
-      "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
-      "type": "application",
-      "name": "gcc",
-      "version": "16.0.0 (clang-1600.0.26.4)"
-    }
-    ```
+- `gcc` - GCC compiler  
+  ```json
+  {
+    "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
+    "type": "application",
+    "name": "gcc",
+    "version": "16.0.0 (clang-1600.0.26.4)"
+  }
+  ```
 
-- `make` utility
-    </br>
-    ```
-    {
-      "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
-      "type": "application",
-      "name": "GNU Make",
-      "version": "3.81"
-    }
-    ```
+- `make` utility  
+  ```json
+  {
+    "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
+    "type": "application",
+    "name": "GNU Make",
+    "version": "3.81"
+  }
+  ```
 
 ### Event-Trigger relationship
 
@@ -137,16 +133,16 @@ This section describes how the human action `make build` can be represented in `
 
 In all cases, workflows are triggered by some sort of explicit, human or automated event. In this example, a person manually executed the following command in a Bash command prompt:
 
-```
-make build
+```shellSession
+$ make build
 ```
 
 this event could be represented as follows:
 
-```
-timestamp: “2025-01-01T14:00:00+00:00”,
-name: “make build”,
-description: “Command line build”
+```text
+timestamp: "2025-01-01T14:00:00+00:00",
+name: "make build",
+description: "Command line build"
 ```
 
 **Note**: *Workflows may be triggered by events dynamically received from other systems or services. In these cases, the event could include the raw event `data` itself as well as information.about the `source` system or service the event was sent by.* 
@@ -157,15 +153,15 @@ The trigger provides context about an event, as well as describing any additiona
 
 This could be represented as follows:
 
-```
+```jsonc
 {
-  “timeActivated”: “2025-01-01T14:00:00+00:00”,
-  “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
-  “uid": ”uuid:1a9b…",
-  “type": "manual",
-  “name": "make trigger",
-  “description": "Bash, command-line build trigger”
-  “event”: {
+  "timeActivated": "2025-01-01T14:00:00+00:00",
+  "bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
+  "uid": "uuid:1a9b…",
+  "type": "manual",
+  "name": "make trigger",
+  "description": "Bash, command-line build trigger",
+  "event": {
     // event content goes here
   },
   ...
@@ -182,7 +178,7 @@ This could be represented as follows:
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
 
-```
+```json
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "uid": "uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
@@ -199,7 +195,7 @@ As you can see we provide the two logical `taskType` values of `clean` and `buil
 
 The single command-line, build `step` can be added to the task:
 
-```
+```json
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -220,7 +216,7 @@ The single command-line, build `step` can be added to the task:
 
 The `trigger` defined previously can be added to the task as follows:
 
-```
+```json
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -241,24 +237,24 @@ The `trigger` defined previously can be added to the task as follows:
 
 In this example, the workflow represents the single `task` execution as follows:
 
-```
+```jsonc
 {
-  “bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “uid": ”uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “taskTypes”: [“clean”, “build”],
-  “tasks”: [
+  "bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "uid": "uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "taskTypes": ["clean", "build"],
+  "tasks": [
     // task goes here
   ],
-  “taskDependencies”: [
+  "taskDependencies": [
     { 
-      “ref”: “cdx:mbom:task:uuid:dbb6…"
+      "ref": "cdx:mbom:task:uuid:dbb6…"
     }
   ],
-  “trigger”: {
+  "trigger": {
     // trigger goes here
   },
-  “resourceReferences”: [...],
-  “runtimeTopology”: [...],
+  "resourceReferences": [...],
+  "runtimeTopology": [...],
   ...
 }
 ```
@@ -271,12 +267,12 @@ In this example, the workflow represents the single `task` execution as follows:
 
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
-```
+```jsonc
 {
-  components: [ 
+  "components": [ 
        // component content goes here
   ],
-  workflows: [
+  "workflows": [
       // workflow content goes here
   ]
 }
@@ -284,7 +280,7 @@ The `formula`for building this example application, in addition to describing th
 
 and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname of the Software Bill of Materials (SBOM):
 
-```
+```jsonc
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
@@ -297,7 +293,7 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
     },
     ...
   },
-  "formulation: [{
+  "formulation": [{
       // formula content goes here
     }
   ],
@@ -309,7 +305,7 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
 
 In our example, we chose to list components used to build the application under the `formula` keyname. However, it is possible to instead list them under the top-level `components` array's keyname.  
 
-This choice was made since this allows the MBOM information to be separated into a separate document from the associated SBOM and linked via the [CycloneDX `BOM-Link` capability](https://cyclonedx.org/capabilities/bomlink/).  This would be accomplished in the same manner as described for separating vulnerability information using the [CycloneDX Vulnerability Disclosure Report (VDR) capability](https://cyclonedx.org/capabilities/vdr/).*
+This choice was made since this allows the MBOM information to be separated into a separate document from the associated SBOM and linked via the [CycloneDX `BOM-Link` capability](https://cyclonedx.org/capabilities/bomlink/).  This would be accomplished in the same manner as described for separating vulnerability information using the [CycloneDX Vulnerability Disclosure Report (VDR) capability](https://cyclonedx.org/capabilities/vdr/).
 
 ---
 
@@ -331,42 +327,38 @@ This section will show how to represent the runtime topology for the simple appl
 
 For this example, we can choose to represent the key platform elements used to run the `make` command.  This could include the shell and the operating system used to run the build process as CycloneDX `components`. For example:
 
-- The `Bash` shell used to run the `make` command:
-    </br>
-    ```
-    {
-      "bom-ref": "file:///bin/bash",
-      "type": "platform",
-      "name": "GNU bash",
-      "version": "3.2.57(1)-release (arm64-apple-darwin23)"
-    }
-    ```
-
-- The `OS X` operating system the Bash terminal was running on:
-    </br>
-    ```
-    {
-      "bom-ref": "urn:cdx:os://macosx@14.6.1+23G93",
-      "type": "operating-system",
-      "name": "macOS",
-      "version": "14.6.1+23G93"
-    }
-    ```
+- The `Bash` shell used to run the `make` command:  
+  ```json
+  {
+    "bom-ref": "file:///bin/bash",
+    "type": "platform",
+    "name": "GNU bash",
+    "version": "3.2.57(1)-release (arm64-apple-darwin23)"
+  }
+  ```
+- The `OS X` operating system the Bash terminal was running on:  
+  ```json
+  {
+    "bom-ref": "urn:cdx:os://macosx@14.6.1+23G93",
+    "type": "operating-system",
+    "name": "macOS",
+    "version": "14.6.1+23G93"
+  }
+  ```
 
 #### Hardware
 
 Additionally, we could describe the actual device used for the build process to an appropriate level of detail:
 
-- `Mac OS X` machine
-    </br>
-    ```
-    {
-      "bom-ref": "urn:cdx:device:sn:CBFX71DM3",
-      "type": "device",
-      "name": "Matt's MacBook Pro",
-      "description": "Apple M3 Max, 16 inch"
-    }
-    ```
+- `Mac OS X` machine  
+  ```json
+  {
+    "bom-ref": "urn:cdx:device:sn:CBFX71DM3",
+    "type": "device",
+    "name": "Matt's MacBook Pro",
+    "description": "Apple M3 Max, 16 inch"
+  }
+  ```
 
 ### Runtime topology relationships
 

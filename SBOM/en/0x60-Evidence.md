@@ -94,7 +94,7 @@ The following example illustrates how different methods can be combined to subst
           ]
         }
       ]
-    }      
+    }
   }
 ]
 ```
@@ -117,7 +117,7 @@ component identity, and optionally specify evidence of other possible identifier
       "field": "cpe",
       "confidence": 0.4,
       "concludedValue": "cpe:2.3:a:acme-systems:acme-application:1.0.0:*:*:*:*:*:*:*"
-    }        
+    }
   ]
 }
 ```

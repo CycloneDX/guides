@@ -41,6 +41,9 @@ CycloneDX can describe previously unknown vulnerabilities against software and h
 up many use cases that would not otherwise be possible. These will be covered in subsequent sections.
 
 ## How CycloneDX Implements VDR
+
+!TODO!
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ipsum sapien, vehicula et turpis varius, ornare consectetur lorem. Nulla finibus tellus in feugiat efficitur. Ut lacinia ultricies diam eget dictum. Maecenas sit amet pretium urna. Curabitur finibus lobortis leo nec facilisis. Nullam et varius nunc, quis vehicula lorem. In blandit pharetra leo tincidunt placerat. Vestibulum gravida molestie velit egestas feugiat. Sed nec ultrices ipsum. Vestibulum sit amet tellus non lectus auctor iaculis.\
 
 ![VDR+VEX-BOM-Cascade.png](images/VDR+VEX-BOM-Cascade.svg)
