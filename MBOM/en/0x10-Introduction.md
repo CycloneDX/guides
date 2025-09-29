@@ -26,7 +26,7 @@ The information of an MBOM is designed to be compatible with standards such as:
 A few high-level use cases for MBOM and its compatibility with other CycloneDX xBOM types include:
 
 * **Software (SBOM)** - Describe how a software component or service is built and deployed via a Continuous Integration and Continuous Delivery (CI/CD) pipeline.
-  * *This include capturing simple application builds using traditional `Makefiles`  or more complex, multi-tier software using CI/CD platforms such as Jenkins, Tekton, CircleCI, etc.*
+  * *This include capturing simple application builds using traditional `Makefiles` or more complex, multi-tier software using CI/CD platforms such as Jenkins, Tekton, CircleCI, etc.*
 * **Hardware (HBOM)** - Describe how a hardware component or service is manufactured.
 * **Machine Learning (MLBOM)** - Describe the process of training, quantizing, optimizing and deploying ML models.
 * **Data Processing Pipelines** - Describes how data is marshalled, transformed, enhanced, curated, stored, analyzed and used. 

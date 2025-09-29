@@ -113,13 +113,13 @@ or industry-specific use cases.
 ## Serialization Formats
 CycloneDX can be represented in JSON, XML, and Protocol Buffers (protobuf) and has corresponding schemas for each.
 
-| **Format** | **Resource**  | **URL**                                          |
-|------------|---------------|--------------------------------------------------|
-| JSON       | Documentation | https://cyclonedx.org/docs/latest/json/          |
-| JSON       | Schema        | https://cyclonedx.org/schema/bom-1.6.schema.json |
-| XML        | Documentation | https://cyclonedx.org/docs/latest/xml/           |
-| XML        | Schema        | https://cyclonedx.org/schema/bom-1.6.xsd         |
-| Protobuf   | Schema        | https://cyclonedx.org/schema/bom-1.6.proto       |
+| **Format** | **Resource**  | **URL**                                            |
+|------------|---------------|----------------------------------------------------|
+| JSON       | Documentation | <https://cyclonedx.org/docs/latest/json/>          |
+| JSON       | Schema        | <https://cyclonedx.org/schema/bom-1.6.schema.json> |
+| XML        | Documentation | <https://cyclonedx.org/docs/latest/xml/>           |
+| XML        | Schema        | <https://cyclonedx.org/schema/bom-1.6.xsd>         |
+| Protobuf   | Schema        | <https://cyclonedx.org/schema/bom-1.6.proto>       |
 
 
 CycloneDX relies exclusively on JSON Schema, XML Schema, and protobuf for validation. The entirety of the specification

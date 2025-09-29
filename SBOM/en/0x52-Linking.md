@@ -5,21 +5,26 @@ other BOMs. This deep-linking capability is referred to as BOM-Link and is a
 and compliant with [RFC-8141](https://www.rfc-editor.org/rfc/rfc8141.html).
 
 **Syntax**:
-```ini
-urn:cdx:serialNumber/version#bom-ref
+```text
+"urn:cdx:" <serialNumber> "/" <version> [ "#" <bom-ref> ]
 ```
 
-**Examples**:
-```ini
-urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1
-urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
-```
+Where:
+- Elements in `""` indicate string literals
+- Elements in `<>` indicate fields
+- Elements in `[]` indicate optionals
 
 | Field        | Description                                                                       |
 | ------------ | --------------------------------------------------------------------------------- |
 | serialNumber | The unique serial number of the BOM. The serial number MUST conform to RFC-4122.  |
 | version      | The version of the BOM. The default version is `1`.                               |
 | bom-ref      | The unique identifier of the component, service, or vulnerability within the BOM. |
+
+**Examples**:
+```text
+urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1
+urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
+```
 
 There are many use cases that BOM-Link supports. Two common scenarios are:
 * Reference one BOM from another BOM

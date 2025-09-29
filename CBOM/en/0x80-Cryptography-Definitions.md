@@ -6,18 +6,20 @@ These definitions supports consistent identification, classification, and report
 
 ## Definition structure
 
-The format for each algorithm entry is:
-```
-AlgorithmFamily: Pattern[-{optionalParameter}]
+**Syntax**:
+```text
+<Pattern> ( "[-{" <PatternParameter> "}]" )*
 ```
 
 Where:
-- `AlgorithmFamily` is the algorithm family
-- `Pattern` shows how the algorithm should be referenced
-- Elements in `[]` are optional parameters
-- Elements in `()` indicate choices
-- The `|` symbol indicates alternative choices
-- Elements in `{}` indicate placeholders
+- Elements in `""`  indicate string literals
+- Elements in `<>`  indicate fields
+- Elements in `()*` indicate optionals with cardinality of zero to infinity
+
+| Field | Description |
+| ----- | ----------- |
+| Pattern | shows how the algorithm should be referenced |
+| PatternParameter | shows how the algorithm should be parameterized |
 
 ## Example
 
@@ -76,7 +78,7 @@ The following example defines the P-256 NIST curve, along with its aliases secp2
       "curves": [
         {
           "name": "P-256",
-          "description": null,
+          "description": "...",
           "oid": "1.2.840.10045.3.1.7",
           "form": "Weierstrass",
           "aliases": [

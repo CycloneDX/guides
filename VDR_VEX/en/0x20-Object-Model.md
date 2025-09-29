@@ -69,6 +69,9 @@ services may also be disclosed using CycloneDX, making it ideal for both VEX and
 ![Vulnerabilities](../../images/Object-Model/Vulnerabilities.svg)
 
 ## Formulation
+
+!TODO!
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et nibh justo. Fusce ornare eros at venenatis dapibus. In dignissim luctus pellentesque. Pellentesque blandit odio lorem, varius hendrerit metus elementum quis. Vestibulum eget dictum urna. Donec lacinia et ipsum non blandit. Praesent arcu risus, feugiat et arcu id, fermentum cursus elit. Fusce nec orci auctor, laoreet turpis in, tincidunt arcu. Ut faucibus nibh sit amet magna pharetra consequat. Fusce eu leo enim. Phasellus ac libero nisl. Nam congue dolor vitae metus tempor euismod. Nam viverra felis eu nulla rhoncus, at rhoncus sem gravida. In tempor libero vel turpis vehicula, non aliquam urna venenatis. Etiam tincidunt est nec bibendum commodo.
 
 ![Formulation](../../images/Object-Model/Formulation.svg)
@@ -81,6 +84,9 @@ individuals or organizations. Annotations can be independently signed and verifi
 ![Annotations](../../images/Object-Model/Annotations.svg)
 
 ## Data
+
+!TODO!
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et nibh justo. Fusce ornare eros at venenatis dapibus. In dignissim luctus pellentesque. Pellentesque blandit odio lorem, varius hendrerit metus elementum quis. Vestibulum eget dictum urna. Donec lacinia et ipsum non blandit. Praesent arcu risus, feugiat et arcu id, fermentum cursus elit. Fusce nec orci auctor, laoreet turpis in, tincidunt arcu. Ut faucibus nibh sit amet magna pharetra consequat. Fusce eu leo enim. Phasellus ac libero nisl. Nam congue dolor vitae metus tempor euismod. Nam viverra felis eu nulla rhoncus, at rhoncus sem gravida. In tempor libero vel turpis vehicula, non aliquam urna venenatis. Etiam tincidunt est nec bibendum commodo.
 
 ![Data](../../images/Object-Model/Data.svg)
