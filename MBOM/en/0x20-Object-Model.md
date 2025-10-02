@@ -2,11 +2,18 @@
 
 ## Overview
 
-In general, the term formulation describes how something was "formed" or manufactured by mixing together ingredients in a specific way.
+The CycloneDX Formulation Object Model establishes a comprehensive hierarchy for representing manufacturing processes. Understanding these relationships is crucial for effective MBOM implementation.
 
 CycloneDX is able to represent a formulation by providing a means to capture manufacturing processes using formulas which describe the workflows, tasks, steps and their relationships along with all referenced resources used during the processes.  
 
 The formulation object model, described in this section, is intended to enable the verification of manufacturing compliance with any requirements or policies for the associated component or product described by its BOM.  Additionally, the level-of-detail that can be represented by the model could potentially be leveraged to provide enough information to enable independent reproduction of a component's manufacturing process.
+
+#### Formulation Structure
+
+**Formulation → Formula → Workflows → Tasks → Steps**
+
+This hierarchical structure mirrors real-world manufacturing processes, where high-level formulations contain specific formulas, which are implemented through workflows containing tasks that execute specific steps.
+
 
 The following diagram shows some of the significant objects that are specifically included in the CycloneDX Formulation Object Model:
 

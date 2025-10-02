@@ -155,17 +155,19 @@ management practices, proactively identify security vulnerabilities, and maintai
 operations throughout the software development lifecycle. This integrated approach enables organizations to safeguard 
 sensitive data and mitigate potential risks associated with cryptographic assets.
 
-## Certificate management
+## Certificate Management
 
-Certificate lifecycle management documents the state of certificates associated with cryptographic assets. The BOM schema exposes a certificateState property (see schema: `#/definitions/certificateProperties/certificateState`) which is an array of state objects. Each state object can be either a pre-defined state (recommended) or a custom state.
+Certificate lifecycle management documents the state of certificates associated with cryptographic assets. The BOM schema exposes a certificateState property which is an array of state objects. Each state object can be either a pre-defined state (recommended) or a custom state.
 
-Pre-defined states (use the `state` attribute):
-- pre-activation — The certificate has been issued by the issuing certificate authority (CA) but has not been authorized for use.
-- active — The certificate may be used to cryptographically protect information, cryptographically process previously protected information, or both.
-- suspended — The use of a certificate may be suspended for several possible reasons.
-- deactivated — Certificates in the deactivated state shall not be used to apply cryptographic protection but, in some cases, may be used to process cryptographically protected information.
-- revoked — A revoked certificate is a digital certificate that has been invalidated by the issuing certificate authority (CA) before its scheduled expiration date.
-- destroyed — The certificate has been destroyed.
+Pre-defined states:
+- **Pre-activation**: The certificate has been issued by the issuing certificate authority (CA) but has not been authorized for use.
+- **Active**: The certificate may be used to cryptographically protect information, cryptographically process previously protected information, or both.
+- **Suspended**: The use of a certificate may be suspended for several possible reasons.
+- **Deactivated**: Certificates in the deactivated state shall not be used to apply cryptographic protection but, in some cases, may be used to process cryptographically protected information.
+- **Revoked**: A revoked certificate is a digital certificate that has been invalidated by the issuing certificate authority (CA) before its scheduled expiration date.
+- **Destroyed**: The certificate has been destroyed.
+
+![Certificate Management Lifecycles](./images/Certificate-Management-Lifecycles.svg)
 
 Each pre-defined state may optionally include a `reason` string to explain rationale (for example: "key compromise", "decommissioned", "policy update").
 
@@ -194,7 +196,11 @@ The following example defines both pre-defined as well as custom certificate sta
 }
 ```
 
-Recommendations
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
+### Recommendations
 - Prefer the pre-defined `state` values to maximize interoperability.
 - Use `reason` to capture context for status changes (who, when, why).
 - Use custom states sparingly, document custom meanings in your BOM or supporting policy.

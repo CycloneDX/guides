@@ -333,11 +333,16 @@ system (vcs) and commit history, issue tracker, distribution, and documentation 
 Commercial sources of supply chain intelligence, including both physical and cyber, are available and can aid in 
 identifying FOCI and other supply chain risk.
 
-## Export Compliance
+## Patent Something
+TODO
+
+## Export Compliance     
 CycloneDX can help organizations achieve export compliance in the software supply chain by providing a comprehensive 
 inventory of all software components used in a product, including their origin, version, and licensing. This information 
 can enable organizations to identify potential export control issues, such as using components developed in foreign
 countries or containing encryption technology, and take appropriate measures to ensure compliance.
+
+TODO: Expand on export control as they relate to patents.
 
 ## Procurement
 Purchasing of software and IT assets can be enhanced with bill of materials. Model contract language that would require

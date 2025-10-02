@@ -4,7 +4,7 @@ CycloneDX provides a list of cryptographic algorithms definitions for use in a C
 Each section corresponds to a specific cryptographic primitive and groups algorithms by family. Within each family, algorithm variants are described using patterns that capture key characteristics such as parameter sets, modes of operation, or key lengths.
 These definitions supports consistent identification, classification, and reporting of cryptographic algorithms in a CBOM.
 
-## Definition structure
+## Algorithm Family Definition Structure
 
 The format for each algorithm entry is:
 ```
@@ -19,7 +19,7 @@ Where:
 - The `|` symbol indicates alternative choices
 - Elements in `{}` indicate placeholders
 
-## Example
+### Example
 
 The following example defines the RSASSA-PKCS1 algorithm family, a signature scheme that may be used with different digest (hash) algorithms and key sizes. It is standardized in RFC 8017 and in IEEE 1363.
 
@@ -60,11 +60,15 @@ A cryptographic asset can reference the pattern in the component `name`. The fol
 ]
 ```
 
-## Elliptic curve definitions
+## Elliptic Curve Definitions
 
 The cryptography definitions also define a list of elliptic curves. The definitions include the standardization body (e.g., NIST), a description, Object Identifier (OID), form (e.g., Weierstrass). Since the same elliptic curve might be standardized by different bodies under different names, the curve also contains aliases. The source data is obtained from [neuromancer.sk](https://neuromancer.sk/std).
 
-## Elliptic curve example
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
+### Elliptic Curve Example
 
 The following example defines the P-256 NIST curve, along with its aliases secp256r1 and prime256v1.
 

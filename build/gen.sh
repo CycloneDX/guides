@@ -48,6 +48,8 @@ generate_docx() {
 generate_pdf() {
   BOMTYPE=$1
   LANG=$2
+  # Get the current date in the proper PDF format
+  current_date=$(date +"D:%Y%m%d%H%M%S")
   printf "Creating pdf\n"
   cloudconvert convert -f pdf --overwrite --outputdir "../../docs" -p.engine=office -p.engine_version=2.1 -p,optimize_print=false "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.docx"
   printf "Adding watermark to pdf...\n"
@@ -55,7 +57,7 @@ generate_pdf() {
   printf "Applying cover page...\n"
   pdfcli join "../en/images/cover.pdf" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf" "../../images/back.pdf" -o "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
   printf "Updating Exif...\n"
-  exiftool -Title="Authoritative Guide to $BOMTYPE" -Author="OWASP Foundation" -Subject="CycloneDX BOM Standard" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
+  exiftool -Title="Authoritative Guide to $BOMTYPE" -Author="OWASP Foundation" -Subject="CycloneDX BOM Standard" -Creator="Markdown to PDF Pipeline via GitHub Action" -CreateDate=$current_date -Keywords="OWASP, CycloneDX, SBOM, BOM, Transparency, SCRM, C-SCRM, Standard, Guide, Best Practice, How-To, ECMA-424, TC54" "../../docs/OWASP_CycloneDX-Authoritative-Guide-to-$BOMTYPE-SNAPSHOT-$LANG.pdf"
 }
 
 generate() {
