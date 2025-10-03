@@ -4,16 +4,27 @@ echo "OWASP Markdown Conversion Tool"
 
 BOMTYPE=;
 
+shopt -s nocasematch
 case $1 in
-  ([Ss][Bb][Oo][Mm]) BOMTYPE="SBOM";;
-  ([Cc][Bb][Oo][Mm]) BOMTYPE="CBOM";;
-  ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
-  ([Vv][Dd][Rr]) BOMTYPE="VDR+VEX";;
-  ([Vv][Ee][Xx]) BOMTYPE="VDR+VEX";;
-  ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
-  (*)
+  "SBOM" )
+    BOMTYPE="SBOM"
+    ;;
+  "CBOM" )
+    BOMTYPE="CBOM"
+    ;;
+  "SaaSBOM" )
+    BOMTYPE="SaaSBOM"
+    ;;
+  "VDR" | "VEX" | "VDR_VEX" | "VDR+VEX" )
+    BOMTYPE="VDR+VEX"
+    ;;
+  "Attestations" )
+    BOMTYPE="Attestations"
+    ;;
+  * )
     echo Invalid argument. Valid arguments are "SBOM", "CBOM", "SaaSBOM", "VDR", and "Attestations"
-    exit;;
+    exit 1
+    ;;
 esac
 
 echo -n "Task: Generate CycloneDX $BOMTYPE guide"
@@ -24,7 +35,7 @@ function command_exists () {
 
 if ! command_exists pandoc; then
     echo "Error: Please install pandoc. Cannot continue"
-    exit;
+    exit 2;
 fi
 
 generate_docx() {
