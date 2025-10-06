@@ -8,27 +8,27 @@ is an OWASP flagship project, has a formal standardization process and governanc
 
 CycloneDX formulation provides a universal framework for describing how *anything* came to be - whether software, hardware, services, data, algorithms, processes, or even the BOM document itself. The formulation capability extends the core CycloneDX specification to capture not just *what* components exist in a system, but *how* they were created, manufactured, tested, validated, certified, deployed, configured, or brought into existence through any process.
 
-**Universal Applicability**: Formulation can describe the provenance and manufacturing process for virtually any entity:
+Formulation can describe the provenance and manufacturing process for virtually any entity:
 - **Software Applications**: How code was compiled, tested, and packaged
 - **Hardware Components**: Manufacturing processes, quality control, and assembly procedures
 - **Services**: Deployment, configuration, testing, and operational procedures
-- **Cryptographic Algorithms**: Implementation, validation, and compliance testing (FIPS 140-2, Common Criteria)
+- **Cryptographic Algorithms**: Implementation, validation, and compliance testing (e.g. FIPS 140-2, Common Criteria)
 - **Data Sets**: Collection, curation, transformation, and validation processes
 - **Infrastructure**: Provisioning, configuration, and deployment of systems
 - **Compliance Artifacts**: How certifications, audits, and validations were conducted
-- **BOM Documents**: The tools, processes, and procedures used to generate the BOM itself
+- **BOM Documents**: The tools, processes, and procedures used to generate a BOM
 
 ### The Strategic Importance of Universal Formulation
 
 In today's interconnected world, understanding how things come to be is critical across all domains:
 
 - **Security Assurance**: Verifying that security controls were applied during any creation or validation process
-- **Compliance Verification**: Demonstrating adherence to regulatory requirements across all domains (FIPS 140-2, Common Criteria, FDA validation, etc.)
+- **Compliance Verification**: Demonstrating adherence to regulatory requirements
 - **Reproducible Processes**: Enabling independent verification and reconstruction of any process or artifact
-- **Supply Chain Risk Management**: Identifying potential vulnerabilities in any creation, testing, or deployment pipeline
+- **Supply Chain Risk Management**: Identifying potential weaknesses or vulnerabilities in any creation, testing, or deployment pipeline
 - **Incident Response**: Understanding how compromised or defective components were introduced into any system
 - **Quality Assurance**: Documenting quality control processes for any type of deliverable
-- **Regulatory Compliance**: Meeting documentation requirements across industries (automotive, aerospace, healthcare, finance, etc.)
+- **Regulatory Compliance**: Meeting documentation requirements across industries
 
 ## Design Philosophy and Guiding Principles
 
@@ -54,21 +54,9 @@ The CycloneDX formulation specification is built on several foundational princip
 The Manufacturing Bill of Materials serves as a critical bridge between different aspects of supply chain security:
 
 - **SBOM Integration**: Links manufacturing processes to the resulting software components
-- **SLSA Compliance**: Provides detailed provenance information required for SLSA attestations
+- **SLSA Compliance**: Provides detailed build provenance information required for SLSA attestations
 - **DevSecOps Enablement**: Documents security controls integrated into development workflows
 - **Audit Trail Creation**: Maintains comprehensive records for compliance and security audits
-The information of an MBOM is designed to be compatible with standards such as:
-
-## High-Level MBOM Use Cases
-
-
-A few high-level use cases for MBOM and its compatibility with other CycloneDX xBOM types include:
-
-* **Software (SBOM)** - Describe how a software component or service is built and deployed via a Continuous Integration and Continuous Delivery (CI/CD) pipeline.
-  * *This include capturing simple application builds using traditional `Makefiles`  or more complex, multi-tier software using CI/CD platforms such as Jenkins, Tekton, CircleCI, etc.*
-* **Hardware (HBOM)** - Describe how a hardware component or service is manufactured.
-* **Machine Learning (MLBOM)** - Describe the process of training, quantizing, optimizing and deploying ML models.
-* **Data Processing Pipelines** - Describes how data is marshalled, transformed, enhanced, curated, stored, analyzed and used. 
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

@@ -17,7 +17,7 @@ This hierarchical structure mirrors real-world manufacturing processes, where hi
 
 The following diagram shows some of the significant objects that are specifically included in the CycloneDX Formulation Object Model:
 
-![Formulation](images/Object-Model/Formulation.svg)
+![Formulation](../../images/Object-Model/Formulation.svg)
 
 ## Object relationships
 

@@ -80,7 +80,6 @@ This approach enables:
 - **Reduced Complexity**: Smaller, focused documents that are easier to process and validate
 - **Domain Flexibility**: Different formulation documents for different aspects (manufacturing, testing, deployment, certification)
 
-
 <div style="page-break-after: always; visibility: hidden">
 \newpage
 </div>
