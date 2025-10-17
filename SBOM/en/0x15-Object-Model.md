@@ -1,7 +1,9 @@
 # CycloneDX Object Model
-The CycloneDX object model is defined in JSON Schema, XML Schema, and Protocol Buffers and consists of metadata,
-components, services, dependencies, compositions, vulnerabilities, formulation, and annotations. CycloneDX is
-prescriptive, can easily describe complex relationships, and is extensible to support specialized and future use cases.
+The CycloneDX object model is a structured framework for representing information relevant for software and system 
+transparency. Designed for clarity, precision, and extensibility, it organizes complex supply chain data into a 
+well-defined schema that is both machine-readable and human-friendly. This model forms the backbone of CycloneDX’s 
+ability to support diverse use cases ranging from vulnerability management and license compliance to cryptographic 
+transparency and operational assurance.
 
 Within the root `bom` element, CycloneDX defines the following object types:
 
@@ -102,6 +104,14 @@ digital and analog signatures. Declarations provide the basis for "compliance-as
 
 ![Declarations](../../images/Object-Model/Declarations.svg)
 
+### Citations
+Citations identify who contributed specific pieces of information to a CycloneDX BOM and when that contribution
+was made. They connect data in the BOM to its source, whether that’s a tool, person, organization, or process.
+This traceability adds transparency, helping others assess the reliability and origin of the data. Citations
+are essential when multiple sources contribute to the same BOM.
+
+![Citations](../../images/Object-Model/Citations.svg)
+
 ### Extensions
 Multiple extension points exist throughout the CycloneDX object model, allowing fast prototyping of new capabilities and
 support for specialized and future use cases. The CycloneDX project maintains extensions that are beneficial to the
@@ -116,10 +126,10 @@ CycloneDX can be represented in JSON, XML, and Protocol Buffers (protobuf) and h
 | **Format** | **Resource**  | **URL**                                          |
 |------------|---------------|--------------------------------------------------|
 | JSON       | Documentation | https://cyclonedx.org/docs/latest/json/          |
-| JSON       | Schema        | https://cyclonedx.org/schema/bom-1.6.schema.json |
+| JSON       | Schema        | https://cyclonedx.org/schema/bom-1.7.schema.json |
 | XML        | Documentation | https://cyclonedx.org/docs/latest/xml/           |
-| XML        | Schema        | https://cyclonedx.org/schema/bom-1.6.xsd         |
-| Protobuf   | Schema        | https://cyclonedx.org/schema/bom-1.6.proto       |
+| XML        | Schema        | https://cyclonedx.org/schema/bom-1.7.xsd         |
+| Protobuf   | Schema        | https://cyclonedx.org/schema/bom-1.7.proto       |
 
 
 CycloneDX relies exclusively on JSON Schema, XML Schema, and protobuf for validation. The entirety of the specification
