@@ -318,6 +318,16 @@ information describing the original component, may be necessary for the analysis
 
 Refer to the "Relationships" chapter for detailed information on pedigree.
 
+## Data Provenance and Lifecycle Traceability in SBOM Generation
+During the generation and enrichment of a Software Bill of Materials (SBOM), data often evolves as components are
+scanned, verified, enriched, or corrected by different tools and processes. The citations capability in CycloneDX
+provides a verifiable record of which entities, whether people, organizations, or automated systems, supplied or
+modified specific pieces of information within the BOM. For example, an initial dependency scanner may record component
+identifiers, while a subsequent analysis tool refines license metadata or corrects versioning. Each change can be cited,
+establishing a continuous provenance chain that shows how and when data was produced or altered. This traceability
+enables organizations to understand the origin and reliability of SBOM data, supports validation and auditability over
+time, and fosters trust in automated or semi-automated software supply chain processes.
+
 ## Foreign Ownership, Control, or Influence (FOCI)
 Foreign Ownership, Control, or Influence (FOCI) is a critical concern in the software supply chain that should be taken 
 seriously by all organizations involved. FOCI refers to the degree to which foreign entities have control or influence
@@ -333,8 +343,14 @@ system (vcs) and commit history, issue tracker, distribution, and documentation 
 Commercial sources of supply chain intelligence, including both physical and cyber, are available and can aid in 
 identifying FOCI and other supply chain risk.
 
-## Patent Something
-TODO
+## Intellectual Property (IP) Transparency and Risk Management
+Organizations may use CycloneDX to document components, services, or formulation processes that incorporate patented 
+technologies. By declaring patents and patent families within the BOM, organizations can disclose known IP rights 
+associated with each component, such as encryption algorithms or hardware interfaces covered by registered patents. 
+This enables downstream consumers to assess potential legal obligations, avoid infringement, and negotiate appropriate 
+licensing terms before integration or deployment. When combined with CycloneDX’s licensing and declaration structures, 
+patent transparency supports responsible innovation, informed procurement, and due diligence in global technology 
+supply chains.
 
 ## Export Compliance     
 CycloneDX can help organizations achieve export compliance in the software supply chain by providing a comprehensive 
@@ -342,7 +358,12 @@ inventory of all software components used in a product, including their origin, 
 can enable organizations to identify potential export control issues, such as using components developed in foreign
 countries or containing encryption technology, and take appropriate measures to ensure compliance.
 
-TODO: Expand on export control as they relate to patents.
+Export controls can also apply to technologies protected by patents, particularly those involving encryption, 
+communications, or dual-use capabilities. By declaring patents and patent families within a CycloneDX BOM, organizations
+gain visibility into components that may be subject to export restrictions due to their underlying intellectual property.
+This includes patented algorithms, protocols, or hardware designs that fall under national or international control 
+lists. Documenting this information enables organizations to assess whether additional export licenses or disclosures 
+are required, reducing legal risk and supporting proactive compliance in global markets.
 
 ## Procurement
 Purchasing of software and IT assets can be enhanced with bill of materials. Model contract language that would require

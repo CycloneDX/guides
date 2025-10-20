@@ -65,7 +65,7 @@ CycloneDX that would not otherwise be supported. One such extension commonly use
 signing.
 
 ```xml
-<bom xmlns="http://cyclonedx.org/schema/bom/1.6"
+<bom xmlns="http://cyclonedx.org/schema/bom/1.7"
      serialNumber="urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79"
      version="1">
     <components>

@@ -5,7 +5,7 @@ The following is a full example of a CycloneDX attestation.
 ```json
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.6",
+  "specVersion": "1.7",
   "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
   "version": 1,
   "declarations": {

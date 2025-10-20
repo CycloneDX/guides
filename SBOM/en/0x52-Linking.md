@@ -115,7 +115,7 @@ where access to external systems is prohibited, such as air-gapped environments.
 ```json
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.6",
+  "specVersion": "1.7",
   "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
   "version": 1,
   "components": [

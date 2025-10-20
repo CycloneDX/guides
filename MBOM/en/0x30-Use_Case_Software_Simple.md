@@ -286,7 +286,7 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
 ```
 {
   "bomFormat": "CycloneDX",
-  "specVersion": "1.6",
+  "specVersion": "1.7",
   "serialNumber": "urn:uuid:2820...",
   "metadata": {
     "component": {
