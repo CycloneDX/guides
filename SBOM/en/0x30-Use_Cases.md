@@ -417,6 +417,30 @@ compositions. Compositions describe constituent parts (including components, ser
 their completeness. The completeness of vulnerabilities expressed in a BOM may also be described. This allows BOM authors
 to describe how complete the BOM is or if there are components in the BOM where completeness is unknown. 
 
+## Modeling External Components with Version Ranges
+CycloneDX supports modeling external components using the `isExternal` property, which indicates that the component is
+expected to be provided by the runtime environment rather than bundled with the product. When `isExternal` is set to
+true, a `versionRange` may be specified to describe acceptable versions rather than a single fixed version. This is
+useful for representing flexible dependencies on external libraries, runtimes, or platforms. However, to preserve
+clarity and consistency, `versionRange` must not be used if `isExternal` is false, and it must not appear alongside the
+version property. Only one may be present. These constraints ensure accurate interpretation of component identity and 
+during deployment and analysis.
+
+The following example illustrates the reliance on libcurl, provided externally:
+
+```json
+"components": [
+  {
+    "bom-ref": "libcurl",
+    "type": "library",
+    "name": "libcurl",
+    "versionRange": "vers:generic/>=8.7.1|<9.0.0",
+    "description": "libcurl ^8.7.1",
+    "isExternal": true
+  }
+]
+```
+
 ## Formulation Assurance and Verification
 CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components
 and services. This advanced capability provides transparency into how components were made, how a model was trained, or
