@@ -15,7 +15,7 @@ Ecma International Technical Committee 54, and a global network of contributors 
 
 ![license](../../images/license.svg)
 
-Copyright © 2024 The OWASP Foundation. 
+Copyright © 2025 The OWASP Foundation. 
 
 This document is released under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
 For any reuse or distribution, you must make clear to others the license terms of this work.
