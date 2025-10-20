@@ -13,8 +13,12 @@ include libraries, frameworks, applications, containers, and operating systems.
 
 - **Package manager** - A distribution mechanism that makes software artifacts discoverable by requesters.
 
-- **Package URL (PURL)** - An ecosystem-agnostic specification which standardizes the syntax and location information 
+- **Package-URL (PURL)** - An ecosystem-agnostic specification which standardizes the syntax and location information 
 of software components.
+
+- **Patent** - An intellectual property right granted by a government authority or regional office that gives the holder exclusive rights to make, use, sell, or license an invention for a specified period. In software and systems, patents may apply to algorithms, processes, devices, or other technical innovations.
+
+- **Patent Family** = A group of related patent filings that originate from a common priority application and are filed in one or more jurisdictions. Patent families reflect the international coverage of an invention and support global tracking of ownership, licensing, and legal status across jurisdictions.
 
 - **Pedigree** - Data which describes the lineage and/or process for which software has been created or altered.
 
@@ -37,6 +41,8 @@ and commercial or proprietary software.
 
 - **Transitive dependency** - A software component that is indirectly used by a program by means of being a dependency 
 of a dependency.
+
+- **WIPO (World Intellectual Property Organization)** - A specialized agency of the United Nations responsible for promoting the protection of intellectual property (IP) worldwide through cooperation among states and the administration of international IP treaties.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

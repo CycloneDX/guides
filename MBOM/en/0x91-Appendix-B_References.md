@@ -2,7 +2,7 @@
 
 The following resources may be useful to users and adopters of this standard:
 
-* Package URL specification: [https://github.com/package-url/purl-spec/](https://github.com/package-url/purl-spec/)
+* Package-URL specification: [https://github.com/package-url/purl-spec/](https://github.com/package-url/purl-spec/)
   * Specifically, the pURL types reference in examples:
     * [github](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst#github)
       * *Example*: `pkg:github/package-url/purl-spec@244fd47e07d1004#everybody/loves/dogs`

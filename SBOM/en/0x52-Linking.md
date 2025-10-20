@@ -103,6 +103,10 @@ A third case involves a service defined in a BOM where the provider of the servi
 the individual microservices that make up that consumer-facing service. They may also have published a corresponding 
 SBOM defining the individual software components powering individual services.
 
+A fourth case involves patents, patent families, and patent assertions which can be referenced externally. This allows 
+BOMs to point to other BOMs containing this information or to authoritative legal or technical documentation, improving 
+traceability and enabling consumers to verify IP claims beyond the BOM itself.
+
 ### Linking to Objects Within The Same BOM
 With BOM-Link, relationships can also be established between objects in the same BOM. For example, let's establish
 a relationship where a component defines a threat model. In the example below, `acme-application` defines an external 

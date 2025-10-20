@@ -20,7 +20,7 @@ The identity field of the component which the evidence describes.
 | group     | The grouping name or identifier. This is often a shortened, single name of the company or project that produced the component, or its associated domain name. |
 | name      | The name of the component. This will often be a shortened, single name of the component.                                                                      |
 | version   | The component version                                                                                                                                         |
-| purl      | The Package URL (purl) specification                                                                                                                          |
+| purl      | The Package-URL (PURL) specification                                                                                                                          |
 | cpe       | The Common Platform Enumeration (CPE) conforming to the CPE 2.2 or 2.3 specification                                                                          |
 | omniborId | The OmniBOR Artifact ID (gitoid)                                                                                                                              |
 | swhid     | The Software Heritage persistent identifier                                                                                                                   |

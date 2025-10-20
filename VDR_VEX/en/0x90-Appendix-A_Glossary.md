@@ -15,7 +15,7 @@ include libraries, frameworks, applications, containers, and operating systems.
 
 - **Package manager** - A distribution mechanism that makes software artifacts discoverable by requesters.
 
-- **Package URL (PURL)** - An ecosystem-agnostic specification which standardizes the syntax and location information 
+- **Package-URL (PURL)** - An ecosystem-agnostic specification which standardizes the syntax and location information 
 of software components.
 
 - **Pedigree** - Data which describes the lineage and/or process for which software has been created or altered.

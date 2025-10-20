@@ -89,7 +89,7 @@ CycloneDX is capable of describing the following types of components:
 CycloneDX supports multiple methods to assert identity including:
 
 - Coordinates: The combination of the group, name, and version fields form the coordinates of a component.
-- Package URL: [Package URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located.
+- Package-URL: [Package-URL](https://github.com/package-url/purl-spec) (PURL) standardizes how software package metadata is represented so that packages can universally be identified and located.
 - CPE: The [Common Platform Enumeration](https://nvd.nist.gov/products/cpe) (CPE) specification was designed for operating systems, applications, and hardware devices. CPE is maintained by the NVD.
 - SWID: Software ID (SWID) as defined in [ISO/IEC 19770-2:2015](https://www.iso.org/standard/65666.html) is used primarily to identify installed software.
 - OmniBOR: The [OmniBOR](https://omnibor.io/) Artifact ID is capable of identifying every source code file incorporated into each built artifact.
