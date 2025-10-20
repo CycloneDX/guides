@@ -19,10 +19,14 @@ are achieved without sacrificing the design philosophy. Some guiding principles 
 * Provide a smooth path to specification compliance through prescriptive design
 
 ## Defining Software Bill of Materials
-The U.S. National Telecommunications and Information Administration (NTIA) defines software bill of materials as
+The U.S. Cybersecurity and Infrastructure Security Administration (CISA) defines software bill of materials as
 "_a formal, machine-readable inventory of software components and dependencies, information about those components,
-and their hierarchical relationships_." OWASP CycloneDX implements this definition and extends it in many ways, including
-adding services as a foundational component in a Software Bill of Materials.
+and their relationships_." OWASP CycloneDX implements this definition and extends it in many ways, including
+adding services as a foundational component in a Software Bill of Materials. It also aligns with the European Union’s 
+Cyber Resilience Act (CRA), which requires the creation of SBOMs as part of product security documentation, and with the
+[German Federal Office for Information Security](https://www.bsi.bund.de/) (BSI) Technical Guideline 
+[TR-03183-2](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-2_v2_1_0.html), 
+which defines the recommended minimum requirements for SBOMs.
 
 ## The Role of SBOM in Software Transparency
 Software transparency involves providing clear and accurate information about the components used in an application,

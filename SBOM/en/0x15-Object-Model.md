@@ -11,12 +11,6 @@ Within the root `bom` element, CycloneDX defines the following object types:
 
 The object types are arranged in order and contain (but are not limited to) the following types of data:
 
-![CycloneDX Object Model](../../images/CycloneDX-Object-Model-Swimlane.svg)
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 ## BOM Identity
 The `bom` element has properties for `serialNumber` and `version`. Together these two properties form the
 identity of a BOM. A BOM's identity can be expressed using a BOM-Link, a formally registered URN capable of referencing

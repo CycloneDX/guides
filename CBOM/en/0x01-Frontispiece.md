@@ -34,8 +34,8 @@ Second Edition, 21 October 2025
 
 | Version        | Changes                    | Updated On | Updated By                                      |
 |----------------|----------------------------|------------|-------------------------------------------------|
-| Second Edition | Updated for CycloneDX v1.7 | 2025-10-21 | CycloneDX Feature Working Group on Cryptography |
-| First Edition  | Initial Release            | 2024-04-09 | CycloneDX Feature Working Group on Cryptography |
+| Second Edition | Updated for CycloneDX v1.7 | 2025-10-21 | CycloneDX Cryptography Working Group |
+| First Edition  | Initial Release            | 2024-04-09 | CycloneDX Cryptography Working Group |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
