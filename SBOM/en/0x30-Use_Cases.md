@@ -423,7 +423,7 @@ expected to be provided by the runtime environment rather than bundled with the 
 true, a `versionRange` may be specified to describe acceptable versions rather than a single fixed version. This is
 useful for representing flexible dependencies on external libraries, runtimes, or platforms. However, to preserve
 clarity and consistency, `versionRange` must not be used if `isExternal` is false, and it must not appear alongside the
-version property. Only one may be present. These constraints ensure accurate interpretation of component identity and 
+version property. Only one may be present. These constraints ensure accurate interpretation of component identity  
 during deployment and analysis.
 
 The following example illustrates the reliance on libcurl, provided externally:
