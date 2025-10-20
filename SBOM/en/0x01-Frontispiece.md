@@ -24,7 +24,7 @@ For any reuse or distribution, you must make clear to others the license terms o
 \emptyparagraph
 </div>
 
-Second Edition, 09 April 2024
+Third Edition, 21 October 2025
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -32,6 +32,7 @@ Second Edition, 09 April 2024
 
 | Version        | Changes                    | Updated On | Updated By                   |
 |----------------|----------------------------|------------|------------------------------|
+| Third Edition  | Updated for CycloneDX v1.7 | 2025-10-21 | CycloneDX Core Working Group |
 | Second Edition | Updated for CycloneDX v1.6 | 2024-04-09 | CycloneDX Core Working Group |
 | First Edition  | Initial Release            | 2023-06-25 | CycloneDX Core Working Group |
 
