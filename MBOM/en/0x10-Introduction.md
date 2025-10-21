@@ -42,12 +42,11 @@ The CycloneDX formulation specification is built on several foundational princip
 
 **Standards Compatibility**: Formulation information is designed to be compatible with domain-specific standards and frameworks:
 - **Software**: Supply-chain Levels for Software Assurance (SLSA), NIST Secure Software Development Framework (SSDF)
-- **Hardware**: IPC standards, ISO 9001 quality management
+- **Hardware**: IPC standards, ISO 9001
 - **Cryptography**: FIPS 140-2, Common Criteria (ISO/IEC 15408), NIST Post-Quantum Cryptography
 - **Healthcare**: FDA 21 CFR Part 11, ISO 13485, IEC 62304
-- **Automotive**: ISO 26262 (Functional Safety), ISO/SAE 21434 (Cybersecurity)
+- **Automotive**: ISO 26262, ISO/SAE 21434
 - **Aerospace**: DO-178C, DO-254, AS9100
-- **Finance**: PCI DSS, SOX compliance
 
 ## The Role of MBOM in Supply Chain Transparency
 
