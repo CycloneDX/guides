@@ -32,7 +32,7 @@ In CycloneDX, a model is considered a `component` where general best practices f
 
 ![Diagram: Anatomy of an ML-BOM](images/anatomy.svg)
 
-#### Describing models as components
+### Describing models as components
 
 
 
@@ -40,6 +40,29 @@ In CycloneDX, a model is considered a `component` where general best practices f
 
 
 ##### Model repositories
+
+
+### Declaring datasets
+
+Using CycloneDX there are two methods to provide information on the datasets (e.g., ) used to train, test, and evaluate machine learning models.
+
+Specifically, the component `modelCard` object includes `modelParameters` which includes an array of `datasets` objects which can be of the following types:
+
+1. **In-line information**: provides in-line objects that provide for direct description of datasets and some of their typically cited attributes and characteristics.  Typically, this method mirrors dataset information found in various model catalogs and provides a means for direct, simplified mapping to CycloneDX.
+    * *This method may be helpful if the datasets themselves are not public (i.e., directly referenceable), but informational details are.*
+2. **Data component reference**: provides for the complete description of each dataset as its own CycloneDX component and referenced via its `bom-ref`.
+    * *This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information.*
+
+#### In-line information object model
+
+
+##### Example
+
+
+#### Data component references
+
+
+##### Example
 
 
 ---
