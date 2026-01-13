@@ -41,13 +41,13 @@ The object model's pseudo-schema would look something like this:
 
 As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
 
-##### Model repositories
+#### Model repositories as components
 
-When referencing an ML model, it typically means you are typically referencing a model repository since the models themselves often require multiple files in order to be used for actual training or inference with their pre-trained tensor data.  Model repositories also include metadata, often referred to as model card data,  that describe the model's use cases, design, architecture along with descriptive information on functional techniques that may be unique to the model functional processing.
+When referencing an ML model as a component, it typically means you are typically referencing a model repository since the models themselves often require multiple files in order to be used for actual training or inference with their pre-trained tensor data.  Model repositories also include metadata, often referred to as model card data,  that describe the model's use cases, design, architecture along with descriptive information on functional techniques that may be unique to the model functional processing.
 
 For example, a Natural Language Processing (NLP) model which uses a common Transformer architecture in Huggingface may include not only tensor data files (e.g., `.safetensors` or `.gguf`) files, but also files that describe the token mappings, tokenizer configurations, prompt templates as well as default (functional) model configurations used to initialize model implementations and more.
 
-###### Qwen/Qwen-7B
+###### Example: Qwen/Qwen-7B
 
 Using the Qwen/Qwen-7B model in Huggingface as an discrete example (https://huggingface.co/Qwen/Qwen-7B), we see complete list of files that make up the "model" in its repository:
 
