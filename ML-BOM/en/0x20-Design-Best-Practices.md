@@ -34,17 +34,31 @@ In CycloneDX, a model is considered a `component` where general best practices f
 
 ### Describing models as components
 
+A model should always be declared as a CycloneDX `component`.  If the model itself is the subject of the BOM, then the BOM is considered an ML-BOM and the `component` representing it would be declared in the top-level BOM `metadata` object.
 
+The object model's pseudo-schema would look something like this:
+![](images/ml-bom-metadata-component.svg)
+
+As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+
+##### Model repositories
+
+When referencing an ML model, it typically means you are typically referencing a model repository since the models themselves often require multiple files in order to be used for actual training or inference with their pre-trained tensor data.  Model repositories also include metadata, often referred to as model card data,  that describe the model's use cases, design, architecture along with descriptive information on functional techniques that may be unique to the model functional processing.
+
+For example, a Natural Language Processing (NLP) model which uses a common Transformer architecture in Huggingface may include not only tensor data files (e.g., `.safetensors` or `.gguf`) files, but also files that describe the token mappings, tokenizer configurations, prompt templates as well as default (functional) model configurations used to initialize model implementations and more.
+
+###### Qwen/Qwen-7B
+
+Using the Qwen/Qwen-7B model in Huggingface as an discrete example (https://huggingface.co/Qwen/Qwen-7B), we see complete list of files that make up the "model" in its repository:
+
+<img src="images/hf-model-repo-Qwen-7B-file-list.png" width="280" />
 
 ##### Stand-alone model files
 
 
-##### Model repositories
-
-
 ### Declaring datasets
 
-Using CycloneDX there are two methods to provide information on the datasets (e.g., ) used to train, test, and evaluate machine learning models.
+Using CycloneDX there are two methods to provide information on the datasets used to train, test, and evaluate machine learning models.
 
 Specifically, the component `modelCard` object includes `modelParameters` which includes an array of `datasets` objects which can be of the following types:
 
