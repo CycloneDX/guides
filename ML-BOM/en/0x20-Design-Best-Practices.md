@@ -53,8 +53,14 @@ Using the Qwen/Qwen-7B model in Huggingface as an discrete example (https://hugg
 
 <img src="images/hf-model-repo-Qwen-7B-file-list.png" width="280" />
 
-##### Stand-alone model files
+However, much like a software "package" the model repository would be referenced as a single CycloneDX component.  That is why the [Package URL specification](https://github.com/package-url/purl-spec) has a [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) defined.
 
+If you wish to detail the files, you can do so by creating a `component` entry for each and declaring it in the BOM's `components` array and describe this relationship (via `bom-ref` links) as a CycloneDX assembly within the BOM's `compositions` array.
+
+### Identifying a specific model quantization
+
+TODO TODO TODO
+- need to discuss with PURL community as this is not exampled for Huggingface package type.
 
 ### Declaring datasets
 
