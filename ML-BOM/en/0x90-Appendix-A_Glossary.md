@@ -1,6 +1,32 @@
 # Appendix A: Glossary
 
-- TBD
+##### Tensor
+
+In machine learning, the term tensor typically refers to data organized in a multidimensional array (M-way array), informally referred to as a "data tensor". Relational observations and concepts, established via ML model training of text, images, movies, sounds, and more can be stored in these "data tensors", and further analyzed either by artificial neural networks or tensor methods. [1]
+
+[1] [Wikipedia - Tensor (machine learning)](https://en.wikipedia.org/wiki/Tensor_(machine_learning))
+
+---
+
+##### Transformer
+
+Transformers are a type of neural network architecture that transforms or changes an input sequence into an output sequence. They do this by learning context and tracking relationships between sequence components. [1]
+
+The transformer's neural network architecture takes input data converts it to numerical representations called tokens, and each token is converted into a vector via lookup from an embedding table. At each layer of the neural network, each token is then contextualized within the scope of the context window with other (unmasked) tokens via a parallel multi-head attention mechanism, allowing the signal for key tokens to be amplified and less important tokens to be diminished.  After one or many iterations through the neural network, the output tokens can then be converted back into consumable output. [2]
+
+[1] [AWS - What are transformers in artificial intelligence?](https://aws.amazon.com/what-is/transformers-in-artificial-intelligence/)
+[2] [Wikipedia - Transformer (deep learning)](https://en.wikipedia.org/wiki/Transformer_(deep_learning))
+
+---
+
+##### Natural Language Processing (NLP)
+
+is the processing of natural language information by a computer. NLP is a subfield of computer science and is closely associated with artificial intelligence. NLP is also related to information retrieval, knowledge representation, computational linguistics, and linguistics more broadly.
+
+Major processing tasks in an NLP system include: speech recognition, text classification, natural language understanding, and natural language generation. [1]
+
+[1] [Wikipedia - Natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing)
+
 
 ---
 
@@ -17,9 +43,9 @@ A safetensors file contains:
 
 [1] https://huggingface.co/blog/ngxson/common-ai-model-formats
 
-#### GGUF
+#### GGUF (GPT-Generated Unified Format)
 
-GGUF was initially developed for the llama.cpp project. GGUF is a binary format designed for fast model loading and saving, and for ease of readability. Models are typically developed using PyTorch or another framework, and then converted to GGUF for use with GGML.
+GGUF is an acronym for GPT-Generated Unified Format and was initially developed for the llama.cpp project. GGUF is a binary format designed for fast model loading and saving, and for ease of readability. Models are typically developed using PyTorch or another framework, and then converted to GGUF for use with GGML.
 
 A GGUF file comprises:
 

@@ -12,16 +12,20 @@ The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
-- [Model representation](#model-representation)
-- [Model identifiers](#model-identifiers)
-- [Model metadata](#model-metadata)
-- [Model architecture]()
-- [Datasets]()
-- [Tokenizers and prompt templates]()
-- [Hardware, software & frameworks]()
-- [Training & testing details]()
-- [Intended use & ethics]()
-- [Environmental impacts]()
+- [Anatomy of an ML-BOM](#anatomy-of-an-ml-bom)
+    - [Describing models as components](#describing-models-as-components)
+    - [Model repositories as components](#model-repositories-as-components)
+    - [Model identifiers](#model-identifiers)
+
+- [Model card](#model-card)
+    - [Model metadata](#model-metadata)
+    - [Model architecture]()
+    - [Datasets]()
+    - [Tokenizers and prompt templates]()
+    - [Hardware, software & frameworks]()
+    - [Training & testing details]()
+    - [Intended use & ethics]()
+    - [Environmental impacts]()
 
 ---
 
@@ -39,15 +43,22 @@ A model should always be declared as a CycloneDX `component`.  If the model itse
 The object model's pseudo-schema would look something like this:
 ![](images/ml-bom-metadata-component.svg)
 
+#### Model identifier(s)
+
 As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+
+##### Identifying a specific model quantization
+
+> [!TODO]
+> Need to discuss with PURL community as this is not exampled for Huggingface package type.
 
 #### Model repositories as components
 
 When referencing an ML model as a component, it typically means you are typically referencing a model repository since the models themselves often require multiple files in order to be used for actual training or inference with their pre-trained tensor data.  Model repositories also include metadata, often referred to as model card data,  that describe the model's use cases, design, architecture along with descriptive information on functional techniques that may be unique to the model functional processing.
 
-For example, a Natural Language Processing (NLP) model which uses a common Transformer architecture in Huggingface may include not only tensor data files (e.g., `.safetensors` or `.gguf`) files, but also files that describe the token mappings, tokenizer configurations, prompt templates as well as default (functional) model configurations used to initialize model implementations and more.
+For example, a [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) model which uses a common [Transformer architecture](0x90-Appendix-A_Glossary.md#transformer) in Huggingface may include not only tensor data files (e.g., `.safetensors` or `.gguf`) files, but also files that describe the token mappings, tokenizer configurations, prompt templates as well as default (functional) model configurations used to initialize model implementations and more.
 
-###### Example: Qwen/Qwen-7B
+###### Example: Qwen/Qwen-7B model
 
 Using the Qwen/Qwen-7B model in Huggingface as an discrete example (https://huggingface.co/Qwen/Qwen-7B), we see complete list of files that make up the "model" in its repository:
 
@@ -55,12 +66,78 @@ Using the Qwen/Qwen-7B model in Huggingface as an discrete example (https://hugg
 
 However, much like a software "package" the model repository would be referenced as a single CycloneDX component.  That is why the [Package URL specification](https://github.com/package-url/purl-spec) has a [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) defined.
 
-If you wish to detail the files, you can do so by creating a `component` entry for each and declaring it in the BOM's `components` array and describe this relationship (via `bom-ref` links) as a CycloneDX assembly within the BOM's `compositions` array.
+###### Example: CycloneDX for the Qwen-7B model
 
-### Identifying a specific model quantization
+The following example shows how the Qwen-7B model (repository) from Huggingface would appear in a CycloneDX ML-BOM as its subject component.
 
-TODO TODO TODO
-- need to discuss with PURL community as this is not exampled for Huggingface package type.
+```
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "group": "Qwen"
+      "manufacturer": "Alibaba Cloud",
+      "supplier": "Hugging Face",
+      "name": "Qwen/Qwen-7B",
+      "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "description": "Qwen-7B is a Transformer-based large language model, which is pretrained on a large volume of data, including web texts, books, codes, etc.",
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://huggingface.co/"
+        },
+        {
+          "type": "model-card",
+          "url": "https://huggingface.co/Qwen/Qwen-7B"
+        }
+      ],
+      "modelCard": {
+         ...
+      }
+    }
+  ]
+}
+
+```
+
+###### Notes
+
+- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash is used.</br>
+- **model card** - *The CycloneDX representation of model card information will be detailed in a subsequent section.*
+</br>In the above example, we show how to use an `externalReference` to provide a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).
+
+
+#### Describing a model repository as a CycloneDX assembly
+
+If you wish to detail the files that are include in the model's repository, you can do so by creating a `component` entry for each and declaring it in the BOM's `components` array and describe this relationship (via `bom-ref` links) as a CycloneDX assembly within the BOM's `compositions` array.
+
+###### Example
+
+> [!TODO]
+> Need graphic and JSON
+
+```
+TBD
+```
+
+---
+
+## Model card
+
+This section provides a guide to best practices when filling out information for a CycloneDX `component` which has the type `machine-learning-model`.
+
+
+### Model metadata
+
+
+---
 
 ### Declaring datasets
 
@@ -83,18 +160,6 @@ Specifically, the component `modelCard` object includes `modelParameters` which 
 
 
 ##### Example
-
-
----
-
-## Model card
-
-CycloneDX
-
-### Model identifiers
-
-####
-
 
 ---
 
