@@ -16,6 +16,7 @@ For convenience, here are links to the specific sections for each of those infor
     - [Describing models as components](#describing-models-as-components)
     - [Model repositories as components](#model-repositories-as-components)
     - [Model identifiers](#model-identifiers)
+    - [Model metadata](#model-metadata)
 
 ---
 
@@ -120,6 +121,10 @@ If you wish to detail the files that are include in the model's repository, you 
 ```
 TBD
 ```
+
+---
+
+# Model metadata
 
 ---
 

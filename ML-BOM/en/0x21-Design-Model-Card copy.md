@@ -6,14 +6,42 @@ This section describes the design and best practices when providing information 
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
-- [Model metadata](#model-metadata)
-- [Model architecture]()
-- [Datasets]()
-- [Tokenizers and prompt templates]()
-- [Hardware, software & frameworks]()
-- [Training & testing details]()
-- [Intended use & ethics]()
-- [Environmental impacts]()
+- [Model parameters]()
+    - [Model architecture]()
+    - [Approach & tasks]()
+    - [Datasets]()
+    - [Inputs & Outputs]()
+        - [Tokenizers and prompt templates]()
+
+- [Quantitative analysis]()
+    - [Performance metrics & graphics]()
+
+- [Considerations]()
+    - [Users & use cases]()
+    - [Technical limitations]()
+    - [Performance tradeoffs]()
+    - [Fairness assessments]()
+    - [Intended use & ethics]()
+    - [Environmental impacts]()
+
+- [Other]
+    - [Hardware, software & frameworks]()
+    - [Training & testing details]()
+
+
+
+### Model parameters
+
+
+#### Model architecture
+
+---
+
+### Quantitative Analysis
+
+
+---
+
 
 ###### Example: CycloneDX Model Card for the Qwen-7B model
 
