@@ -31,6 +31,73 @@ For convenience, here are links to the specific sections for each of those infor
 ### Model parameters
 
 
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      ...,
+      "modelCard": {
+        "modelParameters": {
+          "task": "text-generation",
+          "architectureFamily": "transformer",
+          "modelArchitecture": "QWenLMHeadModel",
+          "approach": {
+            "type": "generative",
+            "motivations": ["text-generation", "conversational-ai"]
+          },
+          "parameters": [
+            {
+              "name": "total_parameters",
+              "value": "7 billion",
+              "description": "Total number of parameters in the model."
+            },
+            {
+              "name": "context_length",
+              "value": "8192",
+              "description": "The maximum sequence length the model supports during pre-training and inference."
+            },
+            {
+              "name": "vocab_size",
+              "value": "151936",
+              "description": "The size of the model's vocabulary."
+            },
+            {
+              "name": "quantization_support",
+              "value": "4-bit, 8-bit",
+              "description": "Supported quantization levels for reduced memory usage, as seen in community variations like TheBloke/Qwen-7B-Chat-GPTQ."
+            }
+          ],
+          "inputs": [
+            {"format": "string"}
+          ],
+          "outputs": [
+            {"format": "string"}
+          ],
+        },
+        "quantitativeAnalysis": {
+          "performanceMetrics": [
+            {
+              "type": "benchmark_score",
+              "value": "specific benchmark score here",
+              "slice": "Specific benchmark name (e.g., MMLU, GSM8K)"
+            }
+          ]
+        },
+        ...
+      }
+    }
+  }
+}
+```
+>![TODO] determine if we MUST also add "dependencies" to the composition to est. the relationship to the actual model repository. e.g., "dependencies": ["model-bom-ref"]
+
+
 #### Model architecture
 
 ---
