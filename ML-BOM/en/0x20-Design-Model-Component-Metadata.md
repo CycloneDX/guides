@@ -186,26 +186,74 @@ If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](htt
 
 ###### CycloneDX for the Qwen/Qwen-7B assembly
 
-> [!TODO]
+The simplified JSON below shows how to declare a few of the files from the model repository's complete file list.
+
+Note that we use the Package URL syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per-file.
 
 ```json
-"components": [
-  {
-      "type": "file",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      "group": "Qwen"
-      "manufacturer": "Alibaba Cloud",
-      "supplier": "Hugging Face",
-      "name": "Qwen/Qwen-7B",
-      "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      "description": "Qwen-7B"
-  }
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "components": [
+    {
+        "type": "file",
+        "name": "config.json",
+        "description": "Model configuration file",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+        "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+        ...
+    },
+    {
+        "type": "file",
+        "name": "configuration_qwen.py",
+        "description": "Python 'QWenConfig' class implementation for the Qwen 7B model",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+        "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+        ...
+    },
+    {
+        "type": "data",
+        "name": "model-00001-of-00008.safetensors",
+        "description": "Model tensor data (01 of 08)",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+        "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+        ...
+    },
+    {
+        "type": "data",
+        "name": "model-00002-of-00008.safetensors",
+        "description": "Model tensor data (01 of 08)",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+        "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+        ...
+    },
+    ...
+  ],
+  ...
+}
 ```
 
----
+These component files would then be used to create the assembly relationship.
 
-
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "composition": [
+    {
+      "aggregate": "complete",
+      "components": [
+        "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+        "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+        "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+        "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+        ...
+      ]
+    }
+  ],
+  ...
+}
+```
 
 ---
 
