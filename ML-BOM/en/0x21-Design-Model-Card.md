@@ -24,11 +24,9 @@ For convenience, here are links to the specific sections for each of those infor
     - [Intended use & ethics]()
     - [Environmental impacts]()
 
-- [Other]
+- [Other]()
     - [Hardware, software & frameworks]()
     - [Training & testing details]()
-
-
 
 ### Model parameters
 

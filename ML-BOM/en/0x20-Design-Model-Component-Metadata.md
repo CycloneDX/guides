@@ -40,7 +40,9 @@ The object model's pseudo-schema would look something like this:
 
 #### Model identifier(s)
 
-As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+
+If a model is hosted in a GitHub, it can also be referenced using a [GitHub Package URL](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md). For example, the ONNX vision model: [tiny-yolov2](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) (`tinyyolov2-7.onnx`) would have a PURL like `"pkg:github/onnx/models/validated/vision/object_detection_segmentation/tiny-yolov2/model@4c46cd0"`.
 
 ##### Identifying a specific model quantization
 
@@ -102,11 +104,15 @@ The following example shows how the Qwen-7B model (repository) from Huggingface 
 
 ```
 
-###### Notes
+###### Field notes
 
-- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash is used.</br>
-- **model card** - *The CycloneDX representation of model card information will be detailed in a subsequent section.*
-</br>In the above example, we show how to use an `externalReference` to provide a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).
+- **purl** - The Package URL (PURL) follows the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) using a commit hash.
+- **name** - The model name reflects how the model is identified under Hugging Face using the `<owner_name>/<repository_name>` format.
+- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash is used and matches the `purl` value.</br>
+- **manufacturer** - The name of the company which built the Qwen model.
+- **externalReferences**
+  - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, this is Hugging Face and affirms the associated PURL identifier.
+  - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
 
 
 #### Describing a model repository as a CycloneDX assembly
