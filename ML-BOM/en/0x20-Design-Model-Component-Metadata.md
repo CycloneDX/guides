@@ -61,60 +61,15 @@ The object model's pseudo-schema would look something like this:
 }
 ```
 
-#### Model identifier(s)
-
-As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
-
-If the model being described by an ML-BOM is hosted in a GitHub, it can also be referenced using a [GitHub Package URL](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md). For example, the ONNX vision model: [tiny-yolov2](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) would have a `github` PURL type.
-
-###### Example: JSON for model component with GitHub PURL
-
-```json
-"component":
-{
-  "type": "machine-learning-model",
-  "bom-ref": "pkg:github/onnx/models/validated/vision/object_detection_segmentation/tiny-yolov2/model@4c46cd0",
-  ...
-}
-```
-
-##### Adding domain-specific identifiers
-
-Organizations that produce BOMs for hardware or software components they produce may have a plurality of domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy]() which is the authoritative source of official namespaces used in CycloneDX `properties`.
-
-###### Example:
-
-The following example shows how a registered names for a fictional company ACME which registered the namespace `acme` could provide a property to identify one of its internal ML models.
-
-```json
-"component": {
-  "properties": [
-    {
-      "name": 'acme:research:model:llm:id',
-      "value": "MODEL-ID-12345-INTERNAL"
-    },
-    ...
-  ],
-  ...
-}
-```
-
-##### Identifying a specific model quantization
-
-> [!TODO]
-> Need to discuss with PURL community as this is not exampled for Huggingface package type.
-
 #### Model repositories as components
 
 When referencing an ML model as a component, it typically means you are referencing a **model repository** comprised of metadata and a set of files (e.g., pre-trained tensor data in various formats, model configurations, tokenizers, tokenizer configurations, prompt templates, Python code, etc.) which would be selectively used with various, compatible AI or ML applications and frameworks.
 
-If possible, these model repositories should be treated like a  software "package" in a Software Bill-of-Materiels (SBOM) when declaring it as a `machine-learning-model` type of CycloneDX component.
-
-<!-- For example, a [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) model which uses a common [Transformer architecture](0x90-Appendix-A_Glossary.md#transformer) in Huggingface may include not only tensor data files (e.g., `.safetensors` or `.gguf`) files, but also files that describe the token mappings, tokenizer configurations, prompt templates as well as default (functional) model configurations used to initialize model implementations and more. -->
+If possible, these model repositories should be treated like a software "package" in a Software Bill-of-Materiels (SBOM) when declaring it as a `machine-learning-model` type of CycloneDX component.
 
 ###### Example: CycloneDX for the Qwen-7B model repository
 
-The following example shows how the Qwen-7B model repository would be declared as a CycloneDX `component` of type `machine-learning-model`s in a CycloneDX ML-BOM as its subject component.
+The following example shows how the Qwen-7B model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
 
 Since the the model repository is hosted in Hugging Face Hub, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
@@ -154,7 +109,9 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
 
 ```
 
-###### Field notes
+###### Discussion of model fields and metadata
+
+This section provides best practice guidance on how the component fields were filled out for this example.
 
 - **bom-ref** - Since a PURL is available, it can also be used as the `bom-ref`.
 - **purl** - The Package URL (PURL) follows the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) using a commit hash.
@@ -166,21 +123,70 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
   - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, this is Hugging Face and affirms the associated PURL identifier.
   - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
 
+
+
+#### Model identifier(s)
+
+As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+
+If the model being described by an ML-BOM is instead hosted in a GitHub repository, it can also be referenced using a [GitHub Package URL](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md). For example, the ONNX vision model: [tiny-yolov2](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) would have a `github` PURL type.
+
+###### Example: JSON for model component with GitHub PURL
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:github/onnx/models/validated/vision/object_detection_segmentation/tiny-yolov2/model@4c46cd0",
+  ...
+}
+```
+
+##### Adding domain-specific identifiers
+
+Organizations that produce BOMs for hardware or software components they produce may have a plurality of domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy]() which is the authoritative source of official namespaces used in CycloneDX `properties`.
+
+###### Example:
+
+The following example shows how a registered names for a fictional company ACME which registered the namespace `acme` could provide a property to identify one of its internal ML models.
+
+```json
+"component": {
+  "properties": [
+    {
+      "name": 'acme:research:model:llm:id',
+      "value": "MODEL-ID-12345-INTERNAL"
+    },
+    ...
+  ],
+  ...
+}
+```
+
+##### Identifying a specific model quantization
+
+> [!TODO]
+> Need to discuss with PURL community as this is not exampled for Huggingface package type.
+
+---
+
+#### Describing a model repository as a CycloneDX assembly
+
+CycloneDX allows for declarations of software compositions (e.g., hardware products, software applications, packages, libraries, archives, etc.).
+
+In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as an assembly type of composition.
+
+Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array then the assembly relationship would appear within the BOM's `compositions` array under `assemblies` using `bom-ref` links to each of the file components.
+
 ###### Example: Qwen/Qwen-7B model
 
 If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](https://huggingface.co/Qwen/Qwen-7B), we see the complete list of files that make up the "model" in its repository:
 
 <img src="images/hf-model-repo-Qwen-7B-file-list.png" width="280" />
 
-
-#### Describing a model repository as a CycloneDX assembly
-
-If you wish to detail the files that are include in the model's repository, you can do so by creating a `component` entry for each and declaring it in the BOM's `components` array and describe this relationship (via `bom-ref` links) as a CycloneDX assembly within the BOM's `compositions` array.
-
-###### Example
+###### CycloneDX for the Qwen/Qwen-7B assembly
 
 > [!TODO]
-> Need graphic and JSON
 
 ```json
 "components": [
@@ -199,7 +205,7 @@ If you wish to detail the files that are include in the model's repository, you 
 
 ---
 
-# Model metadata
+
 
 ---
 
