@@ -198,7 +198,7 @@ Note that we use the Package URL syntax to provide the additional path (with the
     {
         "type": "file",
         "name": "config.json",
-        "description": "Model configuration file",
+        "description": "Model configuration file using the 'QWenLMHeadModel' model class in Hugging Face Transformers",
         "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
         "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
         ...
@@ -206,7 +206,7 @@ Note that we use the Package URL syntax to provide the additional path (with the
     {
         "type": "file",
         "name": "configuration_qwen.py",
-        "description": "Python 'QWenConfig' class implementation for the Qwen 7B model",
+        "description": "Python 'QWenConfig' class implementation for the Qwen-7B model using Hugging Face Transformers",
         "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
         "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
         ...
