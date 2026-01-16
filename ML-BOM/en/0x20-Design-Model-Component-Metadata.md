@@ -69,7 +69,7 @@ If possible, these model repositories should be treated like a software "package
 
 ###### Example: CycloneDX for the Qwen-7B model repository
 
-The following example shows how the Qwen-7B model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
+The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
 
 Since the the model repository is hosted in Hugging Face Hub, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
@@ -178,7 +178,7 @@ In the case of a model repository like those hosted in Hugging Face, one can des
 
 Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
 
-###### Example: Qwen/Qwen-7B model
+###### Example: Qwen/Qwen-7B model repository files
 
 If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](https://huggingface.co/Qwen/Qwen-7B), we see the complete list of files that make up the "model" in its repository:
 
@@ -262,7 +262,7 @@ then the model component's new hierarchy of composing files would be described a
 
 ###### Discussion of composition fields
 
-- Note the composition `aggregate` value is assigned to be "complete" since all constituent files are known and declared in the ML-BOM as part of the model component's `components` hierarchy.
+- **aggregate** - Note the composition `aggregate` value is assigned to be "complete" since all constituent files are known and declared in the ML-BOM as part of the model component's `components` hierarchy.
 
 ---
 

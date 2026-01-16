@@ -30,6 +30,19 @@ For convenience, here are links to the specific sections for each of those infor
 
 ### Model parameters
 
+>![Note] add diagram of model parameters
+
+In general, model parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
+
+###### Example: CycloneDX for the Qwen-7B model repository
+
+The following example shows how the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters would be declared as a CycloneDX `modelCard`.
+
+As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files) example in the previous section, we see the model includes several configuration files including:
+
+- [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) - which contains configuration parameters (as key-value pairs) used for initializing the model's implementation.
+- [generation_config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/generation_config.json) - which contains model hyperparameters (as key-value pairs) and their suggested (default) values used for configuring the model for token generation (inference).
+
 
 ```json
 {
@@ -95,6 +108,11 @@ For convenience, here are links to the specific sections for each of those infor
   }
 }
 ```
+
+###### Discussion of model card fields
+
+- **parameters** -
+
 >![TODO] determine if we MUST also add "dependencies" to the composition to est. the relationship to the actual model repository. e.g., "dependencies": ["model-bom-ref"]
 
 

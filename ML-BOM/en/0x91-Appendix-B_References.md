@@ -40,7 +40,8 @@ This appendix includes references to resources, standards, technologies and mode
 
 The following AI or ML technologies were referenced in discussion and/or examples in this guide:
 
-* [Huggingface](https://huggingface.co/) - an open-source platform and community for Artificial Intelligence (AI) and Machine Learning (ML).
+* [Hugging Face](https://huggingface.co/) - an open-source platform and community for Artificial Intelligence (AI) and Machine Learning (ML).
+  * [Hugging Face Transformers](https://huggingface.co/docs/transformers/) - a library that simplifies the training and inference of models that have a transformer architecture which uses PyTorch types and implementations "under-the-covers".
 * [PyTorch](https://pytorch.org/) - an optimized tensor library and framework used for deep learning on GPUs and CPUs.
 * [TensorFlow](https://www.tensorflow.org/) - An end-to-end open source machine learning platform.
 
