@@ -176,7 +176,7 @@ CycloneDX allows for declarations of software compositions (e.g., hardware produ
 
 In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as an assembly type of composition.
 
-Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array then the assembly relationship would appear within the BOM's `compositions` array under `assemblies` using `bom-ref` links to each of the file components.
+Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
 
 ###### Example: Qwen/Qwen-7B model
 
@@ -186,54 +186,63 @@ If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](htt
 
 ###### CycloneDX for the Qwen/Qwen-7B assembly
 
-The simplified JSON below shows how to declare a few of the files from the model repository's complete file list.
+The simplified JSON below shows how to declare a few of the files from the model repository's complete file list under the model's `component` declaration within the BOM's `metadata`.
 
 Note that we use the Package URL syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per-file.
 
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
-  "components": [
-    {
-        "type": "file",
-        "name": "config.json",
-        "description": "Model configuration file using the 'QWenLMHeadModel' model class in Hugging Face Transformers",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
-        "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
-        ...
-    },
-    {
-        "type": "file",
-        "name": "configuration_qwen.py",
-        "description": "Python 'QWenConfig' class implementation for the Qwen-7B model using Hugging Face Transformers",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
-        "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
-        ...
-    },
-    {
-        "type": "data",
-        "name": "model-00001-of-00008.safetensors",
-        "description": "Model tensor data (01 of 08)",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
-        "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
-        ...
-    },
-    {
-        "type": "data",
-        "name": "model-00002-of-00008.safetensors",
-        "description": "Model tensor data (02 of 08)",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
-        "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
-        ...
-    },
     ...
-  ],
+    "metadata":
+    {
+      "component":
+      {
+        "type": "machine-learning-model",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+        ...
+        "components": [
+          {
+              "type": "file",
+              "name": "config.json",
+              "description": "Model configuration file using the 'QWenLMHeadModel' model class in Hugging Face Transformers",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+              "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+              ...
+          },
+          {
+              "type": "file",
+              "name": "configuration_qwen.py",
+              "description": "Python 'QWenConfig' class implementation for the Qwen-7B model using Hugging Face Transformers",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+              "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+              ...
+          },
+          {
+              "type": "data",
+              "name": "model-00001-of-00008.safetensors",
+              "description": "Model tensor data (01 of 08)",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+              "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+              ...
+          },
+          {
+              "type": "data",
+              "name": "model-00002-of-00008.safetensors",
+              "description": "Model tensor data (02 of 08)",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+              "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+              ...
+          },
+          ...
+        ]
+      }
+    }
   ...
 }
 ```
 
-These component files would then be used to create the assembly relationship.
+then the model component's new hierarchy of composing files would be described as an assembly composition as follows:
 
 ```json
 {
@@ -242,18 +251,18 @@ These component files would then be used to create the assembly relationship.
   "composition": [
     {
       "aggregate": "complete",
-      "components": [
-        "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
-        "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
-        "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
-        "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
-        ...
+      "assemblies": [
+        "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       ]
     }
   ],
   ...
 }
 ```
+
+###### Discussion of composition fields
+
+- Note the composition `aggregate` value is assigned to be "complete" since all constituent files are known and declared in the ML-BOM as part of the model component's `components` hierarchy.
 
 ---
 
