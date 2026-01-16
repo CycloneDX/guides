@@ -224,6 +224,10 @@ Note that we use the Package URL syntax to provide the additional path (with the
               "description": "Model tensor data (01 of 08)",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+              "data": {
+                "type": "dataset",
+                ...
+              }
               ...
           },
           {
@@ -232,6 +236,10 @@ Note that we use the Package URL syntax to provide the additional path (with the
               "description": "Model tensor data (02 of 08)",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+              "data": {
+                "type": "dataset",
+                ...
+              }
               ...
           },
           ...

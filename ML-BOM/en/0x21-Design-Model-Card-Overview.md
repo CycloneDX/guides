@@ -2,6 +2,10 @@
 
 ## Model card
 
+At the time of initial development, the CycloneDX model card schema was directly influenced by the [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) and specifically its [ModelCard fields](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelCard) which lead to many assumptions model parameters and hyperparameters that perhaps do not translate well to more current ML Frameworks used for training and generation.
+
+Throughout the model card sections of this guide, we will show how to use the existing schema to encode information seen in model cards from a more current and robust perspective.
+
 ### Overview
 
 This section describes the design and best practices when providing information for a CycloneDX `modelCard` in an ML-BOM as part of the model's CycloneDX `component` definition.
