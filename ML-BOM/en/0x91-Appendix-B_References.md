@@ -44,6 +44,7 @@ The following AI or ML technologies were referenced in discussion and/or example
   * [Hugging Face Transformers](https://huggingface.co/docs/transformers/) - a library that simplifies the training and inference of models that have a transformer architecture which uses PyTorch types and implementations "under-the-covers".
 * [PyTorch](https://pytorch.org/) - an optimized tensor library and framework used for deep learning on GPUs and CPUs.
 * [TensorFlow](https://www.tensorflow.org/) - An end-to-end open source machine learning platform.
+  * [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (archived) - streamlines and automates generation of Model Cards, machine learning documents that provide context and transparency into a model's development and performance.
 
 ---
 

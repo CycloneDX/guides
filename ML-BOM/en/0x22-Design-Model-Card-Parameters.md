@@ -1,10 +1,12 @@
 # ML-BOM Design and Best Practices
 
-### Model parameters
+## Model parameters
 
 >![Note] add diagram of model parameters
 
 In general, model parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
+
+> [!NOTE] The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:parameter` and `cdx:ai-ml:hyperparameter` as needed.
 
 ###### Example: CycloneDX for the Qwen-7B model repository
 
@@ -85,7 +87,7 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
 
 - **parameters** -
 
->![TODO] determine if we MUST also add "dependencies" to the composition to est. the relationship to the actual model repository. e.g., "dependencies": ["model-bom-ref"]
+>[!TODO] determine if we MUST also add "dependencies" to the composition to est. the relationship to the actual model repository. e.g., "dependencies": ["model-bom-ref"]
 
 
 #### Model architecture

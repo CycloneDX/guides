@@ -12,9 +12,9 @@ This section describes the design and best practices when providing information 
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
->![TODO] add hyperlinks when done with all subsections
+>[!TODO] add hyperlinks when done with all subsections
 
-- [Model parameters]()
+- [Model parameters](0x22-Design-Model-Card-Parameters.md#model-parameters)
     - [Model architecture]()
     - [Approach & tasks]()
     - [Datasets]()
