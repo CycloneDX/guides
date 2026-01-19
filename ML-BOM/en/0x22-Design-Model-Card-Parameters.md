@@ -2,11 +2,75 @@
 
 ## Model parameters
 
->![Note] add diagram of model parameters
+![](images/ml-anatomy-model-card-parameters.svg)
 
-In general, model parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
+This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents including:
 
-> [!NOTE] The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:parameter` and `cdx:ai-ml:hyperparameter` as needed.
+* [Model metadata](#model-metadata)
+  * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
+  * [Task](#task) - Directly influences the input and/or output. Examples include classification, regression, clustering, etc.
+  * [Architecture](#architecture) - The model architecture family such as a Transformer network, convolutional neural network (CNN), residual neural network (RNN), LSTM neural network, etc.
+
+* [Declaring datasets](#declaring-datasets)
+
+
+---
+
+### Model metadata
+
+#### Approach
+
+##### Type
+
+Learning types describing the learning problem or hybrid learning problem.
+
+| Name | Description |
+| !-- | !-- |
+| "supervised" | Supervised machine learning involves training an algorithm on labeled data to predict or classify new data based on the patterns learned from the labeled examples. |
+| "unsupervised"	| Unsupervised machine learning involves training algorithms on unlabeled data to discover patterns, structures, or relationships without explicit guidance, allowing the model to identify inherent structures or clusters within the data.
+| "reinforcement-learning" | Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment to maximize cumulative rewards, through trial and error. |
+| "semi-supervised" | Semi-supervised machine learning utilizes a combination of labeled and unlabeled data during training to improve model performance, leveraging the benefits of both supervised and unsupervised learning techniques. |
+| "self-supervised" | Self-supervised machine learning involves training models to predict parts of the input data from other parts of the same data, without requiring external labels, enabling learning from large amounts of unlabeled data. |
+
+
+#### Task
+
+#### Architecture
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      ...
+      "modelCard": {
+        "modelParameters": {
+          "task": "text-generation",
+          "architectureFamily": "transformer",
+          "modelArchitecture": "QWenLMHeadModel",
+          "approach": {
+            "type": "generative",
+            "motivations": ["text-generation", "conversational-ai"]
+          },
+        ...
+      }
+    }
+  }
+}
+```
+
+---
+
+### Declaring Model configuration parameters & hyperparameters
+
+In general, model configuration parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
+
+> [!NOTE] The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` as needed.
 
 ###### Example: CycloneDX for the Qwen-7B model repository
 
@@ -38,10 +102,10 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
             "type": "generative",
             "motivations": ["text-generation", "conversational-ai"]
           },
-          "parameters": [
+          "properties": [
             {
               "name": "total_parameters",
-              "value": "7 billion",
+              "value": "7B",
               "description": "Total number of parameters in the model."
             },
             {
@@ -85,17 +149,69 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
 
 ###### Discussion of model card fields
 
-- **parameters** -
+- **properties** -
 
 >[!TODO] determine if we MUST also add "dependencies" to the composition to est. the relationship to the actual model repository. e.g., "dependencies": ["model-bom-ref"]
 
 
-#### Model architecture
+
 
 ---
 
-### Quantitative Analysis
+### Model inputs & outputs
 
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      ...
+      "modelCard": {
+          ...
+          "inputs": [
+            {"format": "string"}
+          ],
+          "outputs": [
+            {"format": "string"}
+          ]
+      }
+    }
+  }
+}
+```
+
+### Quantitative analysis
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      ...
+      "modelCard": {
+        ...
+        "quantitativeAnalysis": {
+          "performanceMetrics": [
+            {
+              "type": "benchmark_score",
+              "value": "specific benchmark score here",
+              "slice": "Specific benchmark name (e.g., MMLU, GSM8K)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
 
 ---
 
@@ -178,10 +294,6 @@ Again, we  continue to showcase the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Q
 }
 ```
 
-
-### Model metadata
-
-
 ---
 
 ### Declaring datasets
@@ -207,8 +319,6 @@ Specifically, the component `modelCard` object includes `modelParameters` which 
 ##### Example
 
 ---
-
-### Model metadata
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
