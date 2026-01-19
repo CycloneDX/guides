@@ -9,7 +9,8 @@ This section will feature guidance on filling out information in the Cyclone mod
 * [Model metadata](#model-metadata)
   * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
   * [Task](#task) - Directly influences the input and/or output. Examples include classification, regression, clustering, etc.
-  * [Architecture](#architecture) - The model architecture family such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
+  * [Architecture family](#architecture) - The model architecture family such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
+  * [Architecture]() - The specific architecture of the model such as Transformer, GPT-1, ResNet-50, YOLOv3, etc.
 * [Datasets](#datasets) - The datasets used to train and evaluate the model.
   * [Declaring datasets](#declaring-datasets)
 * [Inputs & Outputs](#inputs--outputs) - Describes the input and output data types (formats) of the model.
@@ -20,25 +21,48 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ### Model metadata
 
+The `modelCard` fields, grouped in this section, are intended to describe so of the classifying metadata of the associated ML model.
+
 #### Approach
+
+The overall approach to learning used by the model for problem solving.
 
 ##### Type
 
-Learning types describing the learning problem or hybrid learning problem.
+This field is intended to describe the specific **learning type* of the model.
 
-| Name | Description |
-| !-- | !-- |
-| "supervised" | Supervised machine learning involves training an algorithm on labeled data to predict or classify new data based on the patterns learned from the labeled examples. |
-| "unsupervised"	| Unsupervised machine learning involves training algorithms on unlabeled data to discover patterns, structures, or relationships without explicit guidance, allowing the model to identify inherent structures or clusters within the data.
-| "reinforcement-learning" | Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment to maximize cumulative rewards, through trial and error. |
-| "semi-supervised" | Semi-supervised machine learning utilizes a combination of labeled and unlabeled data during training to improve model performance, leveraging the benefits of both supervised and unsupervised learning techniques. |
-| "self-supervised" | Self-supervised machine learning involves training models to predict parts of the input data from other parts of the same data, without requiring external labels, enabling learning from large amounts of unlabeled data. |
+The following values are supported by CycloneDx for this field:
+
+| Value | Description |
+|---|---|
+| **supervised** | Supervised machine learning involves training an algorithm on labeled data to predict or classify new data based on the patterns learned from the labeled examples. |
+| **unsupervised**	| Unsupervised machine learning involves training algorithms on unlabeled data to discover patterns, structures, or relationships without explicit guidance, allowing the model to identify inherent structures or clusters within the data.
+| **reinforcement-learning** | Reinforcement learning is a type of machine learning where an agent learns to make decisions by interacting with an environment to maximize cumulative rewards, through trial and error. |
+| **semi-supervised** | Semi-supervised machine learning utilizes a combination of labeled and unlabeled data during training to improve model performance, leveraging the benefits of both supervised and unsupervised learning techniques. |
+| **self-supervised** | Self-supervised machine learning involves training models to predict parts of the input data from other parts of the same data, without requiring external labels, enabling learning from large amounts of unlabeled data. |
 
 
 #### Task
 
+Describes the primary task of (or goal) of the machine learning model.  Some examples include:
+
+* **Anomaly Detection** - Identifying outliers or unusual patterns in data.
+* **Classification** - Categorizing inputs into predefined labels (e.g., spam/not-spam, image recognition).
+* **Clustering** - Grouping unlabeled data based on similar characteristics (e.g., customer segmentation).
+* **Dimensionality Reduction** - Simplifying complex data by reducing the number of variables while preserving core information.
+* **Generation** - Creating new data based upon prompted instructions (e.g., Large Language Models (LLMs), image or audio diffusion models, etc.).
+* **Recommendation/Association** - Finding relationships between items (e.g., "users who bought this also bought...").
+* **Regression** - Predicting continuous numerical values (e.g., house prices, temperature forecasting).
+
+
+#### Architecture family
+
+TODO
+
+
 #### Architecture
 
+TODO
 
 ###### Example: Model card metadata for the Qwen-7B model
 

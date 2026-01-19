@@ -4,24 +4,27 @@
 
 ![](images/ml-anatomy-model-card-quant-analysis.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents including:
+This section will feature guidance on filling out information in the Cyclone model card's `quantitativeAnalysis` object and its subcomponents including:
 
-* [Quantitative analysis](#quantitative-analysis)
+* [Performance metrics](#performance-metrics)
 * [Graphics](#graphics)
 
-### Quantitative analysis
+---
+
+# What is quantitative analysis
 
 A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis which looks at why. It assesses metrics like accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliability for decision-making, moving beyond subjective human interpretation.
 
-
 #### Key Aspects of Quantitative AI Analysis:
 
-* Numerical Metrics: Uses measurable data (e.g., error rates, latency, performance scores) rather than subjective feedback.
-* Objective Evaluation: Provides reproducible, scalable results that can be compared across different models or versions.
-* Pattern & Trend Detection: Identifies numerical patterns, correlations, and trends within large datasets that might be missed manually.
-* Performance Benchmarking: Calculates specific scores (like F1-score, AUC, BLEU for LLMs) to compare models rigorously.
-* Testing Hypotheses: Statistically tests assumptions about model behavior (e.g., "Does Model X consistently outperform Model Y on this task?").
-* Automation: AI itself can automate complex quantitative analysis, handling vast amounts of data and uncovering intricate relationships.
+* **Numerical Metrics**: Uses measurable data (e.g., error rates, latency, performance scores) rather than subjective feedback.
+* **Performance Benchmarking**: Calculates specific scores (like F1-score, AUC, BLEU for LLMs) to compare models rigorously.
+* **Objective Evaluation**: Provides reproducible, scalable results that can be compared across different models or versions.
+* **Pattern & Trend Detection**: Identifies numerical patterns, correlations, and trends within large datasets that might be missed manually.
+* **Testing Hypotheses**: Statistically tests assumptions about model behavior (e.g., "Does Model X consistently outperform Model Y on this task?").
+* **Automation**: AI itself can automate complex quantitative analysis, handling vast amounts of data and uncovering intricate relationships.
+
+
 
 ---
 

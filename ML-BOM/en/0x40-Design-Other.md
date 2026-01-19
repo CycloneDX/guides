@@ -2,19 +2,14 @@
 
 ## Other
 
-This section describes the design and best practices when providing information for a CycloneDX `modelCard` in an ML-BOM as part of the model's CycloneDX `component` definition.
+This section describes the design and best practices when providing other model-related information an ML model's component and model card within a CycloneDX ML-BOM.
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
-- [Model metadata](#model-metadata)
-- [Model architecture]()
-- [Datasets]()
 - [Tokenizers and prompt templates]()
 - [Hardware, software & frameworks]()
 - [Training & testing details]()
 - [Intended use & ethics]()
-- [Environmental impacts]()
-
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
