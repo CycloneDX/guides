@@ -12,7 +12,7 @@ This section will feature guidance on filling out information in the Cyclone mod
   * [Architecture](#architecture) - The model architecture family such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
 * [Datasets](#datasets) - The datasets used to train and evaluate the model.
   * [Declaring datasets](#declaring-datasets)
-* [Inputs & Outputs](#inputs--outputs) -
+* [Inputs & Outputs](#inputs--outputs) - Describes the input and output data types (formats) of the model.
 * [Declaring other properties](#declaring-other-properties)
   * [Configuration parameters & hyperparameters](#configuration-parameters--hyperparameters)
 
@@ -101,7 +101,7 @@ Specifically, the component `modelCard` object includes `modelParameters` which 
 
 ### Inputs & outputs
 
-Describes the input and output data types formats of the model.
+Describes the input and output data types (formats) of the model.
 
 >[!Note] Please see the [](#mode)
 
@@ -199,17 +199,14 @@ In general, model configuration parameters describe values that are directly use
 
 > [!NOTE] The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` as needed.
 
-###### Example: CycloneDX for the Qwen-7B model repository
-
-The following example shows how the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters would be declared as a CycloneDX `modelCard`.
+###### Example: Model parameters & hyperparameters for the Qwen-7B model
 
 As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files) example in the previous section, we see the model includes several configuration files including:
 
 - [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) - which contains configuration parameters (as key-value pairs) used for initializing the model's implementation.
 - [generation_config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/generation_config.json) - which contains model hyperparameters (as key-value pairs) and their suggested (default) values used for configuring the model for token generation (inference).
 
-
-###### Example: Model parameters & hyperparameters for the Qwen-7B model
+The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters, as contained in the [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) configuration file, would be declared within the CycloneDx `modelCard` object's `properties` array using the CycloneDx reserved namespace for AI/ML.
 
 ```json
 {
@@ -241,7 +238,8 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
             {
               "name": "cdx:ai-ml:model:parameter:quantization_support",
               "value": "4-bit, 8-bit"
-            }
+            },
+            ...
           ]
         },
         ...
@@ -251,9 +249,9 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
 }
 ```
 
-###### Discussion of model card fields
+###### Discussion of model card properties
 
-The values from the Qwen model's `model_config.json` were added to the CycloneDx model card's `properties` array using the CycloneDx reserved namespace for AI/ML.
+The model card from above contains the following `cdx:ai-ml:model` properties:
 
 - **properties**
 
