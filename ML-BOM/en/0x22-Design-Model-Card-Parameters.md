@@ -9,8 +9,9 @@ This section will feature guidance on filling out information in the Cyclone mod
 * [Model metadata](#model-metadata)
   * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
   * [Task](#task) - Directly influences the input and/or output. Examples include classification, regression, clustering, etc.
-  * [Architecture family](#architecture) - The model architecture family such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
-  * [Architecture]() - The specific architecture of the model such as Transformer, GPT-1, ResNet-50, YOLOv3, etc.
+  * [Architecture family](#architecture-family) - The model architecture family such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
+  * [Model architecture](#model-architecture) - The specific architecture of the model such as Transformer, GPT-1, ResNet-50, YOLOv3, etc.
+  * [External references](#external-references)
 * [Datasets](#datasets) - The datasets used to train and evaluate the model.
   * [Declaring datasets](#declaring-datasets)
 * [Inputs & Outputs](#inputs--outputs) - Describes the input and output data types (formats) of the model.
@@ -25,15 +26,9 @@ The `modelCard` fields, grouped in this section, are intended to describe so of 
 
 #### Approach
 
-The overall approach to learning used by the model for problem solving.
+Describes the general learning approach used to train the model.  Currently, the approach is simply described by a single `type` field which has the following supported values:
 
-##### Type
-
-This field is intended to describe the specific **learning type* of the model.
-
-The following values are supported by CycloneDx for this field:
-
-| Value | Description |
+| Type | Description |
 |---|---|
 | **supervised** | Supervised machine learning involves training an algorithm on labeled data to predict or classify new data based on the patterns learned from the labeled examples. |
 | **unsupervised**	| Unsupervised machine learning involves training algorithms on unlabeled data to discover patterns, structures, or relationships without explicit guidance, allowing the model to identify inherent structures or clusters within the data.
@@ -41,6 +36,7 @@ The following values are supported by CycloneDx for this field:
 | **semi-supervised** | Semi-supervised machine learning utilizes a combination of labeled and unlabeled data during training to improve model performance, leveraging the benefits of both supervised and unsupervised learning techniques. |
 | **self-supervised** | Self-supervised machine learning involves training models to predict parts of the input data from other parts of the same data, without requiring external labels, enabling learning from large amounts of unlabeled data. |
 
+Please note that links to external documentation that detail the model training approach (and other detailed information) can be provided using [external references](#external-references) which is discussed later in this section.
 
 #### Task
 
@@ -54,13 +50,11 @@ Describes the primary task of (or goal) of the machine learning model.  Some exa
 * **Recommendation/Association** - Finding relationships between items (e.g., "users who bought this also bought...").
 * **Regression** - Predicting continuous numerical values (e.g., house prices, temperature forecasting).
 
-
 #### Architecture family
 
 TODO
 
-
-#### Architecture
+#### Model architecture
 
 TODO
 
@@ -83,14 +77,47 @@ TODO
           "architectureFamily": "transformer",
           "modelArchitecture": "QWenLMHeadModel",
           "approach": {
-            "type": "generative",
-            "motivations": ["text-generation", "conversational-ai"]
+            "type": "supervised"
           },
         ...
       }
     }
   }
 }
+```
+
+
+#### External references
+
+Most models are fully described in terms of research papers, articles and other reference documents.  In those cases, they should be provided as `externalReferences` under the `component`.
+
+###### Example: "Qwen Technical Report"
+
+This shows how the Qwen research team disclosed comprehensive details about the Qwen model's design, training, implementation and evaluation as a formal research paper in the the Cornell University's arXiv scholarly article distribution service.
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      ...,
+      "externalReferences": [
+        {
+          "type": "documentation",
+          "url": "https://arxiv.org/abs/2309.16609",
+          "comment": "Qwen Technical Report"
+        }
+      ],
+      ...
+    }
+  }
+}
+
 ```
 
 ---
