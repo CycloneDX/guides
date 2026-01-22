@@ -171,8 +171,48 @@ The following example shows how a registered names for a fictional company ACME 
 
 ##### Identifying a specific model quantization
 
-> [!TODO]
-> Need to discuss with PURL community as this is not exampled for Huggingface package type.
+Some model repositories may contain different [quantizations](0x90-Appendix-A_Glossary.md#quantization) to select from in order to optimize when running on different target inference runtimes and hardware footprints.
+
+In general, these are referenceable as (often single) files within a model repository each of which can be described as a CycloneDX component as shown in the next section [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly).
+
+###### Example: Qwen/Qwen3-8B-GGUF
+
+This example uses the model repository [Qwen/Qwen3-8B-GGUF](https://huggingface.co/Qwen/Qwen3-8B-GGUF) which contains several quantizations of the Qwen3-8B model (published originally in a non-quantized format elsewhere) in [GGUF format](0x90-Appendix-A_Glossary.md#gguf-gpt-generated-unified-format).
+
+These quantized GGUF models are each individual files in the repository:
+
+* Qwen3-8B-Q4_K_M.gguf
+* Qwen3-8B-Q5_0.gguf
+* Qwen3-8B-Q6_K.gguf
+* Qwen3-8B-Q8_0.gguf
+
+Each can be specifically identified in a CycloneDX component using a Package URL (PURL). For example, the `Qwen3-8B-Q4_K_M.gguf` model would be declared as follows:
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:1ad676cb-6b40-4068-ae91-ebd1533dbf58",
+  "version": 1,
+  ...,
+  "components": [
+    {
+      "name": "Qwen3-8B-Q4_K_M.gguf",
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481#Qwen3-8B-Q4_K_M.gguf",
+      "purl": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481f57cb95916b40956ab2f0b139b296d974#Qwen3-8B-Q4_K_M.gguf",
+      "version": "7c41481f57cb95916b40956ab2f0b139b296d974",
+      ...
+    }
+  ],
+  ...
+}
+```
+
+###### Field notes
+
+* **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
 
 ---
 
