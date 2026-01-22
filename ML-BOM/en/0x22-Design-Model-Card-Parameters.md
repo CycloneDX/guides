@@ -178,6 +178,10 @@ Key applications:
 * **Unstructured Sources**: Referencing data not housed in traditional databases or management tools (e.g., data within S3 buckets, event data within Security information and event management (SIEM) systems).
 
 
+##### Example: Custom health model with private dataset
+
+This example shows a model fine-tuned (by a fictional "ACME Health" company) from the public [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B) model using a private dataset.
+
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
@@ -189,9 +193,9 @@ Key applications:
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/m42-health/Llama3-Med42-8B@ceab7e7",
-      "purl": "pkg:huggingface/m42-health/Llama3-Med42-8B@ceab7e7ee4b9dbde7ba82867f34274db51487d83",
-      "description": "Med42-v2 introduces a suite of clinical large language models (LLMs) designed to address the limitations of generic models in healthcare settings. These models are built on Llama3 architecture and fine-tuned using specialized clinical data."
+      "bom-ref": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@2ee9dc9",
+      "purl": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@2ee9dc99-cc50-4490-9d6e-9ebf6e39f82f",
+      "description": "Customized Med42-v2 large language models (LLMs) which uses the Llama3 architecture and fine-tuned using private clinical dataset."
       ...,
       "modelCard": {
         "modelParameters": {
@@ -199,11 +203,21 @@ Key applications:
           "datasets": [
             {
               "type": "dataset",
-              "name": "Training Data",
+              "name": "UltraFeed-
+back dataset",
+              "classification": "public",
               "contents": {
-                "url": "https://example.com/path/to/dataset"
-              },
-              "classification": "public"
+                "url": "https://huggingface.co/datasets/openbmb/UltraFeedback"
+              }
+            },
+            ...,
+            {
+              "type": "dataset",
+              "name": "ACME Midwest health data",
+              "classification": "private",
+              "contents": {
+                "url": "https://acme.ai/adatasets/health/patient?region=midwest"
+              }
             }
           ],
           ...
@@ -214,18 +228,69 @@ Key applications:
 }
 ```
 
-
-
-##### Example
-
-
 #### Data component references
 
 This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information as a full, CycloneDX component.
 
+##### Example:  health model with private dataset
 
+This example shows the recommended best practice of declaring the datasets for the base model used in the previous "in-line" example (i.e., [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B)) as their own CycloneDX components.
 
-##### Example
+The public datasets, as documented in the model's research paper include:
+
+* [openbmb/UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback)
+* [snorkelai/Snorkel-Mistral-PairRM-DPO](https://huggingface.co/snorkelai/Snorkel-Mistral-PairRM-DPO)
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:eb033070-85d1-45f4-9eb7-f50510f83853",
+  "version": 1,
+  "metadata": {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@ceab7e7",
+      "purl": "pkg:huggingface/acme-health/Llama3-Med42-8B@ceab7e7ee4b9dbde7ba82867f34274db51487d83",
+      "description": "an open, clinical large language models (LLM) instruct and preference-tuned by M42 to expand access to medical knowledge. Built off LLaMA-3 and designed to provide high-quality answers to medical questions."
+      ...,
+      "modelCard": {
+        "modelParameters": {
+          ...,
+          "datasets": [
+            {
+              "ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365"
+            },
+            {
+              "ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a"
+            }
+          ],
+          ...
+        }
+      }
+    }
+  },
+  ...,
+  "components": [
+    {
+      "name": "UltraFeed-back dataset",
+      "type": "data",
+      "bom-ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365",
+      "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e",
+      ...
+    },
+    {
+      "name": "UltraFeed-back dataset",
+      "type": "data",
+      "bom-ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a",
+      "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511",
+      ...
+    }
+  ]
+}
+```
 
 ---
 
