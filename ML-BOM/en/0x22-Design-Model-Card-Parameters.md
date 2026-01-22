@@ -132,18 +132,31 @@ Using CycloneDX there are two methods to provide information on the datasets use
 
 Specifically, the component `modelCard` object includes `modelParameters` which includes an array of `datasets` objects which can be of the following types:
 
-1. **In-line information**: provides in-line objects that provide for direct description of datasets and some of their typically cited attributes and characteristics.  Typically, this method mirrors dataset information found in various model catalogs and provides a means for direct, simplified mapping to CycloneDX.
-    * *This method may be helpful if the datasets themselves are not public (i.e., directly referenceable), but informational details are.*
-2. **Data component reference**: provides for the complete description of each dataset as its own CycloneDX component and referenced via its `bom-ref`.
-    * *This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information.*
+1. **In-line information**: provides in-line objects that provide for direct description of datasets and some of their typically cited attributes and characteristics.
+2. **Data component references**: provides for the complete description of each dataset as its own CycloneDX component and referenced via its `bom-ref`.
 
-#### In-line information object model
+The next sections will discuss the considerations for each and example how to use both of these methods.
+
+#### In-line information
+
+This method simplifies the association between training datasets and model cards, specifically addressing scenarios where data is difficult to reference as an independent component.
+
+Key applications:
+
+* Filtered Data: Documenting specific slices of data used for fine-tuning.
+* Private Repositories: Providing transparency via BOMs for non-public datasets.
+* Unstructured Sources: Referencing data not housed in traditional databases or management tools.
+
+
+
 
 
 ##### Example
 
 
 #### Data component references
+
+* *This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information.*
 
 
 ##### Example
