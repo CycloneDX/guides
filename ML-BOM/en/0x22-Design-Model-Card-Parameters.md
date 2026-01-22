@@ -69,7 +69,7 @@ TODO
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       ...
       "modelCard": {
         "modelParameters": {
@@ -104,7 +104,7 @@ This shows how the Qwen research team disclosed comprehensive details about the 
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       ...,
       "externalReferences": [
         {
@@ -143,11 +143,46 @@ This method simplifies the association between training datasets and model cards
 
 Key applications:
 
-* Filtered Data: Documenting specific slices of data used for fine-tuning.
-* Private Repositories: Providing transparency via BOMs for non-public datasets.
-* Unstructured Sources: Referencing data not housed in traditional databases or management tools.
+* **Filtered Data**: Documenting specific slices or individual snippets of data used for fine-tuning or testing.
+* **Private Repositories**: Providing transparency via BOMs for non-public datasets in public model cards (e.g, private data used for models in the healthcare or financial services industries).
+* **Unstructured Sources**: Referencing data not housed in traditional databases or management tools (e.g., data within S3 buckets, event data within Security information and event management (SIEM) systems).
 
 
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "metadata": {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/m42-health/Llama3-Med42-8B@ceab7e7",
+      "purl": "pkg:huggingface/m42-health/Llama3-Med42-8B@ceab7e7ee4b9dbde7ba82867f34274db51487d83",
+      "description": "Med42-v2 introduces a suite of clinical large language models (LLMs) designed to address the limitations of generic models in healthcare settings. These models are built on Llama3 architecture and fine-tuned using specialized clinical data."
+      ...,
+      "modelCard": {
+        "modelParameters": {
+          ...,
+          "datasets": [
+            {
+              "type": "dataset",
+              "name": "Training Data",
+              "contents": {
+                "url": "https://example.com/path/to/dataset"
+              },
+              "classification": "public"
+            }
+          ],
+          ...
+        }
+      }
+    }
+  }
+}
+```
 
 
 
@@ -156,7 +191,8 @@ Key applications:
 
 #### Data component references
 
-* *This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information.*
+This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information as a full, CycloneDX component.
+
 
 
 ##### Example
@@ -281,7 +317,7 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       ...,
       "modelCard": {
         "modelParameters": {

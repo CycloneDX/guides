@@ -52,7 +52,9 @@ The object model's pseudo-schema would look something like this:
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       ...
     }
     ...
@@ -60,6 +62,10 @@ The object model's pseudo-schema would look something like this:
   ...
 }
 ```
+
+###### Discussion of fields
+
+* **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
 
 #### Model repositories as components
 
@@ -82,7 +88,7 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
     "component":
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "group": "Qwen"
       "manufacturer": "Alibaba Cloud",
@@ -154,7 +160,7 @@ The following example shows how a registered names for a fictional company ACME 
 "component": {
   "properties": [
     {
-      "name": 'acme:research:model:llm:id',
+      "name": "acme:research:model:llm:id",
       "value": "MODEL-ID-12345-INTERNAL"
     },
     ...
@@ -199,14 +205,14 @@ Note that we use the Package URL syntax to provide the additional path (with the
       "component":
       {
         "type": "machine-learning-model",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
         ...
         "components": [
           {
               "type": "file",
               "name": "config.json",
               "description": "Model configuration file using the 'QWenLMHeadModel' model class in Hugging Face Transformers",
-              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b#config.json",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
               ...
           },
@@ -214,7 +220,7 @@ Note that we use the Package URL syntax to provide the additional path (with the
               "type": "file",
               "name": "configuration_qwen.py",
               "description": "Python 'QWenConfig' class implementation for the Qwen-7B model using Hugging Face Transformers",
-              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629#configuration_qwen.py",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
               ...
           },
@@ -222,7 +228,7 @@ Note that we use the Package URL syntax to provide the additional path (with the
               "type": "data",
               "name": "model-00001-of-00008.safetensors",
               "description": "Model tensor data (01 of 08)",
-              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6#model-00001-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
               "data": {
                 "type": "dataset",
@@ -234,7 +240,7 @@ Note that we use the Package URL syntax to provide the additional path (with the
               "type": "data",
               "name": "model-00002-of-00008.safetensors",
               "description": "Model tensor data (02 of 08)",
-              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
+              "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6#model-00002-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
               "data": {
                 "type": "dataset",
@@ -255,12 +261,12 @@ then the model component's new hierarchy of composing files would be described a
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  ...,
   "composition": [
     {
       "aggregate": "complete",
       "assemblies": [
-        "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+        "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       ]
     }
   ],
