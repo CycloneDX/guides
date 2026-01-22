@@ -52,7 +52,22 @@ Describes the primary task of (or goal) of the machine learning model.  Some exa
 
 #### Architecture family
 
-TODO
+The model architecture family th
+
+such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
+
+An architecture family defines the structural and data processing methodology of the model's neural network.  It does not typically describe a single model, but rather describes the general design of the neural network (NN), mathematical approach, context and attention mechanisms and the like.  It should provide insight to those versed in the field as how the model general is constructed.
+
+Some examples of commonly referenced neural network (NN) architecture families include:
+
+* **Transformers** - an architecture designed to process sequential data (like text, speech, or images) in parallel rather than in order.
+* **Convolutional Neural Network (CNN)** - an architecture designed to process efficiently detect patterns (like edges, shapes, and textures) to typically classify or analyze visual (videos/image) or auditory data, but can applied to text analysis, behavioral patterns and more.
+* **Recurrent Neural Network (RNN)** - an architecture designed for processing sequential data like text, speech, and time series, typically used for tasks where order matters, such as language translation, speech recognition and time-series forecasting.
+* **Long Short-Term Memory (LSTM)** -  a specialized variant of a Recurrent Neural Network (RNN) architecture designed specifically to overcome the limitations of traditional RNNs in learning long-term dependencies.
+* **Gated Recurrent Units (GRUs)** a specialized variant of a Recurrent Neural Network (RNN) architecture designed to overcome challenges like the vanishing gradient problem and enhance the modeling of long-term dependencies in sequential datasets.
+* **Generative Adversarial Networks (GANs)** - an architecture used to train two neural networks, a *Generator* and a *Discriminator*, to compete against each other to generate more authentic data from a starting training dataset. The Generator tries to fool the Discriminator by creating fake data, while the Discriminator tries to identify fakes, leading to continuous improvement in data quality.
+
+Again, the list above represents architecture families that are commonly referenced in research to establish an understanding of general model design; however, the architectural landscape continues to grow as researchers specialize and optimize for different use cases, goals and datasets.
 
 #### Model architecture
 
@@ -63,14 +78,14 @@ TODO
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...
+      ...,
       "modelCard": {
         "modelParameters": {
           "task": "text-generation",
