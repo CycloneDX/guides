@@ -42,9 +42,11 @@ The following AI or ML technologies were referenced in discussion and/or example
 
 * [Hugging Face](https://huggingface.co/) - an open-source platform and community for Artificial Intelligence (AI) and Machine Learning (ML).
   * [Hugging Face Transformers](https://huggingface.co/docs/transformers/) - a library that simplifies the training and inference of models that have a transformer architecture which uses PyTorch types and implementations "under-the-covers".
+* [llama.cpp](https://github.com/ggml-org/llama.cpp) - an open-source inference engine, written in C++, designed for high-performance Large Language Model (LLM) execution across diverse hardware.
 * [PyTorch](https://pytorch.org/) - an optimized tensor library and framework used for deep learning on GPUs and CPUs.
 * [TensorFlow](https://www.tensorflow.org/) - An end-to-end open source machine learning platform.
   * [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (archived) - streamlines and automates generation of Model Cards, machine learning documents that provide context and transparency into a model's development and performance.
+
 
 ---
 

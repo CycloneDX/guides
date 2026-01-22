@@ -73,7 +73,19 @@ Again, the list above represents architecture families that are commonly referen
 
 TODO
 
+The model architecture field is intended to include a specific keywords to identify an implementation (class or library) or technical descriptors of the architectural "blueprint" needed to run a specific model.
+
+These are typically found in one of several locations relative to the model:
+
+* **Model Card** - the associated "model card" (e.g., `README.md` in Hugging Face) may contain a mentions of specific class names like `LlamaForCausalLM`, `BertModel`, or `VisionTransformer`.
+* **Framework-Specific Implementation Keywords** or tags -
+Depending on your code environment (PyTorch, TensorFlow, llama.cpp, etc.) that identify specific model code within the platform or environment.
+* **Framework-Specific Configuration files** (e.g., Hugging Face transformer's `config.json` file) - may contain the name of the class or function used to configure the framework for the specific implementation recommended for the associated model.
+* **Academic Research Papers** (e.g., arXiv) - may include detailed descriptors of processing algorithms, supported training or inference engines or specific, named implementations
+
 ###### Example: Model card metadata for the Qwen-7B model
+
+This example shows best practice for the Qwen-7B model using information published within and for the model's repository in Hugging Face.
 
 ```json
 {
@@ -101,6 +113,9 @@ TODO
 }
 ```
 
+###### Field discussion
+
+* **modelArchitecture** - the value `QWenLMHeadModel` was located in the model's `config.json` model configuration file.
 
 #### External references
 
