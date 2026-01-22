@@ -1,5 +1,23 @@
 # Appendix A: Glossary
 
+##### Activation function
+
+An activation function is a mathematical operation applied to a neuron's output to introduce non-linearity, allowing the model to learn complex patterns beyond simple straight lines, essentially deciding if and how much a neuron "fires" based on its weighted inputs. [1]
+
+[1] [Activation functions in neural networks](https://www.youtube.com/watch?v=v1MhJs4A1i4&t=89s)
+
+##### Quantization
+
+A technique to reduce the computational and memory costs of running inference by representing the ([tensor](#tensor)) weights and [activations](#activation-function) with low-precision data types like 8-bit integer (int8) instead of the usual 32-bit floating point (float32). [1]
+
+[1] [Hugging Face - Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization#quantization)
+
+##### Neural network
+
+A neural network consists of connected units or nodes called artificial neurons, which loosely model the neurons in the brain. Each artificial neuron receives signals from connected neurons, then processes them and sends a signal to other connected neurons. The "signal" is a real number, and the output of each neuron is computed by some non-linear function of the totality of its inputs, called the [activation function](#activation-function). [1]
+
+[1] [Wikipedia - Neural network (machine_learning)](https://en.wikipedia.org/wiki/Neural_network_(machine_learning))
+
 ##### Tensor
 
 In machine learning, the term tensor typically refers to data organized in a multidimensional array (M-way array), informally referred to as a "data tensor". Relational observations and concepts, established via ML model training of text, images, movies, sounds, and more can be stored in these "data tensors", and further analyzed either by artificial neural networks or tensor methods. [1]
