@@ -298,7 +298,9 @@ The public datasets, as documented in the model's research paper include:
 
 Describes the input and output data types (formats) of the model.
 
->[!Note] Please see the [](#mode)
+>[!Note] The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDx plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
+
+In order to provide information on model parameters and hyperparameters using existing CycloneDx schema, it is recommended best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
 
 ```json
 {
@@ -309,9 +311,10 @@ Describes the input and output data types (formats) of the model.
     "component":
     {
       "type": "machine-learning-model",
-      ...
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      ...,
       "modelCard": {
-          ...
+          ...,
           "inputs": [
             {"format": "string"}
           ],
@@ -324,66 +327,6 @@ Describes the input and output data types (formats) of the model.
 }
 ```
 
-
----
-
-### Complete model card example
-
-###### Example: CycloneDX Model Card for the Qwen-7B model
-
-Again, we  continue to showcase the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model from Hugging Face.  You may follow the link to its home page in Hugging Face which should show you its [README.md]() file which contains some structured, but mostly unstructured model card information to see how it is translated to CycloneDX objects and schema.
-
-```json
-"modelCard": {
-  "modelParameters": {
-    "approach": {
-    "type": "supervised"
-    },
-    "task": "task goes here",
-    "architectureFamily": "the architecture family goes here",
-    "modelArchitecture": "The architecture of the model.",
-    "datasets": [
-      {
-          "type": "dataset",
-          "name": "Training Data",
-          "contents": {
-          "url": "https://example.com/path/to/dataset"
-          },
-          "classification": "public"
-      }
-    ],
-  },
-
-  "considerations": {
-    "users": [
-        "Who are the intended users of the model?"
-    ],
-    "useCases": [
-        "Who are the intended users of the model?"
-    ],
-    "technicalLimitations": [
-        "What are the known technical limitations of the model? E.g. What kind(s) of data should the model be expected not to perform well on? What are the factors that might degrade model performance?"
-    ],
-    "performanceTradeoffs": [
-        "What are the known tradeoffs in accuracy/performance of the model?"
-    ],
-    "ethicalConsiderations": [
-      {
-          "name": "The name of the risk",
-          "mitigationStrategy": "Strategy used to address this risk"
-      }
-    ],
-    "fairnessAssessments": [
-      {
-          "groupAtRisk": "The groups or individuals at risk of being systematically disadvantaged by the model",
-          "benefits": "Expected benefits to the identified groups",
-          "harms": "Expected harms to the identified groups",
-          "mitigationStrategy": "With respect to the benefits and harms outlined, please describe any mitigation strategy implemented."
-      }
-    ]
-  }
-}
-```
 ---
 
 ### Declaring other properties
