@@ -58,7 +58,18 @@ Used to provide list describing the intended users of the model.
 
 #### Energy consumptions
 
-> [!Note] Although trained models are often published publicly for consumption most of the providers do not currently disclose the costs of training their models.  This section describes how providers could do so at different stages of the model's lifecycle in order to address potential governmental regulations and requirements.  This information may include disclosure CO2 emission costs and CO2 offsets (credits).
+This section describes how model providers can publish the energy costs incurred during different stages of the model's lifecycle in order to address potential governmental regulations and requirements.  This information includes the energy sources (i.e., for the datacenters) as well as disclosure of CO2 emission cost equivalents and CO2 offsets (credits).
+
+The intent is for CycloneDX to be able to support the general requirements referenced by the [EU’s AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) which refers to ‘environmental protection’ in its subject matter.
+
+Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
+
+* **Requirement**: Providers of General-Purpose AI (GPAI) models must disclose the known or estimated energy consumption used during their model's development.
+  * *This information is provided only upon request to the EU's AI Office and national competent authorities.*
+* **Reference**: These requirements are outlined in [Article 53](https://artificialintelligenceact.eu/article/53/) and [Annex XI](https://artificialintelligenceact.eu/annex/11/) of the [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng).
+* **Exemption**: Models released under a free and open-source license are exempt from this disclosure obligation.
+
+> [!Note] Since most trained models are published under some form of open license, most providers do not currently disclose the costs of training their models.
 
 ##### Activity
 
@@ -87,6 +98,8 @@ The type of activity that is part of a machine learning model development or ope
 
 ###### Example:
 
+
+
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
@@ -97,7 +110,7 @@ The type of activity that is part of a machine learning model development or ope
   "components": [
     {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Fake-llama/Llama3-7B@abcd123",
+      "bom-ref": "pkg:huggingface/FakeAI/Llama3@abcd123",
       ...,
       "modelCard": {
         "considerations": {
@@ -144,6 +157,10 @@ The type of activity that is part of a machine learning model development or ope
   ]
 }
 ```
+
+###### Field notes
+
+* **unit** - the unit `tCO2eq` is defined by the European Commission and stands for metric tonnes of carbon dioxide equivalent, a standardized unit used to measure the total greenhouse gas emissions (including methane and nitrous oxide) generated during the development, training, and operation of AI systems.
 
 ---
 
