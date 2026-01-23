@@ -117,12 +117,13 @@ AI responses may include mistakes.
     }
   }
 ```
+---
 
 #### Graphics
 
 TODO
 
-### Quantitative analysis
+### Example: Graphis
 
 ```json
 {

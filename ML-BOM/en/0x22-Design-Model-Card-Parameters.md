@@ -71,9 +71,7 @@ Again, the list above represents architecture families that are commonly referen
 
 #### Model architecture
 
-TODO
-
-The model architecture field is intended to include a specific keywords to identify an implementation (class or library) or technical descriptors of the architectural "blueprint" needed to run a specific model.
+The model architecture field is intended to include specific keywords to identify an implementation (class or library) or technical descriptors of the architectural "blueprint" needed to run a specific model.
 
 These are typically found in one of several locations relative to the model:
 
@@ -117,7 +115,7 @@ This example shows best practice for the Qwen-7B model using information publish
 
 * **modelArchitecture** - the value `QWenLMHeadModel` was located in the model's `config.json` model configuration file.
 
-#### External references
+#### Providing links to papers & articles
 
 Most models are fully described in terms of research papers, articles and other reference documents.  In those cases, they should be provided as `externalReferences` under the `component`.
 
@@ -167,7 +165,7 @@ Specifically, the component `modelCard` object includes `modelParameters` which 
 
 The next sections will discuss the considerations for each and example how to use both of these methods.
 
-#### In-line information
+##### Datasets as in-line information
 
 This method simplifies the association between training datasets and model cards, specifically addressing scenarios where data is difficult to reference as an independent component.
 
@@ -177,8 +175,7 @@ Key applications:
 * **Private Repositories**: Providing transparency via BOMs for non-public datasets in public model cards (e.g, private data used for models in the healthcare or financial services industries).
 * **Unstructured Sources**: Referencing data not housed in traditional databases or management tools (e.g., data within S3 buckets, event data within Security information and event management (SIEM) systems).
 
-
-##### Example: Custom health model with private dataset
+###### Example: Custom health model with private dataset
 
 This example shows a model fine-tuned (by a fictional "ACME Health" company) from the public [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B) model using a private dataset.
 
@@ -228,11 +225,11 @@ back dataset",
 }
 ```
 
-#### Data component references
+##### Datasets as data component references
 
 This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information as a full, CycloneDX component.
 
-##### Example:  health model with private dataset
+###### Example: health model with private dataset
 
 This example shows the recommended best practice of declaring the datasets for the base model used in the previous "in-line" example (i.e., [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B)) as their own CycloneDX components.
 
@@ -331,7 +328,7 @@ In order to provide information on model parameters and hyperparameters using ex
 
 ### Declaring other properties
 
-#### Configuration Parameters & hyperparameters
+#### Configuration parameters & hyperparameters
 
 In general, model configuration parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
 

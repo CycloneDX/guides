@@ -15,14 +15,19 @@ For convenience, here are links to the specific sections for each of those infor
 >[!TODO] add hyperlinks when done with all subsections
 
 - [Model parameters](0x22-Design-Model-Card-Parameters.md#model-parameters)
-    - [Model architecture]()
-    - [Approach & tasks]()
-    - [Datasets]()
-    - [Inputs & Outputs]()
-        - [Tokenizers and prompt templates]()
+  - [Model metadata](0x22-Design-Model-Card-Parameters.md#model-metadata)
+    - [Approach](0x22-Design-Model-Card-Parameters.md#approach)
+    - [Task](0x22-Design-Model-Card-Parameters.md#task)
+    - [Architecture family](0x22-Design-Model-Card-Parameters.md#architecture-family)
+    - [Model architecture](0x22-Design-Model-Card-Parameters.md#model-architecture)
+  -  [Datasets](0x22-Design-Model-Card-Parameters.md#datasets)
+  - [Inputs & Outputs](0x22-Design-Model-Card-Parameters.md#inputs--outputs)
+  - [Declaring other properties](0x22-Design-Model-Card-Parameters.md#declaring-other-properties)
+    - [Configuration parameters & hyperparameters](0x22-Design-Model-Card-Parameters.md#configuration-parameters--hyperparameters)
 
-- [Quantitative analysis]()
-    - [Performance metrics & graphics]()
+- [Quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#quantitative-analysis)
+    - [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
+    - [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
 
 - [Considerations]()
     - [Users & use cases]()
