@@ -22,7 +22,6 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 Used to provide list describing the intended users of the model along with a list of envisioned use cases for the model.
 
-
 ###### Example: Qwen3/Qwen-7B
 
 This example shows a list for what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
@@ -116,10 +115,16 @@ This example shows a list for what kind of technical limitations might be associ
 
 ### Ethical considerations
 
-#### Name
+Used to provide list describing known ethical considerations when using a model.  Each consideration is an object containing two fields:
 
+* **Name** - A concise name for the ethical considerations.
+* **Mitigation strategy** - A corresponding (recommended) mitigation strategy, for the named consideration, to take when using the model.
 
-#### Mitigation strategy
+> [!Note] Since there is no agreed-upon standard for ethical considerations we recommend using the `name` field to additionally provide further description to clarify the name as needed.
+
+###### Example: Qwen3-7B ethical considerations
+
+Based on technical reports and safety evaluations such as Qwen3Guard, the following ethical considerations and mitigations are documented and typical of a multi-lingual LLM of similar parameter size and with a dense architecture:
 
 ```json
 "component": {
