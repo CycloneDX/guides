@@ -18,17 +18,48 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ---
 
-### Users
+### Users & use cases
 
-Used to provide list describing the intended users of the model.
+Used to provide list describing the intended users of the model along with a list of envisioned use cases for the model.
+
+
+###### Example: Qwen3/Qwen-7B
+
+This example shows a list for what kind of information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
 ```json
-
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  ...,
+  "modelCard": {
+    ...,
+    "considerations": {
+      "users": [
+        "Software developer",
+        "Multilingual Content Creator",
+        "Customer Support Systems Architect",
+        "Academic Researcher / Student",
+        "Edge Device Engineer",
+        "Enterprise Security Analyst",
+        "Local AI Enthusiast / Privacy-First User"
+      ],
+      "useCases": [
+        "Utilizing the Qwen3-Coder variant within an IDE for real-time code completion, bug fixing, and unit test generation, benefiting from its \"Agentic\" capabilities for repository-scale understanding.",
+        "Translating business, education or other content or informational materials to other languages and dialects while maintaining the original tone and cultural nuances.",
+        "Deploying low-latency chatbots for high-volume inquiries where the 7B model acts as a \"triage\" agent, answering common questions and only escalating complex logic to other support mechanisms.",
+        "Summarizing long-form research papers and generating initial drafts for school projects, utilizing the model's 128K context window to ingest entire PDFs at once.",
+        "Implementing the model on specialized hardware for real-time visual perception and \"Thinking Mode\" reasoning to help an intelligent device navigate and interact with its environment based on natural language commands",
+        "Running a self-hosted instance to analyze internal security logs for anomalies, ensuring that sensitive infrastructure data never leaves the organization's firewall.",                                  "Running a personal assistant locally on a laptop to answer questions or process private information such as emails or calendars without sending data to an external server."
+      ],
+    }
+  }
+}
 ```
 
----
+###### Field notes
 
-### Use cases
+* There is no expectation that there is a 1:1 correlation between `users` and `useCases` entries.  However, there should be at least one listed use cases that can correspond to a named "user" (role).
 
 ---
 

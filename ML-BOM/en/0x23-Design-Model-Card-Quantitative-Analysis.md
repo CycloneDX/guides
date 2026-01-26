@@ -97,7 +97,6 @@ AI responses may include mistakes.
     "type": "machine-learning-model",
     "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
     ...,
-    ...
     "modelCard": {
       ...
       "quantitativeAnalysis": {
