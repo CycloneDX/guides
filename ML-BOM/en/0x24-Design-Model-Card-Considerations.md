@@ -25,7 +25,7 @@ Used to provide list describing the intended users of the model along with a lis
 
 ###### Example: Qwen3/Qwen-7B
 
-This example shows a list for what kind of information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
+This example shows a list for what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
 ```json
 "component": {
@@ -65,9 +65,55 @@ This example shows a list for what kind of information would be expected for a t
 
 ### Technical limitations
 
+This example shows a list for what kind of technical limitations might be assocated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar (i.e., ~`8B`) parameter size.
+
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  ...,
+  "modelCard": {
+    ...,
+    "considerations": {
+      "technicalLimitations": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  }
+}
+```
+
 ---
 
 ### Performance Tradeoffs
+
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  ...,
+  "modelCard": {
+    ...,
+    "considerations": {
+      "performanceTradeoffs": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  }
+}
+```
 
 ---
 
@@ -78,10 +124,61 @@ This example shows a list for what kind of information would be expected for a t
 
 #### Mitigation strategy
 
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  ...,
+  "modelCard": {
+    ...,
+    "considerations": {
+      "ethicalConsiderations": [
+        {
+          "name": "",
+          "mitigationStrategy": ""
+        },
+        {
+          "name": "",
+          "mitigationStrategy": ""
+        },
+        ...
+      ]
+    }
+  }
+}
+```
 
 ---
 
 ### Fairness assessments
+
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  ...,
+  "modelCard": {
+    ...,
+    "considerations": {
+      "fairnessAssessments": [
+        {
+          "groupAtRisk": "",
+          "benefits": "",
+          "harms": "",
+          "mitigationStrategy": ""
+        },
+        {
+          "groupAtRisk": "",
+          "benefits": "",
+          "harms": "",
+          "mitigationStrategy": ""
+        },
+        ...
+      ]
+    }
+  }
+}
+```
 
 ---
 
