@@ -13,8 +13,8 @@ This section will feature guidance on filling out information in the Cyclone mod
 * [Technical limitations](#technical-limitations) - What are the known technical limitations of the model? For example, "What kind(s) of data should the model be expected not to perform well on?", "What are the factors that might degrade model performance?".
 * [Performance tradeoffs](#performance-tradeoffs) - What are the known tradeoffs in accuracy/performance of the model?
 * [Ethical considerations]() - What are the ethical risks involved in the application of this model?
-* [Fairness assessments](#fairness-assessments)
-* [Environmental considerations](#environmental-considerations)
+* [Fairness assessments](#fairness-assessments) - How does the model affect groups at risk of being systematically disadvantaged? What are the harms and benefits to the various affected groups?
+* [Environmental considerations](#environmental-considerations) - What are the various environmental impacts the corresponding machine learning model has exhibited across its lifecycle?
 
 ---
 
