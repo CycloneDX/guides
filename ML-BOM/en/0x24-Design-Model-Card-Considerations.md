@@ -65,7 +65,7 @@ This example shows a list for what kind of user and use case information would b
 
 ### Technical limitations
 
-This example shows a list for what kind of technical limitations might be assocated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar (i.e., ~`8B`) parameter size.
+This example shows a list for what kind of technical limitations might be associated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar (i.e., ~`8B`) parameter size.
 
 ```json
 "component": {
@@ -76,13 +76,10 @@ This example shows a list for what kind of technical limitations might be assoca
     ...,
     "considerations": {
       "technicalLimitations": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        "Greedy Decoding Degradation. The model is optimized for sampling-based generation. Using greedy decoding (temperature=0) can lead to performance degradation, repetitive loops, and "stuck" reasoning steps, particularly in the new Thinking Mode",
+        "Native Context Window Boundaries. While the model supports up to 131,072 tokens using YaRN scaling, its native pre-training context is limited to 32,768 tokens. Performance may degrade on very long sequences if proper scaling factors (like RoPE or YaRN) are not manually configured for local deployments.",
+        "Synthetic Data \"Sanding\" Effects. Research indicates that Qwen3, like many models trained on massive synthetic datasets, can suffer from \"model collapse\" where rare edge cases or minority user behaviors are underrepresented, potentially leading to errors in complex, real-world production environments.",
+        "Thinking Mode History Overhead. In multi-turn conversations, including the model's internal \"thinking\" steps in the chat history can confuse the model and consume unnecessary tokens. Best practices require developers to filter out \"thinking\" content from the history to maintain coherence."
       ]
     }
   }
