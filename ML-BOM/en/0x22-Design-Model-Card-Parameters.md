@@ -225,6 +225,10 @@ back dataset",
 }
 ```
 
+###### Field notes
+
+* **url** - Please note that URLs may be to either public or private resources.  For example, in the case of the ACME `private` dataset above, the URL is likely behind an Access Control Point (ACP) which regulates traffic to the private resource in accordance with the ACME company's governance policies.
+
 ##### Datasets as data component references
 
 This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information as a full, CycloneDX component.
