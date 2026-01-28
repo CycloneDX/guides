@@ -1,6 +1,8 @@
-# Appendix 1: Examples
+# Appendix 1: Complete ML-BOM example
 
-## Full ML-BOM example
+## Qwen/Qwen-7B ML-BOM
+
+Throughout this guide provided incremental examples were shown of how to fill out various parts of an ML-BOM using the [Qwen3-7B](https://huggingface.co/Qwen/Qwen-7B) model.  This section brings those together to show what a complete ML-BOM would look like for that model.
 
 ```json
 {
