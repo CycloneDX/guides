@@ -75,7 +75,7 @@ This example shows a list for what kind of technical limitations might be associ
     ...,
     "considerations": {
       "technicalLimitations": [
-        "Greedy Decoding Degradation. The model is optimized for sampling-based generation. Using greedy decoding (temperature=0) can lead to performance degradation, repetitive loops, and "stuck" reasoning steps, particularly in the new Thinking Mode",
+        "Greedy Decoding Degradation. The model is optimized for sampling-based generation. Using greedy decoding (temperature=0) can lead to performance degradation, repetitive loops, and \"stuck\" reasoning steps, particularly in the new Thinking Mode",
         "Native Context Window Boundaries. While the model supports up to 131,072 tokens using YaRN scaling, its native pre-training context is limited to 32,768 tokens. Performance may degrade on very long sequences if proper scaling factors (like RoPE or YaRN) are not manually configured for local deployments.",
         "Synthetic Data \"Sanding\" Effects. Research indicates that Qwen3, like many models trained on massive synthetic datasets, can suffer from \"model collapse\" where rare edge cases or minority user behaviors are underrepresented, potentially leading to errors in complex, real-world production environments.",
         "Thinking Mode History Overhead. In multi-turn conversations, including the model's internal \"thinking\" steps in the chat history can confuse the model and consume unnecessary tokens. Best practices require developers to filter out \"thinking\" content from the history to maintain coherence."
@@ -170,6 +170,22 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
 
 ### Fairness assessments
 
+Fairness assessments convey information about the benefits and harms of the model to an identified at risk group.  They involve measuring how models treat different social groups to ensure they do not perpetuate or amplify harmful social biases.
+
+For Large Language Models (LLMs), like Qwen, Mistral, or GPT, etc., assessments typically evaluate the model focusing on its training data, internal probabilities (weights and biases), and final generated text using metrics that can be statistically analyzed.
+
+Assessments consider evaluations at all stages of the model development lifecycle including:
+
+* **Data Bias Auditing** (Pre-processing): Analyzing training datasets for under-represented groups, improper labeling, or historical biases that could cause discriminatory outcomes.
+* **Disaggregated Performance Metrics** (Measurement): Evaluating model performance (e.g., accuracy, false positives/negatives) across different demographic groups (e.g., race, gender) to identify, for example, higher error rates for certain populations.
+* **Impact Assessments** (Contextual) - Assessing how AI systems affect specific groups of people, identifying potential harms to rights, safety, or livelihoods, which is a key requirement for high-risk AI under the EU AI Act.
+* **Adversarial Testing** (Verification) - Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
+* **Algorithmic Fairness Interventions** (In-processing/Post-processing) - Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
+
+###### Example: LLM fairness assessment
+
+This example shows how fairness assessment information would be included in a a CycloneDX `modelCard` object.
+
 ```json
 "component": {
   "type": "machine-learning-model",
@@ -178,12 +194,12 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
   "modelCard": {
     ...,
     "considerations": {
+      ...,
       "fairnessAssessments": [
         {
-          "groupAtRisk": "",
-          "benefits": "",
-          "harms": "",
-          "mitigationStrategy": ""
+          "groupAtRisk": "People identified by characteristics such as race, gender, and disability status.",
+          "harms": "The model was found to produce discriminatory outcomes across protected characteristics, including race, gender, and disability status. For example, individuals categorized as \"gypsy\" or \"mute\" were incorrectly labeled as untrustworthy in task assignment scenarios.",
+          "mitigationStrategy": "Researchers recommend using Reinforcement Learning from Artificial Intelligence Feedback (RLAIF) and rule-based rewards to align the model with specific legal standards like the EU AI Act."
         },
         {
           "groupAtRisk": "",
@@ -197,6 +213,8 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
   }
 }
 ```
+
+
 
 ---
 
