@@ -37,11 +37,17 @@ The transformer's neural network architecture takes input data converts it to nu
 
 ---
 
+##### Computer Vision
+
+is an area of artificial intelligence (AI) that enables computers to interpret, analyze, and extract meaningful information from digital images, videos, and other visual inputs. Using techniques like deep learning and neural networks, these systems simulate human vision to identify objects, recognize patterns, and automate tasks in industries such as healthcare, autonomous driving, and security. [1]
+
+[1] [IBM - What is computer vision?](https://www.ibm.com/think/topics/computer-vision)
+
 ##### Natural Language Processing (NLP)
 
 is the processing of natural language information by a computer. NLP is a subfield of computer science and is closely associated with artificial intelligence. NLP is also related to information retrieval, knowledge representation, computational linguistics, and linguistics more broadly.
 
-Major processing tasks in an NLP system include: speech recognition, text classification, natural language understanding, and natural language generation. [1]
+Major processing tasks in an NLP system include: speech recognition, text classification, natural language understanding (NLU), and natural language generation. [1]
 
 [1] [Wikipedia - Natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing)
 

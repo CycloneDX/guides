@@ -13,7 +13,9 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ### What is quantitative analysis
 
-A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis which looks at why. It assesses metrics like accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliability for decision-making, moving beyond subjective human interpretation.
+Quantitative analysis is the process of using metrics on benchmarks to determine if a model is reliable, safe, or better than another. It involves comparing the metric results against the benchmark standard to assess performance, identify limitations, and track progress over time.
+
+<!-- A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis which looks at why. It assesses metrics like accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliability for decision-making, moving beyond subjective human interpretation. -->
 
 #### The value of quantitative analysis
 
@@ -22,56 +24,55 @@ A quantitative analysis of an AI model involves using mathematical and statistic
 * **Pattern & Trend Detection**: Identifies numerical patterns, correlations, and trends within large or complex datasets that might be missed manually.
 * **Testing Hypotheses**: Enables the statistical testing of assumptions about model behavior allowing for comparisons against similar models for given tasks.
 
----
+#### Benchmarks
 
-### Performance metrics
+Benchmarks (The "Where" & "How"): These are standardized test datasets, scenarios, or tasks (e.g., ImageNet, GLUE) that define the "playing field". They provide a consistent environment for evaluating different models.
 
-Describes any standardized metrics and evaluations used to measure and compare the effectiveness, efficiency and output correctness of a model providing a crucial, objective way to determine which model is best suited for a particular task or deployment environment.
+##### Types of machine learning benchmarks
+
+ML model benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
+
+* [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) (e.g., speech recognition or text classification) or
+* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition).
+
+<!-- Some types of benchmarks include:
+
+* **Task-Specific Benchmarks** - Standardized datasets for common tasks (e.g., MNIST for digits, CIFAR-10 for images, IMDb for sentiment).
+* **System Benchmarks (MLPerf)** - Evaluate hardware (GPUs, TPUs) and software infrastructure for training and inference speed.
+* **Model-Specific Benchmarks** - Assess different aspects of model quality, from basic metrics to advanced reasoning. -->
+
+#### Metrics
+
 
 > [!Note] Currently, CycloneDx supports declaring metrics in the area of *performance benchmarks* which is the most consistently seen set of named metrics described within model cards today.
 
-#### Types of machine learning benchmarks
+##### Common Performance Metrics
 
-ML model performance benchmarks use standardized datasets (like ImageNet, GLUE) and metrics (Accuracy, F1 Score, MMLU) to objectively compare model quality, efficiency, fairness, and speed, providing a shared ruler for progress, reproducibility, and identifying areas for improvement in fields like Computer Vision and NLP. [1, 2, 3, 4]
-Key Types of Benchmarks
+* **Classification:
+  * **Accuracy: Overall correctness.
+  * **Precision: Of predicted positives, how many are correct.
+  * **Recall (Sensitivity): Of actual positives, how many are found.
+  * **F1 Score: Harmonic mean of Precision and Recall.
+  * **ROC AUC: Area under the Receiver Operating Characteristic curve.
 
-• Task-Specific Benchmarks: Standardized datasets for common tasks (e.g., MNIST for digits, CIFAR-10 for images, IMDb for sentiment).
-• System Benchmarks (MLPerf): Evaluate hardware (GPUs, TPUs) and software infrastructure for training and inference speed.
-• Model-Specific Benchmarks: Assess different aspects of model quality, from basic metrics to advanced reasoning. [1, 3, 5, 6]
+* Large Language Models (LLMs):
 
-Common Performance Metrics
+  * **MMLU: Measures knowledge across many subjects.
+  * **HellaSwag: Tests commonsense reasoning.
+  * **TruthfulQA: Assesses truthfulness in responses.
 
-• Classification:
+*•* Efficiency:
 
-	• Accuracy: Overall correctness.
-	• Precision: Of predicted positives, how many are correct.
-	• Recall (Sensitivity): Of actual positives, how many are found.
-	• F1 Score: Harmonic mean of Precision and Recall.
-	• ROC AUC: Area under the Receiver Operating Characteristic curve.
+  * **Latency/Throughput: Speed of prediction (inference).
+  * **Resource Utilization: Memory, CPU/GPU usage. [2, 3, 4, 5]
 
-• Large Language Models (LLMs):
-
-	• MMLU: Measures knowledge across many subjects.
-	• HellaSwag: Tests commonsense reasoning.
-	• TruthfulQA: Assesses truthfulness in responses.
-
-• Efficiency:
-
-	• Latency/Throughput: Speed of prediction (inference).
-	• Resource Utilization: Memory, CPU/GPU usage. [2, 3, 4, 5]
-
-Why Benchmarking Matters
-
-• Fair Comparison: Enables objective comparison between different algorithms and models.
-• Drives Progress: Identifies state-of-the-art (SOTA) performance and pushes innovation.
-• Reproducibility: Ensures results can be verified and replicated.
-• Transparency: Helps communicate AI value to stakeholders. [1, 3, 7, 8, 9, 10]
+---
 
 Examples of Benchmarks & Datasets
 
-• Computer Vision: ImageNet, CIFAR.
-• NLP: GLUE, SuperGLUE, SQuAD, MMLU.
-• Repositories: Kaggle, UCI Machine Learning Repository, OpenML, {Milvus](https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them) https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them), TensorFlow Datasets, TorchVision. [1, 4, 6, 11]
+* **Computer Vision: ImageNet, CIFAR.
+* **NLP: GLUE, SuperGLUE, SQuAD, MMLU.
+* **Repositories: Kaggle, UCI Machine Learning Repository, OpenML, {Milvus](https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them) https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them), TensorFlow Datasets, TorchVision. [1, 4, 6, 11]
 
 AI responses may include mistakes.
 
@@ -87,9 +88,11 @@ AI responses may include mistakes.
 [10] https://www.emergentmind.com/topics/benchmarking-machine-learning-algorithms
 [11] https://www.meegle.com/en_us/topics/ai-model-evaluation/ai-model-benchmarking
 
+---
 
+### Performance metrics
 
-
+These are specific, quantitative measures used to evaluate a model's behavior, such as accuracy, precision, recall, perplexity, or inference speed. They provide the raw, numerical data for analysis.
 
 ```json
   "component":
