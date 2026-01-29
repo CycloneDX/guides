@@ -26,23 +26,33 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 
 #### Benchmarks
 
-Benchmarks (The "Where" & "How"): These are standardized test datasets, scenarios, or tasks (e.g., ImageNet, GLUE) that define the "playing field". They provide a consistent environment for evaluating different models.
+Benchmarks are standardized test datasets, scenarios, or tasks  that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
 
 ##### Types of machine learning benchmarks
 
-ML model benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
+Benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
 
-* [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) (e.g., speech recognition or text classification) or
-* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition).
+* **[Large Language Models (LLM)](0x90-Appendix-A_Glossary.md#large-language-model-llm)** and **[Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp)** (e.g., speech recognition or text classification) - These benchmarks evaluate reasoning, knowledge, and generation capabilities.
+</br>A few examples of datasets used to benchmark these models include:
 
-<!-- Some types of benchmarks include:
+  * [HellaSwag](https://huggingface.co/datasets/Rowan/hellaswag) / [WinoGrande](https://huggingface.co/datasets/allenai/winogrande): Common sense reasoning and pronoun resolution tasks.
+  * [MMLU](https://huggingface.co/datasets/cais/mmlu), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro) (Massive Multitask Language Understanding): Tests knowledge across STEM, humanities, and social sciences.
+  * [GLUE](https://gluebenchmark.com/): benchmarking resources for training, evaluating, and analyzing natural language understanding systems
 
-* **Task-Specific Benchmarks** - Standardized datasets for common tasks (e.g., MNIST for digits, CIFAR-10 for images, IMDb for sentiment).
-* **System Benchmarks (MLPerf)** - Evaluate hardware (GPUs, TPUs) and software infrastructure for training and inference speed.
-* **Model-Specific Benchmarks** - Assess different aspects of model quality, from basic metrics to advanced reasoning. -->
+  as well as some examples that target  specific informational areas:
+  * [GSM8K](https://huggingface.co/datasets/openai/gsm8k) (OpenAI), [MATH-500](https://huggingface.co/datasets/HuggingFaceH4/MATH-500) (Hugging Face): Benchmarks specifically designed to evaluate mathematical reasoning.
+  * [HumanEval](https://huggingface.co/datasets/openai/openai_humaneval) (OpenAI), [MBPP](https://huggingface.co/datasets/Muennighoff/mbpp) (Mostly Basic Python Problems ): Benchmarks for evaluating code generation and programming capabilities.
+   [IMDB](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews): a large dataset of 50K, highly polarized, movie reviews for NLP sentiment analysis and classification.
+</br>
+* **[Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision)** (e.g., digital image or video recognition)
+These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking.</br></br>Some example datasets:
+
+  * [ImageNet](image-net.org): large-scale dataset for computer vision, featuring over 14 million annotated, high-resolution images across thousands of object categories organized by the [WordNet](https://en.wikipedia.org/wiki/WordNet) hierarchy.
+  * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
+  * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database) (link to the Tensorflow/Keras catalog): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
+
 
 #### Metrics
-
 
 > [!Note] Currently, CycloneDx supports declaring metrics in the area of *performance benchmarks* which is the most consistently seen set of named metrics described within model cards today.
 

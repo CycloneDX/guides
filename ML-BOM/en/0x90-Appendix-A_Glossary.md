@@ -1,16 +1,24 @@
 # Appendix A: Glossary
 
+### General machine learning terms
+
 ##### Activation function
 
 An activation function is a mathematical operation applied to a neuron's output to introduce non-linearity, allowing the model to learn complex patterns beyond simple straight lines, essentially deciding if and how much a neuron "fires" based on its weighted inputs. [1]
 
 [1] [Activation functions in neural networks](https://www.youtube.com/watch?v=v1MhJs4A1i4&t=89s)
 
-##### Quantization
+##### Computer Vision
 
-A technique to reduce the computational and memory costs of running inference by representing the ([tensor](#tensor)) weights and [activations](#activation-function) with low-precision data types like 8-bit integer (int8) instead of the usual 32-bit floating point (float32). [1]
+is an area of artificial intelligence (AI) that enables computers to interpret, analyze, and extract meaningful information from digital images, videos, and other visual inputs. Using techniques like deep learning and neural networks, these systems simulate human vision to identify objects, recognize patterns, and automate tasks in industries such as healthcare, autonomous driving, and security. [1]
 
-[1] [Hugging Face - Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization#quantization)
+[1] [IBM - What is computer vision?](https://www.ibm.com/think/topics/computer-vision)
+
+##### Large Language Model (LLM)
+
+A model trained with self-supervised machine learning on a vast amount of text, designed for [Natural Language Processing](#natural-language-processing-nlp) tasks, especially language generation. The largest and most capable LLMs are Generative Pre-trained [Transformers](#transformer) (GPTs) and provide the core capabilities of modern chatbots. LLMs can be fine-tuned for specific tasks or guided by prompt engineering. [1]
+
+[1] [Wikipedia - Large language model](https://en.wikipedia.org/wiki/Large_language_model)
 
 ##### Neural network
 
@@ -18,13 +26,23 @@ A neural network consists of connected units or nodes called artificial neurons,
 
 [1] [Wikipedia - Neural network (machine_learning)](https://en.wikipedia.org/wiki/Neural_network_(machine_learning))
 
+##### Prompt engineering
+
+the process of structuring or crafting an instruction in order to produce better outputs from a generative artificial intelligence (AI) model. It typically involves designing clear queries, adding relevant context, and refining wording to guide the model toward more accurate, useful, and consistent responses/ [1]
+
+[1] [Wikipedia - prompt engineering]()
+
+##### Quantization
+
+A technique to reduce the computational and memory costs of running inference by representing the ([tensor](#tensor)) weights and [activations](#activation-function) with low-precision data types like 8-bit integer (int8) instead of the usual 32-bit floating point (float32). [1]
+
+[1] [Hugging Face - Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization#quantization)
+
 ##### Tensor
 
 In machine learning, the term tensor typically refers to data organized in a multidimensional array (M-way array), informally referred to as a "data tensor". Relational observations and concepts, established via ML model training of text, images, movies, sounds, and more can be stored in these "data tensors", and further analyzed either by artificial neural networks or tensor methods. [1]
 
 [1] [Wikipedia - Tensor (machine learning)](https://en.wikipedia.org/wiki/Tensor_(machine_learning))
-
----
 
 ##### Transformer
 
@@ -35,14 +53,6 @@ The transformer's neural network architecture takes input data converts it to nu
 [1] [AWS - What are transformers in artificial intelligence?](https://aws.amazon.com/what-is/transformers-in-artificial-intelligence/)
 [2] [Wikipedia - Transformer (deep learning)](https://en.wikipedia.org/wiki/Transformer_(deep_learning))
 
----
-
-##### Computer Vision
-
-is an area of artificial intelligence (AI) that enables computers to interpret, analyze, and extract meaningful information from digital images, videos, and other visual inputs. Using techniques like deep learning and neural networks, these systems simulate human vision to identify objects, recognize patterns, and automate tasks in industries such as healthcare, autonomous driving, and security. [1]
-
-[1] [IBM - What is computer vision?](https://www.ibm.com/think/topics/computer-vision)
-
 ##### Natural Language Processing (NLP)
 
 is the processing of natural language information by a computer. NLP is a subfield of computer science and is closely associated with artificial intelligence. NLP is also related to information retrieval, knowledge representation, computational linguistics, and linguistics more broadly.
@@ -51,10 +61,9 @@ Major processing tasks in an NLP system include: speech recognition, text classi
 
 [1] [Wikipedia - Natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing)
 
-
 ---
 
-### Model formats
+### Model format terms
 
 #### Huggingface Safetensors
 
