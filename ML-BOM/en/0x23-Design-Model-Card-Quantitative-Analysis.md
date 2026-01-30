@@ -24,7 +24,9 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 * **Pattern & Trend Detection**: Identifies numerical patterns, correlations, and trends within large or complex datasets that might be missed manually.
 * **Testing Hypotheses**: Enables the statistical testing of assumptions about model behavior allowing for comparisons against similar models for given tasks.
 
-#### Benchmarks
+---
+
+### Benchmarks
 
 Benchmarks are standardized test datasets, scenarios, or tasks  that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
 
@@ -51,58 +53,32 @@ These benchmarks measure the performance, accuracy, and efficiency of models in 
   * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
   * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database) (link to the Tensorflow/Keras catalog): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
 
-
-#### Metrics
-
-> [!Note] Currently, CycloneDx supports declaring metrics in the area of *performance benchmarks* which is the most consistently seen set of named metrics described within model cards today.
-
-##### Common Performance Metrics
-
-* **Classification:
-  * **Accuracy: Overall correctness.
-  * **Precision: Of predicted positives, how many are correct.
-  * **Recall (Sensitivity): Of actual positives, how many are found.
-  * **F1 Score: Harmonic mean of Precision and Recall.
-  * **ROC AUC: Area under the Receiver Operating Characteristic curve.
-
-* Large Language Models (LLMs):
-
-  * **MMLU: Measures knowledge across many subjects.
-  * **HellaSwag: Tests commonsense reasoning.
-  * **TruthfulQA: Assesses truthfulness in responses.
-
-*•* Efficiency:
-
-  * **Latency/Throughput: Speed of prediction (inference).
-  * **Resource Utilization: Memory, CPU/GPU usage. [2, 3, 4, 5]
-
 ---
 
-Examples of Benchmarks & Datasets
+### Metrics
 
-* **Computer Vision: ImageNet, CIFAR.
-* **NLP: GLUE, SuperGLUE, SQuAD, MMLU.
-* **Repositories: Kaggle, UCI Machine Learning Repository, OpenML, {Milvus](https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them) https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them), TensorFlow Datasets, TorchVision. [1, 4, 6, 11]
-
-AI responses may include mistakes.
-
-[1] https://labelstud.io/learningcenter/what-are-benchmarks/
-[2] https://www.ibm.com/think/topics/model-performance
-[3] https://mlcommons.org/benchmarks/
-[4] https://www.teqfocus.com/blog/benchmarking-large-language-models-a-comprehensive-guide/
-[5] https://coe-379l-sp24.readthedocs.io/en/latest/unit04/ml_benchmarks.html
-[6] https://milvus.io/ai-quick-reference/what-are-benchmark-datasets-in-machine-learning-and-where-can-i-find-them
-[7] https://www.tutorialspoint.com/what-are-the-machine-learning-benchmarks
-[8] https://www.youtube.com/watch?v=_lmT4Nqtm-A
-[9] https://help.pecan.ai/en/articles/7338218-understanding-pecan-s-benchmarks
-[10] https://www.emergentmind.com/topics/benchmarking-machine-learning-algorithms
-[11] https://www.meegle.com/en_us/topics/ai-model-evaluation/ai-model-benchmarking
+> [!Note] Currently, CycloneDx supports declaring metrics relative to *performance benchmarks* which is the most consistently documented metrics described within producer published model cards.
 
 ---
 
 ### Performance metrics
 
-These are specific, quantitative measures used to evaluate a model's behavior, such as accuracy, precision, recall, perplexity, or inference speed. They provide the raw, numerical data for analysis.
+Performance metrics are specific, quantitative measures used to evaluate a model's behavior, such as accuracy, precision, recall, perplexity, or inference speed. They provide the raw, numerical data for analysis.
+
+##### Common Performance Metrics
+
+* **Accuracy** - Overall correctness.
+* **Precision** - Of predicted positives, how many are correct.
+* **Recall** (Sensitivity) - Of actual positives, how many are found.
+* **F1 Score**: Harmonic mean of *Precision* and *Recall*.
+<!-- * **ROC AUC** - Area under the Receiver Operating Characteristic curve. -->
+<!-- *•* Efficiency:
+  * **Latency/Throughput: Speed of prediction (inference).
+  * **Resource Utilization: Memory, CPU/GPU usage. -->
+
+###### Example: Declaring an MMLU accuracy result
+
+TODO
 
 ```json
   "component":
@@ -129,13 +105,30 @@ These are specific, quantitative measures used to evaluate a model's behavior, s
     }
   }
 ```
+
+###### Example: Declaring an F1 Score
+
+TODO
+
+```json
+"quantitativeAnalysis": {
+  "performanceMetrics": [
+    {
+      "type": "F1 Score",
+      "value": "0.87",
+      "slice": "Validation Set"
+    }
+  ]
+}
+```
+
 ---
 
 #### Graphics
 
 TODO
 
-### Example: Graphis
+### Example: Graphics
 
 ```json
 {
