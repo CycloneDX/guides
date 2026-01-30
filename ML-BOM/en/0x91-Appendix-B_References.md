@@ -69,7 +69,8 @@ Huggingface model (repositories) typically support the `.safetensors` Huggingfac
 
   * [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50/blob/main/README.md) - single `model.safetensors`, `pytorch_model.bin` file.
   * [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) - multiple  `*.safetensors` files with `model.safetensors.index.json` index.
-    * [ArXiv - Qwen3 Technical Report (summary)](https://arxiv.org/html/2505.09388.pdf)
+    * [ArXiv - Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)
+    * [ArXiv - STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transition Samples](https://arxiv.org/html/2508.12096v1) - Analysis of Qwen3 model performance.
 
 ##### Kaggle
 
