@@ -6,7 +6,7 @@ An ML-BOM typically documents the identifying elements, architecture, components
 
 - **Model identifiers**: Identifying information such as the model's [Package URL (PURL)](https://tc54.org/purl/) (e.g., from Huggingface `pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd51602`) or other domain-specific identifiers within other registries.
 
-- **Model metadata**: Descriptive details such as the model's name, version, developer, purpose, use cases, architecture, (hyper)parameters and any additional identifying elements.
+- **Model metadata**: Descriptive details such as the model's name, version, license, developer, purpose, use cases, architecture, (hyper)parameters and any additional identifying elements.
 
 - **Model architecture**: Description of the  composition of the model's neural network including configurations, layers, input/output parameters, attention mechanisms, etc. used at network processing stages.
 
@@ -19,7 +19,7 @@ This informational category may also include operational and application aspects
 
 - **Training & testing details**: Information about the computational environment and systems (software, hardware, operating system, and GPUs) used for training or evaluation along with necessary configurations, hyperparameters, and evaluation metrics.
 
-- **Intended use & ethics**: Documentation of the model's intended use, known limitations, safety guardrails, and ethical considerations.
+- **Intended use & ethical considerations**: Documentation of the model's intended use, known limitations, safety guardrails, and ethical considerations.
 
 - **Environmental impacts**: Documentation of the resource needed to train or execute the model which have an environmental impact or cost (e.g., data center energy and water cooling cost details).
 
