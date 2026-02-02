@@ -261,30 +261,34 @@ Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 
 > [!Note] Since most trained models are published under some form of open license, most providers do not currently disclose the costs of training their models.
 
-##### Activity
+Each "consumption" entry consists of the following which are explained in more detail below:
 
-The type of activity that is part of a machine learning model development or operational lifecycle that has an associated energy consumption.
+* **Activity** - The type of activity that was part of the ML model development or operational lifecycle with an associated energy cost.
 
-| Value | Description |
-|---|---|
-| **design** | A model design including problem framing, goal definition and algorithm selection.|
-| **data-collection** |Model data acquisition including search, selection and transfer.|
-| **data-preparation** | Model data preparation including data cleaning, labeling and conversion. |
-| **training** | Model building, training and generalized tuning. |
-| **fine-tuning** | Refining a trained model to produce desired outputs for a given problem space. |
-| **validation** | Model validation including model output evaluation and testing. |
-| **deployment** | Explicit model deployment to a target hosting infrastructure. |
-| **inference** | Generating an output response from a hosted model from a set of inputs. |
-| **other** | A lifecycle activity type whose description does not match currently defined values. |
+  | Value | Description |
+  |---|---|
+  | **design** | A model design including problem framing, goal definition and algorithm selection.|
+  | **data-collection** |Model data acquisition including search, selection and transfer.|
+  | **data-preparation** | Model data preparation including data cleaning, labeling and conversion. |
+  | **training** | Model building, training and generalized tuning. |
+  | **fine-tuning** | Refining a trained model to produce desired outputs for a given problem space. |
+  | **validation** | Model validation including model output evaluation and testing. |
+  | **deployment** | Explicit model deployment to a target hosting infrastructure. |
+  | **inference** | Generating an output response from a hosted model from a set of inputs. |
+  | **other** | A lifecycle activity type whose description does not match currently defined values. |
 
-##### Energy providers
+* **Energy providers** - The provider(s) of the energy consumed by the associated model development lifecycle activity.  This object is intended to fully describe the provider using the following fields:
+  * **description** - A description of the energy provider.
+  * **organization** - The organization that provides energy which may include its name, address,  URL and contact information.
+  * **energySource** - A value that is one of coal, oil, natural-gas, nuclear, wind, solar, geothermal, hydropower, biofuel, unknown or other.
+  * **energyProvided** - The energy provided by the energy source for an associated activity using Kilowatt-hours (kWh).
+  * **externalReferences** - Optional references (links) to the energy provider.
 
-##### Activity energy cost
+* **Activity energy cost** - The total energy cost associated with the model lifecycle activity using Kilowatt-hours (kWh).
 
-##### CO2 cost equivalent
+* **CO2 cost equivalent** - The CO2 cost (debit) equivalent to the total energy cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
 
-##### CO2 cost offset
-
+* **CO2 cost offset** - The CO2 offset (credit) for the CO2 equivalent cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
 
 ###### Example: "Fake" llama3 environmental considerations
 
