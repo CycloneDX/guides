@@ -62,7 +62,21 @@ This example shows a list for what kind of user and use case information would b
 
 ### Technical limitations
 
-This example shows a list for what kind of technical limitations might be associated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar (i.e., ~`8B`) parameter size.
+Since ML models are fundamentally probabilistic and operate on pattern recognition from the data they are trained on, they are prone to various technical limitations.
+
+Some of these limitations include:
+
+* **Hallucination & Inaccuracy**: Due to their autoregressive nature, models prioritize generating plausible-sounding text over factual accuracy (a.k.a. "sycophancy").
+* **Context Window Constraints**: Limited memory prevents the model from processing or remembering long, complex interactions or large documents at once.
+* **Reasoning & Math Deficiencies**: They often struggle with complex, multi-step logic and mathematical reasoning.
+* **Knowledge Cutoff**: Models are generally frozen in time, meaning they cannot access real-time information without external retrieval systems.
+* **Opacity** (lack of traceable reasoning): models' complex architectures make it difficult to trace how a specific output was generated.
+* **Probabilistic Output Inconsistency**: The same prompt can yield different results (e.g., using different seeds or system context carryover), causing reliability issues.
+* **Bias Reinforcement**: Models often replicate or amplify biases present in their training data.  This has become more problematic with greater reliance on synthetic training data.
+
+###### Example: Sample technical limitations for Qwen3-7B
+
+This example shows a list for what kind of technical limitations might be associated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar parameter size.
 
 ```json
 "component": {
@@ -86,6 +100,20 @@ This example shows a list for what kind of technical limitations might be associ
 ---
 
 ### Performance Tradeoffs
+
+When creating Machine Learning (ML) models, developers must navigate several core performance tradeoffs to align model capabilities with business needs and technical constraints.
+
+Some of these tradeoffs considerations include:
+
+* **Accuracy vs. Interpretability**: Complex models often provide higher accuracy but are "black boxes," making them hard to interpret. Simpler models are easy to explain but may not capture complex patterns, sacrificing performance for transparency.
+* **Accuracy vs. Speed/Latency**: Highly accurate models often require significant computation, leading to slower inference times. In production, a slightly less accurate model that responds in milliseconds is frequently preferred over a highly accurate model that takes seconds.
+* **Bias vs. Variance** (Generalization): Highly flexible models (low bias) can overfit to training data, leading to high variance and poor performance on new data. Conversely, simpler models (high bias) may underfit, missing patterns altogether.
+* **Complexity vs. Resource Constraints** (Cost): Larger, more complex models require more data, training time, and computational power (GPUs/CPUs). Developers must balance the need for model performance against budget, infrastructure, and deployment constraints.
+* **Precision vs. Recall**: For models that perform classification, developers often must choose whether to minimize false positives (high precision) or false negatives (high recall).
+
+###### Example: Performance tradeoffs for Qwen3-7B
+
+This example how to provide performance tradeoffs against a few that have been acknowledged for the Qwen3 &B parameter model.
 
 ```json
 "component": {
@@ -180,7 +208,7 @@ Assessments consider evaluations at all stages of the model development lifecycl
 * **Adversarial Testing** (Verification) - Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
 * **Algorithmic Fairness Interventions** (In-processing/Post-processing) - Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
 
-###### Example: LLM fairness assessment
+###### Example: LLM fairness assessment for Qwen3-7B
 
 This example shows how fairness assessment information would be included in a a CycloneDX `modelCard` object.
 
@@ -258,9 +286,9 @@ The type of activity that is part of a machine learning model development or ope
 ##### CO2 cost offset
 
 
-###### Example:
+###### Example: "Fake" llama3 environmental considerations
 
-
+This example is for a "fake" model based upon the llama3 architecture.
 
 ```json
 {
