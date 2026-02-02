@@ -99,10 +99,9 @@ The following additional information, relative to the model, utilizes the Cyclon
 
 #### Hardware, software & frameworks
 
-TODO
+This example shows a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to run inference on a model.
 
 ```json
-
 
 ```
 
@@ -110,9 +109,109 @@ TODO
 
 Ideally, the training and/or testing (evaluation) processes for a published model would be represented as workflows in a manufacturing BOM for the model and linked to its ML-BOM.
 
-```json
 
+###### Example: Sample methodology for declaring training "stack"
+
+This example shows a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to train a model.
+
+First you would declare all the "components" used for training as part of the `formulation` object:
+
+```json
+",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  ...,
+  "metadata": {
+    "component": {
+      "type": "container",
+      "name": "h100-training-image",
+      "version": "23.10-py3",
+      "purl": "pkg:oci/pytorch@sha256:456...789?repository_url=nvcr.io/nvidia/pytorch"
+    }
+  },
+  ...,
+  "formulation": {
+    ...,
+    "components": [
+      {
+        "type": "container",
+        "name": "h100-training-image",
+        "version": "23.10-py3",
+        "purl": "pkg:oci/pytorch@sha256:456...789?repository_url=nvcr.io/nvidia/pytorch"
+      },
+      {
+        "type": "library",
+        "name": "nvidia-cuda-runtime",
+        "version": "12.2.0",
+        "purl": "pkg:generic/nvidia-cuda-runtime@12.2.0"
+        },
+      {
+        "type": "library",
+        "name": "pytorch",
+        "version": "2.10.0",
+        "purl": "pkg:pypi/pytorch@2.10.0"
+      },
+      {
+        "type": "library",
+        "name": "cuda-toolkit",
+        "version": "13.1.1",
+        "purl": "pkg:pypi/cuda-toolkit@13.1.1"
+      },
+      {
+        "type": "library",
+        "name": "nccl",
+        "version": "2.19.3",
+        "purl": "pkg:generic/nccl@2.29.2"
+      },
+      {
+        "type": "device",
+        "name": "NVIDIA H100 Tensor Core GPU",
+        "model": "H100 PCIe"
+        "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
+      },
+      ...
+    ]
+  },
+  ...
+}
 ```
+
+Then you would describe the component "stack" as `runtimeTopology` dependencies:
+
+```json
+"formulation": {
+  "workflow": {
+     "runtimeTopology": [
+       {
+         "ref": "",
+         "dependsOn": ""
+       }
+     ]
+  }
+```
+
+The topology used for training would then be referenced on the training "task":
+
+```json
+"formulation": {
+  "workflow": {
+     "tasks": [
+       {
+         "name": "Train model on dataset X",
+         "description": "Contains the detailed steps used to train the model on the referenced components (resources)."
+         "resourceReferences": [ ... ],
+         "steps": [ ... ],
+         "inputs": [ ... ],
+         "outputs": [ ... ],
+         ...
+       }
+     ]
+  }
+```
+
+###### Field notes
+
+* **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
