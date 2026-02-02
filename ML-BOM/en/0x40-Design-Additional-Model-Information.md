@@ -18,9 +18,9 @@ Tokenizers provide the preprocessing (encoding) and postprocessing (decoding) fu
 
 ##### Tokenizers and templates as components
 
-It is best practice to treat tokenizers and prompt templates as annotated components.
+It is best practice to treat tokenizers and prompt (or chat) templates as annotated components.
 
-###### Example: Qwen3-7B tokenizer and template
+###### Example: Declaring and annotating the Qwen-7B model's tokenizer
 
 Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model as published to Hugging Face, the tokenizer is published within the model repository and can be represented as components.  This method extends the use of a CycloneDX "assembly" to declare the tokenizer as shown in the previous section "[Describing a model repository as a CycloneDX assembly](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files)".
 
@@ -61,6 +61,33 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model as published
 ###### Field notes
 
 * **properties** - Utilizes the reserved CycloneDX property name `cdx:ai-ml:model:tokenizer`, with a tokenizer class name, to annotate the component as being a "tokenizer".
+
+###### Example: Annotating a model with its chat template
+
+For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat template uses the standard [`ChatML`](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats) format (see [Hugging Face "Common Template Formats"](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats))   which can be referenced on the model component as follows:
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+    ...
+    "metadata":
+    {
+      "component":
+      {
+        "type": "machine-learning-model",
+        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+        ...,
+        "properties": [
+          {
+            "name": "cdx:ai-ml:model:template:chat",
+            "value": "ChatML"
+          }
+        ]
+      }
+    }
+  ...
+}
+```
 
 ---
 

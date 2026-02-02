@@ -88,9 +88,9 @@ Performance metrics are specific, quantitative measures used to evaluate a model
 
 ###### Example: Declaring the MMLU accuracy score for Qwen-7B
 
-The Qwen3 accuracy scores, for various benchmarks, are published in their [QwenLM/Qwen](https://github.com/QwenLM/Qwen?tab=readme-ov-file#performance) GitHub repository's README.
+The Qwen accuracy scores, for various benchmarks, are published in their [QwenLM/Qwen](https://github.com/QwenLM/Qwen?tab=readme-ov-file#performance) GitHub repository's README.
 
-This appears as a table inclusive of all Qwen3 models along with other similar models for comparison.  Here is the table row for all Qwen-7B benchmarks:
+This appears as a table inclusive of all Qwen models along with other similar models for comparison.  Here is the table row for all Qwen-7B benchmarks:
 
 | Model             |   MMLU   |  C-Eval  |  GSM8K   |   MATH   | HumanEval |   MBPP   |   BBH    |  CMMLU   |
 |:------------------|:--------:|:--------:|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|

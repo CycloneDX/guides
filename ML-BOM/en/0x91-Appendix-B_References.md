@@ -71,6 +71,7 @@ Huggingface model (repositories) typically support the `.safetensors` Huggingfac
   * [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) - multiple  `*.safetensors` files with `model.safetensors.index.json` index.
     * [ArXiv - Qwen3 Technical Report](https://arxiv.org/abs/2505.09388)
     * [ArXiv - STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transition Samples](https://arxiv.org/html/2508.12096v1) - Analysis of Qwen3 model performance.
+  * [Qwen/Qwen3-8B-GGUF](https://huggingface.co/Qwen/Qwen3-8B-GGUF) - Contains GGUF format (i.e., `.gguf` files) which contain quantized versions of the Qwen3 large language model which contains both dense and mixture-of-experts (MoE) architecture models.
 
 ##### Kaggle
 

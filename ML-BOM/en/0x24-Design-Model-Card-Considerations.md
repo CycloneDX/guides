@@ -20,7 +20,7 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 Used to provide list describing the intended users of the model along with a list of envisioned use cases for the model.
 
-###### Example: Qwen3/Qwen-7B
+###### Example: Qwen/Qwen-7B
 
 This example shows a list for what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
@@ -42,12 +42,13 @@ This example shows a list for what kind of user and use case information would b
         "Local AI Enthusiast / Privacy-First User"
       ],
       "useCases": [
-        "Utilizing the Qwen3-Coder variant within an IDE for real-time code completion, bug fixing, and unit test generation, benefiting from its \"Agentic\" capabilities for repository-scale understanding.",
+        "Utilizing the Qwen \"instruct\" variants within an IDE for real-time code completion, bug fixing, and unit test generation, benefiting from its \"Agentic\" capabilities for repository-scale understanding.",
         "Translating business, education or other content or informational materials to other languages and dialects while maintaining the original tone and cultural nuances.",
         "Deploying low-latency chatbots for high-volume inquiries where the 7B model acts as a \"triage\" agent, answering common questions and only escalating complex logic to other support mechanisms.",
         "Summarizing long-form research papers and generating initial drafts for school projects, utilizing the model's 128K context window to ingest entire PDFs at once.",
         "Implementing the model on specialized hardware for real-time visual perception and \"Thinking Mode\" reasoning to help an intelligent device navigate and interact with its environment based on natural language commands",
-        "Running a self-hosted instance to analyze internal security logs for anomalies, ensuring that sensitive infrastructure data never leaves the organization's firewall.",                                  "Running a personal assistant locally on a laptop to answer questions or process private information such as emails or calendars without sending data to an external server."
+        "Running a self-hosted instance to analyze internal security logs for anomalies, ensuring that sensitive infrastructure data never leaves the organization's firewall.",
+        "Running a personal assistant locally on a laptop to answer questions or process private information such as emails or calendars without sending data to an external server."
       ],
     }
   }
@@ -74,7 +75,7 @@ Some of these limitations include:
 * **Probabilistic Output Inconsistency**: The same prompt can yield different results (e.g., using different seeds or system context carryover), causing reliability issues.
 * **Bias Reinforcement**: Models often replicate or amplify biases present in their training data.  This has become more problematic with greater reliance on synthetic training data.
 
-###### Example: Sample technical limitations for Qwen3-7B
+###### Example: Sample technical limitations for Qwen-7B
 
 This example shows a list for what kind of technical limitations might be associated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar parameter size.
 
@@ -89,7 +90,7 @@ This example shows a list for what kind of technical limitations might be associ
       "technicalLimitations": [
         "Greedy Decoding Degradation. The model is optimized for sampling-based generation. Using greedy decoding (temperature=0) can lead to performance degradation, repetitive loops, and \"stuck\" reasoning steps, particularly in the new Thinking Mode",
         "Native Context Window Boundaries. While the model supports up to 131,072 tokens using YaRN scaling, its native pre-training context is limited to 32,768 tokens. Performance may degrade on very long sequences if proper scaling factors (like RoPE or YaRN) are not manually configured for local deployments.",
-        "Synthetic Data \"Sanding\" Effects. Research indicates that Qwen3, like many models trained on massive synthetic datasets, can suffer from \"model collapse\" where rare edge cases or minority user behaviors are underrepresented, potentially leading to errors in complex, real-world production environments.",
+        "Synthetic Data \"Sanding\" Effects. Research indicates that Qwen, like many models trained on massive synthetic datasets, can suffer from \"model collapse\" where rare edge cases or minority user behaviors are underrepresented, potentially leading to errors in complex, real-world production environments.",
         "Thinking Mode History Overhead. In multi-turn conversations, including the model's internal \"thinking\" steps in the chat history can confuse the model and consume unnecessary tokens. Best practices require developers to filter out \"thinking\" content from the history to maintain coherence."
       ]
     }
@@ -111,7 +112,7 @@ Some of these tradeoffs considerations include:
 * **Complexity vs. Resource Constraints** (Cost): Larger, more complex models require more data, training time, and computational power (GPUs/CPUs). Developers must balance the need for model performance against budget, infrastructure, and deployment constraints.
 * **Precision vs. Recall**: For models that perform classification, developers often must choose whether to minimize false positives (high precision) or false negatives (high recall).
 
-###### Example: Performance tradeoffs for Qwen3-7B
+###### Example: Performance tradeoffs for Qwen-7B
 
 This example how to provide performance tradeoffs against a few that have been acknowledged for the Qwen3 &B parameter model.
 
@@ -125,8 +126,8 @@ This example how to provide performance tradeoffs against a few that have been a
     "considerations": {
       "performanceTradeoffs": [
         "Intelligence Plateau in Domain-Specific Tasks. Research indicates that for specialized fields like legal text analysis, performance often flattens beyond the 7B parameter mark. While efficient, the 7B model may not offer the incremental reasoning gains found in the 32B or 235B models for complex, high-stakes domain reasoning.",
-        "Enhanced Quantization Sensitivity. The Qwen3-7B employs advanced pre-training techniques that reduce parameter redundancy. A documented tradeoff of this efficiency is a higher sensitivity to low-bit quantization (3-bit and below), where it exhibits more pronounced performance degradation compared to previous 7B generations.",
-        "Context Window Consistency. While the 7B model supports a native context window of 32,768 tokens, its performance degrades significantly more than the Qwen3-8B (which uses YaRN scaling to reach 128K+) when handling massive document sets. Users must tradeoff deep long-document comprehension for the 7B's lower memory footprint.",
+        "Enhanced Quantization Sensitivity. The Qwen-7B employs advanced pre-training techniques that reduce parameter redundancy. A documented tradeoff of this efficiency is a higher sensitivity to low-bit quantization (3-bit and below), where it exhibits more pronounced performance degradation compared to previous 7B generations.",
+        "Context Window Consistency. While the 7B model supports a native context window of 32,768 tokens, its performance degrades significantly more than the Qwen-8B (which uses YaRN scaling to reach 128K+) when handling massive document sets. Users must tradeoff deep long-document comprehension for the 7B's lower memory footprint.",
         "Conciseness vs. Contextual Nuance. Experiments show that the older 7B design prioritizes cleaner, easier-to-read, and more concise outputs. The tradeoff is a loss of the \"faithful and nuanced\" insights and richer context provided by the newer 8B and larger architectures.",
         "Agentic Capability Limitations. The 7B model shows a documented gap in its ability to follow complex multi-step instructions or navigate large software repositories, requiring tighter chunking and more finely tuned prompts to be effective",
         "Hardware Efficiency vs. Throughput. Running the 7B model on older hardware (e.g., 8GB VRAM cards) is possible but results in a tradeoff of throughput. Modern inference techniques like continuous batching and PagedAttention are less effective at this scale than on the larger, more parallelizable MoE models.",
@@ -148,7 +149,7 @@ Used to provide list describing known ethical considerations when using a model.
 
 > [!Note] Since there is no agreed-upon standard for ethical considerations we recommend using the `name` field to additionally provide further description to clarify the name as needed.
 
-###### Example: Qwen3-7B ethical considerations
+###### Example: Qwen-7B ethical considerations
 
 Based on technical reports and safety evaluations such as Qwen3Guard, the following ethical considerations and mitigations are documented and typical of a multi-lingual LLM of similar parameter size and with a dense architecture:
 
@@ -162,7 +163,7 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
     "considerations": {
       "ethicalConsiderations": [
         {
-          "name": "Algorithmic and Cultural Bias. As a model trained on 36 trillion tokens across 119 languages, Qwen3-7B may still reflect societal biases, stereotypes, or representational harms present in its training data.",
+          "name": "Algorithmic and Cultural Bias. As a model trained on 36 trillion tokens across 119 languages, Qwen-7B may still reflect societal biases, stereotypes, or representational harms present in its training data.",
           "mitigationStrategy": "Use the Qwen-Gender framework or Chain-of-Thought (CoT) prompting to detect and reduce implicit biases in generated text."
         },
         {
@@ -208,7 +209,7 @@ Assessments consider evaluations at all stages of the model development lifecycl
 * **Adversarial Testing** (Verification) - Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
 * **Algorithmic Fairness Interventions** (In-processing/Post-processing) - Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
 
-###### Example: LLM fairness assessment for Qwen3-7B
+###### Example: LLM fairness assessment for Qwen-7B
 
 This example shows how fairness assessment information would be included in a a CycloneDX `modelCard` object.
 
