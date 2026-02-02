@@ -299,9 +299,9 @@ The public datasets, as documented in the model's research paper include:
 
 Describes the input and output data types (formats) of the model.
 
->[!Note] The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDx plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
+>[!Note] The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDX plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
 
-In order to provide information on model parameters and hyperparameters using existing CycloneDx schema, it is recommended best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
+In order to provide information on model parameters and hyperparameters using existing CycloneDX schema, it is recommended best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
 
 ```json
 {
@@ -345,7 +345,7 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
 - [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) - which contains configuration parameters (as key-value pairs) used for initializing the model's implementation.
 - [generation_config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/generation_config.json) - which contains model hyperparameters (as key-value pairs) and their suggested (default) values used for configuring the model for token generation (inference).
 
-The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters, as contained in the [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) configuration file, would be declared within the CycloneDx `modelCard` object's `properties` array using the CycloneDx reserved namespace for AI/ML.
+The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters, as contained in the [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) configuration file, would be declared within the CycloneDX `modelCard` object's `properties` array using the CycloneDX reserved namespace for AI/ML.
 
 ```json
 {
