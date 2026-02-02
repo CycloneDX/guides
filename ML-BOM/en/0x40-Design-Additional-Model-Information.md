@@ -99,13 +99,9 @@ The following additional information, relative to the model, utilizes the Cyclon
 
 #### Hardware, software & frameworks
 
-This example shows a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to run inference on a model.
+This section describes a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to run inference on a model.
 
-```json
-
-```
-
-#### Training & testing details
+#### Providing training workflow details
 
 Ideally, the training and/or testing (evaluation) processes for a published model would be represented as workflows in a manufacturing BOM for the model and linked to its ML-BOM.
 
