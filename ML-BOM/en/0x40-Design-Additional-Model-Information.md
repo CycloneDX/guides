@@ -93,24 +93,17 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 
 ### Including Manufacturing information for the ML model
 
-The following additional information, relative to the model, utilizes the CycloneDX objects for a Manufacturing Bill-of-Materials (or MBOM) to describe the frameworks, systems and platforms used to train or test the model.
+This section shows how "manufacturing" (i.e., "training") information is provided relative to the model described by an ML-BOM.
 
-**Note**: This "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
+In short, this is accomplished utilizing objects which are part of the [CycloneDX Manufacturing Bill-of-Materials (or MBOM)](https://cyclonedx.org/capabilities/mbom/) to describe the frameworks, systems, platforms and libraries used to train the model against a detailed workflow-task description.
 
-#### Hardware, software & frameworks
+**Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
 
-This section describes a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to run inference on a model.
+#### Declaring hardware & software training components
 
-#### Providing training workflow details
+###### Example: Sample methodology for declaring the "training stack"
 
-Ideally, the training and/or testing (evaluation) processes for a published model would be represented as workflows in a manufacturing BOM for the model and linked to its ML-BOM.
-
-
-###### Example: Sample methodology for declaring training "stack"
-
-This example shows a generalized example of how objects from the CycloneDX "Manufacturing" BOM (MBOM) would be used to declare the hardware and software stack used to train a model.
-
-First you would declare all the "components" used for training as part of the `formulation` object:
+First, create entries for all the "components" used in the training process as part of the `formulation` object:
 
 ```json
 ",
@@ -180,44 +173,66 @@ First you would declare all the "components" used for training as part of the `f
 
 * **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
 
-Then the training process would be represented as a CycloneDX `workflow` object with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.):
+
+#### Providing training workflow details
+
+After the hardware and software "stack" of training components have been declared under the `formulation` object, a CycloneDX `workflow` object, with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.), can then be declared:
+
+###### Example: Declaring a training workflow & tasks
 
 ```json
 "formulation": {
-  "workflow": {
-     "tasks": [
-       {
-         "name": "Train model on dataset X",
-         "description": "Contains the detailed steps used to train the model on the referenced components (resources)."
-         "resourceReferences": [ ... ],
-         "steps": [ ... ],
-         "inputs": [ ... ],
-         "outputs": [ ... ],
-         ...
-       }
-     ]
-  }
+  ...,
+  "workflows": [
+    {
+      "name": "Model training workflow",
+      "description": "Describes the tasks used for training the model described by the ML-BOM."
+       "tasks": [
+         {
+           "name": "Train model in NVIDIA OCI container",
+           "description": "Describes the steps used to train the model using commands and libraries in the container image.": [ ... ],
+           "steps": [ ... ],
+           "inputs": [ ... ],
+           "outputs": [ ... ],
+           ...
+         }
+      ]
+    }
+  ]
+}
 ```
 
-Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
+Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies for the workflow above. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
+
+###### Example: Declaring the runtime topology used for the training workflow tasks
 
 ```json
 "formulation": {
-  "workflow": {
-     "runtimeTopology": [
+  "workflows": [
+    {
+       "tasks": [ ... ],
+       ...,
+       "runtimeTopology": [
        {
-         "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
-         "dependsOn": "nvidia-h100-pcie-gpu-1",
-         "provides": [
+          "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
+          "dependsOn": "nvidia-h100-pcie-gpu-1",
+          "provides": [
             "cuda-toolkit",
             "pkg:oci/nvidia-pytorch@sha256:f398a0",
             "pkg:pypi/pytorch@2.10.0",
             "pkg:generic/nccl@2.29.2"
-         ]
-       }
-     ]
-  }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
+
+###### Field notes
+
+* **workflows** - In this example, a "training" workflow was shown; however, additional workflows could detail other processes such as "testing" (i.e., model "evaluation"), fine-tuning, and more.
+</br>If there are multiple workflows within the `formulation` object, the subset of components specific to a workflow can optionally be declared using the `resourceReferences` object within the respective `workflow` object.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
