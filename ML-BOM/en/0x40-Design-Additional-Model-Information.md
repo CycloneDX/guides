@@ -101,9 +101,18 @@ The following additional information, relative to the model, utilizes the Cyclon
 
 TODO
 
+```json
+
+
+```
+
 #### Training & testing details
 
-TODO
+Ideally, the training and/or testing (evaluation) processes for a published model would be represented as workflows in a manufacturing BOM for the model and linked to its ML-BOM.
+
+```json
+
+```
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
