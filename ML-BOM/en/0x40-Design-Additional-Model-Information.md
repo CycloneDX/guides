@@ -123,10 +123,8 @@ First you would declare all the "components" used for training as part of the `f
   ...,
   "metadata": {
     "component": {
-      "type": "container",
-      "name": "h100-training-image",
-      "version": "23.10-py3",
-      "purl": "pkg:oci/pytorch@sha256:456...789?repository_url=nvcr.io/nvidia/pytorch"
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/fake.ai/llama3@abcd",
     }
   },
   ...,
@@ -136,31 +134,36 @@ First you would declare all the "components" used for training as part of the `f
       {
         "type": "container",
         "name": "h100-training-image",
-        "version": "23.10-py3",
-        "purl": "pkg:oci/pytorch@sha256:456...789?repository_url=nvcr.io/nvidia/pytorch"
+        "version": "25.03-py3-igpu",
+        "bom-ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
+        "purl": "pkg:oci/nvidia-pytorch@sha256:f398a0955ec5fcf9e3bbf77610225ff4e953e137423ab248e2bf32cd4971a1dc?repository_url=nvcr.io/nvidia/pytorch&tag=25.03-py3-igpu"
       },
       {
         "type": "library",
         "name": "nvidia-cuda-runtime",
         "version": "12.2.0",
+        "bom-ref": "pkg:generic/nvidia-cuda-runtime@12.2.0",
         "purl": "pkg:generic/nvidia-cuda-runtime@12.2.0"
         },
       {
         "type": "library",
         "name": "pytorch",
         "version": "2.10.0",
+        "bom-ref": "pkg:pypi/pytorch@2.10.0",
         "purl": "pkg:pypi/pytorch@2.10.0"
       },
       {
         "type": "library",
         "name": "cuda-toolkit",
         "version": "13.1.1",
+        "bom-ref": "pkg:pypi/cuda-toolkit@13.1.1",
         "purl": "pkg:pypi/cuda-toolkit@13.1.1"
       },
       {
         "type": "library",
         "name": "nccl",
         "version": "2.19.3",
+        "bom-ref": "pkg:generic/nccl@2.29.2",
         "purl": "pkg:generic/nccl@2.29.2"
       },
       {
@@ -168,6 +171,7 @@ First you would declare all the "components" used for training as part of the `f
         "name": "NVIDIA H100 Tensor Core GPU",
         "model": "H100 PCIe"
         "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
+        "bom-ref": "nvidia-h100-pcie-gpu-1",
       },
       ...
     ]
@@ -176,21 +180,11 @@ First you would declare all the "components" used for training as part of the `f
 }
 ```
 
-Then you would describe the component "stack" as `runtimeTopology` dependencies:
+###### Field notes
 
-```json
-"formulation": {
-  "workflow": {
-     "runtimeTopology": [
-       {
-         "ref": "",
-         "dependsOn": ""
-       }
-     ]
-  }
-```
+* **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
 
-The topology used for training would then be referenced on the training "task":
+Then the training process would be represented as a CycloneDX `workflow` object with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.):
 
 ```json
 "formulation": {
@@ -209,9 +203,25 @@ The topology used for training would then be referenced on the training "task":
   }
 ```
 
-###### Field notes
+Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
 
-* **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
+```json
+"formulation": {
+  "workflow": {
+     "runtimeTopology": [
+       {
+         "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
+         "dependsOn": "nvidia-h100-pcie-gpu-1",
+         "provides": [
+            "cuda-toolkit",
+            "pkg:oci/nvidia-pytorch@sha256:f398a0",
+            "pkg:pypi/pytorch@2.10.0",
+            "pkg:generic/nccl@2.29.2"
+         ]
+       }
+     ]
+  }
+```
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
