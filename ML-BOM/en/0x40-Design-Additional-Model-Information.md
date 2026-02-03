@@ -8,7 +8,7 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
-* [Using CycloneDX AI/ML metadata tags](#supported-aiml-metadata-tags)
+* [Using CycloneDX AI/ML metadata tags](#supported-aiml-metadata-properties)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
@@ -18,9 +18,9 @@ For convenience, here are links to the specific sections for some of these ackno
 
 ---
 
-### Using CycloneDX AI/ML metadata tags
+### Using CycloneDX AI/ML metadata properties
 
-This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.  This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
+This section includes discussion and examples of supported AI/ML-related metadata properties that may be used to classify models as part of their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
 #### Annotating a model's supported languages
 
@@ -46,6 +46,36 @@ Models are can be trained in one or more languages (i.e., multilingual models).
   ]
 }
 ```
+
+* **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
+
+---
+
+#### Providing free-form tags for search
+
+This section describes how to "tag" model components with non-standard keywords and terms seen in various model catalogs or repositories for search or "lookup" purposes.
+
+###### Example: Tagging a model with its supported languages
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/FakeAI/TxtSpeak3",
+  ...,
+  "tags": [
+    "pytorch",
+    "transformers",
+    "text-to-speech",
+    "speech-to-speech",
+    ...
+  ]
+}
+```
+
+###### Field notes
+
+* **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
 ---
 
