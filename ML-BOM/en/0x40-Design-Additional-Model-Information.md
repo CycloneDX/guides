@@ -106,22 +106,22 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-    ...
-    "metadata":
+  ...,
+  "metadata":
+  {
+    "component":
     {
-      "component":
-      {
-        "type": "machine-learning-model",
-        "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-        ...,
-        "properties": [
-          {
-            "name": "cdx:ai-ml:model:template:chat",
-            "value": "ChatML"
-          }
-        ]
-      }
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      ...,
+      "properties": [
+        {
+          "name": "cdx:ai-ml:model:template:chat",
+          "value": "ChatML"
+        }
+      ]
     }
+  },
   ...
 }
 ```
@@ -145,14 +145,13 @@ In short, this is accomplished utilizing objects which are part of the [CycloneD
 First, create entries for all the "components" used in the training process as part of the `formulation` object:
 
 ```json
-",
-  "bomFormat": "CycloneDX",
-  "specVersion": "1.7",
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   ...,
   "metadata": {
     "component": {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/fake.ai/llama3@abcd",
+      "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd",
     }
   },
   ...,
