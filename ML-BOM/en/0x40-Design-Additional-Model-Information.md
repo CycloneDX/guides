@@ -59,7 +59,9 @@ It is best practice to treat tokenizers and prompt (or chat) templates as annota
 
 ###### Example: Declaring and annotating the Qwen-7B model's tokenizer
 
-Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model as published to Hugging Face, the tokenizer is published within the model repository and can be represented as components.  This method extends the use of a CycloneDX "assembly" to declare the tokenizer as shown in the previous section "[Describing a model repository as a CycloneDX assembly](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files)".
+Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging Face, its tokenizer is published (as a Python file) within the model repository and can be represented as a component.
+
+Below utilize the CycloneDX "assembly" composition to declare the tokenizer as exampled for other model files in the previous section "[Describing a model repository as a CycloneDX assembly](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files)".
 
 ```json
 {
