@@ -8,11 +8,44 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
+* [Supported AI/ML metadata tags](#supported-aiml-metadata-tags)
+  * [Supported languages]()
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including Manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware & software training components](#declaring-hardware--software-training-components)
   * [Providing training workflow details](#providing-training-workflow-details)
   * [Declaring the runtime topology](#declaring-the-runtime-topology)
+
+---
+
+### Supported AI/ML metadata tags
+
+This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.
+
+#### Supported languages
+
+Models are can be trained in one or more languages (i.e., multilingual models).
+
+* **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported languages is: `cdx:ai-ml:model:languages`
+
+* **Property value**: The value for this property should be in the form of a comma-separated list of [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) (e.g., `"en,fr,de,it,ja,zh"`, etc.).
+
+###### Example: Tagging a model with its supported languages
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/FakeAI/MultilingualLLama",
+  ...,
+  "properties": [
+    {
+      "name": "cdx:ai-ml:model:languages",
+      "value": "en,fr,de,it,ja,zh"
+    }
+  ]
+}
+```
 
 ---
 
