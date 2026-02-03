@@ -8,9 +8,13 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
-- [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
-- [Hardware, software & frameworks](#hardware-software--frameworks)
-- [Training & testing details](#training--testing-details)
+* [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
+* [Including Manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
+  * [Declaring hardware & software training components](#declaring-hardware--software-training-components)
+  * [Providing training workflow details](#providing-training-workflow-details)
+  * [Declaring the runtime topology](#declaring-the-runtime-topology)
+
+---
 
 ### Tokenizers and prompt templates
 
@@ -88,6 +92,8 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
   ...
 }
 ```
+
+* **properties** - Utilizes the reserved CycloneDX property name `cdx:ai-ml:model:template:chat`, with the name widely used `ChatML` template.
 
 ---
 
@@ -201,6 +207,8 @@ After the hardware and software "stack" of training components have been declare
   ]
 }
 ```
+
+#### Declaring the runtime topology
 
 Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies for the workflow above. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
 
