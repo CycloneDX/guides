@@ -12,7 +12,7 @@ For convenience, here are links to the specific sections for some of these ackno
   * [Model supported languages](#model-supported-languages)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including Manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
-  * [Declaring hardware & software training components](#declaring-hardware--software-training-components)
+  * [Declaring hardware and software training components](#declaring-hardware-and-software-training-components)
   * [Providing training workflow details](#providing-training-workflow-details)
   * [Declaring the runtime topology](#declaring-the-runtime-topology)
 
@@ -138,7 +138,7 @@ In short, this is accomplished utilizing objects which are part of the [CycloneD
 
 **Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
 
-#### Declaring hardware & software training components
+#### Declaring hardware and software training components
 
 ###### Example: Sample methodology for declaring the "training stack"
 
