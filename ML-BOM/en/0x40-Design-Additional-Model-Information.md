@@ -9,9 +9,9 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
 * [Using CycloneDX AI/ML metadata tags](#supported-aiml-metadata-tags)
-  * [Annotating sModel supported languages](#model-supported-languages)
+  * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
-* [Including Manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
+* [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware and software training components](#declaring-hardware-and-software-training-components)
   * [Providing training workflow details](#providing-training-workflow-details)
   * [Declaring the runtime topology](#declaring-the-runtime-topology)
@@ -22,7 +22,7 @@ For convenience, here are links to the specific sections for some of these ackno
 
 This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.  This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
-#### Model supported languages
+#### Annotating a model's supported languages
 
 Models are can be trained in one or more languages (i.e., multilingual models).
 
@@ -130,7 +130,7 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 
 ---
 
-### Including Manufacturing information for the ML model
+### Including manufacturing information for the ML model
 
 This section shows how "manufacturing" (i.e., "training") information is provided relative to the model described by an ML-BOM.
 
