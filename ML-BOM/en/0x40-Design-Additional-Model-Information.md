@@ -20,7 +20,7 @@ For convenience, here are links to the specific sections for some of these ackno
 
 ### Using CycloneDX AI/ML metadata tags
 
-This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.  These utilize reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) as part of the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
+This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.  This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
 #### Model supported languages
 
