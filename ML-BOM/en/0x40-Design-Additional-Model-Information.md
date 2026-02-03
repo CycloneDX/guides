@@ -9,7 +9,7 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
 * [Supported AI/ML metadata tags](#supported-aiml-metadata-tags)
-  * [Supported languages]()
+  * [Model supported languages](#model-supported-languages)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including Manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware & software training components](#declaring-hardware--software-training-components)
@@ -22,7 +22,7 @@ For convenience, here are links to the specific sections for some of these ackno
 
 This section includes discussion and examples of supported AI/ML-related metadata tags that have been found to be used with model cards.
 
-#### Supported languages
+#### Model supported languages
 
 Models are can be trained in one or more languages (i.e., multilingual models).
 
