@@ -139,11 +139,14 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 ###### Example: JSON for model component with GitHub PURL
 
+ Note: The derivative `bom-ref`, based upon the PURL is also shown.
+
 ```json
 "component":
 {
   "type": "machine-learning-model",
-  "bom-ref": "pkg:github/onnx/models/validated/vision/object_detection_segmentation/tiny-yolov2/model@4c46cd0",
+  "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
+  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
   ...
 }
 ```
