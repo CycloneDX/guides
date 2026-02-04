@@ -87,3 +87,11 @@ Note: Most ONNX models have transitioned to and are now registered in Huggingfac
   * [onnx/DenseNet-121-9](https://huggingface.co/onnx/DenseNet-121-9/tree/main) - `densenet-9.onnx`
 * GitHub (https://github.com/onnx/models/tree/main/validated/)
   * [vision/object_detection_segmentation/tiny-yolov2/model](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) - `tinyyolov2-7.onnx`
+
+---
+
+#### Benchmark (dataset) references
+
+* [MMLU benchmark](https://huggingface.co/datasets/nyu-mll/glue) (Hugging Face - nyu-mll/glue) - MMLU consists of 15,908 multiple-choice questions, with 1,540 of them being used to select and assess optimal settings for models – temperature, batch size and learning rate. The questions span across 57 subjects, from highly complex STEM fields and international law, to nutrition and religion. It was one of the most commonly used benchmarks for comparing the capabilities of large language models.
+
+* [GLUE benchmark](https://gluebenchmark.com/) (zilliz.com) - The GLUE (General Language Understanding Evaluation) Benchmark is a collection of nine natural language processing (NLP) tasks designed to evaluate the performance of models on a wide range of language understanding challenges. These tasks include textual entailment, sentiment analysis, sentence similarity, and more.
