@@ -129,7 +129,7 @@ The MMLU score from the table would be declared as a performance metric as follo
 
 ###### Example: Declaring a GLUE F1 Score
 
-TODO
+This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-score) (i.e., the harmonic mean of precision and recall measurements) for a model's performance on classification tasks within the [GLUE benchmark](https://zilliz.com/glossary/glue-benchmark).
 
 ```json
 "quantitativeAnalysis": {

@@ -14,6 +14,12 @@ is an area of artificial intelligence (AI) that enables computers to interpret, 
 
 [1] [IBM - What is computer vision?](https://www.ibm.com/think/topics/computer-vision)
 
+##### F1 Score
+
+ the F-score or F-measure is a measure of predictive performance. It is calculated from the precision and recall of the test, where the precision is the number of true positive results divided by the number of all samples predicted to be positive. The F1 score is the harmonic mean of the precision and recall symmetrically representing both in one metric.
+
+[1] [Wikipedia - F1 score](https://en.wikipedia.org/wiki/F-score)
+
 ##### Large Language Model (LLM)
 
 A model trained with self-supervised machine learning on a vast amount of text, designed for [Natural Language Processing](#natural-language-processing-nlp) tasks, especially language generation. The largest and most capable LLMs are Generative Pre-trained [Transformers](#transformer) (GPTs) and provide the core capabilities of modern chatbots. LLMs can be fine-tuned for specific tasks or guided by prompt engineering. [1]
