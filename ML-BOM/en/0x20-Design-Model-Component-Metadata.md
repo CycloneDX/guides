@@ -139,7 +139,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 ###### Example: JSON for model component with GitHub PURL
 
- Note: The derivative `bom-ref`, based upon the PURL is also shown.
+ **Note**: The derivative `bom-ref`, based upon the PURL, is also shown.
 
 ```json
 "component":
