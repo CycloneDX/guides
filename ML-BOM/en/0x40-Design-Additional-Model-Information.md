@@ -8,7 +8,7 @@ Currently, the v1.7 CycloneDX specification does not have specific objects or fi
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
-* [Using CycloneDX AI/ML metadata tags](#supported-aiml-metadata-properties)
+* [Using CycloneDX AI/ML properties](#using-cyclonedx-aiml-properties)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
@@ -18,7 +18,7 @@ For convenience, here are links to the specific sections for some of these ackno
 
 ---
 
-### Using CycloneDX AI/ML metadata properties
+### Using CycloneDX AI/ML properties
 
 This section includes discussion and examples of supported AI/ML-related metadata properties that may be used to classify models as part of their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
