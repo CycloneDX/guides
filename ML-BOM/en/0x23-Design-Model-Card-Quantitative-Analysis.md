@@ -35,30 +35,30 @@ Benchmarks are standardized test datasets, scenarios, or tasks  that define the 
 
 Benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
 
-* [Large Language Models (LLM)](0x90-Appendix-A_Glossary.md#large-language-model-llm) and [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) (e.g., speech recognition or text classification) - These benchmarks evaluate reasoning, knowledge, and generation capabilities. A few examples of datasets used to benchmark these models against different tasks include:
+* [Large Language Models (LLM)](0x90-Appendix-A_Glossary.md#large-language-model-llm) and [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) (e.g., speech recognition or text classification): These benchmarks evaluate reasoning, knowledge, and generation capabilities. A few examples of datasets used to benchmark these models against different tasks include:
 
-  * *General Tasks*
+  * **General Tasks**
     * [MMLU](https://huggingface.co/datasets/cais/mmlu), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro) (Massive Multitask Language Understanding): Tests knowledge across STEM, humanities, and social sciences.
     * [HellaSwag](https://huggingface.co/datasets/Rowan/hellaswag) / [WinoGrande](https://huggingface.co/datasets/allenai/winogrande): Common sense reasoning and pronoun resolution tasks.
     * [GLUE](https://gluebenchmark.com/): benchmarking resources for training, evaluating, and analyzing natural language understanding systems. GLUE's dataset is available in Hugging Face Hub ([nyu-mll/glue](https://huggingface.co/datasets/nyu-mll/glue)) and supports multiple tasks that can be evaluated independently, for example:
       * *ax* - evaluates sentence understanding through Natural Language Inference (NLI) problems.
       * *cola* - The Corpus of Linguistic Acceptability consists of English acceptability judgments drawn from books and journal articles on linguistic theory.
       * *mnli* - The Multi-Genre Natural Language Inference Corpus consists of sentence pairs with textual entailment annotations. Given a premise sentence and a hypothesis sentence, the task is to predict whether the premise entails the hypothesis.
-  * *Math/STEM tasks*
+  * **Math/STEM tasks**
     * [GSM8K](https://huggingface.co/datasets/openai/gsm8k) (OpenAII, Grade School Math 8K): a dataset of 8.5K high quality linguistically diverse grade school math word problems.
     * [MATH-500](https://huggingface.co/datasets/HuggingFaceH4/MATH-500) (Hugging Face): Benchmarks specifically designed to evaluate mathematical reasoning.
-  * *Coding Tasks*
+  * **Coding Tasks**
     * [HumanEval](https://huggingface.co/datasets/openai/openai_humaneval) (OpenAI): used to evaluate the functional correctness of code generated LLMs. It consists of hand-crafted programming problems designed to test reasoning and code synthesis abilities.
     * [MBPP](https://huggingface.co/datasets/Muennighoff/mbpp) (Mostly Basic Python Problems ): Benchmarks for evaluating code generation and programming capabilities.
     * [CodeXGLUE](https://github.com/microsoft/CodeXGLUE/tree/main/Code-Code/code-refinement) (MicroSoft, Code Refinement): Used to evaluate a model's ability to remove (i.e., "fix") bugs from Java code (i.e., refine the code) with accuracy being reported as [BLEU](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/concepts/bleu-score) scores.
-  * *Other Tasks*
+  * **Other Tasks**
     * [IMDB](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews): a large dataset of 50K, highly polarized, movie reviews for NLP sentiment analysis and classification.
 </br>
-* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition) - These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking. Some example "vision" datasets include:
+* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition): These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking. Some example "vision" datasets include:
 
   * [ImageNet](image-net.org): large-scale dataset for computer vision, featuring over 14 million annotated, high-resolution images across thousands of object categories organized by the [WordNet](https://en.wikipedia.org/wiki/WordNet) hierarchy.
   * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
-  * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database) (link to the Tensorflow/Keras catalog): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
+  * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
 
 Again, the list above contains just a small number of examples of benchmarking datasets that can be used to train and evaluate models.
 
@@ -76,9 +76,9 @@ Performance metrics are specific, quantitative measures used to evaluate a model
 
 ##### Common Performance Metrics
 
-* **Accuracy** - Overall correctness; typically represented as a percentage of correct responses to the full set of problems posed by a benchmark's dataset.
-* **Precision** - Of predicted positives, how many are correct.
-* **Recall** (Sensitivity) - Of actual positives, how many are found.
+* **Accuracy**: Overall correctness; typically represented as a percentage of correct responses to the full set of problems posed by a benchmark's dataset.
+* **Precision**: Of predicted positives, how many are correct.
+* **Recall** (Sensitivity): Of actual positives, how many are found.
 * **F1 Score**: Harmonic mean of *Precision* and *Recall*.
 <!-- * **ROC AUC** - Area under the Receiver Operating Characteristic curve. -->
 <!-- *•* Efficiency:
@@ -121,7 +121,7 @@ The MMLU score from the table would be declared as a performance metric as follo
   }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **slice** - the `slice` property was omitted indicating the full dataset was used for performance benchmarking.
 * **confidenceInterval** - the values provided reflect Statistical Confidence Interval (Accuracy) for the full MMLU test set (approx. 14,000–15,900 questions) which is 95% ±0.72.
@@ -142,7 +142,7 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **slice** - the `slice` property references a named subset `cola` (Corpus of Linguistic Acceptability) which is a subset of the GLUE tests; "cola" consists of single-sentence task to determine if a sentence is grammatically correct or not.
 
@@ -196,7 +196,7 @@ This could be encoded in a CycloneDX ML-BOM model card as follows:
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **encoding** - CycloneDX, currently, only supports a `base64` encoding type.
 

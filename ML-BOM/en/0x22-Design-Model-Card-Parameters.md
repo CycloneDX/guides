@@ -42,21 +42,19 @@ Please note that links to external documentation that detail the model training 
 
 Describes the primary task of (or goal) of the machine learning model.  Some examples include:
 
-* **Anomaly Detection** - Identifying outliers or unusual patterns in data.
-* **Classification** - Categorizing inputs into predefined labels (e.g., spam/not-spam, image recognition).
-* **Clustering** - Grouping unlabeled data based on similar characteristics (e.g., customer segmentation).
-* **Dimensionality Reduction** - Simplifying complex data by reducing the number of variables while preserving core information.
-* **Generation** - Creating new data based upon prompted instructions (e.g., Large Language Models (LLMs), image or audio diffusion models, etc.).
-* **Recommendation/Association** - Finding relationships between items (e.g., "users who bought this also bought...").
-* **Regression** - Predicting continuous numerical values (e.g., house prices, temperature forecasting).
+* **Anomaly Detection**: Identifying outliers or unusual patterns in data.
+* **Classification**: Categorizing inputs into predefined labels (e.g., spam/not-spam, image recognition).
+* **Clustering**: Grouping unlabeled data based on similar characteristics (e.g., customer segmentation).
+* **Dimensionality Reduction**: Simplifying complex data by reducing the number of variables while preserving core information.
+* **Generation**: Creating new data based upon prompted instructions (e.g., Large Language Models (LLMs), image or audio diffusion models, etc.).
+* **Recommendation/Association**: Finding relationships between items (e.g., "users who bought this also bought...").
+* **Regression**: Predicting continuous numerical values (e.g., house prices, temperature forecasting).
 
 #### Architecture family
 
-The model architecture family th
-
-such as a Transformer network, Convolutional Neural Network (CNN), residual neural network (RNN), LSTM neural network, etc.
-
 An architecture family defines the structural and data processing methodology of the model's neural network.  It does not typically describe a single model, but rather describes the general design of the neural network (NN), mathematical approach, context and attention mechanisms and the like.  It should provide insight to those versed in the field as how the model general is constructed.
+
+The model architecture family field should include descriptive names of neural network architectures which would be recognizable to those in the field of Machine Learning (ML).
 
 Some examples of commonly referenced neural network (NN) architecture families include:
 
@@ -75,11 +73,10 @@ The model architecture field is intended to include specific keywords to identif
 
 These are typically found in one of several locations relative to the model:
 
-* **Model Card** - the associated "model card" (e.g., `README.md` in Hugging Face) may contain a mentions of specific class names like `LlamaForCausalLM`, `BertModel`, or `VisionTransformer`.
-* **Framework-Specific Implementation Keywords** or tags -
-Depending on your code environment (PyTorch, TensorFlow, llama.cpp, etc.) that identify specific model code within the platform or environment.
-* **Framework-Specific Configuration files** (e.g., Hugging Face transformer's `config.json` file) - may contain the name of the class or function used to configure the framework for the specific implementation recommended for the associated model.
-* **Academic Research Papers** (e.g., arXiv) - may include detailed descriptors of processing algorithms, supported training or inference engines or specific, named implementations
+* **Model Card**: the associated "model card" (e.g., `README.md` in Hugging Face) may contain a mentions of specific class names like `LlamaForCausalLM`, `BertModel`, or `VisionTransformer`.
+* **Framework-Specific Implementation Keywords** or tags: Depending on your code environment (PyTorch, TensorFlow, llama.cpp, etc.) that identify specific model code within the platform or environment.
+* **Framework-Specific Configuration files** (e.g., Hugging Face transformer's `config.json` file): may contain the name of the class or function used to configure the framework for the specific implementation recommended for the associated model.
+* **Academic Research Papers** (e.g., arXiv): may include detailed descriptors of processing algorithms, supported training or inference engines or specific, named implementations
 
 ###### Example: Model card metadata for the Qwen-7B model
 
@@ -225,7 +222,7 @@ back dataset",
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **url** - Please note that URLs may be to either public or private resources.  For example, in the case of the ACME `private` dataset above, the URL is likely behind an Access Control Point (ACP) which regulates traffic to the private resource in accordance with the ACME company's governance policies.
 
@@ -388,7 +385,7 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 The model card from above contains the following `cdx:ai-ml:model` properties:
 

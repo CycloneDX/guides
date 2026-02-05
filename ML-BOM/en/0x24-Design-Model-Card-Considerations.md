@@ -7,7 +7,7 @@
 This section will feature guidance on filling out information in the Cyclone model card's `considerations` object and its subcomponents including:
 
 * [Users](#users) - Who are the intended users of the model?
-* [Use cases](#use-cases) - What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?
+* [Use cases](#use-cases)-  What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?
 * [Technical limitations](#technical-limitations) - What are the known technical limitations of the model? For example, "What kind(s) of data should the model be expected not to perform well on?", "What are the factors that might degrade model performance?".
 * [Performance tradeoffs](#performance-tradeoffs) - What are the known tradeoffs in accuracy/performance of the model?
 * [Ethical considerations](#ethical-considerations) - How to disclose known ethical risks involved in the application of this model?
@@ -55,7 +55,7 @@ This example shows a list for what kind of user and use case information would b
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * There is no expectation that there is a 1:1 correlation between `users` and `useCases` entries.  However, there should be at least one listed use cases that can correspond to a named "user" (role).
 
@@ -144,8 +144,8 @@ This example how to provide performance tradeoffs against a few that have been a
 
 Used to provide list describing known ethical considerations when using a model.  Each consideration is an object containing two fields:
 
-* **Name** - A concise name for the ethical considerations.
-* **Mitigation strategy** - A corresponding (recommended) mitigation strategy, for the named consideration, to take when using the model.
+* **Name**: A concise name for the ethical considerations.
+* **Mitigation strategy**: A corresponding (recommended) mitigation strategy, for the named consideration, to take when using the model.
 
 > [!Note] Since there is no agreed-upon standard for ethical considerations we recommend using the `name` field to additionally provide further description to clarify the name as needed.
 
@@ -205,9 +205,9 @@ Assessments consider evaluations at all stages of the model development lifecycl
 
 * **Data Bias Auditing** (Pre-processing): Analyzing training datasets for under-represented groups, improper labeling, or historical biases that could cause discriminatory outcomes.
 * **Disaggregated Performance Metrics** (Measurement): Evaluating model performance (e.g., accuracy, false positives/negatives) across different demographic groups (e.g., race, gender) to identify, for example, higher error rates for certain populations.
-* **Impact Assessments** (Contextual) - Assessing how AI systems affect specific groups of people, identifying potential harms to rights, safety, or livelihoods, which is a key requirement for high-risk AI under the EU AI Act.
-* **Adversarial Testing** (Verification) - Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
-* **Algorithmic Fairness Interventions** (In-processing/Post-processing) - Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
+* **Impact Assessments** (Contextual): Assessing how AI systems affect specific groups of people, identifying potential harms to rights, safety, or livelihoods, which is a key requirement for high-risk AI under the EU AI Act.
+* **Adversarial Testing** (Verification): Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
+* **Algorithmic Fairness Interventions** (In-processing/Post-processing): Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
 
 ###### Example: LLM fairness assessment for Qwen-7B
 
@@ -263,7 +263,7 @@ Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 
 Each "consumption" entry consists of the following which are explained in more detail below:
 
-* **Activity** - The type of activity that was part of the ML model development or operational lifecycle with an associated energy cost.
+* **Activity**: The type of activity that was part of the ML model development or operational lifecycle with an associated energy cost.
 
   | Value | Description |
   |---|---|
@@ -277,18 +277,18 @@ Each "consumption" entry consists of the following which are explained in more d
   | **inference** | Generating an output response from a hosted model from a set of inputs. |
   | **other** | A lifecycle activity type whose description does not match currently defined values. |
 
-* **Energy providers** - The provider(s) of the energy consumed by the associated model development lifecycle activity.  This object is intended to fully describe the provider using the following fields:
-  * **description** - A description of the energy provider.
-  * **organization** - The organization that provides energy which may include its name, address,  URL and contact information.
-  * **energySource** - A value that is one of coal, oil, natural-gas, nuclear, wind, solar, geothermal, hydropower, biofuel, unknown or other.
-  * **energyProvided** - The energy provided by the energy source for an associated activity using Kilowatt-hours (kWh).
-  * **externalReferences** - Optional references (links) to the energy provider.
+* **Energy providers**: The provider(s) of the energy consumed by the associated model development lifecycle activity.  This object is intended to fully describe the provider using the following fields:
+  * **description**: A description of the energy provider.
+  * **organization**: The organization that provides energy which may include its name, address,  URL and contact information.
+  * **energySource**: A value that is one of coal, oil, natural-gas, nuclear, wind, solar, geothermal, hydropower, biofuel, unknown or other.
+  * **energyProvided**: The energy provided by the energy source for an associated activity using Kilowatt-hours (kWh).
+  * **externalReferences**: Optional references (links) to the energy provider.
 
-* **Activity energy cost** - The total energy cost associated with the model lifecycle activity using Kilowatt-hours (kWh).
+* **Activity energy cost**: The total energy cost associated with the model lifecycle activity using Kilowatt-hours (kWh).
 
-* **CO2 cost equivalent** - The CO2 cost (debit) equivalent to the total energy cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
+* **CO2 cost equivalent**: The CO2 cost (debit) equivalent to the total energy cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
 
-* **CO2 cost offset** - The CO2 offset (credit) for the CO2 equivalent cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
+* **CO2 cost offset**: The CO2 offset (credit) for the CO2 equivalent cost using tonnes of Carbon Dioxide (CO2) equivalent (tCO2eq).
 
 ###### Example: "Fake" llama3 environmental considerations
 
@@ -352,7 +352,7 @@ This example is for a "fake" model based upon the llama3 architecture.
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **unit** - the unit `tCO2eq` is defined by the European Commission and stands for metric tonnes of carbon dioxide equivalent, a standardized unit used to measure the total greenhouse gas emissions (including methane and nitrous oxide) generated during the development, training, and operation of AI systems.
 

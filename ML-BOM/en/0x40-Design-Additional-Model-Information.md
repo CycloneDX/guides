@@ -48,7 +48,7 @@ Models are can be trained in one or more languages (i.e., multilingual models).
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
 
@@ -76,7 +76,7 @@ This section describes how to "tag" model components with non-standard keywords 
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
@@ -128,7 +128,7 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **properties** - Utilizes the reserved CycloneDX property name `cdx:ai-ml:model:tokenizer`, with a tokenizer class name, to annotate the component as being a "tokenizer".
 
@@ -240,7 +240,7 @@ First, create entries for all the "components" used in the training process as p
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
 
@@ -302,7 +302,7 @@ Lastly, you would describe the component "stack" as a graph of `runtimeTopology`
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **workflows** - In this example, a "training" workflow was shown; however, additional workflows could detail other processes such as "testing" (i.e., model "evaluation"), fine-tuning, and more.
 </br>If there are multiple workflows within the `formulation` object, the subset of components specific to a workflow can optionally be declared using the `resourceReferences` object within the respective `workflow` object.

@@ -66,7 +66,7 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
 
@@ -120,7 +120,7 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
 
 ```
 
-###### Discussion of model fields and metadata
+###### Field discussion
 
 This section provides best practice guidance on how the component fields were filled out for this example.
 
@@ -216,7 +216,7 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
 
@@ -330,7 +330,7 @@ then the model component's new hierarchy of composing files would be described a
 
 ML models are often derived from existing, pre-trained models to optimize performance, reduce resource consumption, and adapt to specialized tasks without training from scratch.  Some reasons for this include:
 
-* **Fine-Tuning:**: Specialized adaptation where a general model (e.g., LLM) is retrained on a smaller, targeted dataset to improve performance for specific domains.
+* **Fine-Tuning**: Specialized adaptation where a general model (e.g., LLM) is retrained on a smaller, targeted dataset to improve performance for specific domains.
 * **Quantization**: Reduces model size and increases inference speed by mapping parameters to lower-precision tensor formats (e.g., from [`FP32`](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) to `int8` or `Q4_K_M` precision), which also lowers energy consumption for edge devices.
 * **Format Conversions**: Transforming models between frameworks (e.g., PyTorch to ONNX) ensures interoperability, allowing deployment on different frameworks and accelerators.
 * **Pruning**: Derives a smaller model by removing redundant or less important parameters (weights) that do not significantly contribute to output accuracy.
@@ -369,7 +369,7 @@ It is important to capture any of these transformations as the model's lineage o
 }
 ```
 
-###### Field notes
+###### Field discussion
 
 * **ancestors** - `ancestors` entries are themselves CycloneDX `component` objects. It should be noted that these models may have their own ML-BOMs which could be located via their identifiers (e.g., `purl`) or by providing `externalReferences` for readers to follow.
 
