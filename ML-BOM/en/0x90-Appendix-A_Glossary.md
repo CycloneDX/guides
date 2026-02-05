@@ -43,6 +43,7 @@ the process of structuring or crafting an instruction in order to produce better
 A technique to reduce the computational and memory costs of running inference by representing the ([tensor](#tensor)) weights and [activations](#activation-function) with low-precision data types like 8-bit integer (int8) instead of the usual 32-bit floating point (float32). [1]
 
 [1] [Hugging Face - Quantization](https://huggingface.co/docs/optimum/en/concept_guides/quantization#quantization)
+[2] [GGUF - Quantization types](https://huggingface.co/docs/hub/en/gguf#quantization-types)
 
 ##### Tensor
 

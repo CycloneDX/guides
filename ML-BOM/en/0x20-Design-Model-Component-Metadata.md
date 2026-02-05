@@ -16,7 +16,7 @@ For convenience, here are links to the specific sections for each of those infor
   * [Describing models as components](#describing-models-as-components)
   * [Model repositories as components](#model-repositories-as-components)
   * [Model identifiers](#model-identifiers)
-  * [Model metadata](#model-metadata)
+  * [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly)
   * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
 ---
@@ -327,7 +327,7 @@ ML models are often derived from existing, pre-trained models to
 optimize performance, reduce resource consumption, and adapt to specialized tasks without training from scratch.  Some reasons for this include:
 
 * **Fine-Tuning:**: Specialized adaptation where a general model (e.g., LLM) is retrained on a smaller, targeted dataset to improve performance for specific domains.
-* **Quantization**: Reduces model size and increases inference speed by mapping parameters to lower-precision tensor formats (e.g., FP32 to Q4_K_M precision), which also lowers energy consumption for edge devices.
+* **Quantization**: Reduces model size and increases inference speed by mapping parameters to lower-precision tensor formats (e.g., from [`FP32`](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) to `int8` or `Q4_K_M` precision), which also lowers energy consumption for edge devices.
 * **Format Conversions**: Transforming models between frameworks (e.g., PyTorch to ONNX) ensures interoperability, allowing deployment on different frameworks and accelerators.
 * **Pruning**: Derives a smaller model by removing redundant or less important parameters (weights) that do not significantly contribute to output accuracy.
 * **Adapters**: Adding small, trainable layers (adapters) to a frozen base model to adapt it to new tasks without changing the original, large model weights, saving on storage for multi-task scenarios.
