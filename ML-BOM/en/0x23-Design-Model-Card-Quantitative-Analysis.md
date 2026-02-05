@@ -143,7 +143,7 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 }
 ```
 
-##### Field notes
+###### Field notes
 
 * **slice** - the `slice` property references a named subset `cola` (Corpus of Linguistic Acceptability) which is a subset of the GLUE tests; "cola" consists of single-sentence task to determine if a sentence is grammatically correct or not.
 
@@ -153,7 +153,7 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 Model cards typically include graphs, charts and other graphics that highlight the model's performance benchmarks often relative to other models.  This section examples the use of the CycloneDX `graphics` object to include a collection of these graphics in the ML-BOM as part of its quantitative analysis information.
 
-### Example: Qwen model comparative benchmarks
+###### Example: Qwen model comparative benchmarks
 
 The [QwenLM/Qwen](https://github.com/QwenLM/Qwen) GitHub repository includes the following JPG format spider diagram showing benchmarking comparisons for their Qwen2 models along with some peer models:
 
@@ -197,7 +197,7 @@ This could be encoded in a CycloneDX ML-BOM model card as follows:
 }
 ```
 
-##### Field notes
+###### Field notes
 
 * **encoding** - CycloneDX, currently, only supports a `base64` encoding type.
 

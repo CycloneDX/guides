@@ -12,36 +12,36 @@ This section describes the design and best practices when providing information 
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
->[!TODO] add hyperlinks when done with all subsections
+* [Model parameters](0x22-Design-Model-Card-Parameters.md#model-parameters)
+  * [Model metadata](0x22-Design-Model-Card-Parameters.md#model-metadata)
+    * [Approach](0x22-Design-Model-Card-Parameters.md#approach)
+    * [Task](0x22-Design-Model-Card-Parameters.md#task)
+    * [Architecture family](0x22-Design-Model-Card-Parameters.md#architecture-family)
+    * [Model architecture](0x22-Design-Model-Card-Parameters.md#model-architecture)
+  * [Datasets](0x22-Design-Model-Card-Parameters.md#datasets)
+  * [Inputs & Outputs](0x22-Design-Model-Card-Parameters.md#inputs--outputs)
+  * [Declaring other properties](0x22-Design-Model-Card-Parameters.md#declaring-other-properties)
+    * [Configuration parameters & hyperparameters](0x22-Design-Model-Card-Parameters.md#configuration-parameters--hyperparameters)
 
-- [Model parameters](0x22-Design-Model-Card-Parameters.md#model-parameters)
-  - [Model metadata](0x22-Design-Model-Card-Parameters.md#model-metadata)
-    - [Approach](0x22-Design-Model-Card-Parameters.md#approach)
-    - [Task](0x22-Design-Model-Card-Parameters.md#task)
-    - [Architecture family](0x22-Design-Model-Card-Parameters.md#architecture-family)
-    - [Model architecture](0x22-Design-Model-Card-Parameters.md#model-architecture)
-  -  [Datasets](0x22-Design-Model-Card-Parameters.md#datasets)
-  - [Inputs & Outputs](0x22-Design-Model-Card-Parameters.md#inputs--outputs)
-  - [Declaring other properties](0x22-Design-Model-Card-Parameters.md#declaring-other-properties)
-    - [Configuration parameters & hyperparameters](0x22-Design-Model-Card-Parameters.md#configuration-parameters--hyperparameters)
+* [Quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#quantitative-analysis)
+    * [Metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#metrics)
+      * [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
+    * [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
 
-- [Quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#quantitative-analysis)
-    - [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
-    - [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
+* [Considerations](0x24-Design-Model-Card-Considerations.md#considerations)
+    * [Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)
+    * [Technical limitations](0x24-Design-Model-Card-Considerations.md#technical-limitations)
+    * [Performance tradeoffs](0x24-Design-Model-Card-Considerations.md#performance-tradeoffs)
+    * [Fairness assessments](0x24-Design-Model-Card-Considerations.md#fairness-assessments)
+    * [Ethical considerations](0x24-Design-Model-Card-Considerations.md#ethical-considerations)
+    * [Environmental impact consideration](0x24-Design-Model-Card-Considerations.md#environmental-considerations)
+      * [Energy consumptions](0x24-Design-Model-Card-Considerations.md#energy-consumptions)
 
-- [Considerations](0x24-Design-Model-Card-Considerations.md#considerations)
-    - [Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)
-    - [Technical limitations](0x24-Design-Model-Card-Considerations.md#technical-limitations)
-    - [Performance tradeoffs](0x24-Design-Model-Card-Considerations.md#performance-tradeoffs)
-    - [Fairness assessments](0x24-Design-Model-Card-Considerations.md#fairness-assessments)
-    - [Ethical considerations](0x24-Design-Model-Card-Considerations.md#ethical-considerations)
-    - [Environmental impact consideration](0x24-Design-Model-Card-Considerations.md#environmental-considerations)
-
-- [Additional model information](0x40-Design-Additional-Model-Information.md#additional-model-related-information)
-    - [Tokenizers and prompt templates](0x40-Design-Additional-Model-Information.md#tokenizers-and-prompt-templates)
-    - [Hardware, software & frameworks](0x40-Design-Additional-Model-Information.md#hardware-software--frameworks)
-    - [Training & testing details](0x40-Design-Additional-Model-Information.md#training--testing-details)
-    - [Intended use & ethics](0x40-Design-Additional-Model-Information.md#intended-use--ethics)
+* [Additional model information](0x40-Design-Additional-Model-Information.md#additional-model-related-information)
+    * [Tokenizers and prompt templates](0x40-Design-Additional-Model-Information.md#tokenizers-and-prompt-templates)
+    * [Using CycloneDX AI/ML properties](0x40-Design-Additional-Model-Information.md#using-cyclonedx-aiml-properties)
+    * [Training & testing details](0x40-Design-Additional-Model-Information.md#training--testing-details)
+    * [Intended use & ethics](0x40-Design-Additional-Model-Information.md#intended-use--ethics)
 
 #### Design notes
 

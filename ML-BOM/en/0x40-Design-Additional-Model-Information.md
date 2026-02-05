@@ -10,6 +10,7 @@ For convenience, here are links to the specific sections for some of these ackno
 
 * [Using CycloneDX AI/ML properties](#using-cyclonedx-aiml-properties)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
+  * [Providing free-form tags for search](#providing-free-form-tags-for-search)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware and software training components](#declaring-hardware-and-software-training-components)
@@ -46,6 +47,8 @@ Models are can be trained in one or more languages (i.e., multilingual models).
   ]
 }
 ```
+
+###### Field notes
 
 * **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
 
