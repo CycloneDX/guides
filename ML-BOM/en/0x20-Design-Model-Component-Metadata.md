@@ -12,18 +12,18 @@ The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
-- [Anatomy of an ML-BOM](#anatomy-of-an-ml-bom)
-    - [Describing models as components](#describing-models-as-components)
-    - [Model repositories as components](#model-repositories-as-components)
-    - [Model identifiers](#model-identifiers)
-    - [Model metadata](#model-metadata)
+* [Anatomy of an ML-BOM](#anatomy-of-an-ml-bom)
+  * [Describing models as components](#describing-models-as-components)
+  * [Model repositories as components](#model-repositories-as-components)
+  * [Model identifiers](#model-identifiers)
+  * [Model metadata](#model-metadata)
+  * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
 ---
 
 ## Anatomy of an ML-BOM
 
 In CycloneDX, a model is considered a `component` where general best practices for providing information such as component identification, metadata, provenance, pedigree, etc. should be followed as documented in the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-SBOM-en.pdf).
-
 
 ![Diagram: Anatomy of an ML-BOM](images/anatomy.svg)
 
