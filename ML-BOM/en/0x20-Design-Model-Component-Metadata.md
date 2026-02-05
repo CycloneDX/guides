@@ -375,7 +375,7 @@ It is important to capture any of these transformations as the model's lineage o
 
 ##### Declaring known descendents
 
-If at the time an ML-BOM is created for a model its downstream model variants (e.g., finetunings, quantizations, etc. derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants`.
+If at the time an ML-BOM is created for a model its downstream model variants (e.g., finetunings, quantizations, etc. derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants` in a similar manner.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
