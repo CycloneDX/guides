@@ -369,6 +369,10 @@ It is important to capture any of these transformations as the model's lineage o
 }
 ```
 
+###### Field notes
+
+* **ancestors** - `ancestors` entries are themselves CycloneDX `component` objects. It should be noted that these models may have their own ML-BOMs which could be located via their identifiers (e.g., `purl`) or by providing `externalReferences` for readers to follow.
+
 * **Note**: If at the time an ML-BOM is created for a model its downstream model variants (e.g., finetunings, quantizations, etc. derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants`.
 
 <div style="page-break-after: always; visibility: hidden">
