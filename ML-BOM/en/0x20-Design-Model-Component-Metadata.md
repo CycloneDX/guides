@@ -13,6 +13,7 @@ The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in
 For convenience, here are links to the specific sections for each of those informational areas:
 
 * [Anatomy of an ML-BOM](#anatomy-of-an-ml-bom)
+* [Declaring ML Models](#declaring-ml-models)
   * [Describing models as components](#describing-models-as-components)
   * [Model repositories as components](#model-repositories-as-components)
   * [Model identifiers](#model-identifiers)
@@ -29,7 +30,7 @@ In CycloneDX, a model is considered a `component` where general best practices f
 
 ---
 
-## Model Component
+## Declaring ML models
 
 ### Describing models as components
 
@@ -38,7 +39,9 @@ A model should always be declared as a CycloneDX `component`.  If the model itse
 The object model's pseudo-schema would look something like this:
 ![](images/ml-bom-metadata-component.svg)
 
-##### Example: JSON equivalent
+###### Example: Declaring an ML model in an ML-BOM
+
+The CycloneDX JSON pseudocode below shows how an ML model would be declared as the "subject" `component` of an ML-BOM within the top-level `metadata`:
 
 ```json
 {
@@ -63,9 +66,11 @@ The object model's pseudo-schema would look something like this:
 }
 ```
 
-###### Discussion of fields
+###### Field notes
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
+
+---
 
 #### Model repositories as components
 
