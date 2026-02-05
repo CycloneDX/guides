@@ -6,7 +6,8 @@
 
 This section will feature guidance on filling out information in the Cyclone model card's `quantitativeAnalysis` object and its subcomponents including:
 
-* [Performance metrics](#performance-metrics)
+* [Metrics](#metrics)
+  * [Performance metrics](#performance-metrics)
 * [Graphics](#graphics)
 
 ---
@@ -30,12 +31,11 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 
 Benchmarks are standardized test datasets, scenarios, or tasks  that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
 
-##### Types of machine learning benchmarks
+#### Types of machine learning benchmarks
 
 Benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
 
-* **[Large Language Models (LLM)](0x90-Appendix-A_Glossary.md#large-language-model-llm)** and **[Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp)** (e.g., speech recognition or text classification) - These benchmarks evaluate reasoning, knowledge, and generation capabilities.
-</br>A few examples of datasets used to benchmark these models include:
+* [Large Language Models (LLM)](0x90-Appendix-A_Glossary.md#large-language-model-llm) and [Natural Language Processing (NLP)](0x90-Appendix-A_Glossary.md#natural-language-processing-nlp) (e.g., speech recognition or text classification) - These benchmarks evaluate reasoning, knowledge, and generation capabilities. A few examples of datasets used to benchmark these models against different tasks include:
 
   * *General Tasks*
     * [MMLU](https://huggingface.co/datasets/cais/mmlu), [MMLU-Pro](https://huggingface.co/datasets/TIGER-Lab/MMLU-Pro) (Massive Multitask Language Understanding): Tests knowledge across STEM, humanities, and social sciences.
@@ -54,8 +54,7 @@ Benchmarks use standardized datasets to objectively compare model quality, effic
   * *Other Tasks*
     * [IMDB](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews): a large dataset of 50K, highly polarized, movie reviews for NLP sentiment analysis and classification.
 </br>
-* **[Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision)** (e.g., digital image or video recognition)
-These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking.</br></br>Some example datasets:
+* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition) - These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking. Some example "vision" datasets include:
 
   * [ImageNet](image-net.org): large-scale dataset for computer vision, featuring over 14 million annotated, high-resolution images across thousands of object categories organized by the [WordNet](https://en.wikipedia.org/wiki/WordNet) hierarchy.
   * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
@@ -71,7 +70,7 @@ AI benchmarking metrics are standardized, quantitative measures used to evaluate
 
 > [!Note] Currently, CycloneDX supports declaring metrics relative to *performance benchmarks* which is the most consistently documented metrics described within producer published model cards.
 
-### Performance metrics
+#### Performance metrics
 
 Performance metrics are specific, quantitative measures used to evaluate a model's behavior, such as accuracy, precision, recall, perplexity, or inference speed. They provide the raw, numerical data for analysis.
 
@@ -149,7 +148,7 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 ---
 
-#### Graphics
+### Graphics
 
 Model cards typically include graphs, charts and other graphics that highlight the model's performance benchmarks often relative to other models.  This section examples the use of the CycloneDX `graphics` object to include a collection of these graphics in the ML-BOM as part of its quantitative analysis information.
 

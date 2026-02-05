@@ -2,7 +2,7 @@
 
 ## Model card
 
-A model card describes the intended uses of a machine learning model and potential limitations, including biases and ethical considerations. Model cards typically contain the training parameters, which datasets were used to train the model, performance metrics, and other relevant data useful for ML transparency. This object **SHOULD** be specified for any component of type machine-learning-model and must not be specified for other component types.
+A model card describes the intended uses of a machine learning model and potential limitations, including biases and ethical considerations. Model cards typically contain the training parameters, which datasets were used to train the model, performance metrics, and other relevant data useful for ML transparency. This object *SHOULD* be specified for any component of type machine-learning-model and must not be specified for other component types.
 
 Throughout the model card sections of this guide, we will show how to use the existing schema to encode information seen in model cards from a more current and robust perspective.
 
@@ -24,6 +24,7 @@ For convenience, here are links to the specific sections for each of those infor
     * [Configuration parameters & hyperparameters](0x22-Design-Model-Card-Parameters.md#configuration-parameters--hyperparameters)
 
 * [Quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#quantitative-analysis)
+  * [Benchmarks](0x23-Design-Model-Card-Quantitative-Analysis.md#benchmarks)
   * [Metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#metrics)
     * [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
   * [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
