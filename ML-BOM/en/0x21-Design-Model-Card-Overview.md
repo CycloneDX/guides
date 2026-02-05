@@ -24,24 +24,23 @@ For convenience, here are links to the specific sections for each of those infor
     * [Configuration parameters & hyperparameters](0x22-Design-Model-Card-Parameters.md#configuration-parameters--hyperparameters)
 
 * [Quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#quantitative-analysis)
-    * [Metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#metrics)
-      * [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
-    * [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
+  * [Metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#metrics)
+    * [Performance metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)
+  * [Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics)
 
 * [Considerations](0x24-Design-Model-Card-Considerations.md#considerations)
-    * [Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)
-    * [Technical limitations](0x24-Design-Model-Card-Considerations.md#technical-limitations)
-    * [Performance tradeoffs](0x24-Design-Model-Card-Considerations.md#performance-tradeoffs)
-    * [Fairness assessments](0x24-Design-Model-Card-Considerations.md#fairness-assessments)
-    * [Ethical considerations](0x24-Design-Model-Card-Considerations.md#ethical-considerations)
-    * [Environmental impact consideration](0x24-Design-Model-Card-Considerations.md#environmental-considerations)
-      * [Energy consumptions](0x24-Design-Model-Card-Considerations.md#energy-consumptions)
+  * [Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)
+  * [Technical limitations](0x24-Design-Model-Card-Considerations.md#technical-limitations)
+  * [Performance tradeoffs](0x24-Design-Model-Card-Considerations.md#performance-tradeoffs)
+  * [Fairness assessments](0x24-Design-Model-Card-Considerations.md#fairness-assessments)
+  * [Ethical considerations](0x24-Design-Model-Card-Considerations.md#ethical-considerations)
+  * [Environmental impact consideration](0x24-Design-Model-Card-Considerations.md#environmental-considerations)
+    * [Energy consumptions](0x24-Design-Model-Card-Considerations.md#energy-consumptions)
 
-* [Additional model information](0x40-Design-Additional-Model-Information.md#additional-model-related-information)
-    * [Tokenizers and prompt templates](0x40-Design-Additional-Model-Information.md#tokenizers-and-prompt-templates)
-    * [Using CycloneDX AI/ML properties](0x40-Design-Additional-Model-Information.md#using-cyclonedx-aiml-properties)
-    * [Training & testing details](0x40-Design-Additional-Model-Information.md#training--testing-details)
-    * [Intended use & ethics](0x40-Design-Additional-Model-Information.md#intended-use--ethics)
+* [Additional model-related information](0x40-Design-Additional-Model-Information.md#additional-model-related-information)
+  * [Using CycloneDX AI/ML properties](0x40-Design-Additional-Model-Information.md#using-cyclonedx-aiml-properties)
+  * [Tokenizers and prompt templates](0x40-Design-Additional-Model-Information.md#tokenizers-and-prompt-templates)
+  * [Including manufacturing information for the ML model](0x40-Design-Additional-Model-Information.md#including-manufacturing-information-for-the-ml-model)
 
 #### Design notes
 

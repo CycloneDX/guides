@@ -388,7 +388,7 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 }
 ```
 
-###### Discussion of model card properties
+###### Field notes
 
 The model card from above contains the following `cdx:ai-ml:model` properties:
 
