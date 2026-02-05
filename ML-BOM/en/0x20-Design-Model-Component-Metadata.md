@@ -323,8 +323,7 @@ then the model component's new hierarchy of composing files would be described a
 
 ### Declaring a model's pedigree
 
-ML models are often derived from existing, pre-trained models to
-optimize performance, reduce resource consumption, and adapt to specialized tasks without training from scratch.  Some reasons for this include:
+ML models are often derived from existing, pre-trained models to optimize performance, reduce resource consumption, and adapt to specialized tasks without training from scratch.  Some reasons for this include:
 
 * **Fine-Tuning:**: Specialized adaptation where a general model (e.g., LLM) is retrained on a smaller, targeted dataset to improve performance for specific domains.
 * **Quantization**: Reduces model size and increases inference speed by mapping parameters to lower-precision tensor formats (e.g., from [`FP32`](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) to `int8` or `Q4_K_M` precision), which also lowers energy consumption for edge devices.
