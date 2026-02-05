@@ -129,8 +129,6 @@ This section provides best practice guidance on how the component fields were fi
   - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, this is Hugging Face and affirms the associated PURL identifier.
   - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
 
-
-
 #### Model identifier(s)
 
 As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
@@ -322,6 +320,52 @@ then the model component's new hierarchy of composing files would be described a
 - **aggregate** - Note the composition `aggregate` value is assigned to be "complete" since all constituent files are known and declared in the ML-BOM as part of the model component's `components` hierarchy.
 
 ---
+
+### Declaring a model's pedigree
+
+ML models are often derived from existing, pre-trained models to
+optimize performance, reduce resource consumption, and adapt to specialized tasks without training from scratch.  Some reasons for this include:
+
+* **Fine-Tuning:**: Specialized adaptation where a general model (e.g., LLM) is retrained on a smaller, targeted dataset to improve performance for specific domains.
+* **Quantization**: Reduces model size and increases inference speed by mapping parameters to lower-precision tensor formats (e.g., FP32 to Q4_K_M precision), which also lowers energy consumption for edge devices.
+* **Format Conversions**: Transforming models between frameworks (e.g., PyTorch to ONNX) ensures interoperability, allowing deployment on different frameworks and accelerators.
+* **Pruning**: Derives a smaller model by removing redundant or less important parameters (weights) that do not significantly contribute to output accuracy.
+* **Adapters**: Adding small, trainable layers (adapters) to a frozen base model to adapt it to new tasks without changing the original, large model weights, saving on storage for multi-task scenarios.
+
+It is important to capture any of these transformations as the model's lineage or "pedigree" or within an ML-BOM.  This should be accomplished via the CycloneDX `pedigree` object and describing a model's `ancestors` as a hierarchical graph.
+
+###### Example: Declaring the finetuning of llama3 model for a coding variant
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  ...,
+  "metadata": {
+    "component": {
+      "type": "machine-learning-model",
+      "name": "unsloth/Llama-3.2-3B-Instruct",
+      "purl": "pkg:huggingface/unsloth/Llama-3.2-3B-Instruct@1.0.0",
+      "bom-ref": "pkg:huggingface/unsloth/Llama-3.2-3B-Instruct@1.0.0",
+      "publisher": "Unsloth",
+      "description": "A pre-optimized, specialized versions of the meta-llama/Llama-3.2-3B-Instruct model designed to work seamlessly with Unsloth's training framework",
+      ...,
+      "pedigree": {
+        "ancestors": [
+          {
+            "type": "machine-learning-model",
+            "name": "meta-llama/Llama-3.2-3B-Instruct",
+            "publisher": "Meta",
+            "purl": "pkg:huggingface/meta-llama/Llama-3.2-3B-Instruct",
+            "description": "The original base model from Meta Llama used for fine-tuning."
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+* **Note**: If at the time an ML-BOM is created for a model its downstream model variants (e.g., finetunings, quantizations, etc. derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants`.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
