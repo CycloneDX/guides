@@ -4,7 +4,7 @@
 
 This section describes the design and best practices when providing other model-related information an ML model's component and model card within a CycloneDX ML-BOM.
 
-Currently, the v1.7 CycloneDX specification does not have specific objects or fields to document these types of information directly.  However, these sections will show how CycloneDX extension mechanisms such as `properties` and `externalReferences` can be used to provide and classify such additional ML-related information.
+Currently, the v1.7 CycloneDX specification may not have specific objects or fields to document certain types of information directly.  However, these sections will show how CycloneDX extension mechanisms such as `properties` and `externalReferences` can be used to provide and classify such additional ML-related information.
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
