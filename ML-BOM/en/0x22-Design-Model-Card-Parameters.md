@@ -360,20 +360,32 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
           ...
           "properties": [
             {
-              "name": "cdx:ai-ml:model:parameter:total_parameters",
+              "name": "cdx:ai-ml:model:parameter:parameter:count",
               "value": "7B"
             },
             {
-              "name": "cdx:ai-ml:model:parameter:context_length",
+              "name": "cdx:ai-ml:model:parameter:parameter:tune_methods",
+              "value": "sft, rlhf"
+            },
+            {
+              "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
+              "value": "32"
+            },
+            {
+              "name": "cdx:ai-ml:model:hyperparameter:hidden_size",
+              "value": "4096"
+            },
+            {
+              "name": "cdx:ai-ml:model:hyperparameter:context_length",
               "value": "8192"
             },
             {
-              "name": "cdx:ai-ml:model:parameter:vocab_size",
+              "name": "cdx:ai-ml:model:hyperparameter:vocab_size",
               "value": "151936"
             },
             {
-              "name": "cdx:ai-ml:model:parameter:quantization_support",
-              "value": "4-bit, 8-bit"
+              "name": "cdx:ai-ml:model:hyperparameter:quantization",
+              "value": "BF16"
             },
             ...
           ]
@@ -387,11 +399,14 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 
 ###### Field discussion
 
+Please note the example above only includes a small set of example parameters and hyperparameters. Actual models should have a more comprehensive set of properties declared.
+
 The model card from above contains the following `cdx:ai-ml:model` properties:
 
 - **properties**
 
-  * **total_parameters** - Total number of parameters in the model.
+  * **count** - Total number of learned parameters in the model.
+  * **tune_methods** - Indicates the fine-tuning methods used to develop the model. In this case, `sft` (Supervised Fine-Tuning) and `rlhf` (Reinforcement Learning from Human Feedback).
   * **context_length** - The maximum sequence length the model supports during training and inference.
   * **vocab_size** - The size of the model's vocabulary.
   * **quantization_support** - Supported quantization levels for reduced memory usage, as seen in community variations like TheBloke/Qwen-7B-Chat-GPTQ.
