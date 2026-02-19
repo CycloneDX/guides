@@ -1,6 +1,4 @@
-# ML-BOM Design and Best Practices
-
-## Quantitative analysis
+# Model quantitative analysis
 
 ![](images/ml-anatomy-model-card-quant-analysis.svg)
 
@@ -12,13 +10,13 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ---
 
-### What is quantitative analysis
+## What is quantitative analysis
 
 Quantitative analysis is the process of using metrics on benchmarks to determine if a model is reliable, safe, or better than another. It involves comparing the metric results against the benchmark standard to assess performance, identify limitations, and track progress over time.
 
 <!-- A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis which looks at why. It assesses metrics like accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliability for decision-making, moving beyond subjective human interpretation. -->
 
-#### The value of quantitative analysis
+### The value of quantitative analysis
 
 * **Numerical Metrics**: Provides measurable data (e.g., error rates, latency, performance scores) rather than subjective feedback.
 * **Objective Evaluation**: Provides reproducible, scalable results that can be compared across different models or versions.
@@ -27,11 +25,11 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 
 ---
 
-### Benchmarks
+## Benchmarks
 
 Benchmarks are standardized test datasets, scenarios, or tasks  that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
 
-#### Types of machine learning benchmarks
+### Types of machine learning benchmarks
 
 Benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
 
@@ -64,7 +62,7 @@ Again, the list above contains just a small number of examples of benchmarking d
 
 ---
 
-### Metrics
+## Metrics
 
 AI benchmarking metrics are standardized, quantitative measures used to evaluate and compare the performance, accuracy, efficiency, and reliability of artificial intelligence models against established, uniform tasks and datasets. They function as a gauge progress in capabilities like reasoning, coding, and language understanding to provide simple comparisons to similar models.
 
@@ -148,7 +146,7 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 ---
 
-### Graphics
+## Graphics
 
 Model cards typically include graphs, charts and other graphics that highlight the model's performance benchmarks often relative to other models.  This section examples the use of the CycloneDX `graphics` object to include a collection of these graphics in the ML-BOM as part of its quantitative analysis information.
 

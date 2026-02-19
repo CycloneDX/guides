@@ -1,12 +1,10 @@
-# ML-BOM Design and Best Practices
-
-## Model card
+# Model cards
 
 A model card describes the intended uses of a machine learning model and potential limitations, including biases and ethical considerations. Model cards typically contain the training parameters, which datasets were used to train the model, performance metrics, and other relevant data useful for ML transparency. This object *SHOULD* be specified for any component of type machine-learning-model and must not be specified for other component types.
 
 Throughout the model card sections of this guide, we will show how to use the existing schema to encode information seen in model cards from a more current and robust perspective.
 
-### Overview
+## Overview
 
 This section describes the design and best practices when providing information for a CycloneDX `modelCard` in an ML-BOM as part of the model's CycloneDX `component` definition.
 
@@ -43,7 +41,7 @@ For convenience, here are links to the specific sections for each of those infor
   * [Tokenizers and prompt templates](0x40-Design-Additional-Model-Information.md#tokenizers-and-prompt-templates)
   * [Including manufacturing information for the ML model](0x40-Design-Additional-Model-Information.md#including-manufacturing-information-for-the-ml-model)
 
-#### Design notes
+### Design notes
 
 Please note that at the time of initial development, the CycloneDX model card schema was heavily influenced by [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) and specifically its [ModelCard fields](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelCard) since it was one of few frameworks available for reference.
 

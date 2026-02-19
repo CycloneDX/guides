@@ -1,6 +1,6 @@
 # Core Concepts and Considerations
 
-### Key Components of an ML-BOM
+## Key Components of an ML-BOM
 
 An ML-BOM typically documents the identifying elements, architecture, components and its supply chain along with any configurations and developmental or executional considerations inclusive of the following areas:
 

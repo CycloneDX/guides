@@ -1,6 +1,4 @@
-# ML-BOM Design and Best Practices
-
-## Model parameters
+# Model parameters
 
 ![](images/ml-anatomy-model-card-parameters.svg)
 
@@ -20,11 +18,11 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ---
 
-### Model metadata
+## Model metadata
 
 The `modelCard` fields, grouped in this section, are intended to describe so of the classifying metadata of the associated ML model.
 
-#### Approach
+### Approach
 
 Describes the general learning approach used to train the model.  Currently, the approach is simply described by a single `type` field which has the following supported values:
 
@@ -38,7 +36,7 @@ Describes the general learning approach used to train the model.  Currently, the
 
 Please note that links to external documentation that detail the model training approach (and other detailed information) can be provided using [external references](#external-references) which is discussed later in this section.
 
-#### Task
+### Task
 
 Describes the primary task of (or goal) of the machine learning model.  Some examples include:
 
@@ -50,7 +48,7 @@ Describes the primary task of (or goal) of the machine learning model.  Some exa
 * **Recommendation/Association**: Finding relationships between items (e.g., "users who bought this also bought...").
 * **Regression**: Predicting continuous numerical values (e.g., house prices, temperature forecasting).
 
-#### Architecture family
+### Architecture family
 
 An architecture family defines the structural and data processing methodology of the model's neural network.  It does not typically describe a single model, but rather describes the general design of the neural network (NN), mathematical approach, context and attention mechanisms and the like.  It should provide insight to those versed in the field as how the model general is constructed.
 
@@ -67,7 +65,7 @@ Some examples of commonly referenced neural network (NN) architecture families i
 
 Again, the list above represents architecture families that are commonly referenced in research to establish an understanding of general model design; however, the architectural landscape continues to grow as researchers specialize and optimize for different use cases, goals and datasets.
 
-#### Model architecture
+### Model architecture
 
 The model architecture field is intended to include specific keywords to identify an implementation (class or library) or technical descriptors of the architectural "blueprint" needed to run a specific model.
 
@@ -147,7 +145,7 @@ This shows how the Qwen research team disclosed comprehensive details about the 
 
 ---
 
-### Datasets
+## Datasets
 
 Details the datasets used to train and evaluate the model.
 

@@ -6,7 +6,7 @@ A Machine Learning Bill-of-Materials (MLBOM or ML-BOM) is an object model to des
 
 An MLBOM makes use of many of the common, core elements of the CycloneDX schema as well as unique aspects specific to ML components, their architectures, metadata, training and other information used to gauge adherence to regulatory compliance.
 
-This section will include specifics and best practices of how ML-related information should be conveyed using both using the CycloneDX schema.
+This guide will provide specifics and best practices of how ML-related information should be conveyed using both using the CycloneDX schema.
 
 The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in the previous section will be used to provide details, best practices and examples of how to provide the corresponding information using CycloneDX schema objects.
 

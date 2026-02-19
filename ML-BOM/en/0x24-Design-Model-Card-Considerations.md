@@ -1,10 +1,8 @@
-# ML-BOM Design and Best Practices
-
-## Considerations
+# Model Design Considerations
 
 ![](images/ml-anatomy-model-card-considerations.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `considerations` object and its subcomponents including:
+This section will feature guidance on filling out information in the Cyclone model card's design `considerations` object and its subcomponents including:
 
 * [Users](#users) - Who are the intended users of the model?
 * [Use cases](#use-cases)-  What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?
@@ -16,7 +14,7 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ---
 
-### Users & use cases
+## Users & use cases
 
 Used to provide list describing the intended users of the model along with a list of envisioned use cases for the model.
 
@@ -61,7 +59,7 @@ This example shows a list for what kind of user and use case information would b
 
 ---
 
-### Technical limitations
+## Technical limitations
 
 Since ML models are fundamentally probabilistic and operate on pattern recognition from the data they are trained on, they are prone to various technical limitations.
 
@@ -100,7 +98,7 @@ This example shows a list for what kind of technical limitations might be associ
 
 ---
 
-### Performance Tradeoffs
+## Performance Tradeoffs
 
 When creating Machine Learning (ML) models, developers must navigate several core performance tradeoffs to align model capabilities with business needs and technical constraints.
 
@@ -140,7 +138,7 @@ This example how to provide performance tradeoffs against a few that have been a
 
 ---
 
-### Ethical considerations
+## Ethical considerations
 
 Used to provide list describing known ethical considerations when using a model.  Each consideration is an object containing two fields:
 
@@ -195,7 +193,7 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
 
 ---
 
-### Fairness assessments
+## Fairness assessments
 
 Fairness assessments convey information about the benefits and harms of the model to an identified at risk group.  They involve measuring how models treat different social groups to ensure they do not perpetuate or amplify harmful social biases.
 
@@ -244,9 +242,9 @@ This example shows how fairness assessment information would be included in a a 
 
 ---
 
-### Environmental considerations
+## Environmental considerations
 
-#### Energy consumptions
+### Energy consumptions
 
 This section describes how model providers can publish the energy costs incurred during different stages of the model's lifecycle in order to address potential governmental regulations and requirements.  This information includes the energy sources (i.e., for the datacenters) as well as disclosure of CO2 emission cost equivalents and CO2 offsets (credits).
 

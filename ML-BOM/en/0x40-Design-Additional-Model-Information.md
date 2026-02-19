@@ -1,6 +1,4 @@
-# ML-BOM Design and Best Practices
-
-## Additional model-related information
+# Additional model-related information
 
 This section describes the design and best practices when providing other model-related information an ML model's component and model card within a CycloneDX ML-BOM.
 
@@ -19,11 +17,13 @@ For convenience, here are links to the specific sections for some of these ackno
 
 ---
 
-### Using CycloneDX AI/ML properties
+## Using CycloneDX AI/ML properties
 
 This section includes discussion and examples of supported AI/ML-related metadata properties that may be used to classify models as part of their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
-#### Annotating a model's supported languages
+---
+
+## Annotating a model's supported languages
 
 Models are can be trained in one or more languages (i.e., multilingual models).
 
@@ -54,7 +54,7 @@ Models are can be trained in one or more languages (i.e., multilingual models).
 
 ---
 
-#### Providing free-form tags for search
+## Providing free-form tags for search
 
 This section describes how to "tag" model components with non-standard keywords and terms seen in various model catalogs or repositories for search or "lookup" purposes.
 
@@ -82,7 +82,7 @@ This section describes how to "tag" model components with non-standard keywords 
 
 ---
 
-### Tokenizers and prompt templates
+## Tokenizers and prompt templates
 
 Tokenizers provide the preprocessing (encoding) and postprocessing (decoding) functions to convert input and output information to tokens that the associated ML model was trained on and used for inference.
 
@@ -163,7 +163,7 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 
 ---
 
-### Including manufacturing information for the ML model
+## Including manufacturing information for the ML model
 
 This section shows how "manufacturing" (i.e., "training") information is provided relative to the model described by an ML-BOM.
 
@@ -244,8 +244,7 @@ First, create entries for all the "components" used in the training process as p
 
 * **components** - The components listed to "train" the model shown above would also include "data" type components as described in the previous section "[Declaring datasets](0x22-Design-Model-Card-Parameters.md#declaring-datasets)".
 
-
-#### Providing training workflow details
+### Providing training workflow details
 
 After the hardware and software "stack" of training components have been declared under the `formulation` object, a CycloneDX `workflow` object, with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.), can then be declared:
 
@@ -273,7 +272,7 @@ After the hardware and software "stack" of training components have been declare
 }
 ```
 
-#### Declaring the runtime topology
+### Declaring the runtime topology
 
 Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies for the workflow above. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
 
