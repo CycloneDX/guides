@@ -405,11 +405,13 @@ The example model card above contains the following `cdx:ai-ml:model:parameter` 
 
 - **properties**
 
-  * **count** - Total number of learned parameters in the model.
-  * **tune_methods** - Indicates the fine-tuning methods used to develop the model. In this case, `sft` (Supervised Fine-Tuning) and `rlhf` (Reinforcement Learning from Human Feedback).
   * **context_length** - The maximum sequence length the model supports during training and inference.
-  * **vocab_size** - The size of the model's vocabulary.
+  * **count** - Total number of learned parameters in the model.
+  * **num_hidden_layers** - The total number of intermediate (hidden) processing layers situated between the input layer and the output layer of the model.
+  * **hidden_size** - The dimension of the input and output representations (i.e., of the token embeddings) used by the internal (hidden) layers of a model's neural network.
+  * **tune_methods** - Indicates the fine-tuning methods used to develop the model. In this case, `sft` (Supervised Fine-Tuning) and `rlhf` (Reinforcement Learning from Human Feedback).
   * **quantization** - The quantization used for tensor weights which affects model memory usage.
+  * **vocab_size** - The size of the model's vocabulary.
 
 ##### Tokenizer parameters and hyperparameters
 
