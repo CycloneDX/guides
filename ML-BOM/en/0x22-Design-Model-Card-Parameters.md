@@ -399,9 +399,9 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 
 ###### Field discussion
 
-Please note the example above only includes a small set of example parameters and hyperparameters. Actual models should have a more comprehensive set of properties declared.
+Please note the example above only includes a small set of example parameters and hyperparameters that extend the `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` paths. Actual models may have a more comprehensive set of properties declared.
 
-The model card from above contains the following `cdx:ai-ml:model` properties:
+The example model card above contains the following `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` properties which are explained below:
 
 - **properties**
 
@@ -409,7 +409,11 @@ The model card from above contains the following `cdx:ai-ml:model` properties:
   * **tune_methods** - Indicates the fine-tuning methods used to develop the model. In this case, `sft` (Supervised Fine-Tuning) and `rlhf` (Reinforcement Learning from Human Feedback).
   * **context_length** - The maximum sequence length the model supports during training and inference.
   * **vocab_size** - The size of the model's vocabulary.
-  * **quantization_support** - Supported quantization levels for reduced memory usage, as seen in community variations like TheBloke/Qwen-7B-Chat-GPTQ.
+  * **quantization** - The quantization used for tensor weights which affects model memory usage.
+
+##### Tokenizer parameters and hyperparameters
+
+The same methodology used to provide model hyperparameter names and values for models can also be applied to model tokenizers by instead using the `cdx:ai-ml:tokenizer:hyperparameter` path and extending it with a path with a parameter name.
 
 ---
 
