@@ -36,7 +36,7 @@ A neural network consists of connected units or nodes called artificial neurons,
 
 the process of structuring or crafting an instruction in order to produce better outputs from a generative artificial intelligence (AI) model. It typically involves designing clear queries, adding relevant context, and refining wording to guide the model toward more accurate, useful, and consistent responses/ [1]
 
-[1] [Wikipedia - prompt engineering]()
+[1] [Wikipedia - prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 
 ##### Quantization
 
