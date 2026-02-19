@@ -81,7 +81,7 @@ Huggingface model (repositories) typically support the `.safetensors` Huggingfac
 
 ONNX models are typically single file format ending with the `.onnx` extension.
 
-Note: Most ONNX models have transitioned to and are now registered in Huggingface, but are downloaded from linked GitHub repository files not within the HF repo. itself.
+> **Note**: Most ONNX models have transitioned to and are now registered in Huggingface, but are downloaded from linked GitHub repository files not within the HF repo. itself.
 
 * Huggingface
   * [onnx/DenseNet-121-9](https://huggingface.co/onnx/DenseNet-121-9/tree/main) - `densenet-9.onnx`

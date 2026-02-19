@@ -240,7 +240,7 @@ If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](htt
 
 The simplified JSON below shows how to declare a few of the files from the model repository's complete file list under the model's `component` declaration within the BOM's `metadata`.
 
-Note that we use the Package URL syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per-file.
+> **Note**: In the JSON below, we use the Package URL (PURL) syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per-file.
 
 ```json
 {

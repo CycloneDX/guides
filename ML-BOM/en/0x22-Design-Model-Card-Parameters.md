@@ -294,7 +294,7 @@ The public datasets, as documented in the model's research paper include:
 
 Describes the input and output data types (formats) of the model.
 
->[!Note] The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDX plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
+> **Note**: The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDX plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
 
 In order to provide information on model parameters and hyperparameters using existing CycloneDX schema, it is recommended best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
 
@@ -331,7 +331,7 @@ In order to provide information on model parameters and hyperparameters using ex
 
 In general, model configuration parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
 
-> [!NOTE] The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` as needed.
+> **Note**: The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` as needed.
 
 ###### Example: Model parameters & hyperparameters for the Qwen-7B model
 
@@ -414,8 +414,6 @@ The example model card above contains the following `cdx:ai-ml:model:parameter` 
 ##### Tokenizer parameters and hyperparameters
 
 The same methodology used to provide model hyperparameter names and values for models can also be applied to model tokenizers by instead using the `cdx:ai-ml:tokenizer:hyperparameter` path and extending it with a path with a parameter name.
-
----
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

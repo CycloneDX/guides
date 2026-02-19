@@ -66,7 +66,7 @@ Again, the list above contains just a small number of examples of benchmarking d
 
 AI benchmarking metrics are standardized, quantitative measures used to evaluate and compare the performance, accuracy, efficiency, and reliability of artificial intelligence models against established, uniform tasks and datasets. They function as a gauge progress in capabilities like reasoning, coding, and language understanding to provide simple comparisons to similar models.
 
-> [!Note] Currently, CycloneDX supports declaring metrics relative to *performance benchmarks* which is the most consistently documented metrics described within producer published model cards.
+> **Note**: Currently, CycloneDX supports declaring metrics relative to *performance benchmarks* which is the most consistently documented metrics described within producer published model cards.
 
 #### Performance metrics
 

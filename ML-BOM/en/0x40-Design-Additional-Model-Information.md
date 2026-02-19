@@ -169,7 +169,7 @@ This section shows how "manufacturing" (i.e., "training") information is provide
 
 In short, this is accomplished utilizing objects which are part of the [CycloneDX Manufacturing Bill-of-Materials (or MBOM)](https://cyclonedx.org/capabilities/mbom/) to describe the frameworks, systems, platforms and libraries used to train the model against a detailed workflow-task description.
 
-**Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
+> **Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
 
 #### Declaring hardware and software training components
 

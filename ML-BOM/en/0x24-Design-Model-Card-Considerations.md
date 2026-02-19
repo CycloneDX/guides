@@ -145,7 +145,7 @@ Used to provide list describing known ethical considerations when using a model.
 * **Name**: A concise name for the ethical considerations.
 * **Mitigation strategy**: A corresponding (recommended) mitigation strategy, for the named consideration, to take when using the model.
 
-> [!Note] Since there is no agreed-upon standard for ethical considerations we recommend using the `name` field to additionally provide further description to clarify the name as needed.
+> **Note**: Since there is no agreed-upon standard for ethical considerations we recommend using the `name` field to additionally provide further description to clarify the name as needed.
 
 ###### Example: Qwen-7B ethical considerations
 
@@ -257,7 +257,7 @@ Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 * **Reference**: These requirements are outlined in [Article 53](https://artificialintelligenceact.eu/article/53/) and [Annex XI](https://artificialintelligenceact.eu/annex/11/) of the [EU AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng).
 * **Exemption**: Models released under a free and open-source license are exempt from this disclosure obligation.
 
-> [!Note] Since most trained models are published under some form of open license, most providers do not currently disclose the costs of training their models.
+> **Note**: Since most trained models are published under some form of open license, most providers do not currently disclose the costs of training their models.
 
 Each "consumption" entry consists of the following which are explained in more detail below:
 
@@ -353,8 +353,6 @@ This example is for a "fake" model based upon the llama3 architecture.
 ###### Field discussion
 
 * **unit** - the unit `tCO2eq` is defined by the European Commission and stands for metric tonnes of carbon dioxide equivalent, a standardized unit used to measure the total greenhouse gas emissions (including methane and nitrous oxide) generated during the development, training, and operation of AI systems.
-
----
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
