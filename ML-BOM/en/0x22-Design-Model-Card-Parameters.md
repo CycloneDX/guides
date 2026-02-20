@@ -355,14 +355,14 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
       ...,
       "modelCard": {
         "modelParameters": {
-          ...
+          ...,
           "properties": [
             {
-              "name": "cdx:ai-ml:model:parameter:parameter:count",
+              "name": "cdx:ai-ml:model:parameter:count",
               "value": "7B"
             },
             {
-              "name": "cdx:ai-ml:model:parameter:parameter:tune_methods",
+              "name": "cdx:ai-ml:model:parameter:tune_methods",
               "value": "sft, rlhf"
             },
             {
