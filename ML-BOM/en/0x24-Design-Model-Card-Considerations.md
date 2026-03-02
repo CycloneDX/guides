@@ -26,9 +26,9 @@ This example shows a list for what kind of user and use case information would b
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-  ...,
+  // ...,
   "modelCard": {
-    ...,
+    // ...,
     "considerations": {
       "users": [
         "Software developer",
@@ -81,9 +81,9 @@ This example shows a list for what kind of technical limitations might be associ
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-  ...,
+  // ...,
   "modelCard": {
-    ...,
+    // ...,
     "considerations": {
       "technicalLimitations": [
         "Greedy Decoding Degradation. The model is optimized for sampling-based generation. Using greedy decoding (temperature=0) can lead to performance degradation, repetitive loops, and \"stuck\" reasoning steps, particularly in the new Thinking Mode",
@@ -118,9 +118,9 @@ This example how to provide performance tradeoffs against a few that have been a
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-  ...,
+  // ...,
   "modelCard": {
-    ...,
+    // ...,
     "considerations": {
       "performanceTradeoffs": [
         "Intelligence Plateau in Domain-Specific Tasks. Research indicates that for specialized fields like legal text analysis, performance often flattens beyond the 7B parameter mark. While efficient, the 7B model may not offer the incremental reasoning gains found in the 32B or 235B models for complex, high-stakes domain reasoning.",
@@ -155,9 +155,9 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-  ...,
+  // ...,
   "modelCard": {
-    ...,
+    // ...,
     "considerations": {
       "ethicalConsiderations": [
         {
@@ -184,7 +184,7 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
           "name": "Instruction Misalignment. In-context learning can sometimes lead to \"emergent misalignment\", where the model prioritizes following a user's conversational style over established safety boundaries.",
           "mitigationStrategy": "Standardize output formats using system prompts and utilize the \"hard switch\" to disable the model's internal thinking mode when maximum safety and predictability are required."
         },
-        ...
+        // ...
       ]
     }
   }
@@ -215,11 +215,11 @@ This example shows how fairness assessment information would be included in a a 
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-  ...,
+  // ...,
   "modelCard": {
-    ...,
+    // ...,
     "considerations": {
-      ...,
+      // ...,
       "fairnessAssessments": [
         {
           "groupAtRisk": "People identified by characteristics such as race, gender, and disability status.",
@@ -231,7 +231,7 @@ This example shows how fairness assessment information would be included in a a 
           "harms": "Quality-of-Service Harm: The model may provide high-quality, nuanced reasoning in English or Mandarin but offer oversimplified, factually incorrect, or \"hallucinated\" information when queried in other supported languages.",
           "mitigationStrategy": "Cross-Lingual Alignment: Developers can use multilingual Supervised Fine-Tuning (SFT). By training on additional high-quality, parallel corpora from other languages on \"reasoning capabilities\" (e.g., logic, math, coding)."
         },
-        ...
+        // ...
       ]
     }
   }
@@ -303,7 +303,7 @@ This example is for a "fake" model based upon the llama3 architecture.
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/FakeAI/Llama3@abcd123",
-      ...,
+      // ...,
       "modelCard": {
         "considerations": {
           "environmentalConsiderations": {

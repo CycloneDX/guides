@@ -100,9 +100,9 @@ The MMLU score from the table would be declared as a performance metric as follo
   {
     "type": "machine-learning-model",
     "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-    ...,
+    // ...,
     "modelCard": {
-      ...
+      // ...,
       "quantitativeAnalysis": {
       "performanceMetrics": [
         {
@@ -161,17 +161,17 @@ This could be encoded in a CycloneDX ML-BOM model card as follows:
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
-      ...,
+      // ...,
       "modelCard": {
-        ...,
+        // ...,
         "quantitativeAnalysis": {
-          ...,
+          // ...,
           "graphics": [
             {
               "description": "benchmark_score",

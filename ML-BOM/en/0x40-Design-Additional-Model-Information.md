@@ -38,7 +38,7 @@ Models are can be trained in one or more languages (i.e., multilingual models).
 {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/FakeAI/MultilingualLLama",
-  ...,
+  // ...,
   "properties": [
     {
       "name": "cdx:ai-ml:model:languages",
@@ -65,13 +65,13 @@ This section describes how to "tag" model components with non-standard keywords 
 {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/FakeAI/TxtSpeak3",
-  ...,
+  // ...,
   "tags": [
     "pytorch",
     "transformers",
     "text-to-speech",
     "speech-to-speech",
-    ...
+    // ...
   ]
 }
 ```
@@ -97,14 +97,14 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-    ...
+    // ...
     "metadata":
     {
       "component":
       {
         "type": "machine-learning-model",
         "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-        ...
+        // ...,
         "components": [
           {
               "type": "library",
@@ -112,7 +112,7 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
               "description": "Python tokenization classes for QWen (QWenTokenizer)",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b#tokenization_qwen.py",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#tokenization_qwen.py",
-              ...,
+              // ...,
               "properties": [
                 {
                   "name": "cdx:ai-ml:model:tokenizer",
@@ -120,11 +120,11 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
                 }
               ]
           },
-          ...
+          // ...
         ]
       }
     }
-  ...
+  // ...
 }
 ```
 
@@ -139,14 +139,14 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...,
+      // ...,
       "properties": [
         {
           "name": "cdx:ai-ml:model:template:chat",
@@ -155,7 +155,7 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
       ]
     }
   },
-  ...
+  // ...
 }
 ```
 
@@ -180,16 +180,16 @@ First, create entries for all the "components" used in the training process as p
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "metadata": {
     "component": {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd",
     }
   },
-  ...,
+  // ...,
   "formulation": {
-    ...,
+    // ...,
     "components": [
       {
         "type": "container",
@@ -233,10 +233,10 @@ First, create entries for all the "components" used in the training process as p
         "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
         "bom-ref": "nvidia-h100-pcie-gpu-1",
       },
-      ...
+      // ...
     ]
   },
-  ...
+  // ...
 }
 ```
 
@@ -252,7 +252,7 @@ After the hardware and software "stack" of training components have been declare
 
 ```json
 "formulation": {
-  ...,
+  // ...,
   "workflows": [
     {
       "name": "Model training workflow",
@@ -264,7 +264,7 @@ After the hardware and software "stack" of training components have been declare
            "steps": [ ... ],
            "inputs": [ ... ],
            "outputs": [ ... ],
-           ...
+           // ...
          }
       ]
     }
@@ -283,7 +283,7 @@ Lastly, you would describe the component "stack" as a graph of `runtimeTopology`
   "workflows": [
     {
        "tasks": [ ... ],
-       ...,
+       // ...,
        "runtimeTopology": [
        {
           "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",

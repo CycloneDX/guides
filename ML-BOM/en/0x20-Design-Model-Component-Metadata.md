@@ -58,11 +58,11 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      ...
+      // ...
     }
-    ...
+    // ...
   }
-  ...
+  // ...
 }
 ```
 
@@ -87,7 +87,7 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  // ...
   "metadata":
   {
     "component":
@@ -112,7 +112,7 @@ Since the the model repository is hosted in Hugging Face Hub, the [Huggingface p
         }
       ],
       "modelCard": {
-        ...
+        // ...
       }
     }
   }
@@ -150,7 +150,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
   "type": "machine-learning-model",
   "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
   "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
-  ...
+  // ...
 }
 ```
 
@@ -169,9 +169,9 @@ The following example shows how a registered names for a fictional company ACME 
       "name": "acme:research:model:llm:id",
       "value": "MODEL-ID-12345-INTERNAL"
     },
-    ...
+    // ...
   ],
-  ...
+  // ...
 }
 ```
 
@@ -201,7 +201,7 @@ Each can be specifically identified in a CycloneDX component using a Package URL
   "specVersion": "1.7",
   "serialNumber": "urn:uuid:1ad676cb-6b40-4068-ae91-ebd1533dbf58",
   "version": 1,
-  ...,
+  // ...,
   "components": [
     {
       "name": "Qwen3-8B-Q4_K_M.gguf",
@@ -209,10 +209,10 @@ Each can be specifically identified in a CycloneDX component using a Package URL
       "bom-ref": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481#Qwen3-8B-Q4_K_M.gguf",
       "purl": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481f57cb95916b40956ab2f0b139b296d974#Qwen3-8B-Q4_K_M.gguf",
       "version": "7c41481f57cb95916b40956ab2f0b139b296d974",
-      ...
+      // ...
     }
   ],
-  ...
+  // ...
 }
 ```
 
@@ -245,14 +245,14 @@ The simplified JSON below shows how to declare a few of the files from the model
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-    ...
+    // ...,
     "metadata":
     {
       "component":
       {
         "type": "machine-learning-model",
         "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-        ...
+        // ...
         "components": [
           {
               "type": "file",
@@ -260,7 +260,7 @@ The simplified JSON below shows how to declare a few of the files from the model
               "description": "Model configuration file using the 'QWenLMHeadModel' model class in Hugging Face Transformers",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@e7a368b#config.json",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@e7a368b0774370edec29674e7c51f52fc7663f59#config.json",
-              ...
+              // ...
           },
           {
               "type": "file",
@@ -268,7 +268,7 @@ The simplified JSON below shows how to declare a few of the files from the model
               "description": "Python 'QWenConfig' class implementation for the Qwen-7B model using Hugging Face Transformers",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@a6ca629#configuration_qwen.py",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@a6ca629d063f56f34d184852301e8852a7afbd58#configuration_qwen.py",
-              ...
+              // ...
           },
           {
               "type": "data",
@@ -278,9 +278,9 @@ The simplified JSON below shows how to declare a few of the files from the model
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
               "data": {
                 "type": "dataset",
-                ...
+                // ...
               }
-              ...
+              // ...
           },
           {
               "type": "data",
@@ -290,15 +290,15 @@ The simplified JSON below shows how to declare a few of the files from the model
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
               "data": {
                 "type": "dataset",
-                ...
+                // ...
               }
-              ...
+              // ...
           },
-          ...
+          // ...
         ]
       }
     }
-  ...
+  // ...
 }
 ```
 
@@ -307,7 +307,7 @@ then the model component's new hierarchy of composing files would be described a
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "composition": [
     {
       "aggregate": "complete",
@@ -316,7 +316,7 @@ then the model component's new hierarchy of composing files would be described a
       ]
     }
   ],
-  ...
+  // ...
 }
 ```
 
@@ -343,7 +343,7 @@ It is important to capture any of these transformations as the model's lineage o
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "metadata": {
     "component": {
       "type": "machine-learning-model",
@@ -352,7 +352,7 @@ It is important to capture any of these transformations as the model's lineage o
       "bom-ref": "pkg:huggingface/unsloth/Llama-3.2-3B-Instruct@1.0.0",
       "publisher": "Unsloth",
       "description": "A pre-optimized, specialized versions of the meta-llama/Llama-3.2-3B-Instruct model designed to work seamlessly with Unsloth's training framework",
-      ...,
+      // ...,
       "pedigree": {
         "ancestors": [
           {

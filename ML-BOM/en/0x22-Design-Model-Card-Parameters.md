@@ -83,14 +83,14 @@ This example shows best practice for the Qwen-7B model using information publish
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...,
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...,
+      // ...,
       "modelCard": {
         "modelParameters": {
           "task": "text-generation",
@@ -99,7 +99,7 @@ This example shows best practice for the Qwen-7B model using information publish
           "approach": {
             "type": "supervised"
           },
-        ...
+        // ...
       }
     }
   }
@@ -121,14 +121,14 @@ This shows how the Qwen research team disclosed comprehensive details about the 
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...,
+      // ...,
       "externalReferences": [
         {
           "type": "documentation",
@@ -136,7 +136,7 @@ This shows how the Qwen research team disclosed comprehensive details about the 
           "comment": "Qwen Technical Report"
         }
       ],
-      ...
+      // ...
     }
   }
 }
@@ -188,10 +188,10 @@ This example shows a model fine-tuned (by a fictional "ACME Health" company) fro
       "bom-ref": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@2ee9dc9",
       "purl": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@2ee9dc99-cc50-4490-9d6e-9ebf6e39f82f",
       "description": "Customized Med42-v2 large language models (LLMs) which uses the Llama3 architecture and fine-tuned using private clinical dataset."
-      ...,
+      // ...,
       "modelCard": {
         "modelParameters": {
-          ...,
+          // ...,
           "datasets": [
             {
               "type": "dataset",
@@ -202,7 +202,7 @@ back dataset",
                 "url": "https://huggingface.co/datasets/openbmb/UltraFeedback"
               }
             },
-            ...,
+            //...,
             {
               "type": "dataset",
               "name": "ACME Midwest health data",
@@ -212,7 +212,7 @@ back dataset",
               }
             }
           ],
-          ...
+          // ...
         }
       }
     }
@@ -251,10 +251,10 @@ The public datasets, as documented in the model's research paper include:
       "bom-ref": "pkg:huggingface/acme-health/custom-Llama3-Med42-8B@ceab7e7",
       "purl": "pkg:huggingface/acme-health/Llama3-Med42-8B@ceab7e7ee4b9dbde7ba82867f34274db51487d83",
       "description": "an open, clinical large language models (LLM) instruct and preference-tuned by M42 to expand access to medical knowledge. Built off LLaMA-3 and designed to provide high-quality answers to medical questions."
-      ...,
+      // ...,
       "modelCard": {
         "modelParameters": {
-          ...,
+          // ...,
           "datasets": [
             {
               "ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365"
@@ -263,26 +263,26 @@ The public datasets, as documented in the model's research paper include:
               "ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a"
             }
           ],
-          ...
+          // ...
         }
       }
     }
   },
-  ...,
+  // ...,
   "components": [
     {
       "name": "UltraFeed-back dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365",
       "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e",
-      ...
+      // ...
     },
     {
       "name": "UltraFeed-back dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a",
       "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511",
-      ...
+      // ...
     }
   ]
 }
@@ -301,16 +301,16 @@ In order to provide information on model parameters and hyperparameters using ex
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...,
+      // ...,
       "modelCard": {
-          ...,
+          // ...,
           "inputs": [
             {"format": "string"}
           ],
@@ -345,25 +345,29 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  ...
+  // ...,
   "metadata":
   {
     "component":
     {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      ...,
+      // ...,
       "modelCard": {
         "modelParameters": {
-          ...,
+          // ...,
           "properties": [
             {
               "name": "cdx:ai-ml:model:parameter:count",
               "value": "7B"
             },
             {
-              "name": "cdx:ai-ml:model:parameter:tune_methods",
-              "value": "sft, rlhf"
+              "name": "cdx:ai-ml:model:parameter:tune_method",
+              "value": "sft"
+            },
+            {
+              "name": "cdx:ai-ml:model:parameter:tune_method",
+              "value": "rlhf"
             },
             {
               "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
@@ -385,10 +389,10 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
               "name": "cdx:ai-ml:model:hyperparameter:quantization",
               "value": "BF16"
             },
-            ...
+            // ...
           ]
         },
-        ...
+        // ...
       }
     }
   }
