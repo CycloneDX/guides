@@ -20,7 +20,7 @@ This document is released under the [Creative Commons Attribution 4.0 Internatio
 \emptyparagraph
 </div>
 
-First Edition, 02 March 2026
+First Edition, 03 March 2026
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
@@ -28,7 +28,7 @@ First Edition, 02 March 2026
 
 | Version       | Changes         | Updated On | Updated By                    |
 |---------------|-----------------|------------|-------------------------------|
-| First Edition | Initial Release | 2026-03-02 | CycloneDX AI/ML Working Group |
+| First Edition | Initial Release | 2026-03-03 | CycloneDX AI/ML Working Group |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
