@@ -2,13 +2,13 @@
 
 ## Overview
 
-A Machine Learning Bill-of-Materials (MLBOM or ML-BOM) is an object model to describe a machine learning model, its compositional assets and other descriptive information often used to assess risk and compliance. Support for MLBOM is included in CycloneDX v1.5 and higher.
+A Machine Learning Bill-of-Materials (MLBOM or ML-BOM) is an object model to describe a machine learning model, its compositional assets, and other descriptive information often used to assess risk and compliance. Support for MLBOM is included in CycloneDX v1.5 and higher.
 
-An MLBOM makes use of many of the common, core elements of the CycloneDX schema as well as unique aspects specific to ML components, their architectures, metadata, training and other information used to gauge adherence to regulatory compliance.
+An MLBOM relies on many of the common, core elements of the CycloneDX schema, as well as unique aspects specific to ML components, their architectures, metadata, training, and other information used to gauge regulatory compliance.
 
-This guide will provide specifics and best practices of how ML-related information should be conveyed using both using the CycloneDX schema.
+This guide will provide specifics and best practices for conveying ML-related information using the CycloneDX schema.
 
-The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in the previous section will be used to provide details, best practices and examples of how to provide the corresponding information using CycloneDX schema objects.
+The [Core Concepts](0x15-Core-Concepts.md#key-components-of-an-ml-bom) listed in the previous section will be used to provide details, best practices, and examples for providing the corresponding information using CycloneDX schema objects.
 
 For convenience, here are links to the specific sections for each of those informational areas:
 
@@ -34,7 +34,7 @@ In CycloneDX, a model is considered a `component` where general best practices f
 
 ### Describing models as components
 
-A model should always be declared as a CycloneDX `component`.  If the model itself is the subject of the BOM, then the BOM is considered an ML-BOM and the `component` representing it would be declared in the top-level BOM `metadata` object.
+A model should always be declared as a CycloneDX `component`.  If the model itself is the subject of the BOM, then the BOM is considered an ML-BOM, and the `component` representing it would be declared in the top-level BOM `metadata` object.
 
 The object model's pseudo-schema would look something like this:
 ![](images/ml-bom-metadata-component.svg)
@@ -76,13 +76,13 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 
 When referencing an ML model as a component, it typically means you are referencing a **model repository** comprised of metadata and a set of files (e.g., pre-trained tensor data in various formats, model configurations, tokenizers, tokenizer configurations, prompt templates, Python code, etc.) which would be selectively used with various, compatible AI or ML applications and frameworks.
 
-If possible, these model repositories should be treated like a software "package" in a Software Bill-of-Materiels (SBOM) when declaring it as a `machine-learning-model` type of CycloneDX component.
+If possible, these model repositories should be treated as a software "package" in a Software Bill of Materials (SBOM) when declaring them as `machine-learning-model` type CycloneDX components.
 
 ###### Example: CycloneDX for the Qwen-7B model repository
 
 The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
 
-Since the the model repository is hosted in Hugging Face Hub, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
+Since the model repository is hosted on Hugging Face, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
 ```json
 {
@@ -129,9 +129,9 @@ This section provides best practice guidance on how the component fields were fi
 - **manufacturer** - The name of the company which built the Qwen model.
 - **group** - In this example, we chose to include the optional group field to acknowledge the specific model repository is part of the Qwen family of models.
 - **name** - The model name reflects how the model is identified under Hugging Face using the `<owner_name>/<repository_name>` format.
-- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash is used and matches the `purl` value.</br>
+- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash matches the `purl` value.
 - **externalReferences** - Used to provide unambiguous links to component's model repository and originating model card.
-  - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, this is Hugging Face and affirms the associated PURL identifier.
+  - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, Hugging Face is used to affirm the associated PURL identifier.
   - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
 
 #### Model identifier(s)
@@ -156,11 +156,11 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 ##### Adding domain-specific identifiers
 
-Organizations that produce BOMs for hardware or software components they produce may have a plurality of domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy]() which is the authoritative source of official namespaces used in CycloneDX `properties`.
+Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](), which is the authoritative source of official namespaces used in CycloneDX `properties`.
 
 ###### Example:
 
-The following example shows how a registered names for a fictional company ACME which registered the namespace `acme` could provide a property to identify one of its internal ML models.
+The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
 ```json
 "component": {
@@ -177,13 +177,13 @@ The following example shows how a registered names for a fictional company ACME 
 
 ##### Identifying a specific model quantization
 
-Some model repositories may contain different [quantizations](0x90-Appendix-A_Glossary.md#quantization) to select from in order to optimize when running on different target inference runtimes and hardware footprints.
+Some model repositories may contain different [quantizations](0x90-Appendix-A_Glossary.md#quantization) to choose from, which optimize for different target inference runtimes and hardware footprints.
 
-In general, these are referenceable as (often single) files within a model repository each of which can be described as a CycloneDX component as shown in the next section [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly).
+In general, these are referenceable as (often single) files within a model repository, each of which can be described as a CycloneDX component, as shown in the next section [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly).
 
 ###### Example: Qwen/Qwen3-8B-GGUF
 
-This example uses the model repository [Qwen/Qwen3-8B-GGUF](https://huggingface.co/Qwen/Qwen3-8B-GGUF) which contains several quantizations of the Qwen3-8B model (published originally in a non-quantized format elsewhere) in [GGUF format](0x90-Appendix-A_Glossary.md#gguf-gpt-generated-unified-format).
+This example uses the model repository [Qwen/Qwen3-8B-GGUF](https://huggingface.co/Qwen/Qwen3-8B-GGUF), which contains several quantizations of the Qwen3-8B model (published originally in a non-quantized format elsewhere) in [GGUF format](0x90-Appendix-A_Glossary.md#gguf-gpt-generated-unified-format).
 
 These quantized GGUF models are each individual files in the repository:
 
@@ -226,7 +226,7 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 
 CycloneDX allows for declarations of software compositions (e.g., hardware products, software applications, packages, libraries, archives, etc.).
 
-In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as an assembly type of composition.
+In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as a composition of an assembly type.
 
 Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
 
@@ -238,9 +238,9 @@ If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](htt
 
 ###### CycloneDX for the Qwen/Qwen-7B assembly
 
-The simplified JSON below shows how to declare a few of the files from the model repository's complete file list under the model's `component` declaration within the BOM's `metadata`.
+The simplified JSON below shows how to declare a few files from the model repository's complete file list within the BOM's `component` under the model's `metadata` declaration.
 
-> **Note**: In the JSON below, we use the Package URL (PURL) syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per-file.
+> **Note**: In the JSON below, we use the Package URL (PURL) syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per file.
 
 ```json
 {
@@ -302,7 +302,7 @@ The simplified JSON below shows how to declare a few of the files from the model
 }
 ```
 
-then the model component's new hierarchy of composing files would be described as an assembly composition as follows:
+Then the model component's new hierarchy of composing files would be described as an assembly composition as follows:
 
 ```json
 {
@@ -336,7 +336,7 @@ ML models are often derived from existing, pre-trained models to optimize perfor
 * **Pruning**: Derives a smaller model by removing redundant or less important parameters (weights) that do not significantly contribute to output accuracy.
 * **Adapters**: Adding small, trainable layers (adapters) to a frozen base model to adapt it to new tasks without changing the original, large model weights, saving on storage for multi-task scenarios.
 
-It is important to capture any of these transformations as the model's lineage or "pedigree" or within an ML-BOM.  This should be accomplished via the CycloneDX `pedigree` object and describing a model's `ancestors` as a hierarchical graph.
+It is important to capture any of these transformations in the model's lineage ("pedigree") or in an ML-BOM.  This should be accomplished via the CycloneDX `pedigree` object and describing a model's `ancestors` as a hierarchical graph.
 
 ###### Example: Declaring the finetuning of llama3 model for a coding variant
 
@@ -371,11 +371,11 @@ It is important to capture any of these transformations as the model's lineage o
 
 ###### Field discussion
 
-* **ancestors** - `ancestors` entries are themselves CycloneDX `component` objects. It should be noted that these models may have their own ML-BOMs which could be located via their identifiers (e.g., `purl`) or by providing `externalReferences` for readers to follow.
+* **ancestors** - `ancestors` entries are themselves CycloneDX `component` objects. It should be noted that these models may have their own ML-BOMs, which can be located via their identifiers (e.g., `purl`) or via `externalReferences` for readers to follow.
 
 ##### Declaring known descendents
 
-If at the time an ML-BOM is created for a model its downstream model variants (e.g., finetunings, quantizations, etc. derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants` in a similar manner.
+If, at the time an ML-BOM is created for a model, its downstream model variants (e.g., finetunings, quantizations, etc., derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants` in a similar manner.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-quant-analysis.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `quantitativeAnalysis` object and its subcomponents including:
+This section will feature guidance on filling out information in the Cyclone model card's `quantitativeAnalysis` object and its subcomponents, including:
 
 * [Metrics](#metrics)
   * [Performance metrics](#performance-metrics)
@@ -14,7 +14,7 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 Quantitative analysis is the process of using metrics on benchmarks to determine if a model is reliable, safe, or better than another. It involves comparing the metric results against the benchmark standard to assess performance, identify limitations, and track progress over time.
 
-<!-- A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis which looks at why. It assesses metrics like accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliability for decision-making, moving beyond subjective human interpretation. -->
+<!-- A quantitative analysis of an AI model involves using mathematical and statistical methods to objectively measure and evaluate its performance, behavior, and outputs using numerical data, focusing on how much or how often, unlike qualitative analysis, which looks at why. It assesses metrics such as accuracy, precision, recall, efficiency, and consistency, transforming raw data into verifiable insights to understand patterns, test hypotheses, and ensure reliable decision-making, moving beyond subjective human interpretation. -->
 
 ### The value of quantitative analysis
 
@@ -58,13 +58,13 @@ Benchmarks use standardized datasets to objectively compare model quality, effic
   * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
   * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
 
-Again, the list above contains just a small number of examples of benchmarking datasets that can be used to train and evaluate models.
+Again, the list above contains only a small number of benchmarking datasets that can be used to train and evaluate models.
 
 ---
 
 ## Metrics
 
-AI benchmarking metrics are standardized, quantitative measures used to evaluate and compare the performance, accuracy, efficiency, and reliability of artificial intelligence models against established, uniform tasks and datasets. They function as a gauge progress in capabilities like reasoning, coding, and language understanding to provide simple comparisons to similar models.
+AI benchmarking metrics are standardized, quantitative measures used to evaluate and compare the performance, accuracy, efficiency, and reliability of artificial intelligence models against established, uniform tasks and datasets. They serve as a gauge of progress in capabilities such as reasoning, coding, and language understanding, enabling simple comparisons with similar models.
 
 > **Note**: Currently, CycloneDX supports declaring metrics relative to *performance benchmarks* which is the most consistently documented metrics described within producer published model cards.
 
@@ -85,9 +85,9 @@ Performance metrics are specific, quantitative measures used to evaluate a model
 
 ###### Example: Declaring the MMLU accuracy score for Qwen-7B
 
-The Qwen accuracy scores, for various benchmarks, are published in their [QwenLM/Qwen](https://github.com/QwenLM/Qwen?tab=readme-ov-file#performance) GitHub repository's README.
+The Qwen accuracy scores for various benchmarks are published in the [QwenLM/Qwen](https://github.com/QwenLM/Qwen?tab=readme-ov-file#performance) GitHub repository's README.
 
-This appears as a table inclusive of all Qwen models along with other similar models for comparison.  Here is the table row for all Qwen-7B benchmarks:
+This appears as a table that includes all Qwen models, along with other similar models for comparison.  Here is the table row for all Qwen-7B benchmarks:
 
 | Model             |   MMLU   |  C-Eval  |  GSM8K   |   MATH   | HumanEval |   MBPP   |   BBH    |  CMMLU   |
 |:------------------|:--------:|:--------:|:--------:|:--------:|:---------:|:--------:|:--------:|:--------:|
@@ -148,11 +148,11 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 ## Graphics
 
-Model cards typically include graphs, charts and other graphics that highlight the model's performance benchmarks often relative to other models.  This section examples the use of the CycloneDX `graphics` object to include a collection of these graphics in the ML-BOM as part of its quantitative analysis information.
+Model cards typically include graphs, charts, and other graphics that highlight the model's performance benchmarks, often relative to other models.  This section exemplifies the use of the CycloneDX `graphics` object to include a collection of these graphics in the ML-BOM as part of its quantitative analysis information.
 
 ###### Example: Qwen model comparative benchmarks
 
-The [QwenLM/Qwen](https://github.com/QwenLM/Qwen) GitHub repository includes the following JPG format spider diagram showing benchmarking comparisons for their Qwen2 models along with some peer models:
+The [QwenLM/Qwen](https://github.com/QwenLM/Qwen) GitHub repository includes the following JPG format spider diagram showing benchmarking comparisons for their Qwen2 models, along with some peer models:
 
 ![Qwen performance benchmarks](images/QwenLM-radar_72b.jpg)
 

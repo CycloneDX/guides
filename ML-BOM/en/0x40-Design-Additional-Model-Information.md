@@ -1,8 +1,8 @@
 # Additional model-related information
 
-This section describes the design and best practices when providing other model-related information an ML model's component and model card within a CycloneDX ML-BOM.
+This section describes the design and best practices when providing other model-related information, an ML model's component, and a model card within a CycloneDX ML-BOM.
 
-Currently, the v1.7 CycloneDX specification may not have specific objects or fields to document certain types of information directly.  However, these sections will show how CycloneDX extension mechanisms such as `properties` and `externalReferences` can be used to provide and classify such additional ML-related information.
+Currently, the v1.7 CycloneDX specification may not have specific objects or fields to document certain types of information directly.  However, these sections will show how CycloneDX extension mechanisms, such as `properties` and `externalReferences`, can be used to provide and classify such additional ML-related information.
 
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
@@ -19,13 +19,13 @@ For convenience, here are links to the specific sections for some of these ackno
 
 ## Using CycloneDX AI/ML properties
 
-This section includes discussion and examples of supported AI/ML-related metadata properties that may be used to classify models as part of their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
+This section includes discussion and examples of supported AI/ML-related metadata properties that can be used to classify models in their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
 ---
 
 ## Annotating a model's supported languages
 
-Models are can be trained in one or more languages (i.e., multilingual models).
+Models can be trained in one or more languages (i.e., multilingual models).
 
 * **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported languages is: `cdx:ai-ml:model:languages`
 
@@ -134,7 +134,7 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
 
 ###### Example: Annotating a model with its chat template
 
-For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat template uses the standard [`ChatML`](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats) format (see [Hugging Face "Common Template Formats"](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats))   which can be referenced on the model component as follows:
+For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat template uses the standard [`ChatML`](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats) format (see [Hugging Face "Common Template Formats"](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats)), which can be referenced on the model component as follows:
 
 ```json
 {
@@ -167,7 +167,7 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 
 This section shows how "manufacturing" (i.e., "training") information is provided relative to the model described by an ML-BOM.
 
-In short, this is accomplished utilizing objects which are part of the [CycloneDX Manufacturing Bill-of-Materials (or MBOM)](https://cyclonedx.org/capabilities/mbom/) to describe the frameworks, systems, platforms and libraries used to train the model against a detailed workflow-task description.
+In short, this is accomplished by using objects from the [CycloneDX Manufacturing Bill-of-Materials (or MBOM)](https://cyclonedx.org/capabilities/mbom/) to describe the frameworks, systems, platforms, and libraries used to train the model against a detailed workflow-task description.
 
 > **Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
 
@@ -246,7 +246,7 @@ First, create entries for all the "components" used in the training process as p
 
 ### Providing training workflow details
 
-After the hardware and software "stack" of training components have been declared under the `formulation` object, a CycloneDX `workflow` object, with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.), can then be declared:
+After the hardware and software "stack" of training components has been declared under the `formulation` object, a CycloneDX `workflow` object, with the details of the training tasks as `task` objects (inclusive of all relevant inputs, outputs, steps, etc.), can then be declared:
 
 ###### Example: Declaring a training workflow & tasks
 
@@ -274,7 +274,7 @@ After the hardware and software "stack" of training components have been declare
 
 ### Declaring the runtime topology
 
-Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies for the workflow above. In this case, the training was done using an OCI (Open Container Initiative) standard container image which "provide" a declared set of component libraries (pre-installed on the image):
+Lastly, you would describe the component "stack" as a graph of `runtimeTopology` dependencies for the workflow above. In this case, the training was done using an OCI (Open Container Initiative) standard container image, which "provides" a declared set of component libraries (pre-installed on the image):
 
 ###### Example: Declaring the runtime topology used for the training workflow tasks
 

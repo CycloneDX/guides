@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-considerations.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's design `considerations` object and its subcomponents including:
+This section will feature guidance on filling out information in the Cyclone model card's design `considerations` object and its subcomponents, including:
 
 * [Users](#users) - Who are the intended users of the model?
 * [Use cases](#use-cases)-  What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?
@@ -16,11 +16,11 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ## Users & use cases
 
-Used to provide list describing the intended users of the model along with a list of envisioned use cases for the model.
+Used to provide a list describing the intended users of the model, along with a list of envisioned use cases for the model.
 
 ###### Example: Qwen/Qwen-7B
 
-This example shows a list for what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
+This example shows a list of what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
 ```json
 "component": {
@@ -41,7 +41,7 @@ This example shows a list for what kind of user and use case information would b
       ],
       "useCases": [
         "Utilizing the Qwen \"instruct\" variants within an IDE for real-time code completion, bug fixing, and unit test generation, benefiting from its \"Agentic\" capabilities for repository-scale understanding.",
-        "Translating business, education or other content or informational materials to other languages and dialects while maintaining the original tone and cultural nuances.",
+        "Translating business, education, or other content or informational materials to other languages and dialects while maintaining the original tone and cultural nuances.",
         "Deploying low-latency chatbots for high-volume inquiries where the 7B model acts as a \"triage\" agent, answering common questions and only escalating complex logic to other support mechanisms.",
         "Summarizing long-form research papers and generating initial drafts for school projects, utilizing the model's 128K context window to ingest entire PDFs at once.",
         "Implementing the model on specialized hardware for real-time visual perception and \"Thinking Mode\" reasoning to help an intelligent device navigate and interact with its environment based on natural language commands",
@@ -55,7 +55,7 @@ This example shows a list for what kind of user and use case information would b
 
 ###### Field discussion
 
-* There is no expectation that there is a 1:1 correlation between `users` and `useCases` entries.  However, there should be at least one listed use cases that can correspond to a named "user" (role).
+* There is no expectation that there is a 1:1 correlation between `users` and `useCases` entries.  However, there should be at least one listed use case that can correspond to a named "user" (role).
 
 ---
 
@@ -71,11 +71,11 @@ Some of these limitations include:
 * **Knowledge Cutoff**: Models are generally frozen in time, meaning they cannot access real-time information without external retrieval systems.
 * **Opacity** (lack of traceable reasoning): models' complex architectures make it difficult to trace how a specific output was generated.
 * **Probabilistic Output Inconsistency**: The same prompt can yield different results (e.g., using different seeds or system context carryover), causing reliability issues.
-* **Bias Reinforcement**: Models often replicate or amplify biases present in their training data.  This has become more problematic with greater reliance on synthetic training data.
+* **Bias Reinforcement**: Models often replicate or amplify biases present in their training data.  This has become more problematic as reliance on synthetic training data has increased.
 
 ###### Example: Sample technical limitations for Qwen-7B
 
-This example shows a list for what kind of technical limitations might be associated with a typical Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities with similar parameter size.
+This example shows a list of technical limitations that might be associated with a typical multi-lingual, code-/instruction-capable Large Language Model (LLM) with a similar parameter size.
 
 ```json
 "component": {
@@ -102,7 +102,7 @@ This example shows a list for what kind of technical limitations might be associ
 
 When creating Machine Learning (ML) models, developers must navigate several core performance tradeoffs to align model capabilities with business needs and technical constraints.
 
-Some of these tradeoffs considerations include:
+Some of these tradeoff considerations include:
 
 * **Accuracy vs. Interpretability**: Complex models often provide higher accuracy but are "black boxes," making them hard to interpret. Simpler models are easy to explain but may not capture complex patterns, sacrificing performance for transparency.
 * **Accuracy vs. Speed/Latency**: Highly accurate models often require significant computation, leading to slower inference times. In production, a slightly less accurate model that responds in milliseconds is frequently preferred over a highly accurate model that takes seconds.
@@ -112,7 +112,7 @@ Some of these tradeoffs considerations include:
 
 ###### Example: Performance tradeoffs for Qwen-7B
 
-This example how to provide performance tradeoffs against a few that have been acknowledged for the Qwen3 &B parameter model.
+This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 &B parameter model.
 
 ```json
 "component": {
@@ -140,7 +140,7 @@ This example how to provide performance tradeoffs against a few that have been a
 
 ## Ethical considerations
 
-Used to provide list describing known ethical considerations when using a model.  Each consideration is an object containing two fields:
+Used to provide a list describing known ethical considerations when using a model.  Each consideration is an object containing two fields:
 
 * **Name**: A concise name for the ethical considerations.
 * **Mitigation strategy**: A corresponding (recommended) mitigation strategy, for the named consideration, to take when using the model.
@@ -195,11 +195,11 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
 
 ## Fairness assessments
 
-Fairness assessments convey information about the benefits and harms of the model to an identified at risk group.  They involve measuring how models treat different social groups to ensure they do not perpetuate or amplify harmful social biases.
+Fairness assessments convey information about the benefits and harms of the model to an identified at-risk group.  They involve measuring how models treat different social groups to ensure they do not perpetuate or amplify harmful social biases.
 
 For Large Language Models (LLMs), like Qwen, Mistral, or GPT, etc., assessments typically evaluate the model focusing on its training data, internal probabilities (weights and biases), and final generated text using metrics that can be statistically analyzed.
 
-Assessments consider evaluations at all stages of the model development lifecycle including:
+Assessments consider evaluations at all stages of the model development lifecycle, including:
 
 * **Data Bias Auditing** (Pre-processing): Analyzing training datasets for under-represented groups, improper labeling, or historical biases that could cause discriminatory outcomes.
 * **Disaggregated Performance Metrics** (Measurement): Evaluating model performance (e.g., accuracy, false positives/negatives) across different demographic groups (e.g., race, gender) to identify, for example, higher error rates for certain populations.
@@ -209,7 +209,7 @@ Assessments consider evaluations at all stages of the model development lifecycl
 
 ###### Example: LLM fairness assessment for Qwen-7B
 
-This example shows how fairness assessment information would be included in a a CycloneDX `modelCard` object.
+This example shows how fairness assessment information would be included in a CycloneDX `modelCard` object.
 
 ```json
 "component": {
@@ -246,9 +246,9 @@ This example shows how fairness assessment information would be included in a a 
 
 ### Energy consumptions
 
-This section describes how model providers can publish the energy costs incurred during different stages of the model's lifecycle in order to address potential governmental regulations and requirements.  This information includes the energy sources (i.e., for the datacenters) as well as disclosure of CO2 emission cost equivalents and CO2 offsets (credits).
+This section describes how model providers can publish the energy costs incurred at different stages of the model's lifecycle to address potential regulatory requirements.  This information includes the energy sources (i.e., for the datacenters) as well as disclosure of CO2 emission cost equivalents and CO2 offsets (credits).
 
-The intent is for CycloneDX to be able to support the general requirements referenced by the [EU’s AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng) which refers to ‘environmental protection’ in its subject matter.
+The intent is for CycloneDX to be able to support the general requirements referenced by the [EU’s AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), which refers to ‘environmental protection’ in its subject matter.
 
 Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 
@@ -259,7 +259,7 @@ Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 
 > **Note**: Since most trained models are published under some form of open license, most providers do not currently disclose the costs of training their models.
 
-Each "consumption" entry consists of the following which are explained in more detail below:
+Each "consumption" entry consists of the following, which are explained in more detail below:
 
 * **Activity**: The type of activity that was part of the ML model development or operational lifecycle with an associated energy cost.
 

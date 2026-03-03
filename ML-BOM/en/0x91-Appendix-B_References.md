@@ -1,6 +1,6 @@
 # Appendix B: References
 
-This appendix includes references to resources, standards, technologies and models used within this guide.
+This appendix includes references to resources, standards, technologies, and models used within this guide.
 
 #### CycloneDX references and resources
 
@@ -65,7 +65,7 @@ The following ML models were referenced in discussion and/or examples in this gu
 
 ##### Huggingface
 
-Huggingface model (repositories) typically support the `.safetensors` Huggingface format; however, within the same repository alternative formats are often found such as PyTorch (`.bin`, `.pt`), GGUF (`.gguf`)
+Huggingface model (repositories) typically support the `.safetensors` Huggingface format; however, within the same repository, alternative formats are often found, such as PyTorch (`.bin`, `.pt`), GGUF (`.gguf`)
 
   * [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50/blob/main/README.md) - single `model.safetensors`, `pytorch_model.bin` file.
   * [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) - multiple  `*.safetensors` files with `model.safetensors.index.json` index.

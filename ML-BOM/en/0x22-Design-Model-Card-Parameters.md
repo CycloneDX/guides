@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-parameters.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents including:
+This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents, including:
 
 * [Model metadata](#model-metadata)
   * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
@@ -20,11 +20,11 @@ This section will feature guidance on filling out information in the Cyclone mod
 
 ## Model metadata
 
-The `modelCard` fields, grouped in this section, are intended to describe so of the classifying metadata of the associated ML model.
+The `modelCard` fields, grouped in this section, are intended to describe some of the metadata used to classify the associated ML model.
 
 ### Approach
 
-Describes the general learning approach used to train the model.  Currently, the approach is simply described by a single `type` field which has the following supported values:
+Describes the general learning approach used to train the model.  Currently, the approach is simply described by a single `type` field, which has the following supported values:
 
 | Type | Description |
 |---|---|
@@ -34,11 +34,11 @@ Describes the general learning approach used to train the model.  Currently, the
 | **semi-supervised** | Semi-supervised machine learning utilizes a combination of labeled and unlabeled data during training to improve model performance, leveraging the benefits of both supervised and unsupervised learning techniques. |
 | **self-supervised** | Self-supervised machine learning involves training models to predict parts of the input data from other parts of the same data, without requiring external labels, enabling learning from large amounts of unlabeled data. |
 
-Please note that links to external documentation that detail the model training approach (and other detailed information) can be provided using [external references](#external-references) which is discussed later in this section.
+Please note that links to external documentation detailing the model training approach (and other information) can be provided using [external references](#external-references), which are discussed later in this section.
 
 ### Task
 
-Describes the primary task of (or goal) of the machine learning model.  Some examples include:
+Describes the primary task (or goal) of the machine learning model.  Some examples include:
 
 * **Anomaly Detection**: Identifying outliers or unusual patterns in data.
 * **Classification**: Categorizing inputs into predefined labels (e.g., spam/not-spam, image recognition).
@@ -50,9 +50,9 @@ Describes the primary task of (or goal) of the machine learning model.  Some exa
 
 ### Architecture family
 
-An architecture family defines the structural and data processing methodology of the model's neural network.  It does not typically describe a single model, but rather describes the general design of the neural network (NN), mathematical approach, context and attention mechanisms and the like.  It should provide insight to those versed in the field as how the model general is constructed.
+An architecture family defines the model's neural network's structural and data-processing methodology.  It typically does not describe a single model but rather the general design of the neural network (NN), the mathematical approach, context, attention mechanisms, and the like.  It should provide insight to those versed in the field on how the model is constructed.
 
-The model architecture family field should include descriptive names of neural network architectures which would be recognizable to those in the field of Machine Learning (ML).
+The model architecture family field should include descriptive names of neural network architectures recognizable to those in the field of Machine Learning (ML).
 
 Some examples of commonly referenced neural network (NN) architecture families include:
 
@@ -63,7 +63,7 @@ Some examples of commonly referenced neural network (NN) architecture families i
 * **Gated Recurrent Units (GRUs)** a specialized variant of a Recurrent Neural Network (RNN) architecture designed to overcome challenges like the vanishing gradient problem and enhance the modeling of long-term dependencies in sequential datasets.
 * **Generative Adversarial Networks (GANs)** - an architecture used to train two neural networks, a *Generator* and a *Discriminator*, to compete against each other to generate more authentic data from a starting training dataset. The Generator tries to fool the Discriminator by creating fake data, while the Discriminator tries to identify fakes, leading to continuous improvement in data quality.
 
-Again, the list above represents architecture families that are commonly referenced in research to establish an understanding of general model design; however, the architectural landscape continues to grow as researchers specialize and optimize for different use cases, goals and datasets.
+Again, the list above represents architecture families commonly referenced in research to establish an understanding of general model design; however, the architectural landscape continues to grow as researchers specialize and optimize for different use cases, goals, and datasets.
 
 ### Model architecture
 
@@ -78,7 +78,7 @@ These are typically found in one of several locations relative to the model:
 
 ###### Example: Model card metadata for the Qwen-7B model
 
-This example shows best practice for the Qwen-7B model using information published within and for the model's repository in Hugging Face.
+This example demonstrates best practices for the Qwen-7B model using information published within and for the model's repository on Hugging Face.
 
 ```json
 {
@@ -112,11 +112,11 @@ This example shows best practice for the Qwen-7B model using information publish
 
 #### Providing links to papers & articles
 
-Most models are fully described in terms of research papers, articles and other reference documents.  In those cases, they should be provided as `externalReferences` under the `component`.
+Most models are fully described in terms of research papers, articles, and other reference documents.  In those cases, they should be provided as `externalReferences` under the `component`.
 
 ###### Example: "Qwen Technical Report"
 
-This shows how the Qwen research team disclosed comprehensive details about the Qwen model's design, training, implementation and evaluation as a formal research paper in the the Cornell University's arXiv scholarly article distribution service.
+This shows how the Qwen research team disclosed comprehensive details about the Qwen model's design, training, implementation, and evaluation as a formal research paper in Cornell University's arXiv scholarly article distribution service.
 
 ```json
 {
@@ -151,14 +151,14 @@ Details the datasets used to train and evaluate the model.
 
 #### Declaring datasets
 
-Using CycloneDX there are two methods to provide information on the datasets used to train, test, and evaluate machine learning models.
+Using CycloneDX, there are two methods for providing information about the datasets used to train, test, and evaluate machine learning models.
 
-Specifically, the component `modelCard` object includes `modelParameters` which includes an array of `datasets` objects which can be of the following types:
+Specifically, the component `modelCard` object includes `modelParameters`, which includes an array of `datasets` objects, which can be of the following types:
 
 1. **In-line information**: provides in-line objects that provide for direct description of datasets and some of their typically cited attributes and characteristics.
 2. **Data component references**: provides for the complete description of each dataset as its own CycloneDX component and referenced via its `bom-ref`.
 
-The next sections will discuss the considerations for each and example how to use both of these methods.
+The next sections will discuss the considerations for each and provide examples of how to use both methods.
 
 ##### Datasets as in-line information
 
@@ -226,13 +226,13 @@ back dataset",
 
 ##### Datasets as data component references
 
-This method is preferable for use in most security and compliance contexts as it allows for full expression of provenance, pedigree, attestations and other contextual information as a full, CycloneDX component.
+This method is preferable for most security and compliance contexts, as it allows for the full expression of provenance, pedigree, attestations, and other contextual information as a full CycloneDX component.
 
 ###### Example: health model with private dataset
 
 This example shows the recommended best practice of declaring the datasets for the base model used in the previous "in-line" example (i.e., [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B)) as their own CycloneDX components.
 
-The public datasets, as documented in the model's research paper include:
+The public datasets, as documented in the model's research paper, include:
 
 * [openbmb/UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback)
 * [snorkelai/Snorkel-Mistral-PairRM-DPO](https://huggingface.co/snorkelai/Snorkel-Mistral-PairRM-DPO)
@@ -294,9 +294,9 @@ The public datasets, as documented in the model's research paper include:
 
 Describes the input and output data types (formats) of the model.
 
-> **Note**: The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDX plan to expand these objects to provide more detailed information especially in regard to names, formats and defaults for model configuration parameters and hyperparameters.
+> **Note**: The current object used to describe model inputs and outputs is limited to describing the data types strictly used for training and inference.  Future revisions of CycloneDX plan to expand these objects to provide more detailed information, especially regarding names, formats, and defaults for model configuration parameters and hyperparameters.
 
-In order to provide information on model parameters and hyperparameters using existing CycloneDX schema, it is recommended best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
+In order to provide information on model parameters and hyperparameters using the existing CycloneDX schema, it is recommended to follow the best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
 
 ```json
 {
@@ -329,13 +329,13 @@ In order to provide information on model parameters and hyperparameters using ex
 
 #### Configuration parameters & hyperparameters
 
-In general, model configuration parameters describe values that are directly used to configure model processing applications and frameworks and their implementations of model architectures.  For example, most models that appear in Hugging Face typically include configuration files for both the models and the tokenizers they are designed for use with the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying use of the PyTorch framework.
+In general, model configuration parameters describe values used to configure model processing applications, frameworks, and implementations of model architectures.  For example, most models on Hugging Face typically include configuration files for both the models and the tokenizers they are designed to work with, using the [Hugging Face Transformers](https://huggingface.co/docs/transformers/) library and its underlying PyTorch framework.
 
 > **Note**: The CycloneDX ModelParameters were initially based upon [Tensorflow ModelCard Toolkit](https://github.com/tensorflow/model-card-toolkit) (now archived) which defines [ModelParameters](https://www.tensorflow.org/responsible_ai/model_card_toolkit/api_docs/python/model_card_toolkit/ModelParameters) that include key-value maps for both inputs and outputs alongside an array of their types; these maps will be accomplished using CycloneDX properties and the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy) reserved namespace `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` as needed.
 
 ###### Example: Model parameters & hyperparameters for the Qwen-7B model
 
-As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files) example in the previous section, we see the model includes several configuration files including:
+As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files) example in the previous section, we see the model includes several configuration files, including:
 
 - [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) - which contains configuration parameters (as key-value pairs) used for initializing the model's implementation.
 - [generation_config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/generation_config.json) - which contains model hyperparameters (as key-value pairs) and their suggested (default) values used for configuring the model for token generation (inference).
@@ -401,9 +401,9 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
 
 ###### Field discussion
 
-Please note the example above only includes a small set of example parameters and hyperparameters that extend the `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` paths. Actual models may have a more comprehensive set of properties declared.
+Please note that the example above includes only a small set of parameters and hyperparameters that extend the `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` paths. Actual models may have a more comprehensive set of properties declared.
 
-The example model card above contains the following `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` properties which are explained below:
+The example model card above contains the following `cdx:ai-ml:model:parameter` and `cdx:ai-ml:model:hyperparameter` properties, which are explained below:
 
 - **properties**
 

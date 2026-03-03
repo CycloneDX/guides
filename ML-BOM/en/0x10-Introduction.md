@@ -6,7 +6,7 @@ CycloneDX is notably an OWASP flagship project, has a formal standardization pro
 
 ## What is an ML-BOM?
 
-An ML-BOM (Machine Learning Bill-of-Materials) is a CycloneDX BOM document specialized to address the unique complexities and risks of AI/ML systems. It  provides a detailed inventory of all components, configurations, and processes involved in the development, training, deployment and hosting (i.e., via hardware/software stacks and frameworks) of a machine learning model.
+An ML-BOM (Machine Learning Bill of Materials) is a CycloneDX BOM document designed to address the unique complexities and risks of AI/ML systems. It  provides a detailed inventory of all components, configurations, and processes involved in the development, training, deployment, and hosting (i.e., via hardware/software stacks and frameworks) of a machine learning model.
 
 The primary purpose of an ML-BOM is to ensure transparency, traceability, security, and compliance throughout an ML model's lifecycle.
 
