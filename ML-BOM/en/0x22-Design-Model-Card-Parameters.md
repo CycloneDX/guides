@@ -16,7 +16,6 @@ This section will feature guidance on filling out information in the Cyclone mod
 * [Declaring other properties](#declaring-other-properties)
   * [Configuration parameters & hyperparameters](#configuration-parameters--hyperparameters)
 
----
 
 ## Model metadata
 
@@ -121,7 +120,6 @@ This shows how the Qwen research team disclosed comprehensive details about the 
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  // ...,
   "metadata":
   {
     "component":
@@ -135,15 +133,12 @@ This shows how the Qwen research team disclosed comprehensive details about the 
           "url": "https://arxiv.org/abs/2309.16609",
           "comment": "Qwen Technical Report"
         }
-      ],
-      // ...
+      ]
     }
   }
 }
 
 ```
-
----
 
 ## Datasets
 
@@ -169,6 +164,10 @@ Key applications:
 * **Filtered Data**: Documenting specific slices or individual snippets of data used for fine-tuning or testing.
 * **Private Repositories**: Providing transparency via BOMs for non-public datasets in public model cards (e.g, private data used for models in the healthcare or financial services industries).
 * **Unstructured Sources**: Referencing data not housed in traditional databases or management tools (e.g., data within S3 buckets, event data within Security information and event management (SIEM) systems).
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ###### Example: Custom health model with private dataset
 
@@ -262,13 +261,11 @@ The public datasets, as documented in the model's research paper, include:
             {
               "ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a"
             }
-          ],
-          // ...
+          ]
         }
       }
     }
   },
-  // ...,
   "components": [
     {
       "name": "UltraFeed-back dataset",
@@ -287,8 +284,6 @@ The public datasets, as documented in the model's research paper, include:
   ]
 }
 ```
-
----
 
 ### Inputs & outputs
 
@@ -323,7 +318,9 @@ In order to provide information on model parameters and hyperparameters using th
 }
 ```
 
----
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ### Declaring other properties
 

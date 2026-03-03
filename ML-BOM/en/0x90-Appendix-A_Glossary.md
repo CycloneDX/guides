@@ -121,7 +121,3 @@ The internal contents of an ONNX file generally include:
 [4] https://nx.docs.scailable.net/for-data-scientists/about-onnx
 [5] https://mmapped.blog/posts/37-onnx-intro
 [6] https://github.com/onnx/onnx/blob/main/docs/IR.md
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>

@@ -20,15 +20,15 @@ For convenience, here are links to the specific sections for each of those infor
   * [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly)
   * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
----
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## Anatomy of an ML-BOM
 
 In CycloneDX, a model is considered a `component` where general best practices for providing information such as component identification, metadata, provenance, pedigree, etc. should be followed as documented in the [CycloneDX Authoritative Guide to SBOM](https://cyclonedx.org/guides/OWASP_CycloneDX-Authoritative-Guide-to-SBOM-en.pdf).
 
 ![Diagram: Anatomy of an ML-BOM](images/anatomy.svg)
-
----
 
 ## Declaring ML models
 
@@ -70,8 +70,6 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
 
----
-
 #### Model repositories as components
 
 When referencing an ML model as a component, it typically means you are referencing a **model repository** comprised of metadata and a set of files (e.g., pre-trained tensor data in various formats, model configurations, tokenizers, tokenizer configurations, prompt templates, Python code, etc.) which would be selectively used with various, compatible AI or ML applications and frameworks.
@@ -83,6 +81,10 @@ If possible, these model repositories should be treated as a software "package" 
 The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
 
 Since the model repository is hosted on Hugging Face, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ```json
 {
@@ -220,7 +222,6 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
 
----
 
 #### Describing a model repository as a CycloneDX assembly
 
@@ -324,7 +325,6 @@ Then the model component's new hierarchy of composing files would be described a
 
 - **aggregate** - Note the composition `aggregate` value is assigned to be "complete" since all constituent files are known and declared in the ML-BOM as part of the model component's `components` hierarchy.
 
----
 
 ### Declaring a model's pedigree
 

@@ -15,13 +15,10 @@ For convenience, here are links to the specific sections for some of these ackno
   * [Providing training workflow details](#providing-training-workflow-details)
   * [Declaring the runtime topology](#declaring-the-runtime-topology)
 
----
-
 ## Using CycloneDX AI/ML properties
 
 This section includes discussion and examples of supported AI/ML-related metadata properties that can be used to classify models in their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
----
 
 ## Annotating a model's supported languages
 
@@ -30,6 +27,10 @@ Models can be trained in one or more languages (i.e., multilingual models).
 * **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported languages is: `cdx:ai-ml:model:languages`
 
 * **Property value**: The value for this property should be in the form of a comma-separated list of [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) (e.g., `"en,fr,de,it,ja,zh"`, etc.).
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ###### Example: Tagging a model with its supported languages
 
@@ -52,7 +53,6 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 * **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
 
----
 
 ## Providing free-form tags for search
 
@@ -80,7 +80,6 @@ This section describes how to "tag" model components with non-standard keywords 
 
 * **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
----
 
 ## Tokenizers and prompt templates
 

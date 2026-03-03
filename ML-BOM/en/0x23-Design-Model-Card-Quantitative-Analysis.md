@@ -8,8 +8,6 @@ This section will feature guidance on filling out information in the Cyclone mod
   * [Performance metrics](#performance-metrics)
 * [Graphics](#graphics)
 
----
-
 ## What is quantitative analysis
 
 Quantitative analysis is the process of using metrics on benchmarks to determine if a model is reliable, safe, or better than another. It involves comparing the metric results against the benchmark standard to assess performance, identify limitations, and track progress over time.
@@ -23,11 +21,13 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 * **Pattern & Trend Detection**: Identifies numerical patterns, correlations, and trends within large or complex datasets that might be missed manually.
 * **Testing Hypotheses**: Enables the statistical testing of assumptions about model behavior allowing for comparisons against similar models for given tasks.
 
----
-
 ## Benchmarks
 
-Benchmarks are standardized test datasets, scenarios, or tasks  that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
+Benchmarks are standardized test datasets, scenarios, or tasks that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ### Types of machine learning benchmarks
 
@@ -60,7 +60,6 @@ Benchmarks use standardized datasets to objectively compare model quality, effic
 
 Again, the list above contains only a small number of benchmarking datasets that can be used to train and evaluate models.
 
----
 
 ## Metrics
 
@@ -144,7 +143,9 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 * **slice** - the `slice` property references a named subset `cola` (Corpus of Linguistic Acceptability) which is a subset of the GLUE tests; "cola" consists of single-sentence task to determine if a sentence is grammatically correct or not.
 
----
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ## Graphics
 
