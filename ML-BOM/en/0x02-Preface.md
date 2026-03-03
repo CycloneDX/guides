@@ -12,7 +12,7 @@ As you embark on your journey through this Authoritative Guide, we encourage you
 
 ---
 
-Andrew van der Stock
+Andrew van der Stock  
 Executive Director, OWASP Foundation
 
 <div style="page-break-after: always; visibility: hidden">
