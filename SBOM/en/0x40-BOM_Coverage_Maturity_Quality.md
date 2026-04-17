@@ -4,15 +4,15 @@
 The U.S. [National Telecommunications and Information Administration](https://ntia.gov/) (NTIA) defines the following
 [minimum elements of an SBOM](https://www.ntia.gov/files/ntia/publications/sbom_minimum_elements_report.pdf). They are:
 
-| **Field**                | **CycloneDX Field**                              | **Description**                                                                                            |
-|--------------------------|--------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| Supplier                 | bom.metadata.supplier, bom.components[].supplier | The name of an entity that creates, defines, and identifies components.                                    |
-| Component Name           | bom.components[].name                            | Designation assigned to a unit of software defined by the original supplier.                               |
-| Component Version        | bom.components[].version                         | Identifier used by the supplier to specify a change in software from a previously identified version.      |
-| Other Unique Identifiers | bom.components[].cpe,purl,swid                   | Other identifiers that are used to identify a component, or serve as a look-up key for relevant databases. |
-| Dependency Relationship  | bom.dependencies[]                               | Characterizing the relationship that an upstream component X is included in software Y.                    |
-| Author of SBOM Data      | bom.metadata.author                              | The name of the entity that creates the SBOM data for this component.                                      |
-| Timestamp                | bom.metadata.timestamp                           | Record of the date and time of the SBOM data assembly.                                                     |
+| **Field**                | **CycloneDX Field**                                         | **Description**                                                                                            |
+|--------------------------|-------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| Supplier                 | bom.metadata.supplier.name, bom.components[].supplier.name  | The name of an entity that creates, defines, and identifies components.                                    |
+| Component Name           | bom.components[].name                                       | Designation assigned to a unit of software defined by the original supplier.                               |
+| Component Version        | bom.components[].version                                    | Identifier used by the supplier to specify a change in software from a previously identified version.      |
+| Other Unique Identifiers | bom.components[].cpe,purl,swid                              | Other identifiers that are used to identify a component, or serve as a look-up key for relevant databases. |
+| Dependency Relationship  | bom.dependencies[]                                          | Characterizing the relationship that an upstream component X is included in software Y.                    |
+| Author of SBOM Data      | bom.metadata.authors[].name, bom.metadata.manufacturer.name | The name of the entity that creates the SBOM data for this component.                                      |
+| Timestamp                | bom.metadata.timestamp                                      | Record of the date and time of the SBOM data assembly.                                                     |
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph
