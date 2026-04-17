@@ -10,8 +10,14 @@
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "group": "Qwen",
-      "manufacturer": "Alibaba Cloud",
-      "supplier": "Hugging Face",
+      "manufacturer": {
+        "name": "Alibaba Cloud",
+        "url": [ "https://www.alibabacloud.com" ]
+      },
+      "supplier": {
+        "name": "Hugging Face",
+        "url": [ "https://huggingface.co" ]
+      },
       "name": "Qwen/Qwen-7B",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "description": "Qwen-7B is a Transformer-based large language model, which is pretrained on a large volume of data, including web texts, books, codes, etc.",
@@ -90,9 +96,14 @@
           "description": "Model tensor data (01 of 08)",
           "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6#model-00001-of-00008.safetensors",
           "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
-          "data": {
-            "type": "dataset"
-          }
+          "data": [
+            {
+              "type": "dataset",
+              "contents": {
+                "url": "https://huggingface.co/Qwen/Qwen-7B/blob/main/model-00001-of-00008.safetensors"
+              }
+            }
+          ]
         },
         {
           "type": "data",
@@ -100,9 +111,14 @@
           "description": "Model tensor data (02 of 08)",
           "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6#model-00002-of-00008.safetensors",
           "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
-          "data": {
-            "type": "dataset"
-          }
+          "data": [
+            {
+              "type": "dataset",
+              "contents": {
+                "url": "https://huggingface.co/Qwen/Qwen-7B/blob/main/model-00002-of-00008.safetensors"
+              }
+            }
+          ]
         }
       ],
       "modelCard": {
@@ -131,55 +147,17 @@
               }
             }
           ],
-          "properties": [
+          "inputs": [
             {
-              "name": "cdx:ai-ml:model:parameter:count",
-              "value": "7B"
-            },
+              "format": "string"
+            }
+          ],
+          "outputs": [
             {
-              "name": "cdx:ai-ml:model:parameter:tune_method",
-              "value": "sft"
-            },
-            {
-              "name": "cdx:ai-ml:model:parameter:tune_method",
-              "value": "rlhf"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
-              "value": "32"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:hidden_size",
-              "value": "4096"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:context_length",
-              "value": "8192"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:vocab_size",
-              "value": "151936"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:quantization",
-              "value": "BF16"
-            },
-            {
-              "name": "cdx:ai-ml:model:languages",
-              "value": "en,fr,de,it,ja,zh"
+              "format": "string"
             }
           ]
         },
-        "inputs": [
-          {
-            "format": "string"
-          }
-        ],
-        "outputs": [
-          {
-            "format": "string"
-          }
-        ],
         "quantitativeAnalysis": {
           "performanceMetrics": [
             {
@@ -196,21 +174,19 @@
               "slice": "cola"
             }
           ],
-          "graphics": [
-            {
-              "description": "benchmark_score",
-              "collection": [
-                {
-                  "name": "Qwen2 Performance Benchmarks (spider diagram)",
-                  "image": {
-                    "contentType": "image/jpeg",
-                    "encoding": "base64",
-                    "content": "<base64-encoding of the JPG file>"
-                  }
+          "graphics": {
+            "description": "benchmark_score",
+            "collection": [
+              {
+                "name": "Qwen2 Performance Benchmarks (spider diagram)",
+                "image": {
+                  "contentType": "image/jpeg",
+                  "encoding": "base64",
+                  "content": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA"
                 }
-              ]
-            }
-          ]
+              }
+            ]
+          }
         },
         "considerations": {
           "users": [
@@ -321,7 +297,45 @@
               }
             ]
           }
-        }
+        },
+        "properties": [
+          {
+            "name": "cdx:ai-ml:model:parameter:count",
+            "value": "7B"
+          },
+          {
+            "name": "cdx:ai-ml:model:parameter:tune_method",
+            "value": "sft"
+          },
+          {
+            "name": "cdx:ai-ml:model:parameter:tune_method",
+            "value": "rlhf"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
+            "value": "32"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:hidden_size",
+            "value": "4096"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:context_length",
+            "value": "8192"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:vocab_size",
+            "value": "151936"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:quantization",
+            "value": "BF16"
+          },
+          {
+            "name": "cdx:ai-ml:model:languages",
+            "value": "en,fr,de,it,ja,zh"
+          }
+        ]
       }
     }
   },
@@ -332,11 +346,6 @@
       "bom-ref": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481#Qwen3-8B-Q4_K_M.gguf",
       "purl": "pkg:huggingface/Qwen/Qwen3-8B-GGUF@7c41481f57cb95916b40956ab2f0b139b296d974#Qwen3-8B-Q4_K_M.gguf",
       "version": "7c41481f57cb95916b40956ab2f0b139b296d974"
-    },
-    {
-      "type": "machine-learning-model",
-      "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
-      "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
     },
     {
       "name": "UltraFeed-back dataset",
@@ -351,7 +360,7 @@
       "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511"
     }
   ],
-  "composition": [
+  "compositions": [
     {
       "aggregate": "complete",
       "assemblies": [
@@ -359,77 +368,72 @@
       ]
     }
   ],
-  "formulation": {
-    "components": [
-      {
-        "type": "container",
-        "name": "h100-training-image",
-        "version": "25.03-py3-igpu",
-        "bom-ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
-        "purl": "pkg:oci/nvidia-pytorch@sha256:f398a0955ec5fcf9e3bbf77610225ff4e953e137423ab248e2bf32cd4971a1dc?repository_url=nvcr.io/nvidia/pytorch&tag=25.03-py3-igpu"
-      },
-      {
-        "type": "library",
-        "name": "nvidia-cuda-runtime",
-        "version": "12.2.0",
-        "bom-ref": "pkg:generic/nvidia-cuda-runtime@12.2.0",
-        "purl": "pkg:generic/nvidia-cuda-runtime@12.2.0"
-      },
-      {
-        "type": "library",
-        "name": "pytorch",
-        "version": "2.10.0",
-        "bom-ref": "pkg:pypi/pytorch@2.10.0",
-        "purl": "pkg:pypi/pytorch@2.10.0"
-      },
-      {
-        "type": "library",
-        "name": "cuda-toolkit",
-        "version": "13.1.1",
-        "bom-ref": "pkg:pypi/cuda-toolkit@13.1.1",
-        "purl": "pkg:pypi/cuda-toolkit@13.1.1"
-      },
-      {
-        "type": "library",
-        "name": "nccl",
-        "version": "2.19.3",
-        "bom-ref": "pkg:generic/nccl@2.29.2",
-        "purl": "pkg:generic/nccl@2.29.2"
-      },
-      {
-        "type": "device",
-        "name": "NVIDIA H100 Tensor Core GPU",
-        "model": "H100 PCIe",
-        "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
-        "bom-ref": "nvidia-h100-pcie-gpu-1"
-      }
-    ],
-    "workflows": [
-      {
-        "name": "Model training workflow",
-        "description": "Describes the tasks used for training the model described by the ML-BOM.",
-        "tasks": [
-          {
-            "name": "Train model in NVIDIA OCI container",
-            "description": "Describes the steps used to train the model using commands and libraries in the container image.",
-            "steps": [],
-            "inputs": [],
-            "outputs": []
-          }
-        ],
-        "runtimeTopology": [
-          {
-            "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
-            "dependsOn": "nvidia-h100-pcie-gpu-1",
-            "provides": [
-              "cuda-toolkit",
-              "pkg:oci/nvidia-pytorch@sha256:f398a0",
-              "pkg:pypi/pytorch@2.10.0",
-              "pkg:generic/nccl@2.29.2"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "formulation": [
+    {
+      "components": [
+        {
+          "type": "container",
+          "name": "h100-training-image",
+          "version": "25.03-py3-igpu",
+          "bom-ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
+          "purl": "pkg:oci/nvidia-pytorch@sha256:f398a0955ec5fcf9e3bbf77610225ff4e953e137423ab248e2bf32cd4971a1dc?repository_url=nvcr.io/nvidia/pytorch&tag=25.03-py3-igpu"
+        },
+        {
+          "type": "library",
+          "name": "nvidia-cuda-runtime",
+          "version": "12.2.0",
+          "bom-ref": "pkg:generic/nvidia-cuda-runtime@12.2.0",
+          "purl": "pkg:generic/nvidia-cuda-runtime@12.2.0"
+        },
+        {
+          "type": "library",
+          "name": "pytorch",
+          "version": "2.10.0",
+          "bom-ref": "pkg:pypi/pytorch@2.10.0",
+          "purl": "pkg:pypi/pytorch@2.10.0"
+        },
+        {
+          "type": "library",
+          "name": "cuda-toolkit",
+          "version": "13.1.1",
+          "bom-ref": "pkg:pypi/cuda-toolkit@13.1.1",
+          "purl": "pkg:pypi/cuda-toolkit@13.1.1"
+        },
+        {
+          "type": "library",
+          "name": "nccl",
+          "version": "2.19.3",
+          "bom-ref": "pkg:generic/nccl@2.29.2",
+          "purl": "pkg:generic/nccl@2.29.2"
+        },
+        {
+          "type": "device",
+          "name": "NVIDIA H100 Tensor Core GPU",
+          "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
+          "bom-ref": "nvidia-h100-pcie-gpu-1"
+        }
+      ],
+      "workflows": [
+        {
+          "name": "Model training workflow",
+          "bom-ref": "workflow-a3f9e2",
+          "uid": "a3f9e2b1-7d8c-4a5f-9e6b-3c2d1a0b8f7e",
+          "description": "Describes the tasks used for training the model described by the ML-BOM.",
+          "taskTypes": [ "build" ],
+          "runtimeTopology": [
+            {
+              "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
+              "dependsOn": [ "nvidia-h100-pcie-gpu-1" ],
+              "provides": [
+                "cuda-toolkit",
+                "pkg:oci/nvidia-pytorch@sha256:f398a0",
+                "pkg:pypi/pytorch@2.10.0",
+                "pkg:generic/nccl@2.29.2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
