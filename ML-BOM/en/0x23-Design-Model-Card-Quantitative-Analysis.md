@@ -173,21 +173,19 @@ This could be encoded in a CycloneDX ML-BOM model card as follows:
         // ...,
         "quantitativeAnalysis": {
           // ...,
-          "graphics": [
-            {
-              "description": "benchmark_score",
-              "collection": [
-                {
-                  "name": "Qwen2 Performance Benchmarks (spider diagram)",
-                  "image": {
-                    "contentType": "image/jpeg",
-                    "encoding": "base64",
-                    "content": "<base64-encoding of the JPG file>"
-                  }
+          "graphics": {
+            "description": "benchmark_score",
+            "collection": [
+              {
+                "name": "Qwen2 Performance Benchmarks (spider diagram)",
+                "image": {
+                  "contentType": "image/jpeg",
+                  "encoding": "base64",
+                  "content": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA"
                 }
-              ]
-            }
-          ]
+              }
+            ]
+          }
         }
       }
     }
