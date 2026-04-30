@@ -98,8 +98,14 @@ Since the model repository is hosted on Hugging Face, the [Huggingface package t
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "group": "Qwen"
-      "manufacturer": "Alibaba Cloud",
-      "supplier": "Hugging Face",
+      "manufacturer": {
+        "name": "Alibaba Cloud",
+        "url": [ "https://www.alibabacloud.com" ]
+      },
+      "supplier": {
+        "name": "Hugging Face",
+        "url": [ "https://huggingface.co" ]
+      },
       "name": "Qwen/Qwen-7B",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "description": "Qwen-7B is a Transformer-based large language model, which is pretrained on a large volume of data, including web texts, books, codes, etc.",
@@ -277,10 +283,14 @@ The simplified JSON below shows how to declare a few files from the model reposi
               "description": "Model tensor data (01 of 08)",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6#model-00001-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00001-of-00008.safetensors",
-              "data": {
-                "type": "dataset",
-                // ...
-              }
+              "data": [
+                {
+                  "type": "dataset",
+                  "contents": {
+                    "url": "https://huggingface.co/Qwen/Qwen-7B/blob/main/model-00001-of-00008.safetensors"
+                  }
+                }
+              ]
               // ...
           },
           {
@@ -289,10 +299,14 @@ The simplified JSON below shows how to declare a few files from the model reposi
               "description": "Model tensor data (02 of 08)",
               "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@abcb6#model-00002-of-00008.safetensors",
               "purl": "pkg:huggingface/Qwen/Qwen-7B@abcb6d6d8ec63ce606f816e2d08072da6309f965#model-00002-of-00008.safetensors",
-              "data": {
-                "type": "dataset",
-                // ...
-              }
+              "data": [
+                {
+                  "type": "dataset",
+                  "contents": {
+                    "url": "https://huggingface.co/Qwen/Qwen-7B/blob/main/model-00002-of-00008.safetensors"
+                  }
+                }
+              ]
               // ...
           },
           // ...

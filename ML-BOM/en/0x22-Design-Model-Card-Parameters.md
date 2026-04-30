@@ -307,10 +307,14 @@ In order to provide information on model parameters and hyperparameters using th
       "modelCard": {
           // ...,
           "inputs": [
-            {"format": "string"}
+            {
+              "format": "string"
+            }
           ],
           "outputs": [
-            {"format": "string"}
+            {
+              "format": "string"
+            }
           ]
       }
     }
