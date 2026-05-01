@@ -111,8 +111,8 @@ As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of t
 | 2.2.2.(i) | Specify the modality(ies) of the content covered by the datasets concerned.  | | |
 | 2.2.2.(ii) | If publicly known, list private datasets obtained from other third parties | | |
 | 2.2.2.(iii) | General description of non-publicly known private datasets obtained from third parties | | |
-| 2.2.2.(iv) | Additional comments *(Providers may also disclose other relevant information on a voluntary basis, e.g. the period of data  collection, size of the datasets and further details.)* | | |
-| 2.3 | Data crawled and scraped from online sources *(excluding publicly available datasets already compiled by third parties and made available on platforms such as common crawl that are covered under Section 2.1)* | The following subsections only apply if If crawlers were used for data collection. | |
+| 2.2.2.(iv) | Additional comments *(optional)* | *e.g. the period of data collection, size of the datasets and further details* | |
+| 2.3 | Data crawled and scraped from online sources *(excluding publicly available datasets already compiled by third parties and made available on platforms such as common crawl that are covered under Section 2.1)* | The following subsections only apply if "crawlers were used for data collection". | |
 | 2.3.(i) | specify crawler name(s)/identifier(s) | | |
 | 2.3.(ii) | Purposes of the crawler(s) | | |
 | 2.3.(iii) | General description of crawler behaviour | | |
@@ -120,6 +120,20 @@ As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of t
 | 2.3.(v) | Comprehensive description of the type of content and online sources crawled | | |
 | 2.3.(vi) | Type of modality covered | | |
 | 2.3.(vii) | Summary of the most relevant domain names crawled | | |
-| 2.3.(viii) | Additional comments *(Providers may also disclose other relevant information on a voluntary basis, for instance more domain names than those required in the list above and/or URLs and the sources of individual works.)* | | |
-
-
+| 2.3.(viii) | Additional comments *(optional)* |  *e.g., domain names, URLs and the sources of individual works* | |
+| 2.4 | User data *(information about user data collected by all services and products of the provider, including through mail services, social media platforms, content platforms)* | The following subsections only apply if user information sources were used. | | |
+| 2.4.(i) | provide a general description of the
+provider’s services or products that were used to
+collect the user data | | |
+| 2.4.(ii) | Additional comments *(optional)* | | |
+| 2.5 | Synthetic data | The following subsections only apply if synthetic information sources were used. | | |
+| 2.5.(i) | modality of the synthetic data | | | |
+| 2.5.(ii) | specify the general-purpose AI model(s) used to generate the synthetic data if available on the market | | | |
+| 2.5.(iii) | Information about other AI models, including provider’s own AI model(s) not available on the market, used to generate synthetic data to train the model | | | |
+| 2.5.(iv) | Additional comments *(optional)* | | |
+| 2.6 | Other sources of data | The following subsections only apply if other information sources were used. | | |
+| 2.6.(i) | provide a narrative description of these data sources and the data | | |
+| 2.5.(ii) | Additional comments *(optional)* | | |
+| 3 | Data processing aspects The following subsections only apply if synthetic information sources were used. | N/A | |
+| 3.1 | Respect of reservation of rights from text and data mining exception or limitation | *(measures implemented by the provider to identify and comply with the reservation of rights from the text and data mining (TDM) exception or limitation expressed pursuant to Article 4(3))* | |
+| 3.1.(i) | Additional comments *(optional)* | | |
