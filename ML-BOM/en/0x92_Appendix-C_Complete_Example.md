@@ -1,3 +1,13 @@
+# Appendix C: References
+
+This appendix includes a complete AI/ML BOM example that combines most of the isolated examples for the Qwen model shown throughout this guide.
+
+#### Example: Qwen-7B AI/ML BOM
+
+
+> **Note**: For brevity, the `formulation` entry for the model's training only describes the top-level `workflow` topology (i.e., the run-time "stack"), but none of the `tasks` or `steps` that could be detailed.
+
+```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -437,3 +447,4 @@
     }
   ]
 }
+```
