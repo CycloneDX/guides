@@ -1,6 +1,6 @@
 # Appendix A: ML-BOM mappings to the European Union's Artificial Intelligence Act (EU AI Act)
 
-This appendix provides a mapping between the [EU AI Act's]() prose requirements and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
+This appendix provides a mapping between the [EU’s AI Act](https://artificialintelligenceact.eu/) prose requirements and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
 
 ### Summary of the EU AI Act
 
