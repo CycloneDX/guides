@@ -1,6 +1,6 @@
 # Appendix A: ML-BOM mappings to the European Union's Artificial Intelligence Act (EU AI Act)
 
-This appendix provides a mapping between the [EU AI Act's](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng#anx_XI) prose requirements and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
+This appendix provides a mapping between the [EU AI Act's]() prose requirements and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
 
 ### Summary of the EU AI Act
 
@@ -20,12 +20,44 @@ Some of these model documentation requirements include:
 
 This section provides mappings of the EU AI Act's requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
 
-#### EU AI Act: ANNEX XI
+#### Article 53: Obligations for Providers of General-Purpose AI Models
 
-This section contains mappings for the EU AI Act, ANNEX XI.
+This section contains mappings for [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/) which is part of [Chapter V: General-Purpose AI Models](https://artificialintelligenceact.eu/chapter/5/).
 
+##### Mappings
 
-Technical documentation referred to in Article 53(1), point (a) — technical documentation for providers of general-purpose AI models
+1. Providers of general-purpose AI models shall:
+
+(a) draw up and keep up-to-date the technical documentation of the model, including its training and testing process and the results of its evaluation, which shall contain, at a minimum, the information set out in Annex XI for the purpose of providing it, upon request, to the AI Office and the national competent authorities;
+
+(b) draw up, keep up-to-date and make available information and documentation to providers of AI systems who intend to integrate the general-purpose AI model into their AI systems. Without prejudice to the need to observe and protect intellectual property rights and confidential business information or trade secrets in accordance with Union and national law, the information and documentation shall:
+
+(i) enable providers of AI systems to have a good understanding of the capabilities and limitations of the general-purpose AI model and to comply with their obligations pursuant to this Regulation; and
+
+(ii) contain, at a minimum, the elements set out in Annex XII;
+
+(c) put in place a policy to comply with Union law on copyright and related rights, and in particular to identify and comply with, including through state-of-the-art technologies, a reservation of rights expressed pursuant to Article 4(3) of Directive (EU) 2019/790;
+
+(d) draw up and make publicly available a sufficiently detailed summary about the content used for training of the general-purpose AI model, according to a template provided by the AI Office.
+
+2. The obligations set out in paragraph 1, points (a) and (b), shall not apply to providers of AI models that are released under a free and open-source licence that allows for the access, usage, modification, and distribution of the model, and whose parameters, including the weights, the information on the model architecture, and the information on model usage, are made publicly available. This exception shall not apply to general-purpose AI models with systemic risks.
+
+3. Providers of general-purpose AI models shall cooperate as necessary with the Commission and the national competent authorities in the exercise of their competences and powers pursuant to this Regulation.
+
+4. Providers of general-purpose AI models may rely on codes of practice within the meaning of Article 56 to demonstrate compliance with the obligations set out in paragraph 1 of this Article, until a harmonised standard is published. Compliance with European harmonised standards grants providers the presumption of conformity to the extent that those standards cover those obligations. Providers of general-purpose AI models who do not adhere to an approved code of practice or do not comply with a European harmonised standard shall demonstrate alternative adequate means of compliance for assessment by the Commission.
+
+5. For the purpose of facilitating compliance with Annex XI, in particular points 2 (d) and (e) thereof, the Commission is empowered to adopt delegated acts in accordance with Article 97 to detail measurement and calculation methodologies with a view to allowing for comparable and verifiable documentation.
+
+6. The Commission is empowered to adopt delegated acts in accordance with Article 97(2) to amend Annexes XI and XII in light of evolving technological developments.
+
+7. Any information or documentation obtained pursuant to this Article, including trade secrets, shall be treated in accordance with the confidentiality obligations set out in Article 78.
+
+---
+
+#### ANNEX XI: Technical Documentation Referred to in Article 53(1), Point (a) – Technical Documentation for Providers of General-Purpose AI Models
+
+This section contains mappings for [ANNEX XI: Technical Documentation Referred to in Article 53](https://artificialintelligenceact.eu/annex/11/).
+
 
 Section 1
 
