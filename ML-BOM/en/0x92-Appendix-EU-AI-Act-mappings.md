@@ -52,8 +52,8 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 | Section | Text | Guide references |
 | --- | --- | --- |
 | 1 | Information to be provided by all providers of general-purpose AI models </br>The technical documentation referred to in [Article 53](https://artificialintelligenceact.eu/article/53)(1), point (a) shall contain at least the following information as appropriate to the size and risk profile of the model: | N/A |
-| 1.1 | A general description of the general-purpose AI model including: | N/A |
-| 1.1.(a) | the tasks that the model is intended to perform and the type and nature of AI systems in which it can be integrated; | [Considerations: Use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)|
+| 1.1 | A general description of the general-purpose AI model including: | [Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) metadata:component:</br>  - type: "machine-learning-model"</br>  - name:<string></br>  - version</br>  - description</br>  - supplier </br>  - manufacturer</br>  - publisher |
+| 1.1.(a) | the tasks that the model is intended to perform and the type and nature of AI systems in which it can be integrated; | [Considerations: Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)</br>- Use cases |
 | 1.1.(b) |the acceptable use policies applicable; | |
 | 1.1.(c) |the date of release and methods of distribution; | |
 | 1.1.(d) |the architecture and number of parameters; | |
