@@ -26,6 +26,7 @@ This section provides mappings of the EU AI Act's written and templated requirem
 
 #### Article 53: Obligations for Providers of General-Purpose AI Models
 
+
 This section contains mappings for [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/) which is part of [Chapter V: General-Purpose AI Models](https://artificialintelligenceact.eu/chapter/5/).
 
 ##### Mappings
@@ -74,7 +75,7 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 | 2.2 | Where applicable, a detailed description of the measures put in place for the purpose of conducting internal and/or external adversarial testing (e.g. red teaming), model adaptations, including alignment and fine-tuning. | |
 | 2.3 |	Where applicable, a detailed description of the system architecture explaining how software components build or feed into each other and integrate into the overall processing. | |
 
-#### Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models mappings
+#### Annex: Template for the Public Summary of Training Content for General-Purpose AI models required by Article 53
 
 The Explanatory Notice and Template seeks to address
 relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
@@ -84,4 +85,41 @@ relevant legal text from [Article 53](https://artificialintelligenceact.eu/artic
 As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of the AI Act:
 
 *In order to increase transparency on the data that is used in the pre-training and training of general-purpose AI models, including text and data protected by copyright law, it is adequate that providers of such models draw up and make publicly available a sufficiently detailed summary of the content used for training the general-purpose AI model.*
+
+##### Mappings
+
+| Section | Text | Commentary | Guide references |
+| --- | --- | --- | --- |
+| 1.   | General information | | |
+| 1.1 | Provider identification | | |
+| 1.1.(i) | Provider name and contact details | | |
+| 1.1.(ii) | Authorised representative name and contact details | | |
+| 1.2   | Model identification | | |
+| 1.2.(i) | Versioned model name(s) | | |
+| 1.2.(ii) | Model dependencies | | |
+| 1.2.(iii) | Date of placement of the model on the Union market: | | |
+| 1.3. | Modalities, overall training data size and other characteristic *(general information about the overall training data after  pre-processing and before the training of the model)* | **Note**: *Multi-model models may  require modality information for each sub-model in v2.0* | | |
+| 1.3.(i) | Modality *(e.g., text, image, audio, video, other)*  | | |
+| 1.3.(ii) | Training data size | | |
+| 1.3.(ii) | Types of content | | |
+| 2 | List of data sources *(information about specific sources of data used to train the general-purpose AI model)* | N/A | |
+| 2.1 | Publicly available datasets | | |
+| 2.2 | Private non-publicly available datasets obtained from third parties | | |
+| 2.2.1 | Datasets commercially licensed by rightsholders or their representatives | | |
+| 2.2.1.(i) | concluded transactional commercial licensing agreement (modalities covered by license) | **Note**: *modalities covered by license may need future consideration for v2.0* |
+| 2.2.2 | Private datasets obtained from other third parties | | |
+| 2.2.2.(i) | Specify the modality(ies) of the content covered by the datasets concerned.  | | |
+| 2.2.2.(ii) | If publicly known, list private datasets obtained from other third parties | | |
+| 2.2.2.(iii) | General description of non-publicly known private datasets obtained from third parties | | |
+| 2.2.2.(iv) | Additional comments *(Providers may also disclose other relevant information on a voluntary basis, e.g. the period of data  collection, size of the datasets and further details.)* | | |
+| 2.3 | Data crawled and scraped from online sources *(excluding publicly available datasets already compiled by third parties and made available on platforms such as common crawl that are covered under Section 2.1)* | The following subsections only apply if If crawlers were used for data collection. | |
+| 2.3.(i) | specify crawler name(s)/identifier(s) | | |
+| 2.3.(ii) | Purposes of the crawler(s) | | |
+| 2.3.(iii) | General description of crawler behaviour | | |
+| 2.3.(iv) | Period of data collection  | | |
+| 2.3.(v) | Comprehensive description of the type of content and online sources crawled | | |
+| 2.3.(vi) | Type of modality covered | | |
+| 2.3.(vii) | Summary of the most relevant domain names crawled | | |
+| 2.3.(viii) | Additional comments *(Providers may also disclose other relevant information on a voluntary basis, for instance more domain names than those required in the list above and/or URLs and the sources of individual works.)* | | |
+
 
