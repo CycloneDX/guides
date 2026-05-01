@@ -1,6 +1,6 @@
 # Appendix A: ML-BOM mappings to the European Union's Artificial Intelligence Act (EU AI Act)
 
-This appendix provides a mapping between the [EU’s AI Act](https://artificialintelligenceact.eu/) prose requirements and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
+This appendix provides a mapping between the [EU’s AI Act](https://artificialintelligenceact.eu/) prose requirements, as well as the more prescriptive [Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models), and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
 
 ### Summary of the EU AI Act
 
@@ -16,9 +16,13 @@ Some of these model documentation requirements include:
 - Known limitations and intended use cases.
 - Disclosing energy consumption and other environmental impacts.
 
-### EU AI Act mappings
+### Summary of the Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models
 
-This section provides mappings of the EU AI Act's requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
+On July 24, 2025, the European Commission released the mandatory Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI (GPAI) models, a key compliance step under [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the EU AI Act.This template serves as a mandatory minimum baseline for all GPAI providers, including those using open-source licenses, to publicly disclose information about their training data.
+
+### EU AI Act & Explanatory template mappings
+
+This section provides mappings of the EU AI Act's written and templated requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
 
 #### Article 53: Obligations for Providers of General-Purpose AI Models
 
@@ -69,3 +73,15 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 | 2.1 | A detailed description of the evaluation strategies, including evaluation results, on the basis of available public evaluation protocols and tools or otherwise of other evaluation methodologies. Evaluation strategies shall include evaluation criteria, metrics and the methodology on the identification of limitations. | |
 | 2.2 | Where applicable, a detailed description of the measures put in place for the purpose of conducting internal and/or external adversarial testing (e.g. red teaming), model adaptations, including alignment and fine-tuning. | |
 | 2.3 |	Where applicable, a detailed description of the system architecture explaining how software components build or feed into each other and integrate into the overall processing. | |
+
+#### Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models mappings
+
+The Explanatory Notice and Template seeks to address
+relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
+
+*Providers of general-purpose AI models shall […] draw up and make publicly available a sufficiently detailed summary about the content used for training of the general-purpose AI model, according to a template provided by the AI Office.*
+
+As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of the AI Act:
+
+*In order to increase transparency on the data that is used in the pre-training and training of general-purpose AI models, including text and data protected by copyright law, it is adequate that providers of such models draw up and make publicly available a sufficiently detailed summary of the content used for training the general-purpose AI model.*
+
