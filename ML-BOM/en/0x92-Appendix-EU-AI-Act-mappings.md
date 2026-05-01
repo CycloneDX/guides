@@ -137,3 +137,5 @@ collect the user data | | |
 | 3 | Data processing aspects The following subsections only apply if synthetic information sources were used. | N/A | |
 | 3.1 | Respect of reservation of rights from text and data mining exception or limitation | *(measures implemented by the provider to identify and comply with the reservation of rights from the text and data mining (TDM) exception or limitation expressed pursuant to Article 4(3))* | |
 | 3.1.(i) | Additional comments *(optional)* | | |
+| 3.2 | Removal of illegal content | *measures taken to avoid or remove illegal content under Union law from the training data (such as blacklists, keywords, and model-based classifiers), without requiring disclosure of  specific details about the provider’s internal business practices or trade secrets* | |
+| 3.3 | Other information *(optional)* | *Other relevant information about data processing* | |
