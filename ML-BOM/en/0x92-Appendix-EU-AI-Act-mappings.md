@@ -60,7 +60,7 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 | 1.1 | A general description of the general-purpose AI model including: | [Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) [metadata:component](https://cyclonedx.org/docs/1.7/json/#metadata_component):</br>  - type: "machine-learning-model"</br>- name:<string></br>- version</br>- description</br>- supplier </br>- manufacturer</br>- publisher |
 | 1.1.(a) | the tasks that the model is intended to perform and the type and nature of AI systems in which it can be integrated; | [Considerations: Users & use cases](0x24-Design-Model-Card-Considerations.md#users--use-cases)</br>- Use cases |
 | 1.1.(b) |the acceptable use policies applicable; | |
-| 1.1.(c) |the date of release and methods of distribution; | [metadata.component.releaseNotes](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_releaseNotes)</br>- type</br>- description</br>- timestamp</br>- notes</br>*Supports multiple releases notes for the associated model/version.* |
+| 1.1.(c) |the date of release and methods of distribution; | [Providing model release notes](0x20-Design-Model-Component-Metadata.md#providing-model-release-notes)</br>[metadata.component.releaseNotes](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_releaseNotes)</br>- type</br>- description</br>- timestamp</br>- notes</br>*Supports multiple releases notes for the associated model/version.* |
 | 1.1.(d) |the architecture and number of parameters; | |
 | 1.1.(e) |the modality (e.g. text, image) and format of inputs and outputs; | |
 | 1.1.(f) | the licence. | |

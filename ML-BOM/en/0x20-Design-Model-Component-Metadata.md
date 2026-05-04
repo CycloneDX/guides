@@ -17,6 +17,7 @@ For convenience, here are links to the specific sections for each of those infor
   * [Describing models as components](#describing-models-as-components)
   * [Model repositories as components](#model-repositories-as-components)
   * [Model identifiers](#model-identifiers)
+  * [Providing model release notes](#providing-model-release-notes)
   * [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly)
   * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
