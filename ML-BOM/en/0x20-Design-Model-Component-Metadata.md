@@ -167,38 +167,20 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](), which is the authoritative source of official namespaces used in CycloneDX `properties`.
 
-###### Example:
+###### Example: domain-specific identifiers
 
 The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
 ```json
-{
-  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
-  // ...
-  "metadata":
-  {
-    "component":
+"component": {
+  "properties": [
     {
-      "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
-      // ...
-      "releaseNotes": [
-        {
-          "type": "major",
-          "title": "Qwen 7B initial release",
-          "timestamp": "2023-08-03T15:30:00Z",
-          "notes": {
-            {
-              "locale": "en-US",
-              "text": "United States (US), English release date."
-            }
-            // ...
-          }
-        }
-      ]
+      "name": "acme:research:model:llm:id",
+      "value": "MODEL-ID-12345-INTERNAL"
     },
     // ...
-  }
+  ],
+  // ...
 }
 ```
 
@@ -250,12 +232,33 @@ It is important to disclose information regarding a model's release.  This is ac
 ###### Example: releaseNotes
 
 ```json
-"component":
 {
-  "type": "machine-learning-model",
-  "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
-  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      // ...
+      "releaseNotes": [
+        {
+          "type": "major",
+          "title": "Qwen 7B initial release",
+          "timestamp": "2023-08-03T15:30:00Z",
+          "notes": {
+            {
+              "locale": "en-US",
+              "text": "United States (US), English release date."
+            }
+            // ...
+          }
+        }
+      ]
+    },
+    // ...
+  }
 }
 ```
 
