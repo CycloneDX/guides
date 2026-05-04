@@ -171,15 +171,33 @@ Organizations that produce BOMs for hardware or software components they produce
 The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
 ```json
-"component": {
-  "properties": [
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  // ...
+  "metadata":
+  {
+    "component":
     {
-      "name": "acme:research:model:llm:id",
-      "value": "MODEL-ID-12345-INTERNAL"
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      // ...
+      "releaseNotes": [
+        {
+          "type": "major",
+          "title": "Qwen 7B initial release",
+          "timestamp": "2023-08-03T15:30:00Z",
+          "notes": {
+            {
+              "locale": "en-US",
+              "text": "United States (US), English release date."
+            }
+            // ...
+          }
+        }
+      ]
     },
     // ...
-  ],
-  // ...
+  }
 }
 ```
 
@@ -224,9 +242,28 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 }
 ```
 
+##### Providing model release notes
+
+It is important to disclose information regarding a model's release.  This is accomplished by utilizing the CycloneDX component's `releaseNotes` object and its fields.
+
+###### Example: releaseNotes
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
+  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
+  // ...
+}
+```
+
 ###### Field discussion
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
+
+
+
 
 
 #### Describing a model repository as a CycloneDX assembly
