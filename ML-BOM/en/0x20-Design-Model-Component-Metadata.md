@@ -229,7 +229,7 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 
 It is important to disclose information regarding a model's release.  This is accomplished by utilizing the CycloneDX component's `releaseNotes` object and its fields.
 
-###### Example: releaseNotes
+###### Example: release notes
 
 ```json
 {
@@ -265,10 +265,6 @@ It is important to disclose information regarding a model's release.  This is ac
 ###### Field discussion
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
-
-
-
-
 
 #### Describing a model repository as a CycloneDX assembly
 
