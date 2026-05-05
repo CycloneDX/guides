@@ -17,6 +17,7 @@ For convenience, here are links to the specific sections for each of those infor
   * [Describing models as components](#describing-models-as-components)
   * [Model repositories as components](#model-repositories-as-components)
   * [Model identifiers](#model-identifiers)
+  * [Providing model release notes](#providing-model-release-notes)
   * [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly)
   * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
@@ -166,7 +167,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](), which is the authoritative source of official namespaces used in CycloneDX `properties`.
 
-###### Example:
+###### Example: domain-specific identifiers
 
 The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
@@ -224,10 +225,46 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 }
 ```
 
+##### Providing model release notes
+
+It is important to disclose information regarding a model's release.  This is accomplished by utilizing the CycloneDX component's `releaseNotes` object and its fields.
+
+###### Example: release notes
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  // ...
+  "metadata":
+  {
+    "component":
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      // ...
+      "releaseNotes": [
+        {
+          "type": "major",
+          "title": "Qwen 7B initial release",
+          "timestamp": "2023-08-03T15:30:00Z",
+          "notes": {
+            {
+              "locale": "en-US",
+              "text": "United States (US), English release date."
+            }
+            // ...
+          }
+        }
+      ]
+    },
+    // ...
+  }
+}
+```
+
 ###### Field discussion
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
-
 
 #### Describing a model repository as a CycloneDX assembly
 

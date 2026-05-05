@@ -1,3 +1,13 @@
+# Appendix C: References
+
+This appendix includes a complete AI/ML BOM example that combines most of the isolated examples for the Qwen model shown throughout this guide.
+
+#### Example: Qwen-7B AI/ML BOM
+
+
+> **Note**: For brevity, the `formulation` entry for the model's training only describes the top-level `workflow` topology (i.e., the run-time "stack"), but none of the `tasks` or `steps` that could be detailed.
+
+```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -21,6 +31,20 @@
       "name": "Qwen/Qwen-7B",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "description": "Qwen-7B is a Transformer-based large language model, which is pretrained on a large volume of data, including web texts, books, codes, etc.",
+      "releaseNotes": [
+        {
+          "type": "major",
+          "title": "Qwen 7B initial release",
+          "timestamp": "2023-08-03T15:30:00Z",
+          "notes": {
+            {
+              "locale": "en-US",
+              "text": "United States (US), English release date."
+            }
+            // ...
+          }
+        }
+      ],
       "externalReferences": [
         {
           "type": "vcs",
@@ -437,3 +461,4 @@
     }
   ]
 }
+```
