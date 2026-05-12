@@ -7,6 +7,7 @@ Currently, the v1.7 CycloneDX specification may not have specific objects or fie
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
 * [Using CycloneDX AI/ML properties](#using-cyclonedx-aiml-properties)
+  * [Declaring a model's modalities](#declaring-a-models-modalities)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
   * [Providing free-form tags for search](#providing-free-form-tags-for-search)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
@@ -19,6 +20,44 @@ For convenience, here are links to the specific sections for some of these ackno
 
 This section includes discussion and examples of supported AI/ML-related metadata properties that can be used to classify models in their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
+
+## Declaring a model's modalities
+
+Models are trained to support processing and analysis of one or more types types of input data for specific tasks or data modalities.
+
+* **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported modalities is: `cdx:ai-ml:model:modality`
+
+* **Property value**: The values for this property includes:
+
+  * `text` - Natural Language Processing (NLP) and specializations such as Natural Language Understanding (NLU) for tasks like translation, summarization, conversation, classification and sentiment analysis.
+  * `code` - Specialized text-based modality used for software engineering and logic.
+  * `instruct` - Specialized text-based fine-tuned for understanding and executing natural language directives (i.e., instruction following).
+  * `image` (vision) - Computer vision for object detection, generation, and classification as well as document processing.
+  * `video` - Video processing tasks to extract structured information, including object detection, action recognition, scene detection, and temporal understanding.
+  * `audio` - Audio processing tasks such as Automatic Speech Recognition (ASR), Speech-to-Text, music generation, and sound pattern recognition.
+  * `sensor` (telemetry) - Processes data from specialized sensors or hardware, such as LiDAR for autonomous vehicles or IoT sensor feeds.
+  * `biometric` - Specialized sensor-based modality used for analyzing biological traits for tasks such as facial recognition, fingerprint scanning, or voice authentication.
+  * `genomic` (telemetry) - Processes high-dimensional data used in drug discovery and medical research.
+  * `_undefined:<NAME>` - `<NAME>` placeholder, used to provide an arbitrary model modality name.
+
+###### Example: Tagging a model with its modalities
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/FakeAI/CoderModel",
+  // ...,
+  "properties": [
+    {
+      "name": "cdx:ai-ml:model:modality:code",
+    },
+    {
+      "name": "cdx:ai-ml:model:modality:instruct",
+    }
+  ]
+}
+```
 
 ## Annotating a model's supported languages
 
