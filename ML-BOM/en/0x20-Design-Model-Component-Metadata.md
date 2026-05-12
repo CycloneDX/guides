@@ -59,8 +59,18 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "licenses": [
+        {
+          "license": {
+            "name": "Tongyi Qianwen LICENSE AGREEMENT",
+            "text": {
+              "content": "By clicking to agree or by using or distributing any portion or element of the Tongyi Qianwen Materials, ..."
+            }
+          }
+        }
+      ]
       // ...
-    }
+    },
     // ...
   }
   // ...
@@ -70,6 +80,7 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 ###### Field discussion
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
+* **license** - The `licenses` object shown in the example is a "custom" license which, in this case, we chose to provide the unencoded license text.  It is preferable, when possible to use an SPDX license identifier and supply it in the `id` field of the `license` (e.g., `"license": { "id": "Apache-2.0" }` ).
 
 #### Model repositories as components
 
