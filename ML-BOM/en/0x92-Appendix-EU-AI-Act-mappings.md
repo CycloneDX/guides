@@ -123,9 +123,7 @@ As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of t
 | 2.3.(vii) | Summary of the most relevant domain names crawled | | |
 | 2.3.(viii) | Additional comments *(optional)* |  *e.g., domain names, URLs and the sources of individual works* | |
 | 2.4 | User data *(information about user data collected by all services and products of the provider, including through mail services, social media platforms, content platforms)* | The following subsections only apply if user information sources were used. | | |
-| 2.4.(i) | provide a general description of the
-provider’s services or products that were used to
-collect the user data | | |
+| 2.4.(i) | provide a general description of the provider’s services or products that were used to collect the user data | | |
 | 2.4.(ii) | Additional comments *(optional)* | | |
 | 2.5 | Synthetic data | The following subsections only apply if synthetic information sources were used. | | |
 | 2.5.(i) | modality of the synthetic data | | | |
