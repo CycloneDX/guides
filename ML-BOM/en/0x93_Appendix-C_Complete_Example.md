@@ -40,7 +40,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
             }
           }
         }
-      ]
+      ],
       "releaseNotes": [
         {
           "type": "major",
