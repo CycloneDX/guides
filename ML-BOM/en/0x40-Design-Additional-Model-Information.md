@@ -9,6 +9,7 @@ For convenience, here are links to the specific sections for some of these ackno
 * [Using CycloneDX AI/ML properties](#using-cyclonedx-aiml-properties)
   * [Declaring a model's modalities](#declaring-a-models-modalities)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
+  * [Providing a model's usage policy](#providing-a-models-usage-policy)
   * [Providing free-form tags for search](#providing-free-form-tags-for-search)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
@@ -50,10 +51,10 @@ Models are trained to support processing and analysis of one or more types types
   // ...,
   "properties": [
     {
-      "name": "cdx:ai-ml:model:modality:code",
+      "name": "cdx:ai-ml:model:modality:code"
     },
     {
-      "name": "cdx:ai-ml:model:modality:instruct",
+      "name": "cdx:ai-ml:model:modality:instruct"
     }
   ]
 }
@@ -119,6 +120,28 @@ This section describes how to "tag" model components with non-standard keywords 
 
 * **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
+
+## Providing a model's usage policy
+
+Model usage policies can be provided using `externalReferences` associated with the model's component definition.
+
+###### Example: Providing a link to a model's usage policy
+
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  // ...,
+  "externalReferences": [
+    {
+      "url": "https://qwen.ai/usagepolicy",
+      "type": "documentation",
+      "comment": "Usage policy"
+    }
+  ],
+  // ...
+}
+```
 
 ## Tokenizers and prompt templates
 
