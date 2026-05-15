@@ -89,10 +89,10 @@ As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of t
 
 ##### Mappings
 
-| Section | Text | Commentary | Guide references |
+| Section | Text | Guide&nbsp;references | CycloneDX&nbsp;Commentary |
 | --- | --- | --- | --- |
-| 1.   | General information | | |
-| 1.1 | Provider identification | | |
+| 1.   | General information | See [Annex XI, Section 1.1](#annex-xi-mappings),</br>&bull;&nbsp;[Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) | The majority of this information would be provided within the CycloneDX [component.metadata](https://cyclonedx.org/docs/1.7/json/#metadata) for the model. |
+| 1.1 | Provider identification | See [Annex XI, Section 1.1](#annex-xi-mappings),</br>&bull;&nbsp;[Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) | Manufacturer, supplier and publisher information can be provided within the model's metadata:</br>&bull;&nbsp;[manufacturer](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_manufacturer) - _The organization that built or created the model._</br>&bull;&nbsp;[supplier](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_supplier) - _The organization the supplied the model for use_</br>&bull;&nbsp;[publisher](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_publisher) - _The organization that published the model_ |
 | 1.1.(i) | Provider name and contact details | | |
 | 1.1.(ii) | Authorised representative name and contact details | | |
 | 1.2   | Model identification | | |
