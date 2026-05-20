@@ -12,6 +12,8 @@ This section will feature guidance on filling out information in the Cyclone mod
   * [External references](#external-references)
 * [Datasets](#datasets) - The datasets used to train and evaluate the model.
   * [Declaring datasets](#declaring-datasets)
+    * [Datasets as in-line information](#datasets-as-in-line-information)
+    * [Datasets as data component references](#datasets-as-data-component-references)
 * [Inputs & Outputs](#inputs--outputs) - Describes the input and output data types (formats) of the model.
 * [Declaring other properties](#declaring-other-properties)
   * [Configuration parameters & hyperparameters](#configuration-parameters--hyperparameters)
