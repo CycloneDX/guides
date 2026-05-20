@@ -91,11 +91,11 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 
 This section provides mappings for the Explanatory Notice and Template which seek to address relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
 
-*Providers of general-purpose AI models shall […] draw up and make publicly available a sufficiently detailed summary about the content used for training of the general-purpose AI model, according to a template provided by the AI Office.*
+_Providers of general-purpose AI models shall […] draw up and make publicly available a sufficiently detailed summary about the content used for training of the general-purpose AI model, according to a template provided by the AI Office._
 
 As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of the AI Act:
 
-*In order to increase transparency on the data that is used in the pre-training and training of general-purpose AI models, including text and data protected by copyright law, it is adequate that providers of such models draw up and make publicly available a sufficiently detailed summary of the content used for training the general-purpose AI model.*
+_In order to increase transparency on the data that is used in the pre-training and training of general-purpose AI models, including text and data protected by copyright law, it is adequate that providers of such models draw up and make publicly available a sufficiently detailed summary of the content used for training the general-purpose AI model._
 
 #### Template mappings
 
