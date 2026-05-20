@@ -30,15 +30,15 @@ On July 24, 2025, the European Commission released the mandatory Explanatory Not
 
 ---
 
-### EU AI Act & Explanatory template mappings
+## EU AI Act & Explanatory template mappings
 
 This section provides mappings of the EU AI Act's written and templated requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
 
-#### Article 53: Obligations for Providers of General-Purpose AI Models
+### Article 53: Obligations for Providers of General-Purpose AI Models
 
 This section contains mappings to guide sections along with commentary for the EU AI Act [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/) which is part of [Chapter V: General-Purpose AI Models](https://artificialintelligenceact.eu/chapter/5/).
 
-##### Article 53 mappings
+#### Article 53 mappings
 
 | Section | Text | Guide references & commentary |
 | --- | --- | --- |
@@ -58,11 +58,11 @@ This section contains mappings to guide sections along with commentary for the E
 
 ---
 
-#### ANNEX XI: Technical Documentation Referred to in Article 53(1), Point (a) – Technical Documentation for Providers of General-Purpose AI Models
+### ANNEX XI: Technical Documentation Referred to in Article 53(1), Point (a) – Technical Documentation for Providers of General-Purpose AI Models
 
 This section contains mappings for [ANNEX XI: Technical Documentation Referred to in Article 53](https://artificialintelligenceact.eu/annex/11/).
 
-# Annex XI mappings
+#### Annex XI mappings
 
 | Section | Section&nbsp;text | Guide&nbsp;references | Relevant&nbsp;schema (v1.7) |
 | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 
 ---
 
-#### Annex: Template for the Public Summary of Training Content for General-Purpose AI models required by Article 53
+### Annex: Template for the Public Summary of Training Content for General-Purpose AI models required by Article 53
 
 The Explanatory Notice and Template seeks to address
 relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
@@ -98,7 +98,7 @@ As well as [Recital 107](https://artificialintelligenceact.eu/recital/107/) of t
 
 *In order to increase transparency on the data that is used in the pre-training and training of general-purpose AI models, including text and data protected by copyright law, it is adequate that providers of such models draw up and make publicly available a sufficiently detailed summary of the content used for training the general-purpose AI model.*
 
-##### Template mappings
+#### Template mappings
 
 | Section | Text | Guide&nbsp;references | CycloneDX&nbsp;Commentary |
 | --- | --- | --- | --- |
