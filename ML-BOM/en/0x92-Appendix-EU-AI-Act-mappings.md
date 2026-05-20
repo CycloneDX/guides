@@ -89,8 +89,7 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 
 ### Annex: Template for the Public Summary of Training Content for General-Purpose AI models required by Article 53
 
-The Explanatory Notice and Template seeks to address
-relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
+This section provides mappings for the Explanatory Notice and Template which seek to address relevant legal text from [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the AI Act:
 
 *Providers of general-purpose AI models shall […] draw up and make publicly available a sufficiently detailed summary about the content used for training of the general-purpose AI model, according to a template provided by the AI Office.*
 
