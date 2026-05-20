@@ -2,6 +2,14 @@
 
 This appendix provides a mapping between the [EU’s AI Act](https://artificialintelligenceact.eu/) prose requirements, as well as the more prescriptive [Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models), and how they are shown to be fulfilled using CycloneDX ML-BOM as documented in specific sections of this guide.
 
+These mappings include:
+
+* [Article 53: Obligations for Providers of General-Purpose AI Models](#article-53-obligations-for-providers-of-general-purpose-ai-models)
+* [ANNEX XI: Technical Documentation Referred to in Article 53](#annex-xi-mappings)
+* [Annex: Template for the Public Summary of Training Content for General-Purpose AI models](#annex-template-for-the-public-summary-of-training-content-for-general-purpose-ai-models-required-by-article-53)
+
+---
+
 ### Summary of the EU AI Act
 
 The AI Act requires model providers to report extensive information on the models they produce to be used for risk assessment and compliance purposes.  This act, effectively endorses moving away from the current non-normative publication of model cards and research papers (or similar or documentation) towards normative and standardized methods such as AI/ML Bills-of-Materials (AI/ML-BOMs).  Specifically, AIBOMs are recognized as a key method for creating the technical documentation required by the EU AI Act (Article 11 and Annex IV).
@@ -20,16 +28,17 @@ Some of these model documentation requirements include:
 
 On July 24, 2025, the European Commission released the mandatory Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI (GPAI) models, a key compliance step under [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the EU AI Act.This template serves as a mandatory minimum baseline for all GPAI providers, including those using open-source licenses, to publicly disclose information about their training data.
 
+---
+
 ### EU AI Act & Explanatory template mappings
 
 This section provides mappings of the EU AI Act's written and templated requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
 
 #### Article 53: Obligations for Providers of General-Purpose AI Models
 
+This section contains mappings to guide sections along with commentary for the EU AI Act [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/) which is part of [Chapter V: General-Purpose AI Models](https://artificialintelligenceact.eu/chapter/5/).
 
-This section contains mappings for [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/) which is part of [Chapter V: General-Purpose AI Models](https://artificialintelligenceact.eu/chapter/5/).
-
-##### Mappings
+##### Article 53 mappings
 
 | Section | Text | Guide references & commentary |
 | --- | --- | --- |
@@ -75,6 +84,8 @@ This section contains mappings for [ANNEX XI: Technical Documentation Referred t
 | 2.1 | A detailed description of the evaluation strategies, including evaluation results, on the basis of available public evaluation protocols and tools or otherwise of other evaluation methodologies. Evaluation strategies shall include evaluation criteria, metrics and the methodology on the identification of limitations. | Describing and recording results for performance (evaluation) tests:</br>&bull;&nbsp;[Model quantitative analysis](0x23-Design-Model-Card-Quantitative-Analysis.md#model-quantitative-analysis)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[Performance Metrics](0x23-Design-Model-Card-Quantitative-Analysis.md#performance-metrics)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[Graphics](0x23-Design-Model-Card-Quantitative-Analysis.md#graphics) | &bull;&nbsp;[metadata.component.modelCard.](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[considerations.](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations)</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[quantitativeAnalysis.](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_quantitativeAnalysis)</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[performanceMetrics](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_quantitativeAnalysis_performanceMetrics)</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[graphics](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_quantitativeAnalysis_graphics)</br></br>**Note:** Evaluation processes can be encoded as [formulation](https://cyclonedx.org/docs/1.7/json/#formulation) [workflows](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows), and their compositional `tasks`, `steps`, `tools`, `inputs`, `outputs` and more. |
 | 2.2 | Where applicable, a detailed description of the measures put in place for the purpose of conducting internal and/or external adversarial testing (e.g. red teaming), model adaptations, including alignment and fine-tuning. | Additionally, Ethical considerations and Fairness assessments can be recorded as shown in these sections:</br>&bull;&nbsp;[Fairness assessments](0x24-Design-Model-Card-Considerations.md#fairness-assessments) | &bull;&nbsp;[metadata.component.modelCard.](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard)</br>&nbsp;&nbsp;&nbsp;&nbsp;[considerations.](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations)</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;[fairnessAssessments](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_modelCard_considerations_fairnessAssessments) |
 | 2.3 |	Where applicable, a detailed description of the system architecture explaining how software components build or feed into each other and integrate into the overall processing. | The composition of model components, including data:</br>&bull;&nbsp;[Declaring ML Models](#declaring-ml-models)</br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;[Describing models as components](#describing-models-as-components)</br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;[Model repositories as components](#model-repositories-as-components)</br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;[Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly) | Component and service relationships:</br>&bull;&nbsp;[compositions.](https://cyclonedx.org/docs/1.7/json/#compositions)</br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;[assemblies](https://cyclonedx.org/docs/1.7/json/#compositions_items_assemblies)</br>&nbsp;&nbsp;&nbsp;&bull;&nbsp;[dependencies](https://cyclonedx.org/docs/1.7/json/#compositions_items_dependencies)</br></br>Hierarchical relationships (for assemblies or standalone):</br>&bull;&nbsp;[metadata.component.components](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_components)</br>&bull;&nbsp;[components.components](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_components)</br>&bull;&nbsp;[services.services](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_services_items_services)</br></br>Process and data flows:</br>&bull;&nbsp;[formulation.](https://cyclonedx.org/docs/1.7/json/#formulation)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[workflows](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br></br>**Note**: _When models are incorporated into hardware and software systems, CycloneDX supports of declaring full dependency relationships as well as detailing service and data processing workflows._ |
+
+---
 
 #### Annex: Template for the Public Summary of Training Content for General-Purpose AI models required by Article 53
 
