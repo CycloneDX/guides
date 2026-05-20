@@ -122,16 +122,16 @@ _In order to increase transparency on the data that is used in the pre-training 
 | 2.2.2.(i) | Specify the modality(ies) of the content covered by the datasets concerned.  | Model data component modalities are declared in the same way as for the model component itself:</br>&bull;&nbsp;[Declaring a model's modalities](0x40-Design-Additional-Model-Information.md#declaring-a-models-modalities) | Data component modalities as properties:</br>&bull;&nbsp;[component.properties](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_properties)</br></br>**Note**: _Utilizes property values defined in the the [CycloneDX Property Taxonomy for AI/ML](https://github.com/CycloneDX/cyclonedx-property-taxonomy/blob/main/cdx/ai-ml.md)_ |
 | 2.2.2.(ii) | If publicly known, list private datasets obtained from other third parties | Publicly known, third-party, private dataset information would be provided similarly to public datasets.</br></br>See references and commentary for _public_ data.</br>&bull;&nbsp;See "Guide references" and "CycloneDX Commentary" in [Annex: Template for the Public Summary of Training Content](#annex-template-for-the-public-summary-of-training-content-for-general-purpose-ai-models-required-by-article-53), Section 2.1 _"Publicly available data"_ (above) | _See referenced section._ |
 | 2.2.2.(iii) | General description of non-publicly known private datasets obtained from third parties | Non-publicly known, third-party, private dataset information would be provided similarly to public datasets.</br></br>See references and commentary for _public_ data.</br>&bull;&nbsp;See "Guide references" and "CycloneDX Commentary" in [Annex: Template for the Public Summary of Training Content](#annex-template-for-the-public-summary-of-training-content-for-general-purpose-ai-models-required-by-article-53), Section 2.1 _"Publicly available data"_ (above) | _See referenced section._  |
-| 2.2.2.(iv) | Additional comments *(optional)* | *e.g. the period of data collection, size of the datasets and further details* | |
+| 2.2.2.(iv) | Additional comments *(optional)*</br></br> _e.g., the period of data collection, size of the datasets and further details_ | | |
 | 2.3 | Data crawled and scraped from online sources *(excluding publicly available datasets already compiled by third parties and made available on platforms such as common crawl that are covered under Section 2.1)* | The following subsections only apply if "crawlers were used for data collection". | |
-| 2.3.(i) | specify crawler name(s)/identifier(s) | | |
-| 2.3.(ii) | Purposes of the crawler(s) | | |
-| 2.3.(iii) | General description of crawler behaviour | | |
-| 2.3.(iv) | Period of data collection  | | |
-| 2.3.(v) | Comprehensive description of the type of content and online sources crawled | | |
-| 2.3.(vi) | Type of modality covered | | |
-| 2.3.(vii) | Summary of the most relevant domain names crawled | | |
-| 2.3.(viii) | Additional comments *(optional)* |  *e.g., domain names, URLs and the sources of individual works* | |
+| 2.3.(i) | specify crawler name(s)/identifier(s) | TODO | |
+| 2.3.(ii) | Purposes of the crawler(s) | N/A | N/A |
+| 2.3.(iii) | General description of crawler behaviour | N/A | N/A |
+| 2.3.(iv) | Period of data collection  | N/A | N/A |
+| 2.3.(v) | Comprehensive description of the type of content and online sources crawled | N/A | N/A |
+| 2.3.(vi) | Type of modality covered | N/A | N/A |
+| 2.3.(vii) | Summary of the most relevant domain names crawled | N/A | N/A |
+| 2.3.(viii) | Additional comments *(optional)*</br></br>_e.g., domain names, URLs and the sources of individual works_ | N/A | N/A |
 | 2.4 | User data *(information about user data collected by all services and products of the provider, including through mail services, social media platforms, content platforms)* | The following subsections only apply if user information sources were used. | | |
 | 2.4.(i) | provide a general description of the provider’s services or products that were used to collect the user data | | |
 | 2.4.(ii) | Additional comments *(optional)* | | |
