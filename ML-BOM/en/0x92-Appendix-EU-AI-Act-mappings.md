@@ -146,12 +146,12 @@ Subsections under Section 2, _"Lists of data sources"_, require similar informat
 | 2.4 | User data *(information about user data collected by all services and products of the provider, including through mail services, social media platforms, content platforms)*</br></br>_The following subsections only apply if user information sources were used._ | Although this guide does not provide specific examples for describing data collection workflows that target _user data_, the _training_ workflow example can be used to extrapolate how this may be done using CycloneDX. | Any data collection processes would be described using CycloneDX workflows:</br>&bull;&nbsp;[formulation.](https://cyclonedx.org/docs/1.7/json/#formulation)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[workflows](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[tasks](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows_items_tasks)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[runtimeTopology](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows_items_runtimeTopology)</br></br>**Note**: _Best practices would have the  data collection processes, for the resultant subject named dataset, captured in a Manufacturing Bill-of-Materials (or MBOM) which could be referenced by an AI/ML BOM for a model that used that dataset for training or finetuning._ |
 | 2.4.(i) | provide a general description of the provider’s services or products that were used to collect the user data | N/A | N/A |
 | 2.4.(ii) | Additional comments *(optional)* | N/A | N/A |
-| 2.5 | Synthetic data | The following subsections only apply if synthetic information sources were used. | N/A | N/A |
+| 2.5 | Synthetic data</br></br>_ The following subsections only apply if synthetic information sources were used._ | N/A | N/A |
 | 2.5.(i) | modality of the synthetic data | N/A | N/A |
 | 2.5.(ii) | specify the general-purpose AI model(s) used to generate the synthetic data if available on the market | N/A | N/A |
 | 2.5.(iii) | Information about other AI models, including provider’s own AI model(s) not available on the market, used to generate synthetic data to train the model | N/A | N/A |
 | 2.5.(iv) | Additional comments *(optional)* | N/A | N/A |
-| 2.6 | Other sources of data | The following subsections only apply if other information sources were used. | N/A | N/A |
+| 2.6 | Other sources of data</br></br>_The following subsections only apply if other information sources were used._ | N/A | N/A |
 | 2.6.(i) | provide a narrative description of these data sources and the data | N/A | N/A |
 | 2.5.(ii) | Additional comments *(optional)* | N/A | N/A |
 | 3 | Data processing aspects The following subsections only apply if synthetic information sources were used. | N/A | N/A |
