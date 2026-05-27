@@ -150,12 +150,12 @@ Subsections under Section 2, _"Lists of data sources"_, require similar informat
 | 2.5.(i) | modality of the synthetic data | N/A | N/A |
 | 2.5.(ii) | specify the general-purpose AI model(s) used to generate the synthetic data if available on the market | N/A | N/A |
 | 2.5.(iii) | Information about other AI models, including provider’s own AI model(s) not available on the market, used to generate synthetic data to train the model | N/A | N/A |
-| 2.5.(iv) | Additional comments *(optional)* | N/A | N/A |
+| 2.5.(iv) | Additional comments *(optional)* | See Section 2.2.2.(iv) (above) | N/A |
 | 2.6 | Other sources of data</br></br>_The following subsections only apply if other information sources were used._ | N/A | N/A |
 | 2.6.(i) | provide a narrative description of these data sources and the data | N/A | N/A |
 | 2.5.(ii) | Additional comments *(optional)* | See referenced methods for annotations in Section 2.3.(i) (above) | N/A |
 | 3 | Data processing aspects The following subsections only apply if synthetic information sources were used. | N/A | N/A |
 | 3.1 | Respect of reservation of rights from text and data mining exception or limitation | *(measures implemented by the provider to identify and comply with the reservation of rights from the text and data mining (TDM) exception or limitation expressed pursuant to Article 4(3))* | N/A |
-| 3.1.(i) | Additional comments *(optional)* | N/A | N/A |
+| 3.1.(i) | Additional comments *(optional)* | See Section 2.2.2.(iv) (above) | N/A |
 | 3.2 | Removal of illegal content | *measures taken to avoid or remove illegal content under Union law from the training data (such as blacklists, keywords, and model-based classifiers), without requiring disclosure of  specific details about the provider’s internal business practices or trade secrets* | |
 | 3.3 | Other information *(optional)* | *Other relevant information about data processing* | |
