@@ -40,6 +40,8 @@ A model should always be declared as a CycloneDX `component`.  If the model itse
 The object model's pseudo-schema would look something like this:
 ![](images/ml-bom-metadata-component.svg)
 
+> **Note** In all example JSON pseudo-code, lines with: "// ..." indicate that additional fields or elements may be added at this position. This is a documentation placeholder and is not valid JSON; it would not appear in actual implementations.
+
 ###### Example: Declaring an ML model in an ML-BOM
 
 The CycloneDX JSON pseudocode below shows how an ML model would be declared as the "subject" `component` of an ML-BOM within the top-level `metadata`:
