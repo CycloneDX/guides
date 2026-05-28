@@ -8,9 +8,11 @@ These mappings include:
 * [ANNEX XI: Technical Documentation Referred to in Article 53](#annex-xi-mappings)
 * [Annex: Template for the Public Summary of Training Content for General-Purpose AI models](#annex-template-for-the-public-summary-of-training-content-for-general-purpose-ai-models-required-by-article-53)
 
+> **Disclaimer**: Mappings are provided simply to show how the CycloneDX standard could be used to normatively record and provide much of the information the EU AI Act requires.  Actual reporting requirements are subject to the requesting regulatory party.
+
 ---
 
-### Summary of the EU AI Act
+### Overview of the EU AI Act
 
 The AI Act requires model providers to report extensive information on the models they produce to be used for risk assessment and compliance purposes.  This act, effectively endorses moving away from the current non-normative publication of model cards and research papers (or similar or documentation) towards normative and standardized methods such as AI/ML Bills-of-Materials (AI/ML-BOMs).  Specifically, AIBOMs are recognized as a key method for creating the technical documentation required by the EU AI Act (Article 11 and Annex IV).
 
@@ -24,9 +26,9 @@ Some of these model documentation requirements include:
 - Known limitations and intended use cases.
 - Disclosing energy consumption and other environmental impacts.
 
-### Summary of the Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models
+### Background for the Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models
 
-On July 24, 2025, the European Commission released the mandatory Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI (GPAI) models, a key compliance step under [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the EU AI Act.This template serves as a mandatory minimum baseline for all GPAI providers, including those using open-source licenses, to publicly disclose information about their training data.
+On July 24, 2025, the European Commission released the mandatory Explanatory Notice and Template for the Public Summary of Training Content for General-Purpose AI (GPAI) models, a key compliance step under [Article 53](https://artificialintelligenceact.eu/article/53/)(1)(d) of the EU AI Act. This template serves as a mandatory minimum baseline for all GPAI providers, including those using open-source licenses, to publicly disclose information about their training data.
 
 ---
 
@@ -101,18 +103,18 @@ _In order to increase transparency on the data that is used in the pre-training 
 
 Subsections under Section 2, _"Lists of data sources"_, require similar information around data or datasets and their collection processes using different techniques and from different sources. Therefore, much of the _"Guide references"_ and _"CycloneDX Commentary"_ text will be similar across the following subsections:
 
-* 2.1, Publicly available datasets
-* 2.2, Private non-publicly available datasets obtained from third parties
-* 2.3, Data crawled and scraped from online sources
-* 2.4, User data
-* 2.5, Synthetic data
-* 2.6, Other data sources
+* 2.1 Publicly available datasets
+* 2.2 Private non-publicly available datasets obtained from third parties
+* 2.3 Data crawled and scraped from online sources
+* 2.4 User data
+* 2.5 Synthetic data
+* 2.6 Other data sources
 
 #### Template mappings
 
 | Section | Text | Guide&nbsp;references | CycloneDX&nbsp;Commentary |
 | --- | --- | --- | --- |
-| 1.   | General information | See [Annex XI, Section 1.1](#annex-xi-mappings),</br>&bull;&nbsp;[Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) | The majority of this information would be provided within the CycloneDX [component.metadata](https://cyclonedx.org/docs/1.7/json/#metadata) for the model. |
+| 1. | General information | See [Annex XI, Section 1.1](#annex-xi-mappings),</br>&bull;&nbsp;[Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) | The majority of this information would be provided within the CycloneDX [component.metadata](https://cyclonedx.org/docs/1.7/json/#metadata) for the model. |
 | 1.1 | Provider identification | See [Annex XI, Section 1.1](#annex-xi-mappings),</br>&bull;&nbsp;[Declaring ML models](0x20-Design-Model-Component-Metadata.md#declaring-ml-models) | Manufacturer, supplier and publisher information can be provided within the model's metadata:</br>&bull;&nbsp;[manufacturer](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_manufacturer) - _The organization that built or created the model._</br>&bull;&nbsp;[supplier](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_supplier) - _The organization the supplied the model for use_</br>&bull;&nbsp;[publisher](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_publisher) - _The organization that published the model_ |
 | 1.1.(i) | Provider name and contact details | See template mapping section 1.1 (above) | Both the  [manufacturer](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_manufacturer) and [supplier](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_supplier) information includes:</br>&bull;&nbsp;name, address, url and multiple (i.e., an array of), detailed [contact](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_supplier_contact) information which accounts for multiple points-of-contact.</br></br>Component [publisher](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_publisher) information supports a textual description. |
 | 1.1.(ii) | Authorised representative name and contact details | See template mapping section 1.1.(i) (above) | Each [contact](https://cyclonedx.org/docs/1.7/json/#metadata_tools_oneOf_i0_components_items_supplier_contact) information includes:</br>&bull;&nbsp;name, email address and phone |
@@ -155,7 +157,7 @@ Subsections under Section 2, _"Lists of data sources"_, require similar informat
 | 2.6.(i) | provide a narrative description of these data sources and the data | N/A | N/A |
 | 2.5.(ii) | Additional comments *(optional)* | See referenced methods for annotations in Section 2.3.(i) (above) | N/A |
 | 3 | Data processing aspects The following subsections only apply if synthetic information sources were used. | N/A | N/A |
-| 3.1 | Respect of reservation of rights from text and data mining exception or limitation | *(measures implemented by the provider to identify and comply with the reservation of rights from the text and data mining (TDM) exception or limitation expressed pursuant to Article 4(3))* | N/A |
+| 3.1 | Respect of reservation of rights from text and data mining exception or limitation</br></br>*(measures implemented by the provider to identify and comply with the reservation of rights from the text and data mining (TDM) exception or limitation expressed pursuant to Article 4(3))* | TODO | N/A |
 | 3.1.(i) | Additional comments *(optional)* | See Section 2.2.2.(iv) (above) | N/A |
 | 3.2 | Removal of illegal content</br></br>*measures taken to avoid or remove illegal content under Union law from the training data (such as blacklists, keywords, and model-based classifiers), without requiring disclosure of  specific details about the provider’s internal business practices or trade secrets* | *Although this guide does not provide specific examples for describing any removal or filtering of content from training datasets, this could be detailed as part of describing each dataset's data preparation workflow.*</br></br>See references in table "ANNEX XI:, section 1.2.(c)" (above) | Detailed data preparation workflows:</br>&bull;&nbsp;[formulation.](https://cyclonedx.org/docs/1.7/json/#formulation)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[workflows](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[tasks](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[steps](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows_items_tasks_items_steps) |
 | 3.3 | Other information *(optional)*</br></br>*Other relevant information about data processing* | CycloneDX provides the means to add descriptive information as part of describing each dataset's data processing or preparation workflow.*</br></br>See references in table "ANNEX XI:, section 1.2.(c)" (above) | Detailed data processing  workflows:</br>&bull;&nbsp;[formulation.](https://cyclonedx.org/docs/1.7/json/#formulation)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[workflows](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[tasks](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows)</br>&nbsp;&nbsp;&nbsp;&#9642;&nbsp;[steps](https://cyclonedx.org/docs/1.7/json/#formulation_items_workflows_items_tasks_items_steps)</br></br>Specifically, each `task` and `step` of a `workflow` has a `description` field as well as `properties` where domain-specific named properties and values can be recorded. |

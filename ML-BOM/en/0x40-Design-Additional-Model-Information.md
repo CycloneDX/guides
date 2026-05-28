@@ -91,7 +91,7 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 ###### Field discussion
 
-* **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
+* **properties** - The `value` reflects the set (list) of ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
 
 
 ## Providing free-form tags for search
@@ -290,7 +290,7 @@ First, create entries for all the "components" used in the training process as p
       {
         "type": "device",
         "name": "NVIDIA H100 Tensor Core GPU",
-        "model": "H100 PCIe"
+        "model": "H100 PCIe",
         "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
         "bom-ref": "nvidia-h100-pcie-gpu-1",
       },
