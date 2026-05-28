@@ -246,7 +246,7 @@ First, create entries for all the "components" used in the training process as p
   "metadata": {
     "component": {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd",
+      "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd"
     }
   },
   // ...,
