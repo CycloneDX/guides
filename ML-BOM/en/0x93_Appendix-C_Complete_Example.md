@@ -49,7 +49,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
-            }
+            },
             // ...
           ]
         }

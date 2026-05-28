@@ -80,7 +80,7 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 ###### Field discussion
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
-* **license** - The `licenses` object shown in the example is a "custom" license which, in this case, we chose to provide the unencoded license text.  It is preferable, when possible to use an SPDX license identifier and supply it in the `id` field of the `license` (e.g., `"license": { "id": "Apache-2.0" }` ).
+* **license** - The `licenses` object shown in the example is a "custom" license which, in this case, we chose to provide the unencoded license text.  It is preferable, when possible to use an [SPDX license identifier](https://spdx.org/licenses/) and supply it in the `id` field of the `license` (e.g., `"license": { "id": "Apache-2.0" }` ).
 
 #### Model repositories as components
 
@@ -246,15 +246,12 @@ It is important to disclose information regarding a model's release.  This is ac
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...
-  "metadata":
-  {
-    "component":
-    {
+  "metadata": {
+    "component": {
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       // ...
       "releaseNotes": {
-        {
           "type": "major",
           "title": "Qwen 7B initial release",
           "timestamp": "2023-08-03T15:30:00Z",
@@ -262,7 +259,7 @@ It is important to disclose information regarding a model's release.  This is ac
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
-            }
+            },
             // ...
           ]
         }
