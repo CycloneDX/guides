@@ -9,7 +9,7 @@ This guide was developed by the **CycloneDX AI/ML Working Group**, whose members
 We would like to specifically acknowledge the following individuals for their much appreciated contributions:
 
 - Matt Rutkowski, IBM, CycloneDX Project Maintainer, Chair AI/ML Work Group
-- Steve Springett, Chair of CycloneDX Standard
+- Steve Springett, Chair of CycloneDX Standard, Founder of Ecma TC54, Chair of OWASP Global Board of Directors
 - Jan Kowalleck, CycloneDX Project Co-Lead
 - Michael Boone, NVIDIA
 - Jessica Butler, NVIDIA
