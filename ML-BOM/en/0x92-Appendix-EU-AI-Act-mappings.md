@@ -34,7 +34,7 @@ On July 24, 2025, the European Commission released the mandatory Explanatory Not
 
 ## EU AI Act & Explanatory template mappings
 
-This section provides mappings of the EU AI Act's written and templated requirements to sections of this guide that show how CycloneDX can accommodate these requirements.
+This section provides mappings of the EU AI Act's written and templated requirements to sections of this guide that show how the CycloneDX standard could accommodate recording the corresponding information described.
 
 ### Article 53: Obligations for Providers of General-Purpose AI Models
 
