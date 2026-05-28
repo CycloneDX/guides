@@ -109,7 +109,7 @@ Since the model repository is hosted on Hugging Face, the [Huggingface package t
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      "group": "Qwen"
+      "group": "Qwen",
       "manufacturer": {
         "name": "Alibaba Cloud",
         "url": [ "https://www.alibabacloud.com" ]
@@ -152,7 +152,7 @@ This section provides best practice guidance on how the component fields were fi
 - **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash matches the `purl` value.
 - **externalReferences** - Used to provide unambiguous links to component's model repository and originating model card.
   - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, Hugging Face is used to affirm the associated PURL identifier.
-  - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
+  - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.
 
 #### Model identifier(s)
 
@@ -169,7 +169,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 {
   "type": "machine-learning-model",
   "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
-  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
+  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model",
   // ...
 }
 ```
@@ -253,18 +253,18 @@ It is important to disclose information regarding a model's release.  This is ac
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       // ...
-      "releaseNotes": [
+      "releaseNotes": {
         {
           "type": "major",
           "title": "Qwen 7B initial release",
           "timestamp": "2023-08-03T15:30:00Z",
-          "notes": {
+          "notes": [
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
             }
             // ...
-          }
+          ]
         }
       ]
     },

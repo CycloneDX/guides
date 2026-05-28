@@ -41,20 +41,19 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
           }
         }
       ],
-      "releaseNotes": [
-        {
+      "releaseNotes": {
           "type": "major",
           "title": "Qwen 7B initial release",
           "timestamp": "2023-08-03T15:30:00Z",
-          "notes": {
+          "notes": [
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
             }
             // ...
-          }
+          ]
         }
-      ],
+      },
       "externalReferences": [
         {
           "type": "vcs",
