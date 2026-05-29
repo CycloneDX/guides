@@ -8,7 +8,7 @@ These mappings include:
 * [ANNEX XI: Technical Documentation Referred to in Article 53](#annex-xi-mappings)
 * [Annex: Template for the Public Summary of Training Content for General-Purpose AI models](#annex-template-for-the-public-summary-of-training-content-for-general-purpose-ai-models-required-by-article-53)
 
-> **Disclaimer**: Mappings are provided simply to show how the CycloneDX standard could be used to normatively record and provide much of the information the EU AI Act requires.  Actual reporting requirements are subject to the requesting regulatory party.
+> **Disclaimer**: Mappings are provided simply, as a technical approach, to show how the CycloneDX standard could be used to normatively record and provide information that aligns with EU AI Act requirements.  Actual reporting requirements are subject to the requesting regulatory party.
 
 ---
 
