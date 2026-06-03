@@ -17,6 +17,7 @@ We would like to specifically acknowledge the following individuals for their mu
 - Saquib Saifee, IBM
 - Colin Gigool, IBM
 - Aliza Heching, IBM
+- Nagalakshmi Satyanarayanan, IBM
 - Pavel Shukhman, Reliza
 
 
