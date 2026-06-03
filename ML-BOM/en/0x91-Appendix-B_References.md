@@ -27,7 +27,7 @@ This appendix includes references to resources, standards, technologies, and mod
   * [ECMA-428 Common Lifecycle Enumeration (CLE) specification](https://ecma-international.org/publications-and-standards/standards/ecma-428/) - The CLE provides a standardized format for communicating software component lifecycle events in a machine-readable format.
 * [European Union's Cyber Resilience Act (EU CRA)](https://www.european-cyber-resilience-act.com/)
   * [Cyber Resilience Act (CRA)](https://www.european-cyber-resilience-act.com/Cyber_Resilience_Act_Articles.html) - "The Final Text"
-* [EU’s AI Act](https://artificialintelligenceact.eu/) ([text](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng)) - The European Union's  comprehensive legal framework for artificial intelligence, designed to ensure that AI systems used in the European Union are safe, ethical, and trustworthy.
+* [EU AI Act](https://artificialintelligenceact.eu/) ([index](https://artificialintelligenceact.eu/ai-act-explorer/)) - The European Union's comprehensive legal framework for artificial intelligence, designed to ensure that AI systems used in the European Union are safe, ethical, and trustworthy.
   * [Article 53: Obligations for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/article/53/)
   * [Annex XI: Technical Documentation Referred to in Article 53(1), Point (a) – Technical Documentation for Providers of General-Purpose AI Models](https://artificialintelligenceact.eu/annex/11/)
   * [Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models)
@@ -65,7 +65,7 @@ The following ML models were referenced in discussion and/or examples in this gu
 
 ##### Huggingface
 
-Huggingface model (repositories) typically support the `.safetensors` Huggingface format; however, within the same repository, alternative formats are often found, such as PyTorch (`.bin`, `.pt`), GGUF (`.gguf`)
+Hugging Face model (repositories) typically support the `.safetensors` Hugging Face format; however, within the same repository, alternative formats are often found, such as PyTorch (`.bin`, `.pt`), GGUF (`.gguf`)
 
   * [microsoft/resnet-50](https://huggingface.co/microsoft/resnet-50/blob/main/README.md) - single `model.safetensors`, `pytorch_model.bin` file.
   * [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) - multiple  `*.safetensors` files with `model.safetensors.index.json` index.
@@ -83,9 +83,9 @@ ONNX models are typically single file format ending with the `.onnx` extension.
 
 > **Note**: Most ONNX models have transitioned to and are now registered in Huggingface, but are downloaded from linked GitHub repository files not within the HF repo. itself.
 
-* Huggingface
+* Hugging Face
   * [onnx/DenseNet-121-9](https://huggingface.co/onnx/DenseNet-121-9/tree/main) - `densenet-9.onnx`
-* GitHub (https://github.com/onnx/models/tree/main/validated/)
+* [GitHub](https://github.com/onnx/models/tree/main/validated/)
   * [vision/object_detection_segmentation/tiny-yolov2/model](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) - `tinyyolov2-7.onnx`
 
 ---

@@ -7,8 +7,11 @@ Currently, the v1.7 CycloneDX specification may not have specific objects or fie
 For convenience, here are links to the specific sections for some of these acknowledged informational areas:
 
 * [Using CycloneDX AI/ML properties](#using-cyclonedx-aiml-properties)
+  * [Declaring a model's modalities](#declaring-a-models-modalities)
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
+  * [Providing a model's usage policy](#providing-a-models-usage-policy)
   * [Providing free-form tags for search](#providing-free-form-tags-for-search)
+  * [Providing a model's usage policy](#providing-a-models-usage-policy)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware and software training components](#declaring-hardware-and-software-training-components)
@@ -20,7 +23,45 @@ For convenience, here are links to the specific sections for some of these ackno
 This section includes discussion and examples of supported AI/ML-related metadata properties that can be used to classify models in their model card information. This method utilizes reserved [AI/ML property names](https://github.com/CycloneDX/cyclonedx-property-taxonomy/cdx/ai-ml.md) registered under the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
 
-## Annotating a model's supported languages
+### Declaring a model's modalities
+
+Models are trained to support processing and analysis of one or more types of input data for specific tasks or data modalities.
+
+* **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported modalities is: `cdx:ai-ml:model:modality`
+
+* **Property value**: The values for this property includes:
+
+  * `text` - Natural Language Processing (NLP) and specializations such as Natural Language Understanding (NLU) for tasks like translation, summarization, conversation, classification and sentiment analysis.
+  * `code` - Specialized text-based modality used for software engineering and logic.
+  * `instruct` - Specialized text-based fine-tuned for understanding and executing natural language directives (i.e., instruction following).
+  * `image` (vision) - Computer vision for object detection, generation, and classification as well as document processing.
+  * `video` - Video processing tasks to extract structured information, including object detection, action recognition, scene detection, and temporal understanding.
+  * `audio` - Audio processing tasks such as Automatic Speech Recognition (ASR), Speech-to-Text, music generation, and sound pattern recognition.
+  * `sensor` (telemetry) - Processes data from specialized sensors or hardware, such as LiDAR for autonomous vehicles or IoT sensor feeds.
+  * `biometric` - Specialized sensor-based modality used for analyzing biological traits for tasks such as facial recognition, fingerprint scanning, or voice authentication.
+  * `genomic` (telemetry) - Processes high-dimensional data used in drug discovery and medical research.
+  * `_undefined:<NAME>` - `<NAME>` placeholder, used to provide an arbitrary model modality name.
+
+###### Example: Tagging a model with its modalities
+
+```json
+"component":
+{
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/FakeAI/CoderModel",
+  // ...,
+  "properties": [
+    {
+      "name": "cdx:ai-ml:model:modality:code"
+    },
+    {
+      "name": "cdx:ai-ml:model:modality:instruct"
+    }
+  ]
+}
+```
+
+### Annotating a model's supported languages
 
 Models can be trained in one or more languages (i.e., multilingual models).
 
@@ -51,10 +92,10 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 ###### Field discussion
 
-* **properties** - The `value` reflects the set (list) of ISO ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
+* **properties** - The `value` reflects the set (list) of ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
 
 
-## Providing free-form tags for search
+### Providing free-form tags for search
 
 This section describes how to "tag" model components with non-standard keywords and terms seen in various model catalogs or repositories for search or "lookup" purposes.
 
@@ -80,6 +121,28 @@ This section describes how to "tag" model components with non-standard keywords 
 
 * **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
+
+### Providing a model's usage policy
+
+Model usage policies can be provided using `externalReferences` associated with the model's component definition.
+
+###### Example: Providing a link to a model's usage policy
+
+```json
+"component": {
+  "type": "machine-learning-model",
+  "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+  // ...,
+  "externalReferences": [
+    {
+      "url": "https://qwen.ai/usagepolicy",
+      "type": "documentation",
+      "comment": "Usage policy"
+    }
+  ],
+  // ...
+}
+```
 
 ## Tokenizers and prompt templates
 
@@ -170,7 +233,7 @@ In short, this is accomplished by using objects from the [CycloneDX Manufacturin
 
 > **Note**: The "manufacturing" information may be included within the ML-BOM itself or provided as a separate MBOM and cross-linked to each other using the CycloneDX `BOMLink` (see [BOM-Link](https://cyclonedx.org/capabilities/bomlink/) documentation).
 
-#### Declaring hardware and software training components
+### Declaring hardware and software training components
 
 ###### Example: Sample methodology for declaring the "training stack"
 
@@ -183,7 +246,7 @@ First, create entries for all the "components" used in the training process as p
   "metadata": {
     "component": {
       "type": "machine-learning-model",
-      "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd",
+      "bom-ref": "pkg:huggingface/FakeAI/llama3@abcd"
     }
   },
   // ...,
@@ -228,9 +291,9 @@ First, create entries for all the "components" used in the training process as p
       {
         "type": "device",
         "name": "NVIDIA H100 Tensor Core GPU",
-        "model": "H100 PCIe"
+        "model": "H100 PCIe",
         "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
-        "bom-ref": "nvidia-h100-pcie-gpu-1",
+        "bom-ref": "nvidia-h100-pcie-gpu-1"
       },
       // ...
     ]
@@ -255,11 +318,11 @@ After the hardware and software "stack" of training components has been declared
   "workflows": [
     {
       "name": "Model training workflow",
-      "description": "Describes the tasks used for training the model described by the ML-BOM."
+      "description": "Describes the tasks used for training the model described by the ML-BOM.",
        "tasks": [
          {
            "name": "Train model in NVIDIA OCI container",
-           "description": "Describes the steps used to train the model using commands and libraries in the container image.": [ ... ],
+           "description": "Describes the steps used to train the model using commands and libraries in the container image.",
            "steps": [ ... ],
            "inputs": [ ... ],
            "outputs": [ ... ],

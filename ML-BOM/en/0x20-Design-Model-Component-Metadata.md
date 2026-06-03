@@ -17,6 +17,7 @@ For convenience, here are links to the specific sections for each of those infor
   * [Describing models as components](#describing-models-as-components)
   * [Model repositories as components](#model-repositories-as-components)
   * [Model identifiers](#model-identifiers)
+  * [Providing model release notes](#providing-model-release-notes)
   * [Describing a model repository as a CycloneDX assembly](#describing-a-model-repository-as-a-cyclonedx-assembly)
   * [Declaring a model's pedigree](#declaring-a-models-pedigree)
 
@@ -39,6 +40,8 @@ A model should always be declared as a CycloneDX `component`.  If the model itse
 The object model's pseudo-schema would look something like this:
 ![](images/ml-bom-metadata-component.svg)
 
+> **Note** In all example JSON pseudo-code, lines with: "// ..." indicate that additional fields or elements may be added at this position. This is a documentation placeholder and is not valid JSON; it would not appear in actual implementations.
+
 ###### Example: Declaring an ML model in an ML-BOM
 
 The CycloneDX JSON pseudocode below shows how an ML model would be declared as the "subject" `component` of an ML-BOM within the top-level `metadata`:
@@ -58,8 +61,18 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
       "version": "ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
+      "licenses": [
+        {
+          "license": {
+            "name": "Tongyi Qianwen LICENSE AGREEMENT",
+            "text": {
+              "content": "By clicking to agree or by using or distributing any portion or element of the Tongyi Qianwen Materials, ..."
+            }
+          }
+        }
+      ]
       // ...
-    }
+    },
     // ...
   }
   // ...
@@ -69,6 +82,7 @@ The CycloneDX JSON pseudocode below shows how an ML model would be declared as t
 ###### Field discussion
 
 * **bom-ref** - Please note the `bom-ref` value includes the first seven characters of the larger hash value from the `purl` component identifier which is sufficient for local identification within the BOM itself.
+* **license** - The `licenses` object shown in the example is a "custom" license which, in this case, we chose to provide the unencoded license text.  It is preferable, when possible to use an [SPDX license identifier](https://spdx.org/licenses/) and supply it in the `id` field of the `license` (e.g., `"license": { "id": "Apache-2.0" }` ).
 
 #### Model repositories as components
 
@@ -97,7 +111,7 @@ Since the model repository is hosted on Hugging Face, the [Huggingface package t
       "type": "machine-learning-model",
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       "purl": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9c57b252f3149c1408daf4d649ec8b6c85",
-      "group": "Qwen"
+      "group": "Qwen",
       "manufacturer": {
         "name": "Alibaba Cloud",
         "url": [ "https://www.alibabacloud.com" ]
@@ -140,7 +154,7 @@ This section provides best practice guidance on how the component fields were fi
 - **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash matches the `purl` value.
 - **externalReferences** - Used to provide unambiguous links to component's model repository and originating model card.
   - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, Hugging Face is used to affirm the associated PURL identifier.
-  - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.*
+  - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.
 
 #### Model identifier(s)
 
@@ -157,7 +171,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 {
   "type": "machine-learning-model",
   "purl": "pkg:github/onnx/models@4c46cd00fbdb7cd30b6c1c17ab54f2e1f4f7b177#validated/vision/object_detection_segmentation/tiny-yolov2/model",
-  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model"
+  "bom-ref": "pkg:github/onnx/models@244fd47#tiny-yolov2/model",
   // ...
 }
 ```
@@ -166,7 +180,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](), which is the authoritative source of official namespaces used in CycloneDX `properties`.
 
-###### Example:
+###### Example: domain-specific identifiers
 
 The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
@@ -224,10 +238,43 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 }
 ```
 
+##### Providing model release notes
+
+It is important to disclose information regarding a model's release.  This is accomplished by utilizing the CycloneDX component's `releaseNotes` object and its fields.
+
+###### Example: release notes
+
+```json
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
+  // ...
+  "metadata": {
+    "component": {
+      "type": "machine-learning-model",
+      "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+      // ...
+      "releaseNotes": {
+          "type": "major",
+          "title": "Qwen 7B initial release",
+          "timestamp": "2023-08-03T15:30:00Z",
+          "notes": [
+            {
+              "locale": "en-US",
+              "text": "United States (US), English release date."
+            },
+            // ...
+          ]
+        }
+      ]
+    },
+    // ...
+  }
+}
+```
+
 ###### Field discussion
 
 * **type** -  the type has the value `machine-learning-model` since the single file contains all the information (e.g., default configuration parameters, references to architectures and tokenizers, prompt template, etc.) needed to run the model in GGUF inference frameworks.
-
 
 #### Describing a model repository as a CycloneDX assembly
 
@@ -387,7 +434,7 @@ It is important to capture any of these transformations in the model's lineage (
 
 * **ancestors** - `ancestors` entries are themselves CycloneDX `component` objects. It should be noted that these models may have their own ML-BOMs, which can be located via their identifiers (e.g., `purl`) or via `externalReferences` for readers to follow.
 
-##### Declaring known descendents
+##### Declaring known descendants
 
 If, at the time an ML-BOM is created for a model, its downstream model variants (e.g., finetunings, quantizations, etc., derived from the model) are known, these can also be recorded within the `pedigree` object as `descendants` in a similar manner.
 
