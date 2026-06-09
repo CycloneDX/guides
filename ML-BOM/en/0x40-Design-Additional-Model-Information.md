@@ -27,9 +27,7 @@ This section includes discussion and examples of supported AI/ML-related metadat
 
 Models are trained to support processing and analysis of one or more types of input data for specific tasks or data modalities.
 
-* **Property name**: The CycloneDX reserved property taxonomy name to use to annotate a model with its supported modalities is: `cdx:ai-ml:model:modality`
-
-* **Property value**: The values for this property includes:
+* **Properties**: The CycloneDX reserved property taxonomy path names to use to annotate a model are prefixed with `cdx:ai-ml:model:modality:` and have one of the following final path names:
 
   * `text` - Natural Language Processing (NLP) and specializations such as Natural Language Understanding (NLU) for tasks like translation, summarization, conversation, classification and sentiment analysis.
   * `code` - Specialized text-based modality used for software engineering and logic.
