@@ -163,7 +163,6 @@ nav#TOC ul {
 
 nav#TOC li {
   margin: 0;
-  padding-right: 3.5pt;
   text-indent: 0; /* cancel the body list hanging indent */
 }
 
