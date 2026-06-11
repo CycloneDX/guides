@@ -12,9 +12,6 @@ This section will feature guidance on filling out information in the Cyclone mod
 * [Fairness assessments](#fairness-assessments) - How does the model affect groups at risk of being systematically disadvantaged? What are the harms and benefits to the various affected groups?
 * [Environmental considerations](#environmental-considerations) - What are the various environmental impacts the corresponding machine learning model has exhibited across its lifecycle?
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ## Users & use cases
 
@@ -59,9 +56,6 @@ This example shows a list of what kind of user and use case information would be
 
 * There is no expectation that there is a 1:1 correlation between `users` and `useCases` entries.  However, there should be at least one listed use case that can correspond to a named "user" (role).
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ## Technical limitations
 
@@ -207,10 +201,6 @@ Assessments consider evaluations at all stages of the model development lifecycl
 * **Impact Assessments** (Contextual): Assessing how AI systems affect specific groups of people, identifying potential harms to rights, safety, or livelihoods, which is a key requirement for high-risk AI under the EU AI Act.
 * **Adversarial Testing** (Verification): Intentionally challenging the AI model with edge cases to uncover hidden biases or vulnerabilities.
 * **Algorithmic Fairness Interventions** (In-processing/Post-processing): Implementing technical solutions to correct identified disparities, such as modifying the model architecture during training or adjusting output thresholds to ensure fair decision-making.
-
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ###### Example: LLM fairness assessment for Qwen-7B
 

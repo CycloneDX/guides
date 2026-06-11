@@ -71,10 +71,6 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 * **Property value**: The value for this property should be in the form of a comma-separated list of [ISO 639-1 language codes](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) (e.g., `"en,fr,de,it,ja,zh"`, etc.).
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 ###### Example: Tagging a model with its supported languages
 
 ```json
@@ -225,7 +221,6 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
 
 * **properties** - Utilizes the reserved CycloneDX property name `cdx:ai-ml:model:template:chat`, with the name widely used `ChatML` template.
 
----
 
 ## Including manufacturing information for the ML model
 

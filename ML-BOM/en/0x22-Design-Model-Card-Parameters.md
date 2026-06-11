@@ -285,6 +285,10 @@ The public datasets, as documented in the model's research paper, include:
 }
 ```
 
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
 ### Inputs & outputs
 
 Describes the input and output data types (formats) of the model.

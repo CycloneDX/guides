@@ -96,10 +96,6 @@ The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingf
 
 Since the model repository is hosted on Hugging Face, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 ```json
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
@@ -242,6 +238,10 @@ Each can be specifically identified in a CycloneDX component using a Package URL
 
 It is important to disclose information regarding a model's release.  This is accomplished by utilizing the CycloneDX component's `releaseNotes` object and its fields.
 
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
+
 ###### Example: release notes
 
 ```json
@@ -283,6 +283,10 @@ CycloneDX allows for declarations of software compositions (e.g., hardware produ
 In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as a composition of an assembly type.
 
 Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
+
+<div style="page-break-after: always; visibility: hidden">
+\newpage
+</div>
 
 ###### Example: Qwen/Qwen-7B model repository files
 

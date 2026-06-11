@@ -25,10 +25,6 @@ Quantitative analysis is the process of using metrics on benchmarks to determine
 
 Benchmarks are standardized test datasets, scenarios, or tasks that define the "playing field". They provide a consistent environment for evaluating different models and enable the comparison of their metrics across similar models.
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
-
 ### Types of machine learning benchmarks
 
 Benchmarks use standardized datasets to objectively compare model quality, efficiency, fairness, and speed, providing a shared baseline for identifying areas for improvement in various categories.
@@ -51,9 +47,9 @@ Benchmarks use standardized datasets to objectively compare model quality, effic
     * [CodeXGLUE](https://github.com/microsoft/CodeXGLUE/tree/main/Code-Code/code-refinement) (MicroSoft, Code Refinement): Used to evaluate a model's ability to remove (i.e., "fix") bugs from Java code (i.e., refine the code) with accuracy being reported as [BLEU](https://learn.microsoft.com/en-us/azure/ai-services/translator/custom-translator/concepts/bleu-score) scores.
   * **Other Tasks**
     * [IMDB](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews): a large dataset of 50K, highly polarized, movie reviews for NLP sentiment analysis and classification.
-</br>
-* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition): These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking. Some example "vision" datasets include:
 
+* [Computer Vision](0x90-Appendix-A_Glossary.md#computer-vision) (e.g., digital image or video recognition): These benchmarks measure the performance, accuracy, and efficiency of models in tasks like image classification, object detection, segmentation, and tracking. Some example "vision" datasets include:
+  
   * [ImageNet](image-net.org): large-scale dataset for computer vision, featuring over 14 million annotated, high-resolution images across thousands of object categories organized by the [WordNet](https://en.wikipedia.org/wiki/WordNet) hierarchy.
   * [MathVista](https://huggingface.co/datasets/AI4Math/MathVista): Used to evaluating math reasoning in Visual Contexts.  It consists of three datasets, *IQTest*, *FunctionQA*, and *PaperQA*, which are tailored to evaluate visual reasoning on puzzle test figures, algebraic reasoning over functional plots, and scientific reasoning with academic paper figures, respectively.
   * [MNIST](https://www.tensorflow.org/datasets/catalog/mnist) (Modified National Institute of Standards and Technology database): a large database of handwritten digits (glyphs) that is commonly used for training various image processing systems.
@@ -143,9 +139,6 @@ This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-
 
 * **slice** - the `slice` property references a named subset `cola` (Corpus of Linguistic Acceptability) which is a subset of the GLUE tests; "cola" consists of single-sentence task to determine if a sentence is grammatically correct or not.
 
-<div style="page-break-after: always; visibility: hidden">
-\newpage
-</div>
 
 ## Graphics
 
