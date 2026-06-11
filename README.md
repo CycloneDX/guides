@@ -18,3 +18,22 @@ All content in the CycloneDX Authoritative Guides is written in Markdown.
 
 All images in the CycloneDX Authoritative Guides are in SVG format, ensuring high-quality, 
 resolution-independent visuals.
+
+## Building the Guides
+
+The PDFs are produced by a fully open-source pipeline — pandoc converts the Markdown to HTML,
+[WeasyPrint](https://weasyprint.org/) typesets it ([templates/pdf/print.css](templates/pdf/print.css)
+defines the entire design), and pypdf assembles the cover, back page, background art, and metadata.
+No proprietary software is required.
+
+```
+build/build-pdf.sh SBOM        # one guide
+build/build-pdf.sh ALL         # every guide with sources
+```
+
+Requirements: pandoc 3.x, Python 3.10+ with `pip install -r templates/pdf/requirements.txt`, and
+Pango (preinstalled on most Linux distributions; `brew install pango` on macOS) — or simply use the
+repository [Dockerfile](Dockerfile). Guides can also be generated from the
+[Generate Guide](.github/workflows/generate-guide.yml) GitHub Action.
+
+See [templates/pdf/README.md](templates/pdf/README.md) for the pipeline details.

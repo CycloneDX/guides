@@ -1,37 +1,36 @@
-FROM pandoc/core:3.7.0-ubuntu
+# OWASP CycloneDX guide builder
+#   markdown (GFM) --pandoc--> HTML --WeasyPrint--> PDF (pypdf assembles
+#   cover/body/back and stamps the background art)
 
-ENV DEBIAN_FRONTEND=noninteractive
+FROM python:3.13-slim
 
-ENV TZ=UTC
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=UTC \
+    PYTHON=python3
+
+ARG PANDOC_VERSION=3.8.1
 
 RUN apt-get update && \
-    apt-get install -y \
-    curl \
-    wget \
-    gnupg2 \
-    inkscape \
-    exiftool \
-    python3 \
-    python3-pip \
-    unzip \
-    tzdata \
-    git && \
-    python3 -m pip install pandocfilters==1.5.1 docxcompose==1.4.0 pdf-cli==0.2.0 --break-system-packages && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs=18.18.0-1nodesource1 && \
-    npm install -g npm@9.8.1 && \
-    npm install -g cloudconvert-cli@2.0.3 && \
+    apt-get install -y --no-install-recommends \
+      curl \
+      ca-certificates \
+      libpango-1.0-0 \
+      libpangoft2-1.0-0 \
+      libharfbuzz-subset0 \
+      fonts-noto-cjk \
+      tzdata && \
+    arch="$(dpkg --print-architecture)" && \
+    curl -fsSL -o /tmp/pandoc.deb \
+      "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-${arch}.deb" && \
+    dpkg -i /tmp/pandoc.deb && \
+    rm /tmp/pandoc.deb && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    ln -s /usr/bin/python3 /usr/bin/python && \
-    mkdir -p /workspace /workspace/docs
+    rm -rf /var/lib/apt/lists/*
 
-# Set the timezone to UTC
-RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime && \
-    echo $TZ > /etc/timezone
+COPY templates/pdf/requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
 WORKDIR /workspace
-COPY docs/ /workspace/docs/
 COPY Attestations/ /workspace/Attestations/
 COPY CBOM/ /workspace/CBOM/
 COPY HBOM/ /workspace/HBOM/
@@ -43,9 +42,7 @@ COPY SBOM/ /workspace/SBOM/
 COPY VDR_VEX/ /workspace/VDR_VEX/
 COPY images/ /workspace/images/
 COPY templates/ /workspace/templates/
-COPY build/gen.sh /workspace/gen.sh
-RUN chmod +x /workspace/gen.sh
+COPY build/build-pdf.sh /workspace/build/build-pdf.sh
+RUN chmod +x /workspace/build/build-pdf.sh && mkdir -p /workspace/docs
 
-RUN cd /workspace
-
-ENTRYPOINT ["/workspace/gen.sh"]
+ENTRYPOINT ["/workspace/build/build-pdf.sh"]

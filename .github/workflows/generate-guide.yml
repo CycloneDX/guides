@@ -9,6 +9,7 @@ on:
         default: 'SBOM'
         type: choice
         options:
+          - ALL
           - Attestations
           - CBOM
           - HBOM
@@ -40,12 +41,12 @@ jobs:
         run: mkdir -p docs
 
       - name: Run Docker container
-        run: docker run -e CLOUDCONVERT_API_KEY=${{ secrets.CLOUDCONVERT_API_KEY }} -v $(pwd)/docs:/workspace/docs cdx-guides-builder ${{ github.event.inputs.document_type }}
+        run: docker run -v $(pwd)/docs:/workspace/docs cdx-guides-builder ${{ github.event.inputs.document_type }}
 
       - name: List files in docs directory
         run: ls -l docs
 
-      - name: Upload .docx and .pdf files
+      - name: Upload .pdf files
         uses: actions/upload-artifact@v4
         with:
           name: docs

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="595.2755pt" height="841.8898pt" viewBox="0 0 595.2755 841.8898">
+<defs>
+<g>
+<g id="glyph-0-0">
+</g>
+</g>
+<clipPath id="clip-0">
+<path clip-rule="nonzero" d="M 0.246094 312 L 467 312 L 467 841.324219 L 0.246094 841.324219 Z M 0.246094 312 "/>
+</clipPath>
+<clipPath id="clip-1">
+<path clip-rule="nonzero" d="M 61 627 L 594.523438 627 L 594.523438 841.324219 L 61 841.324219 Z M 61 627 "/>
+</clipPath>
+</defs>
+<g clip-path="url(#clip-0)">
+<path fill-rule="evenodd" fill="rgb(26.66626%, 66.667175%, 100%)" fill-opacity="0.06" d="M 466.527344 841.679688 L 0.246094 841.679688 L 0.246094 312.496094 Z M 466.527344 841.679688 "/>
+</g>
+<g clip-path="url(#clip-1)">
+<path fill-rule="evenodd" fill="rgb(100%, 0%, 0%)" fill-opacity="0.06" d="M 61.519531 841.679688 L 594.523438 841.679688 L 594.523438 627.527344 Z M 61.519531 841.679688 "/>
+</g>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="72.157878" y="49.602555"/>
+</g>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="72.157878" y="794.136395"/>
+</g>
+<g fill="rgb(0%, 0%, 0%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="108.114116" y="82.202877"/>
+</g>
+</svg>

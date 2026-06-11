@@ -6,3 +6,4 @@
 
 # ignore PowerPoint temp files
 ~*.pptx
+.venv-pdf/

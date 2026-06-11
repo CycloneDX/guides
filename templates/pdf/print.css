@@ -1,0 +1,405 @@
+/*
+ * OWASP CycloneDX Authoritative Guide — print stylesheet
+ *
+ * The full-bleed background art is NOT painted here — build_pdf.py stamps
+ * templates/watermark.pdf over each page.
+ */
+
+/* ---------- fonts ---------- */
+@font-face {
+  font-family: 'CDX Body';
+  src: url(fonts/Roboto-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CDX Body';
+  src: url(fonts/Roboto-LightItalic.ttf);
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CDX Body';
+  src: url(fonts/Roboto-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CDX Body';
+  src: url(fonts/Roboto-Medium.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CDX Body';
+  src: url(fonts/Roboto-MediumItalic.ttf);
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'CDX Mono';
+  src: url(fonts/JetBrainsMono-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'CDX Mono';
+  src: url(fonts/JetBrainsMono-Medium.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ---------- page geometry ---------- */
+@page {
+  size: A4;
+  margin: 60pt 50pt;
+
+  @top-right {
+    content: element(page-logo);
+    vertical-align: bottom;
+    /* the logo SVG carries a 0.75pt safety margin around the ink */
+    padding-bottom: 10.25pt;
+    padding-right: 2.75pt;
+  }
+  @bottom-right {
+    content: counter(page);
+    font-family: 'CDX Body';
+    font-weight: 300;
+    font-size: 10pt;
+    color: #000000;
+    vertical-align: top;
+    padding-top: 2.5pt;
+    width: 18.8pt;
+    text-align: left;
+  }
+}
+
+@page :first {
+  @top-right { content: none; }
+  @bottom-right { content: none; }
+}
+
+/* Running header logo (vector; ink is 92.6 x 27.5pt with a 0.75pt margin
+   baked into the SVG). The image URL resolves relative to this stylesheet. */
+#page-logo {
+  position: running(page-logo);
+  width: 94.14pt;
+  height: 28.98pt;
+  background: url(art/owasp-logo.svg) no-repeat right bottom / contain;
+}
+
+/* ---------- base typography ---------- */
+html {
+  font-family: 'CDX Body';
+  font-weight: 300;
+  font-size: 10pt;
+  line-height: 1.22;
+  color: #000000;
+}
+
+body {
+  margin: 0;
+  widows: 2;
+  orphans: 2;
+  hyphens: none;
+}
+
+p {
+  margin: 0 0 6pt 0;
+}
+
+h1 + p, h2 + p, h3 + p, h4 + p {
+  margin-bottom: 10pt;
+}
+
+a {
+  color: #0563C1;
+  text-decoration: underline;
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+/* ---------- headings ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  color: #44AAFF;
+  break-after: avoid;
+}
+
+h1 {
+  font-size: 16pt;
+  margin: 18pt 0 16pt 0;
+}
+
+h2 {
+  font-size: 12pt;
+  margin: 18pt 0 4pt 0;
+}
+
+h3, h4, h5, h6 {
+  font-size: 10pt;
+  margin: 10pt 0 10pt 0;
+}
+
+.page-break + h1, .page-break + h2, .page-break + h3, .page-break + h4 {
+  margin-top: 0;
+}
+
+/* ---------- table of contents ---------- */
+.toc-title {
+  font-size: 14pt;
+  font-weight: 700;
+  color: #44AAFF;
+  margin: 19pt 0 17.5pt 0;
+  bookmark-level: none;
+}
+
+nav#TOC ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav#TOC li {
+  margin: 0;
+  padding-right: 3.5pt;
+  text-indent: 0; /* cancel the body list hanging indent */
+}
+
+nav#TOC li::before {
+  content: none;
+}
+
+nav#TOC li.toc-h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 12pt;
+  margin-bottom: 10pt;
+}
+
+nav#TOC li.toc-h1 > ul {
+  margin-top: 10pt;
+}
+
+nav#TOC li.toc-h2 {
+  font-weight: 300;
+  text-transform: none;
+  margin-left: 36pt;
+  margin-top: 0;
+}
+
+nav#TOC a {
+  color: #000000;
+  text-decoration: none;
+}
+
+/* dot leaders run flush into the page number; weight follows the entry */
+nav#TOC a::after {
+  content: leader('.') target-counter(attr(href), page);
+}
+
+/* ---------- lists ---------- */
+ul, ol {
+  list-style: none;
+  margin: 4pt 0 10pt 0;
+  padding-left: 22pt;
+}
+
+/* paragraphs interrupted by lists resume without extra space */
+ul + p, ol + p {
+  margin-top: 0;
+}
+
+li {
+  margin-bottom: 6pt;
+  text-indent: -12pt;
+}
+
+li::before {
+  display: inline-block;
+  width: 12pt;
+  text-indent: 0;
+}
+
+ul > li::before {
+  content: '\2022';
+  font-size: 1.7em;
+  line-height: 0;
+  vertical-align: -0.13em; /* optically center the enlarged dot on the line */
+}
+
+ul ul > li::before {
+  content: '\25E6';
+}
+
+/* numbered markers need a little more room ("10.") */
+ol > li {
+  text-indent: -14pt;
+}
+
+ol > li::before {
+  content: counter(list-item) '.';
+  width: 14pt;
+}
+
+.paren-list ol > li::before {
+  content: counter(list-item) ')';
+}
+
+li > p {
+  display: inline;
+  margin: 0;
+}
+
+li > ul, li > ol {
+  margin-top: 6pt;
+  text-indent: 0;
+}
+
+/* ---------- tables ---------- */
+table {
+  border-collapse: collapse;
+  margin: 4pt 0 6pt 0;
+  width: auto;
+  max-width: 100%;
+}
+
+th, td {
+  border: 0.5pt solid #5B9BD5;
+  padding: 6.5pt 6pt;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Tables with multi-line bullet cells (tagged by the Lua filter) carry
+   long unbreakable tokens such as dotted property paths; allow last-resort
+   breaks in body cells so these tables never overflow the page. Headers
+   keep their natural width so column minimums stay readable. */
+.dense-table td {
+  overflow-wrap: anywhere;
+}
+
+td {
+  background-color: #FFFFFF;
+}
+
+thead th {
+  background-color: #5B9BD5;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+th strong {
+  font-weight: inherit;
+}
+
+/* light separator between header cells (wider than the blue cell border so
+   it wins the collapsed-border resolution) */
+thead th + th {
+  border-left: 0.75pt solid #9CC2E5;
+}
+
+thead {
+  display: table-header-group;
+}
+
+tr {
+  break-inside: avoid;
+}
+
+/* ---------- code ---------- */
+div.sourceCode, pre {
+  margin: 12pt -2pt 12pt -4.7pt;
+}
+
+div.sourceCode pre {
+  margin: 0;
+}
+
+pre {
+  font-family: 'CDX Mono';
+  font-weight: 300;
+  font-size: 8pt;
+  line-height: 11pt;
+  letter-spacing: -0.1pt;
+  background-color: #FDF5FF;
+  border: 0.5pt solid #4472C4;
+  padding: 4pt 4pt;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  box-decoration-break: clone;
+  font-variant-ligatures: none;
+}
+
+pre code {
+  font-family: 'CDX Mono';
+  font-weight: 300;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 8pt;
+}
+
+pre > code.sourceCode > span {
+  display: inline;
+  text-indent: 0;
+  padding-left: 0;
+  line-height: inherit;
+}
+
+/* Inline code renders in the body font, indistinguishable from the
+   surrounding text. */
+:not(pre) > code {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ---------- blockquotes (callout boxes) ---------- */
+blockquote {
+  background-color: #FDF5FF;
+  border: 0.5pt solid #4472C4;
+  margin: 10pt 27pt 10pt 24pt;
+  padding: 2pt 10pt;
+  font-style: italic;
+  break-inside: avoid;
+}
+
+blockquote p {
+  margin: 2pt 0;
+}
+
+/* ---------- figures and images ---------- */
+img {
+  max-width: 100%;
+  /* tall figures shrink (proportionally) to fit one page's content box
+     rather than being clipped at the page edge */
+  max-height: 640pt;
+}
+
+figure {
+  margin: 10pt 0;
+  text-align: left;
+}
+
+figcaption {
+  display: none; /* image alt text is not rendered as a caption */
+}
+
+/* ---------- misc ---------- */
+hr {
+  border: none;
+  border-top: 2pt double #000000;
+  margin: 14pt 0;
+}
+
+/* page-break helpers emitted by the pagebreak Lua filter */
+.page-break {
+  break-after: page;
+  visibility: hidden;
+}
+
+.empty-para {
+  visibility: hidden;
+}

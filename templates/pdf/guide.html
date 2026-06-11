@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="$if(lang)$$lang$$else$en$endif$">
+<head>
+<meta charset="utf-8">
+<title>$title$</title>
+$if(author)$
+<meta name="author" content="$author$">
+$endif$
+$if(description)$
+<meta name="description" content="$description$">
+$endif$
+$if(keywords)$
+<meta name="keywords" content="$keywords$">
+$endif$
+$if(highlighting-css)$
+<style>
+$highlighting-css$
+</style>
+$endif$
+$for(css)$
+<link rel="stylesheet" href="$css$">
+$endfor$
+</head>
+<body>
+<div id="page-logo"></div>
+$if(toc)$
+<h1 class="toc-title" id="toc-title">Table of Contents</h1>
+<nav id="TOC" role="doc-toc">
+$table-of-contents$
+</nav>
+$endif$
+$body$
+</body>
+</html>
