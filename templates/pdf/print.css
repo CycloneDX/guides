@@ -347,12 +347,13 @@ pre > code.sourceCode > span {
   line-height: inherit;
 }
 
-/* Inline code renders in the body font, indistinguishable from the
-   surrounding text. */
+/* Inline code */
 :not(pre) > code {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
+  font-family: 'CDX Mono';
+  font-weight: 300;
+  font-size: 9pt;
+  font-variant-ligatures: none;
+  color: #BC1F20;
 }
 
 /* ---------- blockquotes (callout boxes) ---------- */
