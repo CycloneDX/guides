@@ -288,7 +288,6 @@ First, create entries for all the "components" used in the training process as p
       {
         "type": "device",
         "name": "NVIDIA H100 Tensor Core GPU",
-        "model": "H100 PCIe",
         "description": "NVIDIA H100 Tensor Core GPU PCIe Device",
         "bom-ref": "nvidia-h100-pcie-gpu-1"
       },

@@ -359,45 +359,41 @@ The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen
       "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
       // ...,
       "modelCard": {
-        "modelParameters": {
-          // ...,
-          "properties": [
-            {
-              "name": "cdx:ai-ml:model:parameter:count",
-              "value": "7B"
-            },
-            {
-              "name": "cdx:ai-ml:model:parameter:tune_method",
-              "value": "sft"
-            },
-            {
-              "name": "cdx:ai-ml:model:parameter:tune_method",
-              "value": "rlhf"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
-              "value": "32"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:hidden_size",
-              "value": "4096"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:context_length",
-              "value": "8192"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:vocab_size",
-              "value": "151936"
-            },
-            {
-              "name": "cdx:ai-ml:model:hyperparameter:quantization",
-              "value": "BF16"
-            },
-            // ...
-          ]
-        },
-        // ...
+        // ...,
+        "properties": [
+          {
+            "name": "cdx:ai-ml:model:parameter:count",
+            "value": "7B"
+          },
+          {
+            "name": "cdx:ai-ml:model:parameter:tune_method",
+            "value": "sft"
+          },
+          {
+            "name": "cdx:ai-ml:model:parameter:tune_method",
+            "value": "rlhf"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:num_hidden_layers",
+            "value": "32"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:hidden_size",
+            "value": "4096"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:context_length",
+            "value": "8192"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:vocab_size",
+            "value": "151936"
+          },
+          {
+            "name": "cdx:ai-ml:model:hyperparameter:quantization",
+            "value": "BF16"
+          }
+        ]
       }
     }
   }
