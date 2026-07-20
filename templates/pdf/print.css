@@ -88,6 +88,26 @@
   background: url(art/owasp-logo.svg) no-repeat right bottom / contain;
 }
 
+/* ---------- draft watermark ---------- */
+/* WeasyPrint repeats position: fixed boxes on every body page. The box is
+   painted above the flow content (positioned boxes stack over it), so the
+   ink must stay faint enough to read through — same principle as the
+   full-bleed art stamped over the page by build_pdf.py. The body gains
+   class="draft" via the pandoc template unless the build is --final. */
+body.draft::before {
+  content: "DRAFT";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-55deg);
+  font-family: 'CDX Body';
+  font-weight: 300;
+  font-size: 130pt;
+  letter-spacing: 24pt;
+  white-space: nowrap;
+  color: rgba(68, 114, 196, 0.13);
+}
+
 /* ---------- base typography ---------- */
 html {
   font-family: 'CDX Body';

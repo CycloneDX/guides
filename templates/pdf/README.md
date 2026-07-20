@@ -27,6 +27,9 @@ Build a guide:
 build/build-pdf.sh SBOM en
 ```
 
+Builds carry a diagonal DRAFT watermark on every body page by default;
+pass `--final` for a clean release build.
+
 Requirements: `pandoc` 3.x, Python 3.10+ with `pip install -r
 templates/pdf/requirements.txt`, and Pango (preinstalled on most Linux;
 `brew install pango` on macOS). Or use the repository `Dockerfile`.

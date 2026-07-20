@@ -33,6 +33,7 @@ RUN pip install --no-cache-dir -r /tmp/requirements.txt
 WORKDIR /workspace
 COPY Attestations/ /workspace/Attestations/
 COPY CBOM/ /workspace/CBOM/
+COPY Design-Assurance/ /workspace/Design-Assurance/
 COPY HBOM/ /workspace/HBOM/
 COPY MBOM/ /workspace/MBOM/
 COPY ML-BOM/ /workspace/ML-BOM/

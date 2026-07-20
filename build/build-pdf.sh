@@ -4,11 +4,25 @@
 #   markdown (GFM) --pandoc--> HTML --WeasyPrint--> body PDF
 #   cover.pdf + body + back.pdf --pypdf--> final PDF (with metadata)
 #
-# Usage: build/build-pdf.sh <BOMTYPE> [LANG]
+# Usage: build/build-pdf.sh <BOMTYPE> [LANG] [--final]
+#
+# Builds carry a diagonal DRAFT watermark by default; --final (or
+# --no-draft) produces a clean release build.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
 ROOT="$(pwd)"
+
+DRAFT=1
+ARGS=()
+for arg in "$@"; do
+  case $arg in
+    (--final|--no-draft) DRAFT=0;;
+    (--draft) DRAFT=1;;
+    (*) ARGS+=("$arg");;
+  esac
+done
+set -- ${ARGS[@]+"${ARGS[@]}"}
 
 case ${1:-} in
   ([Ss][Bb][Oo][Mm]) BOMTYPE="SBOM";;
@@ -16,23 +30,27 @@ case ${1:-} in
   ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
   ([Vv][Dd][Rr]|[Vv][Ee][Xx]|[Vv][Ee][Xx]_[Vv][Dd][Rr]|[Vv][Dd][Rr]_[Vv][Ee][Xx]) BOMTYPE="VDR_VEX";;
   ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
+  ([Dd][Ee][Ss][Ii][Gg][Nn][-][Aa][Ss][Ss][Uu][Rr][Aa][Nn][Cc][Ee]) BOMTYPE="Design-Assurance";;
   ([Mm][Ll][Bb][Oo][Mm]|[Mm][Ll]-[Bb][Oo][Mm]) BOMTYPE="ML-BOM";;
   ([Mm][Bb][Oo][Mm]) BOMTYPE="MBOM";;
   ([Hh][Bb][Oo][Mm]) BOMTYPE="HBOM";;
   ([Oo][Bb][Oo][Mm]) BOMTYPE="OBOM";;
   ([Aa][Ll][Ll]) BOMTYPE="ALL";;
   (*)
-    echo "Usage: $0 <SBOM|CBOM|SaaSBOM|VDR|VEX|Attestations|MLBOM|MBOM|HBOM|OBOM|ALL> [lang]"
+    echo "Usage: $0 <SBOM|CBOM|SaaSBOM|VDR|VEX|Attestations|Design-Assurance|MLBOM|MBOM|HBOM|OBOM|ALL> [lang] [--final]"
     exit 1;;
 esac
 
 LANG_CODE=${2:-en}
 
+DRAFT_FLAG=""
+if [ "$DRAFT" = 0 ]; then DRAFT_FLAG="--final"; fi
+
 if [ "$BOMTYPE" = "ALL" ]; then
   status=0
-  for type in Attestations CBOM HBOM MBOM ML-BOM OBOM SaaSBOM SBOM VDR_VEX; do
+  for type in Attestations Design-Assurance CBOM HBOM MBOM ML-BOM OBOM SaaSBOM SBOM VDR_VEX; do
     if ls "$ROOT/$type/$LANG_CODE"/*.md >/dev/null 2>&1; then
-      "$0" "$type" "$LANG_CODE" || status=1
+      "$0" "$type" "$LANG_CODE" $DRAFT_FLAG || status=1
     else
       echo "Skipping $type ($LANG_CODE): no markdown sources"
     fi
@@ -74,11 +92,17 @@ fi
 
 command -v pandoc >/dev/null || { echo "Error: pandoc is required"; exit 1; }
 
-echo "Generating CycloneDX Authoritative Guide to $BOMTYPE ($LANG_CODE)..."
+if [ "$DRAFT" = 1 ]; then
+  echo "Generating CycloneDX Authoritative Guide to $BOMTYPE ($LANG_CODE) [DRAFT; use --final to disable]..."
+  DRAFT_META="--metadata draft=true"
+else
+  echo "Generating CycloneDX Authoritative Guide to $BOMTYPE ($LANG_CODE)..."
+  DRAFT_META=""
+fi
 
 mkdir -p "$OUTDIR"
 
-pandoc -s -f gfm -t html5 \
+pandoc -s -f gfm -t html5 $DRAFT_META \
   --template "$ROOT/templates/pdf/guide.html" \
   --lua-filter "$ROOT/templates/pdf/filters/pagebreak-html.lua" \
   --columns 10000 \
