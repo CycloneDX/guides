@@ -280,7 +280,7 @@ li > ul, li > ol {
 table {
   border-collapse: collapse;
   margin: 4pt 0 6pt 0;
-  width: auto;
+  width: 100%;
   max-width: 100%;
 }
 
@@ -329,7 +329,7 @@ tr {
 
 /* ---------- code ---------- */
 div.sourceCode, pre {
-  margin: 12pt -2pt 12pt -4.7pt;
+  /* margin: 12pt -2pt 12pt -4.7pt; */
 }
 
 div.sourceCode pre {
