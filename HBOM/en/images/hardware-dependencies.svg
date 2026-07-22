@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100%" height="100%" viewBox="0 0 1680 560" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; fill: rgb(26,26,26); }
+    .title { font-size: 30px; font-weight: bold; }
+    .label { font-size: 26px; }
+    .small { font-size: 22px; fill: rgb(51,51,51); }
+    .mono { font-family: 'Courier New', Courier, monospace; font-size: 24px; }
+  </style>
+  <rect x="0" y="0" width="1680" height="560" style="fill:rgb(255,255,255);"/>
+
+  <!-- Left panel: physical connection -->
+  <text x="60" y="70" class="title">Physical connection</text>
+
+  <!-- Devkit One board -->
+  <rect x="60" y="130" width="330" height="220" style="fill:rgb(237,255,240);stroke:rgb(201,251,202);stroke-width:4;"/>
+  <text x="225" y="230" text-anchor="middle" class="label">Acme Devkit One</text>
+  <text x="225" y="266" text-anchor="middle" class="small">system board</text>
+
+  <!-- Ribbon cable -->
+  <line x1="390" y1="220" x2="560" y2="220" style="stroke:rgb(51,51,51);stroke-width:3;"/>
+  <line x1="390" y1="232" x2="560" y2="232" style="stroke:rgb(51,51,51);stroke-width:3;"/>
+  <line x1="390" y1="244" x2="560" y2="244" style="stroke:rgb(51,51,51);stroke-width:3;"/>
+  <line x1="390" y1="256" x2="560" y2="256" style="stroke:rgb(51,51,51);stroke-width:3;"/>
+  <text x="475" y="300" text-anchor="middle" class="small">ribbon cable</text>
+
+  <!-- Touchkit module -->
+  <rect x="560" y="130" width="330" height="220" style="fill:rgb(239,253,253);stroke:rgb(188,226,255);stroke-width:4;"/>
+  <text x="725" y="230" text-anchor="middle" class="label">Touchkit Display Module</text>
+  <text x="725" y="266" text-anchor="middle" class="small">optional, sold separately</text>
+
+  <text x="60" y="440" class="small">No assembly contains both: the module sits outside the board and its enclosure.</text>
+  <text x="60" y="478" class="small">The module still requires the board for power and signaling.</text>
+
+  <!-- Divider -->
+  <line x1="990" y1="40" x2="990" y2="520" style="stroke:rgb(188,226,255);stroke-width:3;"/>
+
+  <!-- Right panel: dependency graph -->
+  <text x="1050" y="70" class="title">Dependency graph</text>
+
+  <rect x="1050" y="130" width="330" height="110" style="fill:rgb(239,253,253);stroke:rgb(188,226,255);stroke-width:4;"/>
+  <text x="1215" y="195" text-anchor="middle" class="mono">mod-touchkit</text>
+
+  <!-- Arrow -->
+  <line x1="1215" y1="240" x2="1215" y2="360" style="stroke:rgb(51,51,51);stroke-width:4;"/>
+  <path d="M 1215 380 L 1202 356 L 1228 356 Z" style="fill:rgb(51,51,51);"/>
+  <text x="1240" y="316" class="mono">dependsOn</text>
+
+  <rect x="1050" y="380" width="330" height="110" style="fill:rgb(237,255,240);stroke:rgb(201,251,202);stroke-width:4;"/>
+  <text x="1215" y="445" text-anchor="middle" class="mono">asm-devkit-one</text>
+</svg>
