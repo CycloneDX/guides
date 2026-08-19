@@ -268,14 +268,14 @@ The public datasets, as documented in the model's research paper, include:
   },
   "components": [
     {
-      "name": "UltraFeed-back dataset",
+      "name": "UltraFeedback dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365",
       "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e",
       // ...
     },
     {
-      "name": "UltraFeed-back dataset",
+      "name": "Snorkel-Mistral-PairRM-DPO dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a",
       "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511",
