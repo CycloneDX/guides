@@ -32,13 +32,16 @@ permissions: {}
 jobs:
   build_and_run:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Build Docker image
         run: docker build -t cdx-guides-builder .
@@ -47,13 +50,16 @@ jobs:
         run: mkdir -p docs
 
       - name: Run Docker container
-        run: docker run -v $(pwd)/docs:/workspace/docs cdx-guides-builder ${{ github.event.inputs.document_type }} ${{ github.event.inputs.draft == 'false' && '--final' || '' }}
+        env:
+          DOCUMENT_TYPE: ${{ github.event.inputs.document_type }}
+          DRAFT_FLAG: ${{ github.event.inputs.draft == 'false' && '--final' || '' }}
+        run: docker run -v "$(pwd)/docs:/workspace/docs" cdx-guides-builder "$DOCUMENT_TYPE" $DRAFT_FLAG
 
       - name: List files in docs directory
         run: ls -l docs
 
       - name: Upload .pdf files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: docs
           path: docs/**
