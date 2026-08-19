@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-parameters.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents, including:
+This section will feature guidance on filling out information in the CycloneDX model card's `modelParameters` object and its subcomponents, including:
 
 * [Model metadata](#model-metadata)
   * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
@@ -56,7 +56,7 @@ The model architecture family field should include descriptive names of neural n
 Some examples of commonly referenced neural network (NN) architecture families include:
 
 * **Transformers** - an architecture designed to process sequential data (like text, speech, or images) in parallel rather than in order.
-* **Convolutional Neural Network (CNN)** - an architecture designed to process efficiently detect patterns (like edges, shapes, and textures) to typically classify or analyze visual (videos/image) or auditory data, but can applied to text analysis, behavioral patterns and more.
+* **Convolutional Neural Network (CNN)** - an architecture designed to efficiently detect patterns (like edges, shapes, and textures) to typically classify or analyze visual (videos/image) or auditory data, but can be applied to text analysis, behavioral patterns and more.
 * **Recurrent Neural Network (RNN)** - an architecture designed for processing sequential data like text, speech, and time series, typically used for tasks where order matters, such as language translation, speech recognition and time-series forecasting.
 * **Long Short-Term Memory (LSTM)** -  a specialized variant of a Recurrent Neural Network (RNN) architecture designed specifically to overcome the limitations of traditional RNNs in learning long-term dependencies.
 * **Gated Recurrent Units (GRUs)** a specialized variant of a Recurrent Neural Network (RNN) architecture designed to overcome challenges like the vanishing gradient problem and enhance the modeling of long-term dependencies in sequential datasets.
@@ -70,7 +70,7 @@ The model architecture field is intended to include specific keywords to identif
 
 These are typically found in one of several locations relative to the model:
 
-* **Model Card**: the associated "model card" (e.g., `README.md` in Hugging Face) may contain a mentions of specific class names like `LlamaForCausalLM`, `BertModel`, or `VisionTransformer`.
+* **Model Card**: the associated "model card" (e.g., `README.md` in Hugging Face) may contain mentions of specific class names like `LlamaForCausalLM`, `BertModel`, or `VisionTransformer`.
 * **Framework-Specific Implementation Keywords** or tags: Depending on your code environment (PyTorch, TensorFlow, llama.cpp, etc.) that identify specific model code within the platform or environment.
 * **Framework-Specific Configuration files** (e.g., Hugging Face transformer's `config.json` file): may contain the name of the class or function used to configure the framework for the specific implementation recommended for the associated model.
 * **Academic Research Papers** (e.g., arXiv): may include detailed descriptors of processing algorithms, supported training or inference engines or specific, named implementations

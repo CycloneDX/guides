@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-considerations.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's design `considerations` object and its subcomponents, including:
+This section will feature guidance on filling out information in the CycloneDX model card's design `considerations` object and its subcomponents, including:
 
 * [Users](#users) - Who are the intended users of the model?
 * [Use cases](#use-cases)-  What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?
@@ -109,7 +109,7 @@ Some of these tradeoff considerations include:
 
 ###### Example: Performance tradeoffs for Qwen-7B
 
-This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 &B parameter model.
+This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 7B parameter model.
 
 ```json
 "component": {
@@ -169,7 +169,7 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
           "mitigationStrategy": "Explicitly instruct the model to \"Prioritize Safety\" in the prompt and use Retrieval-Augmented Generation (RAG) to ground responses in verified external documents."
         },
         {
-          "name": "Privacy, Sensitive or Personally Identifiable Information (PII)Content Leakage. If such data was present in the pre-training corpus, this risk for generation od such data is possible.",
+          "name": "Privacy, Sensitive or Personally Identifiable Information (PII) Content Leakage. If such data was present in the pre-training corpus, this risk for generation of such data is possible.",
           "mitigationStrategy": "Deploy the model locally using tools like Ollama to ensure sensitive data stays within a secure environment, and apply regex-based PII scrubbing to outputs."
         },
         {
