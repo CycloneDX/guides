@@ -34,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    # actions below are pinned to major-version tags; consider pinning to a
+    # full commit SHA instead for stronger supply-chain integrity guarantees
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
