@@ -197,8 +197,8 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
               "type": "MMLU (5-shot)",
               "value": "58.2",
               "confidenceInterval": {
-                "lowerBound": "94.28",
-                "upperBound": "95.72"
+                "lowerBound": "57.48",
+                "upperBound": "58.92"
               }
             },
             {
