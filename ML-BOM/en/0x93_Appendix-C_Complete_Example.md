@@ -7,7 +7,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
 
 > **Note**: For brevity, the `formulation` entry for the model's training only describes the top-level `workflow` topology (i.e., the run-time "stack"), but none of the `tasks` or `steps` that could be detailed.
 
-```json
+```jsonc
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
