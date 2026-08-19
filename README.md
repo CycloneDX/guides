@@ -14,7 +14,7 @@ and experiences of the community. Whether through writing, reviewing, or providi
 contributors play a vital role in maintaining the relevance and accuracy of the content, ultimately
 supporting the continuous improvement and adoption of BOM standards globally.
 
-All content in the CycloneDX Authoritative Guides is written in Markdown.
+All content in the CycloneDX Authoritative Guides is written in GitHub Flavored Markdown (GFM).
 
 All images in the CycloneDX Authoritative Guides are in SVG format, ensuring high-quality, 
 resolution-independent visuals.
