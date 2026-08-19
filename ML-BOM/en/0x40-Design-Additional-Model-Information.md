@@ -281,7 +281,7 @@ First, create entries for all the "components" used in the training process as p
       {
         "type": "library",
         "name": "nccl",
-        "version": "2.19.3",
+        "version": "2.29.2",
         "bom-ref": "pkg:generic/nccl@2.29.2",
         "purl": "pkg:generic/nccl@2.29.2"
       },

@@ -435,7 +435,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
         {
           "type": "library",
           "name": "nccl",
-          "version": "2.19.3",
+          "version": "2.29.2",
           "bom-ref": "pkg:generic/nccl@2.29.2",
           "purl": "pkg:generic/nccl@2.29.2"
         },
