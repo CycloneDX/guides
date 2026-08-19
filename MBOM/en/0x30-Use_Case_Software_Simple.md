@@ -8,7 +8,7 @@ This example shows how a simple `helloworld` application's build process can be 
 
 The application itself is composed a single "C" source file, `helloworld.c`, which contains the following code:
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -38,7 +38,7 @@ clean:
 
 The application can be built by manually running the following command in a terminal/shell of a suitable operating system:
 
-```
+```shellSession
 $ make build
 ```
 
