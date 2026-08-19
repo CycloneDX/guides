@@ -218,11 +218,13 @@ This example shows how fairness assessment information would be included in a Cy
       "fairnessAssessments": [
         {
           "groupAtRisk": "People identified by characteristics such as race, gender, and disability status.",
+          "benefits": "Consistent, criteria-based task assignment can reduce the variability and implicit bias found in unaided human decision-making, giving candidates from these same groups more predictable, explainable outcomes when the model is properly audited.",
           "harms": "The model was found to produce discriminatory outcomes across protected characteristics, including race, gender, and disability status. For example, individuals categorized as \"gypsy\" or \"mute\" were incorrectly labeled as untrustworthy in task assignment scenarios.",
           "mitigationStrategy": "Researchers recommend using Reinforcement Learning from Artificial Intelligence Feedback (RLAIF) and rule-based rewards to align the model with specific legal standards like the EU AI Act."
         },
         {
           "groupAtRisk": "Non-English/Non-Chinese speakers, speakers of regional dialects or specific geographic regions (e.g., Southeast Asia or the Middle East) on thinking or \"reasoning\" tasks.",
+          "benefits": "For the languages where quality is high, the model lowers the cost of access to advanced reasoning and coding assistance for communities that previously had little affordable, localized AI tooling available to them.",
           "harms": "Quality-of-Service Harm: The model may provide high-quality, nuanced reasoning in English or Mandarin but offer oversimplified, factually incorrect, or \"hallucinated\" information when queried in other supported languages.",
           "mitigationStrategy": "Cross-Lingual Alignment: Developers can use multilingual Supervised Fine-Tuning (SFT). By training on additional high-quality, parallel corpora from other languages on \"reasoning capabilities\" (e.g., logic, math, coding)."
         },
@@ -232,6 +234,10 @@ This example shows how fairness assessment information would be included in a Cy
   }
 }
 ```
+
+###### Field discussion
+
+* **benefits** - Complements `harms` by documenting the positive impact the model can have on the same at-risk group; together the two fields give the balanced account expected by fairness/impact assessments (e.g., under the EU AI Act).
 
 
 ## Environmental considerations
