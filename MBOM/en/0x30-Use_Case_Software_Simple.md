@@ -158,7 +158,7 @@ The trigger provides context about an event, as well as describing any additiona
 
 This could be represented as follows:
 
-```jsonc
+```json5
 {
   "timeActivated": "2025-01-01T14:00:00+00:00",
   "bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
@@ -183,7 +183,7 @@ This could be represented as follows:
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "uid": "uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
@@ -200,7 +200,7 @@ As you can see we provide the two logical `taskType` values of `clean` and `buil
 
 The single command-line, build `step` can be added to the task:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -221,7 +221,7 @@ The single command-line, build `step` can be added to the task:
 
 The `trigger` defined previously can be added to the task as follows:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -242,7 +242,7 @@ The `trigger` defined previously can be added to the task as follows:
 
 In this example, the workflow represents the single `task` execution as follows:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
   "uid": "uuid:431ff656-8f90-410b-a614-c3916b842036",
@@ -276,7 +276,7 @@ In this example, the workflow represents the single `task` execution as follows:
 
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
-```jsonc
+```json5
 {
   components: [ 
        // component content goes here
@@ -289,7 +289,7 @@ The `formula`for building this example application, in addition to describing th
 
 and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname of the Software Bill of Materials (SBOM):
 
-```jsonc
+```json5
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
@@ -300,12 +300,11 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
       "name": "simple-application"
       // ...
     },
-    ...
+    // ...
   },
-  "formulation: [{
+  "formulation": [ {
       // formula content goes here
-    }
-  ]
+    } ]
   // ...
 }
 ```
