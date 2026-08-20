@@ -142,10 +142,12 @@ make build
 
 this event could be represented as follows:
 
-```
-timestamp: “2025-01-01T14:00:00+00:00”,
-name: “make build”,
-description: “Command line build”
+```json
+{
+  "timestamp": "2025-01-01T14:00:00+00:00",
+  "name": "make build",
+  "description": "Command line build"
+}
 ```
 
 **Note**: *Workflows may be triggered by events dynamically received from other systems or services. In these cases, the event could include the raw event `data` itself as well as information.about the `source` system or service the event was sent by.* 
@@ -158,13 +160,13 @@ This could be represented as follows:
 
 ```jsonc
 {
-  “timeActivated”: “2025-01-01T14:00:00+00:00”,
-  “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
-  “uid": ”uuid:1a9b…",
-  “type": "manual",
-  “name": "make trigger",
-  “description": "Bash, command-line build trigger”
-  “event”: {
+  "timeActivated": "2025-01-01T14:00:00+00:00",
+  "bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
+  "uid": "uuid:1a9b…",
+  "type": "manual",
+  "name": "make trigger",
+  "description": "Bash, command-line build trigger"
+  "event": {
     // event content goes here
   }
   // ...
@@ -242,24 +244,24 @@ In this example, the workflow represents the single `task` execution as follows:
 
 ```jsonc
 {
-  “bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “uid": ”uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “taskTypes”: [“clean”, “build”],
-  “tasks”: [
+  "bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "uid": "uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "taskTypes": ["clean", "build"],
+  "tasks": [
     // task goes here
   ],
-  “taskDependencies”: [
+  "taskDependencies": [
     { 
-      “ref”: “cdx:mbom:task:uuid:dbb6…"
+      "ref": "cdx:mbom:task:uuid:dbb6…"
     }
   ],
-  “trigger”: {
+  "trigger": {
     // trigger goes here
   },
-  “resourceReferences”: [
+  "resourceReferences": [
     // ...
   ],
-  “runtimeTopology”: [
+  "runtimeTopology": [
     // ...
   ],
   // ...
