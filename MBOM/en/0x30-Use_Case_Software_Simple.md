@@ -21,17 +21,17 @@ int main() {
 
 The application is built using the GCC compiler using the following `Makefile`:
 
-```
+```makefile
 CC = gcc
 CFLAGS = -Wall
 
 build: clean hello
 
 hello: helloworld.c
-    $(CC) $(CFLAGS) -o hello helloworld.c
+	$(CC) $(CFLAGS) -o hello helloworld.c
 
 clean:
-    rm -f hello
+	rm -f hello
 ```
 
 #### Build process
@@ -136,7 +136,7 @@ This section describes how the human action `make build` can be represented in `
 
 In all cases, workflows are triggered by some sort of explicit, human or automated event. In this example, a person manually executed the following command in a Bash command prompt:
 
-```
+```shell
 make build
 ```
 
