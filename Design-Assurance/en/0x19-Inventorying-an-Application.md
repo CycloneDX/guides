@@ -12,7 +12,7 @@ An inventory lives under two familiar top-level containers: `components` and `de
 
 Start with the smallest useful inventory: a list of components, each with an identity, a type, a version, and a description. The following example reduces `comp-web` to those essentials:
 
-```json
+```json5
 {
   "bom-ref": "comp-web",
   "type": "application",
@@ -28,7 +28,7 @@ Start with the smallest useful inventory: a list of components, each with an ide
 
 The `dependencies` array records edges between components: each entry has a `ref`, the component the edge is about, and a `dependsOn` array, the components it directly relies on.
 
-```json
+```json5
 "dependencies": [
   { "ref": "comp-web", "dependsOn": [ "comp-checkout" ] },
   { "ref": "comp-agent", "dependsOn": [ "comp-llm", "comp-checkout" ] }
@@ -41,7 +41,7 @@ The web app depends on the checkout API, and the support agent depends on both t
 
 Everything from here on is the same document growing: a component can carry the parties responsible for it in a `parties` array. On `comp-web`, Acme is named inline with two roles.
 
-```json
+```json5
 "parties": [
   {
     "bom-ref": "party-acme",
@@ -59,7 +59,7 @@ Everything from here on is the same document growing: a component can carry the 
 
 Declare the party once, then reference it thereafter to avoid repeating the block: the checkout and agent components reuse it by ref.
 
-```json
+```json5
 "parties": [ "party-acme" ]
 ```
 
@@ -69,7 +69,7 @@ Supplier, owner, and other roles attach directly to the part, so provenance trav
 
 A requirement assertion records a component's claimed relationship to a requirement, carrying an `assertionType`, one or more `requirementRefs`, and an optional description. On the checkout API:
 
-```json
+```json5
 "requirementAssertions": [
   {
     "bom-ref": "ra-checkout-mfa",
@@ -95,7 +95,7 @@ Here the component claims it satisfies `req-mfa`, and the description is Acme's 
 
 A use case assertion does the same for use cases, recording which use case a component realizes and how.
 
-```json
+```json5
 "useCaseAssertions": [
   {
     "bom-ref": "ua-checkout",
@@ -113,7 +113,7 @@ In Acme's model the parts list, the dependency graph, and the blueprint all live
 
 The blueprint links outward to intent by BOM-Link:
 
-```json
+```json5
 "requirements": [
   "urn:cdx:22222222-2222-4222-8222-222222222222/1#req-mfa"
 ]

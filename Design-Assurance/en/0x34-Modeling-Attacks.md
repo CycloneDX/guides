@@ -21,7 +21,7 @@ They compose. The Acme model uses all four at once: a pattern names a move, a tr
 
 An `attackPattern` names a known, reusable adversary technique and ties it to public catalogs. It carries a `capecId`, a `name` and `description`, `prerequisites` that make it viable, worked `examples`, one or more `techniques`, and optional `mitigations`. A `technique` is the ATT&CK-level detail inside it: `id`, `name`, `tactic`, and a `procedure` that says how the technique is carried out in this specific context.
 
-```json
+```json5
 {
   "bom-ref": "apx-tour",
   "capecId": 116,
@@ -43,7 +43,7 @@ An `attackPattern` names a known, reusable adversary technique and ties it to pu
 
 An `attackTree` decomposes a goal. It is a flat list of `nodes` plus a `root` naming the top node by bom-ref. Keeping nodes flat rather than nested lets a node be shared between parents and keeps the tree easy to walk. Each `attackTreeNode` names a subgoal and carries an `operator`, `and` or `or`, that governs its own child group: `or` means any child reaches the node, `and` means every child is required. Because the operator sits on the parent and not on the edges, sibling operators cannot conflict.
 
-```json
+```json5
 {
   "bom-ref": "at-account-takeover",
   "name": "Take over a customer account",
@@ -60,7 +60,7 @@ The root is an `or`: replaying credentials or phishing each reaches account take
 
 A leaf can also bind to the rest of the model. The `atn-token` node in `feature-tour.cdx.json` links a weakness, a pattern, and a control:
 
-```json
+```json5
 { "bom-ref": "atn-token", "name": "Abuse a stolen service-account token", "attackPattern": "apx-tour", "weakness": "wk-token", "cost": "low", "skill": "intermediate", "detectability": "moderate", "mitigations": [ "ctl-token-binding" ] }
 ```
 
@@ -72,7 +72,7 @@ A leaf can also bind to the rest of the model. The `atn-token` node in `feature-
 
 An `attackPath` traces the sequential route an actor takes, from first access to objective, lateral movement included. It carries an `objective`, the `actor` by bom-ref, an ordered list of `steps`, `realizes` (the threats the path makes real), and `relatedRisks` linking the risk register. Each `attackPathStep` describes one move: an optional `technique`, a `killChainPhase`, a `source` and `destination` asset, the `boundaryCrossed`, what it `exploits`, and step-level `mitigations`.
 
-```json
+```json5
 {
   "bom-ref": "ap-ato-exfiltration",
   "objective": "Bulk exposure of customer order data",
@@ -98,7 +98,7 @@ The source, destination, and boundary are BOM-Links into the architecture bluepr
 
 An `abuseCase` is the security counterpart of a use case: it uses the same fields so the two read side by side, one intended, one adversarial. `abuser` is the party by bom-ref, `realizes` links the threats it makes concrete, `mainFlow` is the numbered misuse sequence, `targets` names the abused assets, `detectionOpportunities` lists the signals that would catch it, and `mitigations` links controls. `preconditions`, when declared, records what has to hold before the misuse works.
 
-```json
+```json5
 {
   "bom-ref": "ab-bulk-order-enum",
   "name": "Bulk order enumeration through the agent",
@@ -123,7 +123,7 @@ Where the paired use case reads "an authorized customer asks the agent about the
 
 The constructs above say how an attack works: two small objects rate how exposed and how mature a specific run of it is, and both attach to a threat scenario, not to the durable threat. `attackVector` rates the route with CVSS-aligned dimensions:
 
-```json
+```json5
 "attackVector": {
   "type": "network",
   "complexity": "low",
@@ -145,7 +145,7 @@ The constructs above say how an attack works: two small objects rate how exposed
 
 `exploitability` rates how mature and repeatable the attack is:
 
-```json
+```json5
 "exploitability": {
   "level": "weaponized",
   "complexity": "trivial",
@@ -169,7 +169,7 @@ The constructs above say how an attack works: two small objects rate how exposed
 
 A `trustBoundary` annotates a boundary the blueprint already defines, and it does not redraw it.
 
-```json
+```json5
 {
   "bom-ref": "tb-edge",
   "name": "Internet to edge",

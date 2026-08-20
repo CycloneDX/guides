@@ -2,7 +2,7 @@
 
 The following is a full example of a CycloneDX attestation.
 
-```json
+```json5
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",

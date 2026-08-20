@@ -46,7 +46,7 @@ The following table details the makeup of a claim.
 
 For example, consider the requirement, "All developers must receive security training." An appropriate claim might be that "All members of the Acme development team have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test." The target is "All members of the Acme development team," and the predicate is "have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test."
 
-```json
+```json5
 "claims": [
   {
     "bom-ref": "claim-1",

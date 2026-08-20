@@ -12,19 +12,21 @@ component was made. Independent access controls can be established by separating
 highly-sensitive MBOM data. For example, this allows organizations to provide SBOMs to a broader audience while keeping 
 stricter control over who has access to the MBOM.
 
-```json
-"externalReferences": [
-  {
-    "type": "formulation",
-    "url": "https://example.com/mboms/acme-library-1.0.cdx.json",
-    "hashes": [
-      {
-        "alg": "SHA-256",
-        "content": "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "externalReferences": [
+    {
+      "type": "formulation",
+      "url": "https://example.com/mboms/acme-library-1.0.cdx.json",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

@@ -11,7 +11,7 @@ comprehensive insights necessary for the management and security of cryptographi
 A cryptographic algorithm is added in the components array of the BOM. The examples below list the algorithm 
 AES-128-GCM-128-12 and RSA-PKCS1-1.5-SHA-512-2048.
 
-```json
+```json5
   "components": [
     {
       "type": "cryptographic-asset",
@@ -57,7 +57,7 @@ A complete example can be found at [https://cyclonedx.org/shortcut/example/algor
 
 An example with the QSC Signature algorithm ML-DSA-44 is listed below.
 
-```json
+```json5
 "components": [ {
     "name": "ML-DSA-44",
     "type": "cryptographic-asset",
@@ -79,7 +79,7 @@ An example with the QSC Signature algorithm ML-DSA-44 is listed below.
 
 An example with a hybrid scheme combining ML-KEM-1024 and ECDH-secp521r1 is listed below. The relation between the combiner `draftietftlshybriddesign13` and the algorithms is expressed as dependency.
 
-```json
+```json5
   "components": [
     {
       "name": "ECDH-secp521r1",
@@ -147,7 +147,7 @@ An example with a hybrid scheme combining ML-KEM-1024 and ECDH-secp521r1 is list
 ## Key
 The following example demonstrates how an RSA-2048 public key can be included in a CBOM.
 
-```json
+```json5
 "components": [ {
     "name": "RSA-2048",
     "type": "cryptographic-asset",
@@ -194,7 +194,7 @@ A complete example can be found at [https://cyclonedx.org/shortcut/example/key](
 ## Protocol
 The following example lists an instance of the TLS v1.2 protocol with a number of cipher suites.
 
-```json
+```json5
   "components": [
     {
       "name": "google.com",
@@ -362,7 +362,7 @@ A complete example can be found at [https://cyclonedx.org/shortcut/example/proto
 ## Certificate 
 The following example details an advanced X.509 certificate in a CBOM.
 
-```json
+```json5
 "components": [
     {
       "name": "revoked-internal-ca.example.com",
@@ -634,7 +634,7 @@ The following example details an advanced X.509 certificate in a CBOM.
 
 The following example presents an Operations Bill of Materials (OBOM) in which cryptographic assets are configured through an OpenSSL 3 configuration file.
 
-```json
+```json5
 "components": [ 
   {
     "name": "ML-KEM-768",
@@ -715,7 +715,7 @@ The following example presents an Operations Bill of Materials (OBOM) in which c
 
 The following example describes a Hardware Security Module (HSM) with dependencies to cryptographic assets.
 
-```json
+```json5
 {
     "bomFormat": "CycloneDX",
     "specVersion": "1.7",

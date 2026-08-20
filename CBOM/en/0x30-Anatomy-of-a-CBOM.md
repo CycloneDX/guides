@@ -62,7 +62,7 @@ These key states play a critical role in the lifecycle management of cryptograph
 
 CycloneDX fully supports key states as detailed in the example below:
 
-```json
+```json5
 "cryptoProperties": {
   "assetType": "related-crypto-material",
   "relatedCryptoMaterialProperties": {
@@ -175,7 +175,7 @@ Custom states (use the `name` attribute) are supported when an organization has 
 
 The following example defines both pre-defined as well as custom certificate states.
 
-```json
+```json5
 {
   "certificateProperties": {
     "certificateState": [

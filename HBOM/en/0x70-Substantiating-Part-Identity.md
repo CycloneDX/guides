@@ -19,7 +19,7 @@ A technique outside the predefined set takes the custom form, an object with a r
 
 The following example records an incoming inspection of a microcontroller lot by an independent test laboratory. The visual inspection carries the marking text it read and a photograph of the markings as an external reference of type `evidence`:
 
-```json
+```json5
 "evidence": {
   "identity": [
     {

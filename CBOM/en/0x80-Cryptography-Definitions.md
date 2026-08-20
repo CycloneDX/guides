@@ -23,7 +23,7 @@ Where:
 
 The following example defines the RSASSA-PKCS1 algorithm family, a signature scheme that may be used with different digest (hash) algorithms and key sizes. It is standardized in RFC 8017 and in IEEE 1363.
 
-```json
+```json5
 "algorithms": [
     {
       "family": "RSASSA-PKCS1",
@@ -43,7 +43,7 @@ The following example defines the RSASSA-PKCS1 algorithm family, a signature sch
 
 A cryptographic asset can reference the pattern in the component `name`. The following example defines RSASSA-PKCS1 using SHA-256 and a 2048 bit key length.
 
-```json
+```json5
 "components": [
     {
       "type": "cryptographic-asset",
@@ -72,7 +72,7 @@ The cryptography definitions also define a list of elliptic curves. The definiti
 
 The following example defines the P-256 NIST curve, along with its aliases secp256r1 and prime256v1.
 
-```json
+```json5
 "ellipticCurves": [
     {
       "name": "nist",

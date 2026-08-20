@@ -21,7 +21,7 @@ Used to provide a list describing the intended users of the model, along with a 
 
 This example shows a list of what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
-```jsonc
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -75,7 +75,7 @@ Some of these limitations include:
 
 This example shows a list of technical limitations that might be associated with a typical multi-lingual, code-/instruction-capable Large Language Model (LLM) with a similar parameter size.
 
-```jsonc
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -111,7 +111,7 @@ Some of these tradeoff considerations include:
 
 This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 &B parameter model.
 
-```jsonc
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -147,7 +147,7 @@ Used to provide a list describing known ethical considerations when using a mode
 
 Based on technical reports and safety evaluations such as Qwen3Guard, the following ethical considerations and mitigations are documented and typical of a multi-lingual LLM of similar parameter size and with a dense architecture:
 
-```jsonc
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -206,7 +206,7 @@ Assessments consider evaluations at all stages of the model development lifecycl
 
 This example shows how fairness assessment information would be included in a CycloneDX `modelCard` object.
 
-```jsonc
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -284,7 +284,7 @@ Each "consumption" entry consists of the following, which are explained in more 
 
 This example is for a "fake" model based upon the llama3 architecture.
 
-```jsonc
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",

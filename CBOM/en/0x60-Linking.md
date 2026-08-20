@@ -32,7 +32,7 @@ components, services, or to the BOM itself.
 
 The following example illustrates how an application in an SBOM can reference an external CBOM:
 
-```json
+```json5
 "components": [
   {
     "type": "application",

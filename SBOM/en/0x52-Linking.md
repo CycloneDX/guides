@@ -5,12 +5,12 @@ other BOMs. This deep-linking capability is referred to as BOM-Link and is a
 and compliant with [RFC-8141](https://www.rfc-editor.org/rfc/rfc8141.html).
 
 **Syntax**:
-```ini
+```text
 urn:cdx:serialNumber/version#bom-ref
 ```
 
 **Examples**:
-```ini
+```text
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
 ```
@@ -31,20 +31,22 @@ external to the BOM, or may refer to resources within the BOM. External referenc
 components, services, or to the BOM itself. For example, a component could specify an external reference pointing to the
 BOM describing that component.
 
-```json
-"externalReferences": [
-  {
-    "type": "bom",
-    "url": "urn:cdx:bdd819e6-ee8f-42d7-a4d0-166ff44d51e8/5",
-    "comment": "Refers to version 5 of a specific BOM.",
-    "hashes": [
-      {
-        "alg": "SHA-256",
-        "content": "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "externalReferences": [
+    {
+      "type": "bom",
+      "url": "urn:cdx:bdd819e6-ee8f-42d7-a4d0-166ff44d51e8/5",
+      "comment": "Refers to version 5 of a specific BOM.",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c7be1ed902fb8dd4d48997c6452f5d7e509fbcdbe2808b16bcf4edce4c07d14e"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 There are many common use cases where referencing external BOMs is desirable. One common case involves a component in a 
@@ -71,27 +73,29 @@ they can resolve and process externally referencable BOMs when encountered.
 
 The following example helps to illustrate what Component F may look like when represented in the BOM for Acme Application:
 
-```json
-"components": [
-  {
-    "bom-ref": "component-f",
-    "type": "library",
-    "name": "Component F",
-    "version": "1.0.0",
-    "externalReferences": [
-      {
-        "type": "bom",
-        "url": "https://example.com/sbom/component-f-1.0.0.cdx.json",
-        "hashes": [
-          {
-            "alg": "SHA-256",
-            "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
-          }
-        ]
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "components": [
+    {
+      "bom-ref": "component-f",
+      "type": "library",
+      "name": "Component F",
+      "version": "1.0.0",
+      "externalReferences": [
+        {
+          "type": "bom",
+          "url": "https://example.com/sbom/component-f-1.0.0.cdx.json",
+          "hashes": [
+            {
+              "alg": "SHA-256",
+              "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 Another common case involves individual BOMs, per layer, in a deployed stack. For example, a BOM may contain multiple 
@@ -116,7 +120,7 @@ example is a data component but could easily have been a file component. Using a
 of the threat model itself to be captured in the BOM. This approach may be ideal for audit use cases or for instances 
 where access to external systems is prohibited, such as air-gapped environments.
 
-```json
+```json5
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
@@ -170,27 +174,29 @@ to create and track additional BOMs.
 In the following example, a vulnerability is identified in a component called Jackson Databind, and the VEX provides a
 direct link to the precise component within a BOM.
 
-```json
-"vulnerabilities": [
-  {
-    "id": "CVE-2018-7489",
-    "source": {
-      "name": "NVD",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-9997"
-    },
-    "analysis": {
-      "state": "not_affected",
-      "justification": "code_not_reachable",
-      "response": ["will_not_fix", "update"],
-      "detail": "An optional explanation of why the application is not affected by the vulnerable component."
-    },
-    "affects": [
-      {
-        "ref": "urn:cdx:3e671687-395b-41f5-a30f-a58921a69b79/1#jackson-databind-2.8.0"
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "vulnerabilities": [
+    {
+      "id": "CVE-2018-7489",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-9997"
+      },
+      "analysis": {
+        "state": "not_affected",
+        "justification": "code_not_reachable",
+        "response": ["will_not_fix", "update"],
+        "detail": "An optional explanation of why the application is not affected by the vulnerable component."
+      },
+      "affects": [
+        {
+          "ref": "urn:cdx:3e671687-395b-41f5-a30f-a58921a69b79/1#jackson-databind-2.8.0"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

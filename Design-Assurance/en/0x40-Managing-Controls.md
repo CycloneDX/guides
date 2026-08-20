@@ -4,7 +4,7 @@ Managing controls is the use case that stands apart from threat modeling most cl
 
 A control inventory populates `controls` at the root and, usually, the `definitions.standards` catalog the controls satisfy, and it need contain nothing else.
 
-```json
+```json5
 {
   "specFormat": "CycloneDX",
   "specVersion": "2.0",
@@ -33,7 +33,7 @@ The instance layer is what every mitigation reference in the design and assuranc
 
 A `control` requires only `bom-ref` and `name`, so a converter can emit a name-only control and enrich later.
 
-```json
+```json5
 {
   "bom-ref": "ctl-mfa",
   "name": "Step-up authentication",
@@ -90,7 +90,7 @@ The `implementationStatus` vocabulary is the subtle part, because it carries the
 
 The stance values matter for exchange between parties: an outside party can put a control on the record that it cannot itself adopt, and a considered decline stays visible for a compensating control's justification to cite, while the rest track the implementation lifecycle in order. Acme's inventory holds one control whose `status` is `recommended`.
 
-```json
+```json5
 {
   "bom-ref": "ctl-session-binding",
   "name": "Session-to-device binding",
@@ -110,7 +110,7 @@ The external assessor suggested session-to-device binding, and Acme has not adop
 
 The controls reference a standard in the declarative library, and a `standard` carries its requirements identified as the standard publishes them.
 
-```json
+```json5
 "definitions": {
   "standards": [
     {
@@ -132,7 +132,7 @@ Each standard requirement keeps the publisher's own `identifier`, `title`, and `
 
 Because the edges live in the asserting document, a control instance stays a clean, referenceable fact that other models point at without the inventory needing to know they exist. A vulnerability analysis is a frequent consumer: a VEX statement can call a component unaffected because named controls neutralize the flaw.
 
-```json
+```json5
 "analysis": {
   "state": "not_affected",
   "justification": "protected_by_mitigating_control",
@@ -147,7 +147,7 @@ The same two controls appear in a threat's `mitigations`, a trust boundary's `co
 
 The three layers assemble into a system security plan with no new machinery: the catalog is the standard in `definitions`, the instances are the controls at the root, and the assessment is a CDXA claim that targets a control and binds the judgment to evidence.
 
-```json
+```json5
 { "bom-ref": "clm-strong-auth", "target": "ctl-mfa",
   "predicate": "Step-up authentication is enforced for all high-value customer actions.",
   "mitigationStrategies": [ "ctl-key-rotation" ] }

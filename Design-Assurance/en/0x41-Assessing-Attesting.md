@@ -8,7 +8,7 @@ An assessment lives in the risk model, in the `risks` container, as an entry in 
 
 An `assessment` requires `bom-ref`, `type`, `cadence`, and `timestamp`, and records a point-in-time or continuous evaluation.
 
-```json
+```json5
 {
   "bom-ref": "asmt-2026-q3",
   "name": "Q3 2026 storefront risk assessment",
@@ -76,7 +76,7 @@ An assessment says an evaluation happened and what it concluded, but it does not
 
 A CDXA claim targets an object and states a predicate about it, and in v2.0 the set of things a claim can target explicitly includes controls and risks, so the judgments the design and assurance models produce become directly attestable.
 
-```json
+```json5
 "declarations": {
   "claims": [
     {
@@ -92,7 +92,7 @@ A CDXA claim targets an object and states a predicate about it, and in v2.0 the 
 
 The claim points at the control through `target`, states what is claimed through `predicate`, and, where a gap remains, names the controls that will close it through `mitigationStrategies`. Those strategies reference control instances, and a control instance carries its own status, so a planned mitigation is visibly planned:
 
-```json
+```json5
 { "bom-ref": "ctl-key-rotation", "name": "Automated session-key rotation", "category": "preventive", "status": "planned" }
 ```
 

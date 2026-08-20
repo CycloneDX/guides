@@ -12,7 +12,7 @@ A profile records how something behaves or is governed, not who or what it is: `
 
 `profiles` is a top-level container that holds one array per profile kind, and two kinds exist today, `dataProfiles` and `threatProfiles`.
 
-```json
+```json5
 {
   "specFormat": "CycloneDX",
   "specVersion": "2.0",
@@ -28,7 +28,7 @@ A profile records how something behaves or is governed, not who or what it is: `
 
 A `dataProfile` is a reusable governance characterization of a body of data: its classification, the kinds of information it holds, and the regulations that apply. Acme defines its customer-order profile once, in the registry.
 
-```json
+```json5
 {
   "bom-ref": "dp-customer-pii",
   "name": "Customer order data",
@@ -42,7 +42,7 @@ A `dataProfile` is a reusable governance characterization of a body of data: its
 
 A `threatProfile` is a reusable, durable statement of an adversary's capability: `sophistication`, `resources`, and `skillSet`. It is deliberately narrow: it does not carry motivation, intent, or access level, because those are circumstances of a specific scenario rather than durable traits of the actor class.
 
-```json
+```json5
 {
   "bom-ref": "tp-organized-crime",
   "name": "Organized criminal group",
@@ -57,7 +57,7 @@ A `threatProfile` is a reusable, durable statement of an adversary's capability:
 
 The slot that accepts a data profile is a `dataProfileChoice`: either a `bom-ref` pointing at a registered profile, or an inline `dataProfile` object for a one-off characterization not worth registering. A `dataObject` uses the reference form to inherit the shared profile.
 
-```json
+```json5
 {
   "name": "Order",
   "profile": "dp-customer-pii",
@@ -71,7 +71,7 @@ The same reference form applies wherever data is characterized: a `dataSet` list
 
 A threat scenario points at the durable profile and adds only what is specific to the campaign. Here `tp-organized-crime` supplies the capability, and the scenario supplies motivation, intent, and access level.
 
-```json
+```json5
 {
   "bom-ref": "ts-ato",
   "name": "Account takeover campaign",

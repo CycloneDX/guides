@@ -7,26 +7,28 @@ such as attribution or sharing of source code.
 The following is an example of a components license. CycloneDX communicates this information using the SPDX license IDs
 along with optionally including a Base64 encoded representation of the full license text.
 
-```json
-"licenses": [
-  {
-    "license": {
-      "id": "Apache-2.0",
-      "acknowledgement": "declared",
-      "text": {
-        "contentType": "text/plain",
-        "encoding": "base64",
-        "content": "RW5jb2RlZCBsaWNlbnNlIHRleHQgZ29lcyBoZXJlLg=="
-      },
-      "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+```json5
+{ // ...
+  "licenses": [
+    {
+      "license": {
+        "id": "Apache-2.0",
+        "acknowledgement": "declared",
+        "text": {
+          "contentType": "text/plain",
+          "encoding": "base64",
+          "content": "RW5jb2RlZCBsaWNlbnNlIHRleHQgZ29lcyBoZXJlLg=="
+        },
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 SPDX license expressions are also fully supported.
 
-```json
+```json5
 "licenses": [
   {
     "expression": "(LGPL-2.1 OR BSD-3-Clause AND MIT)",
@@ -55,7 +57,7 @@ In addition to asserting the declared or concluded license(s) of a component, Cy
 licenses and copyrights found in a given component. These licenses are "observed" in the course of analyzing a
 software project and form the necessary evidence to substantiate a "concluded" license. For example:
 
-```json
+```json5
 "evidence": {
   "licenses": [
     { "license": { "id": "Apache-2.0" } },
@@ -79,7 +81,7 @@ Software Asset Management (SAM) and IT Asset Management (ITAM) systems for enter
 
 The following example illustrates a commercial license for a given component.
 
-```json
+```json5
 "licenses": [
   {
     "license": {

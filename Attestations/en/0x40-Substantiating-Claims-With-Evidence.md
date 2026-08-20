@@ -30,7 +30,7 @@ The following table details the makeup of evidence.
 | reviewer     | The reviewer of the evidence.                                                     |
 
 
-```json
+```json5
 "evidence": [
   {
     "bom-ref": "evidence-1",

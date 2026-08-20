@@ -26,30 +26,32 @@ The following illustrates how compositions can be used. In this example, there a
 2. In the second object, the completeness of the component assembly is unknown.
 3. In the third object, the component is listed in the BOM, but its information and completeness have been redacted.
 
-```json
-"compositions": [
-  {
-    "aggregate": "complete",
-    "assemblies": [
-      "pkg:maven/partner/shaded-library@1.0"
-    ],
-    "dependencies": [
-      "acme-application-1.0"
-    ]
-  },
-  {
-    "aggregate": "unknown",
-    "assemblies": [
-      "pkg:maven/acme/library@3.0"
-    ]
-  },
-  {
-    "aggregate": "redacted",
-    "assemblies": [
-      "my-redacted-component"
-    ]
-  }
-]
+```json5
+{ // ...
+  "compositions": [
+    {
+      "aggregate": "complete",
+      "assemblies": [
+        "pkg:maven/partner/shaded-library@1.0"
+      ],
+      "dependencies": [
+        "acme-application-1.0"
+      ]
+    },
+    {
+      "aggregate": "unknown",
+      "assemblies": [
+        "pkg:maven/acme/library@3.0"
+      ]
+    },
+    {
+      "aggregate": "redacted",
+      "assemblies": [
+        "my-redacted-component"
+      ]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

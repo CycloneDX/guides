@@ -25,7 +25,7 @@ A role outside the predefined set takes the custom form, an object with a requir
 
 Roles carry an optional `order` that ranks parties sharing the same role, with lower values preferred. A primary supplier takes `order: 1` and each alternate takes a higher value, which turns an approved vendor list into data. The following example records a manufacturer and two ranked suppliers for the microcontroller:
 
-```json
+```json5
 "parties": [
   {
     "bom-ref": "party-acme-semi",

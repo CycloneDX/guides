@@ -69,34 +69,36 @@ External references provide an extensible and data-rich method of forming relati
 
 The following are example external references applied to a component:
 
-```json
-"components": [
-  {
-    "type": "application",
-    "name": "portal-server",
-    "version": "1.0.0",
-    "externalReferences": [
-      {
-        "type": "advisories",
-        "url": "https://example.org/security/feed/csaf"
-      },
-      {
-        "type": "bom",
-        "url": "https://example.org/support/sbom/portal-server/1.0.0",
-        "hashes": [
-          {
-            "alg": "SHA-256",
-            "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
-          }
-        ]
-      },
-      {
-        "type": "documentation",
-        "url": "https://example.org/support/documentation/portal-server/1.0.0"
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "application",
+      "name": "portal-server",
+      "version": "1.0.0",
+      "externalReferences": [
+        {
+          "type": "advisories",
+          "url": "https://example.org/security/feed/csaf"
+        },
+        {
+          "type": "bom",
+          "url": "https://example.org/support/sbom/portal-server/1.0.0",
+          "hashes": [
+            {
+              "alg": "SHA-256",
+              "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
+            }
+          ]
+        },
+        {
+          "type": "documentation",
+          "url": "https://example.org/support/documentation/portal-server/1.0.0"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

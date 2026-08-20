@@ -48,7 +48,7 @@ The spine of this model is a separation between what can go wrong and a specific
 | `attack-tree` | Analysis built on attack tree decomposition. |
 | `custom` | A locally defined methodology. |
 
-```json
+```json5
 "threats": {
   "methodologies": [ "STRIDE", "MAESTRO" ]
 }
@@ -71,7 +71,7 @@ The `threat` is the catalog entry: its required fields are a `bom-ref` and a `na
 
 Two structural rules show up in a single threat. The threat references its assets, objectives, behaviors, and controls, and none of those are redefined here: each reference is an annotation. And the edge runs one way: the threat names its mitigating controls, the control document does not enumerate the threats it covers. The asserting document owns the edge.
 
-```json
+```json5
 {
   "bom-ref": "th-credential-stuffing",
   "name": "Credential stuffing against customer accounts",
@@ -102,7 +102,7 @@ The `threatScenario` is the realization, and it requires a `bom-ref`, a `name`, 
 
 The circumstance fields are deliberately not on the actor. An organized criminal group has a fixed sophistication and skill set, but its motivation and access level depend on the engagement, so they belong to the scenario, not the profile.
 
-```json
+```json5
 {
   "bom-ref": "ts-ato-campaign",
   "name": "Automated account takeover campaign",
@@ -127,7 +127,7 @@ The circumstance fields are deliberately not on the actor. An organized criminal
 
 A `threatProfile` is a durable statement of an actor's capability: `sophistication`, `resources`, and `skillSet`. Profiles live in the `profiles` registry, under `threatProfiles`, so several scenarios, and several models, can reference one adversary profile by `bom-ref` instead of restating it. A profile carries capability only: motivation and intent stay on the scenario, because the same group can be opportunistic one week and targeted the next.
 
-```json
+```json5
 {
   "bom-ref": "tp-organized-crime",
   "name": "Organized criminal group",
@@ -152,7 +152,7 @@ A threat can carry `indicators`: observable signs that it is being attempted or 
 
 Indicators are what turn a threat model from a planning document into something a detection pipeline can consume.
 
-```json
+```json5
 "indicators": {
   "compromise": [ "Service-account token used from an unrecognized network" ],
   "attack": [ "Spike in bulk order reads" ],
@@ -168,7 +168,7 @@ Indicators are what turn a threat model from a planning document into something 
 
 The container also holds the structural detail of how an attack unfolds: `attackPatterns` for reusable techniques, `attackTrees` for goal decompositions, `attackPaths` for ordered steps across the architecture, and `abuseCases` for misuse narratives. Alongside them, a `trustBoundary` annotates a boundary defined in the blueprint and records which threats and controls sit at it. The boundary itself is not redefined here: the `boundary` field references it by BOM-Link, and the threat model adds only the trust-relevant overlay, which threats press on this edge and which controls hold it.
 
-```json
+```json5
 {
   "bom-ref": "tb-edge",
   "name": "Internet to edge",

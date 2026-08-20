@@ -67,36 +67,38 @@ The tools (components or services) which extracted the evidence, performed the a
 ### Example #1
 The following example illustrates how different methods can be combined to substantiate a component's identity.
 
-```json
-"components": [
-  {
-    "group": "com.google.code.findbugs",
-    "name": "findbugs-project",
-    "version": "3.0.0",
-    "purl": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
-    "evidence": {
-      "identity": [
-        {
-          "field": "purl",
-          "confidence": 1,
-          "concludedValue": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
-          "methods": [
-            {
-              "technique": "filename",
-              "confidence": 0.1,
-              "value": "findbugs-project-3.0.0.jar"
-            },
-            {
-              "technique": "hash-comparison",
-              "confidence": 0.8,
-              "value": "7c547a9d67cc7bc315c93b6e2ff8e4b6b41ae5be454ac249655ecb5ca2a85abf"
-            }
-          ]
-        }
-      ]
-    }      
-  }
-]
+```json5
+{ // ...
+  "components": [
+    {
+      "group": "com.google.code.findbugs",
+      "name": "findbugs-project",
+      "version": "3.0.0",
+      "purl": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
+      "evidence": {
+        "identity": [
+          {
+            "field": "purl",
+            "confidence": 1,
+            "concludedValue": "pkg:maven/com.google.code.findbugs/findbugs-project@3.0.0",
+            "methods": [
+              {
+                "technique": "filename",
+                "confidence": 0.1,
+                "value": "findbugs-project-3.0.0.jar"
+              },
+              {
+                "technique": "hash-comparison",
+                "confidence": 0.8,
+                "value": "7c547a9d67cc7bc315c93b6e2ff8e4b6b41ae5be454ac249655ecb5ca2a85abf"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 ### Example #2
@@ -105,20 +107,22 @@ such as the National Vulnerability Database, which rely exclusively on CPE, ofte
 that prevent precise reporting on affected products. CycloneDX solves this issue by allowing BOM authors to assert
 component identity, and optionally specify evidence of other possible identifiers to aid in vulnerability identification.
 
-```json
-"evidence": {
-  "identity": [
-    {
-      "field": "cpe",
-      "confidence": 0.4,
-      "concludedValue": "cpe:2.3:a:acme:acme-application:1.0.0:*:*:*:*:*:*:*"
-    },
-    {
-      "field": "cpe",
-      "confidence": 0.4,
-      "concludedValue": "cpe:2.3:a:acme-systems:acme-application:1.0.0:*:*:*:*:*:*:*"
-    }        
-  ]
+```json5
+{ // ...
+  "evidence": {
+    "identity": [
+      {
+        "field": "cpe",
+        "confidence": 0.4,
+        "concludedValue": "cpe:2.3:a:acme:acme-application:1.0.0:*:*:*:*:*:*:*"
+      },
+      {
+        "field": "cpe",
+        "confidence": 0.4,
+        "concludedValue": "cpe:2.3:a:acme-systems:acme-application:1.0.0:*:*:*:*:*:*:*"
+      }
+    ]
+  }
 }
 ```
 
@@ -147,26 +151,28 @@ CycloneDX provides a mechanism to describe identical components spread across mu
 a component may be used by a command-line tool and included as part of a user interface. As such, the component
 may be installed in multiple locations on the filesystem. CycloneDX provides a way to represent this using evidence.
 
-```json
-"components": [
-  {
-    "type": "library",
-    "name": "acme-persistence",
-    "version": "1.0.0",
-    "evidence": {
-      "occurrences": [
-        {
-          "bom-ref": "d6bf237e-4e11-4713-9f62-56d18d5e2079",
-          "location": "/path/to/component"
-        },
-        {
-          "bom-ref": "b574d5d1-e3cf-4dcd-9ba5-f3507eb1b175",
-          "location": "/another/path/to/component"
-        }
-      ]
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "library",
+      "name": "acme-persistence",
+      "version": "1.0.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "bom-ref": "d6bf237e-4e11-4713-9f62-56d18d5e2079",
+            "location": "/path/to/component"
+          },
+          {
+            "bom-ref": "b574d5d1-e3cf-4dcd-9ba5-f3507eb1b175",
+            "location": "/another/path/to/component"
+          }
+        ]
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 ## Reachability Using Call Stacks
@@ -175,28 +181,30 @@ understand the reachability and potential impact of a specific software componen
 describes how different components interact with each other, BOM producers and consumers have an elevated level of
 confidence that a component or vulnerable function within a component is invoked or not.
 
-```json
-"callstack": {
-  "frames": [
-    {
-      "package": "com.apache.logging.log4j.core",
-      "module": "Logger.class",
-      "function": "logMessage",
-      "parameters": [
-        "com.acme.HelloWorld", "Level.INFO", "null", "Hello World"
-      ],
-      "line": 150,
-      "column": 17,
-      "fullFilename": "/path/to/log4j-core-2.14.0.jar!/org/apache/logging/log4j/core/Logger.class"
-    },
-    {
-      "module": "HelloWorld.class",
-      "function": "main",
-      "line": 20,
-      "column": 12,
-      "fullFilename": "/path/to/HelloWorld.class"
-    }
-  ]
+```json5
+{ // ...
+  "callstack": {
+    "frames": [
+      {
+        "package": "com.apache.logging.log4j.core",
+        "module": "Logger.class",
+        "function": "logMessage",
+        "parameters": [
+          "com.acme.HelloWorld", "Level.INFO", "null", "Hello World"
+        ],
+        "line": 150,
+        "column": 17,
+        "fullFilename": "/path/to/log4j-core-2.14.0.jar!/org/apache/logging/log4j/core/Logger.class"
+      },
+      {
+        "module": "HelloWorld.class",
+        "function": "main",
+        "line": 20,
+        "column": 12,
+        "fullFilename": "/path/to/HelloWorld.class"
+      }
+    ]
+  }
 }
 ```
 
@@ -212,26 +220,28 @@ met, including fully documented processes for how the CycloneDX BOMs were create
 The CycloneDX [BOM Repository Server](https://github.com/CycloneDX/cyclonedx-bom-repo-server) is a simple and effective
 way to automate the publishing, versioning, and archiving of BOMs.
 
-```json
-"evidence": {
-  "licenses": [
-    {
-      "license": {
-        "id": "Apache-2.0",
-        "url": "http://www.apache.org/licenses/LICENSE-2.0"
+```json5
+{ // ...
+  "evidence": {
+    "licenses": [
+      {
+        "license": {
+          "id": "Apache-2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+      },
+      {
+        "license": {
+          "id": "LGPL-2.1-only",
+          "url": "https://opensource.org/licenses/LGPL-2.1"
+        }
       }
-    },
-    {
-      "license": {
-        "id": "LGPL-2.1-only",
-        "url": "https://opensource.org/licenses/LGPL-2.1"
-      }
-    }
-  ],
-  "copyright": [
-    { "text": "Copyright 2012 Amce Inc. All Rights Reserved." },
-    { "text": "Copyright (C) 2004,2005 Example Co" }
-  ]
+    ],
+    "copyright": [
+      { "text": "Copyright 2012 Amce Inc. All Rights Reserved." },
+      { "text": "Copyright (C) 2004,2005 Example Co" }
+    ]
+  }
 }
 ```
 

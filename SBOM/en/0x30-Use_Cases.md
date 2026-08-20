@@ -98,7 +98,7 @@ CycloneDX supports multiple methods to assert identity including:
 
 The following example illustrates component identity in CycloneDX.
 
-```json
+```json5
 {
   "type": "library",
   "group": "com.example",
@@ -180,19 +180,23 @@ organizations can verify the integrity of the software and detect unauthorized m
 
 The following example illustrates how to represent hashes on a component.
 
-```json
-"components": [
+```json5
+{ // ...
+  "components": [
     {
       "type": "library",
       "name": "acme-example",
       "version": "1.0.0",
-      "hashes": [{
-        "alg": "SHA-256",
-        "content": "d88bc4e70bfb34d18b5542136639acbb26a8ae2429aa1e47489332fb389cc964"
-      },{
-        "alg": "BLAKE3",
-        "content": "26cdc7fb3fd65fc3b621a4ef70bc7d2489d5c19e70c76cf7ec20e538df0047cf"
-      }]
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d88bc4e70bfb34d18b5542136639acbb26a8ae2429aa1e47489332fb389cc964"
+        },
+        {
+          "alg": "BLAKE3",
+          "content": "26cdc7fb3fd65fc3b621a4ef70bc7d2489d5c19e70c76cf7ec20e538df0047cf"
+        }
+      ]
     }
   ]
 }
@@ -202,27 +206,29 @@ In addition, external references (covered later in the "Relationships" chapter) 
 example illustrates how CycloneDX can refer to an external BOM and include the hashes for that BOM. In doing so, the
 integrity of the external BOM can be evaluated prior to use.
 
-```json
-"components": [
-  {
-    "type": "library",
-    "group": "com.example",
-    "name": "persistence",
-    "version": "5.2.0",
-    "externalReferences": [
-      {
-        "type": "bom",
-        "url": "https://example.com/sbom.json",
-        "hashes": [
-          {
-            "alg": "SHA-256",
-            "content": "9048a24d72d3d4a1a0384f8f925566b44f133dd2a0194111a2daeb1cf9f7015b"
-          }
-        ]
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "library",
+      "group": "com.example",
+      "name": "persistence",
+      "version": "5.2.0",
+      "externalReferences": [
+        {
+          "type": "bom",
+          "url": "https://example.com/sbom.json",
+          "hashes": [
+            {
+              "alg": "SHA-256",
+              "content": "9048a24d72d3d4a1a0384f8f925566b44f133dd2a0194111a2daeb1cf9f7015b"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 CycloneDX supports SHA-1, SHA-2, and SHA-3 hashing algorithms along with BLAKE2b and BLAKE3.
@@ -245,15 +251,17 @@ detached signatures are also supported.
 
 The following example illustrates the use of enveloped signing using JSF.
 
-```json
-"signature": {
-  "algorithm": "RS512",
-  "publicKey": {
-    "kty": "RSA",
-    "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
-    "e": "AQAB"
-  },
-  "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+```json5
+{ // ...
+  "signature": {
+    "algorithm": "RS512",
+    "publicKey": {
+      "kty": "RSA",
+      "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
+      "e": "AQAB"
+    },
+    "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+  }
 }
 ```
 
@@ -428,17 +436,19 @@ during deployment and analysis.
 
 The following example illustrates the reliance on libcurl, provided externally:
 
-```json
-"components": [
-  {
-    "bom-ref": "libcurl",
-    "type": "library",
-    "name": "libcurl",
-    "versionRange": "vers:generic/>=8.7.1|<9.0.0",
-    "description": "libcurl ^8.7.1",
-    "isExternal": true
-  }
-]
+```json5
+{ //...
+  "components": [
+    {
+      "bom-ref": "libcurl",
+      "type": "library",
+      "name": "libcurl",
+      "versionRange": "vers:generic/>=8.7.1|<9.0.0",
+      "description": "libcurl ^8.7.1",
+      "isExternal": true
+    }
+  ]
+}
 ```
 
 ## Formulation Assurance and Verification

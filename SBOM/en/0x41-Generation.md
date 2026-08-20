@@ -167,31 +167,33 @@ reference a declared workflow task, providing context for how the cited data was
 scanning, manual entry, or a hybrid method. Combined with the attributedTo field, this enables rich provenance chains 
 that document not only who contributed data, but how and when it was produced.
 
-```json
-"citations": [
-  {
-    "bom-ref": "citation-1",
-    "pointers": [ "/components/0/name" ],
-    "timestamp": "2025-05-01T14:00:00Z",
-    "attributedTo": "person-1",
-    "note": "Manually entered by Alice Example - with `attributedTo`"
-  },
-  {
-    "bom-ref": "citation-2",
-    "expressions": [ "$..[?(@.bom-ref=='component-1')].version" ],
-    "timestamp": "2025-05-01T14:00:00Z",
-    "process": "task-license-scan",
-    "note": "Documents the formulation process, not the specific tool within that process."
-  },
-  {
-    "bom-ref": "citation-3",
-    "expressions": [ "$.components[*].licenses[*].license.id" ],
-    "timestamp": "2025-05-01T14:05:00Z",
-    "attributedTo": "scan-tool-1",
-    "process": "task-license-scan",
-    "note": "Documents both the process and the tool used within a process."
-  }
-]
+```json5
+{ // ...
+  "citations": [
+    {
+      "bom-ref": "citation-1",
+      "pointers": [ "/components/0/name" ],
+      "timestamp": "2025-05-01T14:00:00Z",
+      "attributedTo": "person-1",
+      "note": "Manually entered by Alice Example - with `attributedTo`"
+    },
+    {
+      "bom-ref": "citation-2",
+      "expressions": [ "$..[?(@.bom-ref=='component-1')].version" ],
+      "timestamp": "2025-05-01T14:00:00Z",
+      "process": "task-license-scan",
+      "note": "Documents the formulation process, not the specific tool within that process."
+    },
+    {
+      "bom-ref": "citation-3",
+      "expressions": [ "$.components[*].licenses[*].license.id" ],
+      "timestamp": "2025-05-01T14:05:00Z",
+      "attributedTo": "scan-tool-1",
+      "process": "task-license-scan",
+      "note": "Documents both the process and the tool used within a process."
+    }
+  ]
+}
 ```
 
 ## Distribution Constraints and Traffic Light Protocol

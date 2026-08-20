@@ -22,26 +22,28 @@ Assemblies can also describe simpler inclusions, such as software packages that 
 The following example illustrates a simple component assembly. In this case, Acme Commerce Suite includes two other
 applications as part of its assembly.
 
-```json
-"components": [
-  {
-    "type": "application",
-    "name": "Acme Commerce Suite",
-    "version": "2.0.0",
-    "components": [
-      {
-        "type": "application",
-        "name": "Acme Storefront Server",
-        "version": "3.7.0",
-      },
-      {
-        "type": "application",
-        "name": "Acme Payment Processor",
-        "version": "3.1.1",
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "application",
+      "name": "Acme Commerce Suite",
+      "version": "2.0.0",
+      "components": [
+        {
+          "type": "application",
+          "name": "Acme Storefront Server",
+          "version": "3.7.0",
+        },
+        {
+          "type": "application",
+          "name": "Acme Payment Processor",
+          "version": "3.1.1",
+        }
+      ]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">
@@ -77,31 +79,33 @@ relations are on the same level.
 
 The dependency graph above can be codified with the following:
 
-```json
-"dependencies": [
-  {
-    "ref": "acme-app",
-    "dependsOn": [
-      "pkg:maven/org.acme/web-framework@1.0.0",
-      "pkg:maven/org.acme/persistence@3.1.0"
-    ]
-  },
-  {
-  "ref": "pkg:maven/org.acme/web-framework@1.0.0",
-    "dependsOn": [
-      "pkg:maven/org.acme/common-util@3.0.0",
-      "pkg:maven/org.acme/rest-api@2.5.0"
-    ]
-  },
-  {
-    "ref": "pkg:maven/org.acme/common-util@3.0.0",
-    "dependsOn": []
-  },
-  {
-    "ref": "pkg:maven/org.acme/rest-api@2.5.0",
-    "dependsOn": []
-  }
-]
+```json5
+{ // ...
+  "dependencies": [
+    {
+      "ref": "acme-app",
+      "dependsOn": [
+        "pkg:maven/org.acme/web-framework@1.0.0",
+        "pkg:maven/org.acme/persistence@3.1.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.acme/web-framework@1.0.0",
+      "dependsOn": [
+        "pkg:maven/org.acme/common-util@3.0.0",
+        "pkg:maven/org.acme/rest-api@2.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.acme/common-util@3.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.acme/rest-api@2.5.0",
+      "dependsOn": []
+    }
+  ]
+}
 ```
 
 > Components that do not have dependencies MUST be declared as empty elements within the graph. Components not 

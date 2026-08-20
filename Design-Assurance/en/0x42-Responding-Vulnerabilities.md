@@ -10,7 +10,7 @@ The people doing the job are the PSIRT publishing advisories, the product securi
 
 Vulnerabilities, threats, and attack tree nodes classify flaws with one shared `weakness` model. A `weakness` is one of two branches and never both: a `cweId`, or a named weakness with a `name` and an optional `description`. The credential stuffing threat carries one of each in a single array:
 
-```json
+```json5
 "weaknesses": [
   { "cweId": 307 },
   {
@@ -24,7 +24,7 @@ CWE 307 is improper restriction of excessive authentication attempts. The named 
 
 The named branch matters more every year: emerging AI and agent weakness classes often have no CWE assignment yet, and the model expresses them without waiting for the taxonomy to catch up. The storefront's prompt injection finding names one with no CWE at all:
 
-```json
+```json5
 "weaknesses": [
   { "name": "Untrusted conversation content influences tool selection" }
 ]
@@ -44,7 +44,7 @@ This artifact has two names in NIST guidance, and they name the same recommendat
 
 A report of this kind asserts presence, so it carries the full weight of the vulnerability object. Identity comes first: an `id` and its `source`, plus `references` that correlate the same flaw across other intelligence sources that assigned it different identifiers. Severity comes next, as `ratings` that may carry several scores from several sources across CVSSv4, CVSSv3.1, OWASP, and SSVC, each with a vector and a justification. This is the mark of the reporting use case: a report communicates risk, including a supplier's own rating of its product's exposure, not just a verdict. Then the response guidance: `recommendation`, `workaround`, and published `advisories`. Then reach: `affects` entries that reference components and services by `bom-ref` or BOM-Link, with version ranges in vers syntax and a per-version status. The first entry in Acme's response document shows the fields:
 
-```json
+```json5
 {
   "bom-ref": "vuln-checkout-deserial",
   "id": "CVE-2026-21507",
@@ -119,7 +119,7 @@ A `not_affected` verdict carries a `justification` from a fixed vocabulary:
 
 The `response` array states what the supplier will do, from `update` through `will_not_fix`, and `detail` explains in prose. `firstIssued` and `lastUpdated` date the statement, because a VEX statement is a living record that moves from `in_triage` to a verdict as analysis completes. The second entry in the response document is a complete VEX statement:
 
-```json
+```json5
 {
   "bom-ref": "vuln-llm-tokenizer",
   "id": "CVE-2026-18821",
@@ -148,7 +148,7 @@ Scope is what makes VEX its own use case. A VEX statement addresses known, ident
 
 The operational payoff of the connection is a `not_affected` justification that points at the control doing the protecting. The vulnerability `analysis` gains `mitigatingControls`:
 
-```json
+```json5
 {
   "bom-ref": "vuln-session-fixation",
   "id": "ACME-2026-0007",
@@ -166,7 +166,7 @@ The operational payoff of the connection is a `not_affected` justification that 
 
 CWE 384 is session fixation, the same weakness vocabulary the threats use. The `protected_by_mitigating_control` justification is only as strong as the control it can point at. Here it references control instances that carry their own status, effectiveness, and owner. The step-up authentication control the justification cites records, among other fields, its status and an assessed effectiveness:
 
-```json
+```json5
 {
   "bom-ref": "ctl-mfa",
   "name": "Step-up authentication",
@@ -200,7 +200,7 @@ Everything above is assertion: a report says exploitable and a VEX says not affe
 
 Its center is `presence`, an array of determinations. Each entry is one attributable finding about one subject: a `ref` to the affected component or service it concerns, a `status` reusing the `affected`, `unaffected`, `unknown` vocabulary, and a `justification` reusing the VEX justification vocabulary when the determination is negative. A required `confidence` runs from 0 to 1, the `methods` record what produced the determination, the `tools` name what ran, an `assertion` names the parties involved, and a `timestamp` dates it. The VEX statement above stops being a bare assertion when its evidence is attached:
 
-```json
+```json5
 "evidence": {
   "presence": [
     {
@@ -292,7 +292,7 @@ The top of the ladder is guarded: the schema enforces that a determination of `p
 
 The strongest determinations cannot be bare assertions, by construction, and the prompt injection finding clears the bar:
 
-```json
+```json5
 {
   "bom-ref": "pe-prompt-injection",
   "ref": "urn:cdx:11111111-1111-4111-8111-111111111111/1#comp-agent",
@@ -341,7 +341,7 @@ One boundary keeps the ladder honest: mitigation does not move it, and a vulnera
 
 Two more members of the evidence object locate and preserve. `occurrences` records the individual locations where the vulnerability manifests, file, line, byte offset, and symbol, the same occurrence structure component evidence uses, because a flaw in a shared module can surface in more than one place. `callStacks` records the paths by which it is reached, each one named, ordered from entry point to sensitive operation, and equally at home describing a control flow or a data flow such as untrusted input propagating to a deserializer. A vulnerability reachable three ways carries three stacks, and each frame pins package, module, function, file, and line:
 
-```json
+```json5
 "callStacks": [
   {
     "bom-ref": "cs-prompt-to-tool",
@@ -382,7 +382,7 @@ Evidence in this form is not confined to vulnerabilities: the same model substan
 
 A vulnerability that is not fully mitigated is a risk input. A threat points at the flaws that realize it through `relatedVulnerabilities`, and a risk points at the vulnerabilities that source it through its own `relatedVulnerabilities`, so adversary analysis and the register both reach the same concrete finding. The loop runs one full turn: the vulnerability is triaged with context, its residual exposure feeds a risk, and the risk's response references controls.
 
-```json
+```json5
 "residualRisk": {
   "likelihood": { "level": "low" },
   "impact": { "level": "moderate" },

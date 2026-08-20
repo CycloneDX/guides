@@ -27,7 +27,7 @@ A `dataStore` is the physical or logical place data resides, and it requires `bo
 
 Optional fields describe the product and its deployment: `vendor`, `product`, and `version` identify the software itself. `environment`, `zone`, `location`, `technologies`, and `authorization` describe where and how it runs, and the `dataSets` array lists which collections the store holds, by bom-ref.
 
-```json
+```json5
 {
   "bom-ref": "ds-orders",
   "name": "Orders database",
@@ -50,7 +50,7 @@ This is the asset an attacker wants to reach: the `zone` field ties the store to
 
 A `dataSet` is the logical collection of records, independent of where it is stored, and it requires `bom-ref`, `name`, and `description`. `recordCount` sizes the collection, `dataProfiles` references the classification profiles that apply, `dataObjects` holds the record definitions, `owners` names the accountable parties by ref, and `authorization` records the access model for the set.
 
-```json
+```json5
 {
   "bom-ref": "dset-orders",
   "name": "Customer orders",
@@ -68,7 +68,7 @@ Separating the set from the store matters: the same collection can be replicated
 
 The `placements` array records where a data set resides, and each placement references a `dataStore` by bom-ref and carries operational facts about that copy: `encrypted`, `replicated`, and `retention`. This is the edge that says "this collection lives in that store, encrypted and replicated."
 
-```json
+```json5
 "placements": [
   { "dataStore": "ds-orders", "encrypted": true, "replicated": true }
 ]
@@ -80,7 +80,7 @@ The placement complements `dataStore.dataSets`: that array lists what the store 
 
 A `dataObject` defines one record, the entity in the ERD, and it requires only `name`: `profile` classifies it through a data profile choice, `attributes` lists its fields, and `relationships` lists its edges to other objects.
 
-```json
+```json5
 {
   "bom-ref": "do-order",
   "name": "Order",
@@ -111,7 +111,7 @@ A `dataAttribute` is one field on a data object requiring only `name`, where `in
 | `foreign` | A foreign key into another object |
 | `unique` | A unique key |
 
-```json
+```json5
 { "name": "email", "informationType": "pii", "sensitive": true }
 ```
 
@@ -130,7 +130,7 @@ A `dataRelationship` is an edge between two data objects, the line in an ERD, an
 
 `sourceAttributes` names the fields on this object that form the link.
 
-```json
+```json5
 {
   "name": "placed by",
   "target": "do-customer",
@@ -145,7 +145,7 @@ This relationship on the order object targets `do-customer` with `many-to-one` c
 
 A data profile choice classifies a data object or set, either by referencing a shared profile by bom-ref, as `"profile": "dp-customer-pii"` does above, or by inlining a full profile object where the classification is local to one object. Referencing a shared profile is the common case: one profile describes the customer data once, and every object and set that carries that data points to it.
 
-```json
+```json5
 "dataProfiles": [ "dp-customer-pii" ]
 ```
 

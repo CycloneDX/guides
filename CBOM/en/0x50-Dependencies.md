@@ -38,7 +38,7 @@ a subtree of crypto dependencies within the crypto asset components.
 The following example illustrates a simple application with a dependency on a cryptographic library, which, in turn,
 implements AES-128-GCM. The cryptographic library also depends on another library.
 
-```json
+```json5
 "dependencies": [
   {
     "ref": "acme-application",

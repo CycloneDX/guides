@@ -46,7 +46,7 @@ The object model's pseudo-schema would look something like this:
 
 The CycloneDX JSON pseudocode below shows how an ML model would be declared as the "subject" `component` of an ML-BOM within the top-level `metadata`:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -96,7 +96,7 @@ The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingf
 
 Since the model repository is hosted on Hugging Face, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...
@@ -162,7 +162,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
  **Note**: The derivative `bom-ref`, based upon the PURL, is also shown.
 
-```json
+```json5
 "component":
 {
   "type": "machine-learning-model",
@@ -180,7 +180,7 @@ Organizations that produce BOMs for hardware or software components they produce
 
 The following example shows how a registered name for a fictional company, ACME, which registered the namespace `acme`, could provide a property to identify one of its internal ML models.
 
-```json
+```json5
 "component": {
   "properties": [
     {
@@ -212,7 +212,7 @@ These quantized GGUF models are each individual files in the repository:
 
 Each can be specifically identified in a CycloneDX component using a Package URL (PURL). For example, the `Qwen3-8B-Q4_K_M.gguf` model would be declared as follows:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -244,7 +244,7 @@ It is important to disclose information regarding a model's release.  This is ac
 
 ###### Example: release notes
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...
@@ -300,7 +300,7 @@ The simplified JSON below shows how to declare a few files from the model reposi
 
 > **Note**: In the JSON below, we use the Package URL (PURL) syntax to provide the additional path (with the model repository or "package") to each individual file by appending it using the `#` hash symbol as a separator.  Also, notice that the commit hash (identifier) varies per file.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
     // ...,
@@ -370,7 +370,7 @@ The simplified JSON below shows how to declare a few files from the model reposi
 
 Then the model component's new hierarchy of composing files would be described as an assembly composition as follows:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
@@ -405,7 +405,7 @@ It is important to capture any of these transformations in the model's lineage (
 
 ###### Example: Declaring the finetuning of llama3 model for a coding variant
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,

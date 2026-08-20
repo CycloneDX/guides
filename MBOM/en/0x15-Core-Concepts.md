@@ -59,7 +59,7 @@ The recommended approach for managing formulation information involves referenci
 using CycloneDX's BOM-Link mechanism. This applies universally whether describing software builds, hardware manufacturing,
 service deployment, or compliance processes:
 
-```json
+```json5
 "externalReferences": [
   {
     "type": "formulation",

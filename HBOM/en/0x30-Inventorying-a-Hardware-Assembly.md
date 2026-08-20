@@ -6,7 +6,7 @@ A hardware inventory names every part and every substance, locates them, classif
 
 `classification` places the part in a hierarchy: a free-text category such as semiconductor or passive, an optional subcategory such as microcontroller, and an array of `codes` that bind the part to external taxonomies. Each code names its issuing `standard`, the `value`, and an optional description and URL, so one part can carry an HS customs heading, a NAICS industry code, and a JEDEC package outline at once:
 
-```json
+```json5
 "classification": {
   "category": "semiconductor",
   "subcategory": "microcontroller",
@@ -114,7 +114,7 @@ Identifiers are attributed, not bare. An `identifiers` entry names the asserting
 
 A scheme outside the predefined set takes the custom form, an object with a required `name`, so a private vocabulary such as an internal ERP number travels without posing as a standard scheme:
 
-```json
+```json5
 { "scheme": { "name": "acme-erp-sku" }, "value": "100-4417" }
 ```
 
@@ -124,7 +124,7 @@ Attribution matters because part numbers collide. The manufacturer asserts the M
 
 The board itself is a `device` component in document metadata, and its parts sit in the `components` array, which states inclusion: every listed part belongs to the finished product. Deeper structure nests, because any component may carry its own `components`, and the hierarchy follows how manufacturing already decomposes a product, system to subsystem to part. The Acme Touchkit, a touchscreen display module designed for the Devkit One and sold separately, contains a TFT panel and a driver board:
 
-```json
+```json5
 {
   "type": "device",
   "bom-ref": "mod-touchkit",
@@ -144,7 +144,7 @@ Nesting is containment and nothing more. In the figure, the metadata component i
 
 A `dependencies` entry records function rather than structure: the components a part requires to operate, each named by `bom-ref` in a flat graph. Hardware depends across assembly boundaries. The Touchkit ships outside every Devkit One assembly and connects over a ribbon cable, yet without the board it has no power and nothing to drive it, so a document describing the deployed pair lists both components, nests neither inside the other, and records the functional relationship in one entry:
 
-```json
+```json5
 "dependencies": [
   {
     "ref": "mod-touchkit",

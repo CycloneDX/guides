@@ -55,7 +55,7 @@ CycloneDX supports multiple digital signing methods to accommodate various prefe
 The following are examples of digital signatures in a CycloneDX attestation:
 
 ### JSON
-```json
+```json5
 "signature": {
   "algorithm": "RS512",
   "publicKey": {

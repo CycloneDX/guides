@@ -12,7 +12,7 @@ Physical products are built from parts that change. A transistor goes end-of-lif
 
 Two approved transistors satisfy the Q3 switching function, and any single board carries exactly one of them. The choice is `XOR`, and the rationale lives on the wrapper:
 
-```json
+```json5
 {
   "type": "component-choice",
   "bom-ref": "choice-q3",
@@ -32,7 +32,7 @@ Each alternate remains a complete component, with its own manufacturer, identifi
 
 Substitution is not always one for one: an integrated level shifter and a discrete MOSFET pair produce the same electrical function in the end product, and the discrete route is only valid as a set. Nesting expresses it: the outer choice is `XOR`, and the discrete branch is an inner choice with `AND`:
 
-```json
+```json5
 {
   "type": "component-choice",
   "bom-ref": "choice-level-shift",

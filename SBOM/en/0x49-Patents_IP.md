@@ -44,35 +44,37 @@ Transparency in intellectual property is essential to mitigating risk and enabli
 supply chains, where components may originate from multiple sources and jurisdictions, understanding which patents apply
 to a given product or process is key to avoiding disputes and ensuring legal clarity. 
 
-```json
-"patents": [
-  {
-    "bom-ref": "patent-1",
-    "patentNumber": "US1234567890",
-    "applicationNumber": "12345",
-    "jurisdiction": "US",
-    "publicationNumber": "US-12345",
-    "title": "Efficient Data Processing Algorithm",
-    "abstract": "A novel system and method for improving data processing efficiency.",
-    "filingDate": "2021-01-15",
-    "grantDate": "2022-06-01",
-    "patentExpirationDate": "2042-01-15",
-    "patentLegalStatus": "in-force",
-    "patentAssignee": [ 
-      {
-        "name": "Example, Inc.",
-        "url": [ "https://example.com" ]
-      }
-    ],
-    "externalReferences": [
-      {
-        "type": "patent",
-        "url": "https://uspto.gov/patent/US12345678B1",
-        "comment": "Official USPTO page for the patent."
-      }
-    ]
-  }
-]
+```json5
+{ // ...
+  "patents": [
+    {
+      "bom-ref": "patent-1",
+      "patentNumber": "US1234567890",
+      "applicationNumber": "12345",
+      "jurisdiction": "US",
+      "publicationNumber": "US-12345",
+      "title": "Efficient Data Processing Algorithm",
+      "abstract": "A novel system and method for improving data processing efficiency.",
+      "filingDate": "2021-01-15",
+      "grantDate": "2022-06-01",
+      "patentExpirationDate": "2042-01-15",
+      "patentLegalStatus": "in-force",
+      "patentAssignee": [
+        {
+          "name": "Example, Inc.",
+          "url": [ "https://example.com" ]
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "patent",
+          "url": "https://uspto.gov/patent/US12345678B1",
+          "comment": "Official USPTO page for the patent."
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Patent Families
@@ -82,19 +84,21 @@ both individual patents and structured patent families, referencing authoritativ
 
 The following example ties multiple patents together into a family.
 
-```json
-"patents": [
-  {
-    "bom-ref": "patent-family-1",
-    "familyId": "PF-2023001",
-    "priorityApplication": {
-      "applicationNumber": "12345",
-      "jurisdiction": "US",
-      "filingDate": "2021-01-15"
-    },
-    "members": ["patent-1", "patent-2"]
-  }        
-]
+```json5
+{ // ...
+  "patents": [
+    {
+      "bom-ref": "patent-family-1",
+      "familyId": "PF-2023001",
+      "priorityApplication": {
+        "applicationNumber": "12345",
+        "jurisdiction": "US",
+        "filingDate": "2021-01-15"
+      },
+      "members": ["patent-1", "patent-2"]
+    }
+  ]
+}
 ```
 
 ## Ownership Assertions
@@ -103,23 +107,24 @@ of patent rights, allowing organizations to declare ownership, licensing status,
 technologies. These assertions can be linked to specific components, services, or stages in a formulation process, 
 enabling precise modeling of IP coverage.
 
-```json
-"patentAssertions": [
-  {
-    "bom-ref": "patent-assertion-1",
-    "assertionType": "ownership",
-    "asserter": "org-acme-inc",
-    "patentRefs": [ "patent-1" ],
-    "notes": "Covers the core processing architecture for advanced computation."
-  },
-  {
-    "bom-ref": "patent-assertion-2",
-    "assertionType": "license",
-    "asserter": "org-acme-inc",
-    "patentRefs": [ "patent-3" ],
-    "notes": "Licensed for use in North America."
-  }
-]
+```json5{ // ...
+  "patentAssertions": [
+    {
+      "bom-ref": "patent-assertion-1",
+      "assertionType": "ownership",
+      "asserter": "org-acme-inc",
+      "patentRefs": [ "patent-1" ],
+      "notes": "Covers the core processing architecture for advanced computation."
+    },
+    {
+      "bom-ref": "patent-assertion-2",
+      "assertionType": "license",
+      "asserter": "org-acme-inc",
+      "patentRefs": [ "patent-3" ],
+      "notes": "Licensed for use in North America."
+    }
+  ]
+}
 ```
 
 ### Patent Assertion Types

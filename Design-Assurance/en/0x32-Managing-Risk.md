@@ -6,7 +6,7 @@ Risk is also where a set of newer concerns come home. AI harms, environmental im
 
 A risk register populates the `risks` container, which holds three arrays: `risks`, `assessments`, and `riskAppetites`.
 
-```json
+```json5
 "risks": {
   "risks": [
     { "bom-ref": "risk-ato", "name": "Customer account takeover", "statement": "Credential stuffing against the storefront may take over customer accounts, leading to fraudulent orders, chargebacks, and loss of customer trust." }
@@ -22,7 +22,7 @@ The `risks` array carries the register proper, with one entry per identified ris
 
 A `risk` requires a `bom-ref`, a `name`, and a `statement`, the plain-language description of source, event, and consequence. Everything else characterizes and connects it.
 
-```json
+```json5
 {
   "bom-ref": "risk-ato",
   "name": "Customer account takeover",
@@ -58,7 +58,7 @@ A `risk` requires a `bom-ref`, a `name`, and a `statement`, the plain-language d
 
 A domain can also carry a `priority` and a `description`, so the register can say which exposure matters most within a multi-domain risk:
 
-```json
+```json5
 "domains": [
   { "type": "security", "priority": "high", "description": "Primary security exposure for the order store." }
 ]
@@ -70,7 +70,7 @@ A domain can also carry a `priority` and a `description`, so the register can sa
 
 A risk carries up to three ratings that share one structure: `inherentRisk` before any response, `residualRisk` after the responses in place, and `targetRisk` where the organization wants to land. Expressing all three is the spine of treatment, because it makes the value of controls legible as the distance between inherent and residual, and the remaining work as the distance from residual to target.
 
-```json
+```json5
 "inherentRisk": {
   "likelihood": {
     "level": "high",
@@ -115,7 +115,7 @@ The register keeps most ratings terse, and a fuller rating, drawn from `risk-tou
 | `very-high` | Expected to occur repeatedly |
 | `certain` | Occurring or effectively guaranteed |
 
-```json
+```json5
 "likelihood": {
   "level": "medium",
   "probability": 0.4,
@@ -155,7 +155,7 @@ A factor may also carry a numeric `score` and a `weight` from 0 to 1, so a weigh
 | `major` | Serious harm to operations, finances, or people |
 | `catastrophic` | Existential or irreversible harm |
 
-```json
+```json5
 "impact": {
   "level": "major",
   "polarity": "harm",
@@ -208,7 +208,7 @@ Each `impactFactor` measures one dimension with a `category`, a `score`, and a `
 
 The register's second risk is where an AI harm becomes visible. Its domain is `ethical`, and its impact reaches for the custom branch of the category list:
 
-```json
+```json5
 {
   "domains": [ { "type": "ethical" }, { "type": "operational" } ],
   "inherentRisk": {
@@ -229,7 +229,7 @@ Two design choices let the register carry upside, not just downside, which is th
 
 `riskScore` records the overall result as a qualitative `level`, a numeric `score`, or both, with a `vector` and a `methodology` saying how it was derived.
 
-```json
+```json5
 "score": { "level": "high", "score": 7.5, "vector": "OWASP/L:M/I:H", "methodology": "owasp-risk-rating" },
 "detectability": { "score": 4, "description": "Bulk reads resemble reporting traffic." },
 "confidence": 0.6
@@ -253,7 +253,7 @@ Program frameworks that govern the risk process but prescribe no score, such as 
 
 A `riskResponse` pairs an ISO 31000 disposition with the controls that carry it out.
 
-```json
+```json5
 {
   "bom-ref": "rr-ato-reduce",
   "strategy": "reduce",

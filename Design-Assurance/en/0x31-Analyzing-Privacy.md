@@ -10,7 +10,7 @@ Data profiles live in a registry under the document root, `profiles.dataProfiles
 
 A `dataProfile` names a category of data and states what a privacy reviewer needs to reason about it, and only `name` is required. Every privacy field is optional, so a profile can start thin and deepen over time, and the head of the profile sets classification, the information types it contains, and the wire formats it appears in.
 
-```json
+```json5
 {
   "bom-ref": "dp-customer-pii",
   "name": "Customer order data",
@@ -51,7 +51,7 @@ Acme's profile is confidential data that is both `pii` and `financial`, and `dat
 
 A `subject` identifies the people or group a category of data describes, the anchor for data subject rights and for any analysis that turns on who is affected.
 
-```json
+```json5
 "subjects": [
   {
     "name": "Retail customers",
@@ -70,7 +70,7 @@ A subject can name a group in free text, as here, or bind to a declared party th
 
 A `purpose` states why the data is processed and, where a law expects one, the legal basis for that processing.
 
-```json
+```json5
 "purposes": [
   { "name": "Order fulfillment", "legalBasis": "contract" },
   { "name": "Customer support", "legalBasis": "legitimate-interest" }
@@ -83,7 +83,7 @@ Acme processes customer data to fulfill orders on the basis of `contract`, and f
 
 At the profile level, `jurisdictions` and `regulations` state the full legal reach of the category, across all its subjects.
 
-```json
+```json5
 "jurisdictions": [ "US-CA", "GB" ],
 "regulations": [ "CCPA", "GDPR", "PCI-DSS" ]
 ```
@@ -94,7 +94,7 @@ At the profile level, `jurisdictions` and `regulations` state the full legal rea
 
 Handling rules are not restated inside the profile: they point at requirements declared elsewhere in the document, so the rule and its status live in one place and the profile references it.
 
-```json
+```json5
 "retention": [ "req-retention" ],
 "access": [ "req-access" ]
 ```
@@ -105,7 +105,7 @@ Handling rules are not restated inside the profile: they point at requirements d
 
 Component and service data carry a lighter privacy structure than a full profile. Their `governance` field, the data governance object, is an array of the parties accountable for a piece of data, using the same party choice used everywhere else in the model. In `feature-tour.cdx.json`, the reporting service names its data team as the accountable party.
 
-```json
+```json5
 "data": [
   {
     "bom-ref": "cd-reports",
@@ -134,7 +134,7 @@ Services are converging into components in 2.0, so the same fields will appear u
 
 Data becomes analyzable the moment the architecture references a profile. A blueprint flow that carries a `dataProfiles` array is an arrow with known sensitivity, known subjects, and known regulations. Acme's order lookup flow carries `dp-customer-pii`, which turns the data flow diagram into a privacy flow diagram: every edge that moves customer PII is now visible as such.
 
-```json
+```json5
 {
   "bom-ref": "flow-read-orders",
   "name": "Order lookup",

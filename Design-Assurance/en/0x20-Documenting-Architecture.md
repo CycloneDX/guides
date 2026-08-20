@@ -8,7 +8,7 @@ Architecture lives in the `blueprints` array at the root of a CycloneDX document
 
 A `blueprint` requires a `name` and `modelTypes`, the declared kinds of view it represents.
 
-```json
+```json5
 {
   "bom-ref": "bp-storefront",
   "name": "Acme Storefront data flow model",
@@ -38,7 +38,7 @@ One blueprint declares one coherent view, and a document may carry several views
 
 Blueprint `metadata` is distinct from document metadata: it records who authored the view, an `ordinalVersion` for ordered comparison across revisions, and a `validityPeriod` with a review cadence.
 
-```json
+```json5
 "metadata": {
   "timestamp": "2026-07-10T09:00:00Z",
   "authors": [
@@ -63,7 +63,7 @@ Architecture rots. The `validityPeriod` makes the rot visible: `start` and `end`
 
 `scope` states what the model covers and what it deliberately leaves out of the view.
 
-```json
+```json5
 "scope": {
   "bom-ref": "scope-storefront",
   "name": "Storefront and support",
@@ -80,7 +80,7 @@ Alongside `includedComponents`, an `excludedComponents` array and the descriptio
 
 Assets are the nodes of the model, and an asset takes one of four forms: a reference to a component (`componentRef`), a reference to a service (`serviceRef`), a reference to a party (`partyRef`), or an inline declaration with an explicit `type` and `name`. The reference forms bind the view to the same objects the rest of the document already describes.
 
-```json
+```json5
 {
   "bom-ref": "asset-web",
   "componentRef": "comp-web",
@@ -92,13 +92,13 @@ Assets are the nodes of the model, and an asset takes one of four forms: a refer
 
 A reference asset carries a `type` but not a `name`, because it takes its display identity from the object it points at, and a party reference behaves the same way.
 
-```json
+```json5
 { "bom-ref": "asset-customer", "partyRef": "party-customer", "type": "actor" }
 ```
 
 Only the inline form declares both a `type` and a `name`, for things outside the inventory such as an agent tool.
 
-```json
+```json5
 {
   "bom-ref": "asset-order-tool",
   "type": "tool",
@@ -124,7 +124,7 @@ A type outside the predefined set uses the same name-and-description object form
 
 An asset can carry an `assetClassification` that grades its criticality and sensitivity, which is how impact analysis knows which nodes matter most.
 
-```json
+```json5
 "classification": {
   "criticality": "high",
   "classification": "confidential",
@@ -147,14 +147,14 @@ It also records the `authentication` and `authorization` it enforces, each a typ
 | `authorization` | `abac` | Attribute-based access control |
 | `authorization` | `rebac` | Relationship-based access control |
 
-```json
+```json5
 "authentication": [ "mtls", "jwt" ],
 "authorization": [ "rbac", { "name": "purpose-based", "description": "Access gated by declared processing purpose." } ]
 ```
 
 A predefined value is a plain string, and values outside the vocabulary are objects with a `name` and a `description`, as `purpose-based` shows. `ownership` binds a party as the owner of an asset, which matters most for parts outside the producing organization.
 
-```json
+```json5
 "ownership": [
   {
     "bom-ref": "party-globex",
@@ -166,7 +166,7 @@ A predefined value is a plain string, and values outside the vocabulary are obje
 
 Finally, an asset lists its `interfaces`, the exposed surface a caller can reach.
 
-```json
+```json5
 "interfaces": [
   {
     "name": "Orders API",
@@ -191,7 +191,7 @@ Zones are containers for network segments, data domains, tenants, or geographies
 | `data` | A data domain |
 | `trust` | A trust domain |
 
-```json
+```json5
 "zones": [
   { "bom-ref": "zone-dmz", "name": "Edge", "type": "network" },
   { "bom-ref": "zone-data", "name": "Data", "type": "data" }
@@ -200,7 +200,7 @@ Zones are containers for network segments, data domains, tenants, or geographies
 
 Boundaries are the edges between the zones they separate, and they carry the substance a diagram usually reduces to a dashed line.
 
-```json
+```json5
 {
   "bom-ref": "bnd-edge",
   "name": "Internet to edge",
@@ -224,7 +224,7 @@ Boundaries are the edges between the zones they separate, and they carry the sub
 
 `relationships` are the static structure, a keyed adjacency form that mirrors the dependency graph, with typed edges such as `serves`, `contains`, and `dependsOn` among others, plus a `custom` escape.
 
-```json
+```json5
 "relationships": [
   { "ref": "asset-web", "serves": [ "asset-customer" ] },
   { "ref": "asset-checkout", "dependsOn": [ "asset-payment" ] },
@@ -234,7 +234,7 @@ Boundaries are the edges between the zones they separate, and they carry the sub
 
 A named edge that no keyword covers uses `custom`: `feature-tour.cdx.json` records `{ "type": "processes", "targets": [ "z-data" ] }`. Where relationships are structural, `flows` are the runtime edges: a `source`, a `destination`, a `type`, whether the payload is `encrypted`, and, critically, what it carries.
 
-```json
+```json5
 {
   "bom-ref": "flow-order",
   "name": "Order placement",
@@ -261,7 +261,7 @@ Acme's blueprint also records a `financial` payment flow and a `control` flow fo
 
 `actors` bind parties into the model with the context the party model does not carry: the `permissions` they hold and the `zone` they operate from.
 
-```json
+```json5
 {
   "bom-ref": "actor-agent",
   "party": {
@@ -281,7 +281,7 @@ For an autonomous agent, `delegatedBy` records whose authority it acts on, which
 
 An `assumption` records a load-bearing belief the model depends on, and what happens if it turns out to be false. It is where a producer states what the view does not prove.
 
-```json
+```json5
 {
   "bom-ref": "asm-tokenized",
   "description": "Cardholder data is tokenized by the payment gateway and never stored by Acme.",
@@ -301,7 +301,7 @@ The `owner`, `validationMethod`, and `validationDate` turn a belief into an audi
 
 A `visualization` attaches or links a rendering, and the structured model stays authoritative: the picture is a projection of it.
 
-```json
+```json5
 {
   "bom-ref": "viz-seq",
   "name": "Checkout sequence",
