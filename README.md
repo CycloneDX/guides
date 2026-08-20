@@ -26,7 +26,7 @@ The PDFs are produced by a fully open-source pipeline — pandoc converts the Ma
 defines the entire design), and pypdf assembles the cover, back page, background art, and metadata.
 No proprietary software is required.
 
-```text
+```shell
 build/build-pdf.sh SBOM        # one guide
 build/build-pdf.sh ALL         # every guide with sources
 ```
