@@ -1,0 +1,20 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*.{json,jsonc,json5}]
+indent_style = space
+indent_size = 2
+
+[*.xml]
+indent_style = space
+indent_size = 4
+
+[{Makefile,makefile,GNUmakefile,*.mk,*.make}]
+indent_style = tab
+indent_size = 4
+
+[*.{c,h,cpp,hpp,cc}]
+indent_style = space
+indent_size = 4

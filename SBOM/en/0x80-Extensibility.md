@@ -48,7 +48,7 @@ prefix the property name and are defined by the organization or project that reg
 
 Namespaces are hierarchical and delimited with a `:` and may optionally start with `urn:`. Examples include:
 
-```
+```text
 cdx:gomod:binary
 cdx:npm:package:bundled
 cdx:pipenv:package
