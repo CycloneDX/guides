@@ -3,6 +3,10 @@
 # top-most EditorConfig file
 root = true
 
+
+[*.md]
+trim_trailing_whitespace = false  # markdown uses two trailing spaces to indicate a linebreak
+
 [*.{json,jsonc,json5}]
 indent_style = space
 indent_size = 2
