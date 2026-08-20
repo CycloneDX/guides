@@ -13,7 +13,7 @@ An inventory lives under two familiar top-level containers: `components` and `de
 Start with the smallest useful inventory: a list of components, each with an identity, a type, a version, and a description. The following example reduces `comp-web` to those essentials:
 
 ```json5
-{
+{ // ...
   "bom-ref": "comp-web",
   "type": "application",
   "name": "storefront-web",
@@ -29,10 +29,12 @@ Start with the smallest useful inventory: a list of components, each with an ide
 The `dependencies` array records edges between components: each entry has a `ref`, the component the edge is about, and a `dependsOn` array, the components it directly relies on.
 
 ```json5
-"dependencies": [
-  { "ref": "comp-web", "dependsOn": [ "comp-checkout" ] },
-  { "ref": "comp-agent", "dependsOn": [ "comp-llm", "comp-checkout" ] }
-]
+{ // ...
+  "dependencies": [
+    { "ref": "comp-web", "dependsOn": [ "comp-checkout" ] },
+    { "ref": "comp-agent", "dependsOn": [ "comp-llm", "comp-checkout" ] }
+  ]
+}
 ```
 
 The web app depends on the checkout API, and the support agent depends on both the model and the checkout API. The example uses only `ref` and `dependsOn`, but a dependency entry may also carry `provides`, which names the components whose capability or interface the referenced component supplies an implementation of. `dependsOn` says "needs," and `provides` says "fulfills." Together they give both directions of the graph.
@@ -42,25 +44,30 @@ The web app depends on the checkout API, and the support agent depends on both t
 Everything from here on is the same document growing: a component can carry the parties responsible for it in a `parties` array. On `comp-web`, Acme is named inline with two roles.
 
 ```json5
-"parties": [
-  {
-    "bom-ref": "party-acme",
-    "roles": [
-      { "role": "supplier" },
-      { "role": "owner" }
-    ],
-    "organization": {
-      "name": "Acme",
-      "legalName": "Acme Corporation"
+{ // ...
+  "parties": [
+    {
+      "bom-ref": "party-acme",
+      "roles": [
+        { "role": "supplier" },
+        { "role": "owner" }
+      ],
+      "organization": {
+        "name": "Acme",
+        "legalName": "Acme Corporation"
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 Declare the party once, then reference it thereafter to avoid repeating the block: the checkout and agent components reuse it by ref.
 
 ```json5
-"parties": [ "party-acme" ]
+{
+  // ...
+  "parties": [ "party-acme" ]
+}
 ```
 
 Supplier, owner, and other roles attach directly to the part, so provenance travels with the inventory: for the full party model, refer to Identifying Parties.
@@ -70,14 +77,16 @@ Supplier, owner, and other roles attach directly to the part, so provenance trav
 A requirement assertion records a component's claimed relationship to a requirement, carrying an `assertionType`, one or more `requirementRefs`, and an optional description. On the checkout API:
 
 ```json5
-"requirementAssertions": [
-  {
-    "bom-ref": "ra-checkout-mfa",
-    "assertionType": "satisfies",
-    "requirementRefs": [ "req-mfa" ],
-    "description": "Step-up authentication is enforced for high-value orders."
-  }
-]
+{ // ...
+  "requirementAssertions": [
+    {
+      "bom-ref": "ra-checkout-mfa",
+      "assertionType": "satisfies",
+      "requirementRefs": [ "req-mfa" ],
+      "description": "Step-up authentication is enforced for high-value orders."
+    }
+  ]
+}
 ```
 
 `assertionType` states the component's stance toward the referenced requirement:
@@ -96,13 +105,15 @@ Here the component claims it satisfies `req-mfa`, and the description is Acme's 
 A use case assertion does the same for use cases, recording which use case a component realizes and how.
 
 ```json5
-"useCaseAssertions": [
-  {
-    "bom-ref": "ua-checkout",
-    "assertionType": "implements",
-    "useCaseRefs": [ "uc-checkout" ]
-  }
-]
+{ // ...
+  "useCaseAssertions": [
+    {
+      "bom-ref": "ua-checkout",
+      "assertionType": "implements",
+      "useCaseRefs": [ "uc-checkout" ]
+    }
+  ]
+}
 ```
 
 For use cases, `assertionType` is `implements`, `supports`, or `participates-in`, and the checkout API implements the "Place an order" use case. In the same document the support agent asserts that it implements the "Ask the support agent about an order" use case and satisfies the agent tool allowlist requirement. The component has become the anchor where the parts list meets the design.
@@ -114,9 +125,11 @@ In Acme's model the parts list, the dependency graph, and the blueprint all live
 The blueprint links outward to intent by BOM-Link:
 
 ```json5
-"requirements": [
-  "urn:cdx:22222222-2222-4222-8222-222222222222/1#req-mfa"
-]
+{ // ...
+  "requirements": [
+    "urn:cdx:22222222-2222-4222-8222-222222222222/1#req-mfa"
+  ]
+}
 ```
 
 A BOM-Link has the form `urn:cdx:<serialNumber>/<version>#<bom-ref>`. This one names the intent document by serial number and version, then the requirement `req-mfa` inside it, and the behavior document is reached the same way.

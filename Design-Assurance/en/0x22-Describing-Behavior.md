@@ -9,9 +9,11 @@ Four audiences consume this, matching community needs U1 through U5 on issue #46
 Behavior is carried inside a blueprint, the container defined in the Documenting Architecture chapter. A blueprint that models behavior lists `behavioral` in its `modelTypes`, then attaches a `behaviors` container. That container has two parts: `instances`, a flat list of individual behaviors, and `graphs`, ordered flows built from those behaviors.
 
 ```json5
-"behaviors": {
-  "instances": [ ... ],
-  "graphs": [ ... ]
+{ // ...
+  "behaviors": {
+    "instances": [ /* ... */ ],
+    "graphs": [ /* ... */ ]
+  }
 }
 ```
 
@@ -106,8 +108,8 @@ Instances say what a component does, and a `behaviorGraph` says in what order. I
   "kind": "activity",
   "subject": "asset-agent",
   "acknowledgment": [ "declared" ],
-  "nodes": [ ... ],
-  "transitions": [ ... ]
+  "nodes": [ /* ... */ ],
+  "transitions": [ /* ... */ ]
 }
 ```
 
@@ -133,14 +135,44 @@ A `behaviorNode` requires a `bom-ref` and a `kind`, and different kinds carry di
 An `activity` node names a behavior in one of three ways (a taxonomy value in `behavior`, a `ref` to an existing instance, or a nested `graph`), and a `gateway` node sets `gatewayKind` for its branching logic. The Acme activity graph uses all of these:
 
 ```json5
-"nodes": [
-  { "bom-ref": "bn-start", "kind": "initial", "name": "Conversation starts" },
-  { "bom-ref": "bn-lookup", "kind": "activity", "name": "Look up order", "ref": "bi-invoke-tool" },
-  { "bom-ref": "bn-answer", "kind": "activity", "name": "Answer customer", "behavior": "ai:agent:executesAction" },
-  { "bom-ref": "bn-gate", "kind": "gateway", "name": "Refund requested?", "gatewayKind": "exclusive" },
-  { "bom-ref": "bn-escalate", "kind": "activity", "name": "Escalate to human", "behavior": "ai:agent:delegatesTask" },
-  { "bom-ref": "bn-end", "kind": "final", "name": "Conversation ends" }
-]
+{ // ...
+  "nodes": [
+    {
+      "bom-ref": "bn-start",
+      "kind": "initial",
+      "name": "Conversation starts"
+    },
+    {
+      "bom-ref": "bn-lookup",
+      "kind": "activity",
+      "name": "Look up order",
+      "ref": "bi-invoke-tool"
+    },
+    {
+      "bom-ref": "bn-answer",
+      "kind": "activity",
+      "name": "Answer customer",
+      "behavior": "ai:agent:executesAction"
+    },
+    {
+      "bom-ref": "bn-gate",
+      "kind": "gateway",
+      "name": "Refund requested?",
+      "gatewayKind": "exclusive"
+    },
+    {
+      "bom-ref": "bn-escalate",
+      "kind": "activity",
+      "name": "Escalate to human",
+      "behavior": "ai:agent:delegatesTask"
+    },
+    {
+      "bom-ref": "bn-end",
+      "kind": "final",
+      "name": "Conversation ends"
+    }
+  ]
+}
 ```
 
 `bn-lookup` reuses the declared instance `bi-invoke-tool` by reference, so the same tool call appears once in `instances` and is pointed to from the graph, while `bn-answer` and `bn-escalate` name their behaviors inline.
@@ -148,13 +180,40 @@ An `activity` node names a behavior in one of three ways (a taxonomy value in `b
 `state` and `event` nodes appear in a state machine, where a `state` node can attach behavior instances that run as the state is entered, while it holds, and as it exits, through `onEntry`, `doActivity`, and `onExit`. It can also carry an `ordinal` for position, and an `event` node sets `eventType`. The session lifecycle in `feature-tour.cdx.json` uses both:
 
 ```json5
-"nodes": [
-  { "bom-ref": "n-init", "kind": "initial" },
-  { "bom-ref": "n-active", "kind": "state", "name": "Active", "ordinal": 1, "onEntry": "bi-log", "doActivity": "bi-log", "onExit": "bi-log" },
-  { "bom-ref": "n-timeout", "kind": "event", "name": "Idle timeout", "eventType": "scheduled" },
-  { "bom-ref": "n-gate", "kind": "gateway", "name": "Re-auth?", "gatewayKind": "exclusive" },
-  { "bom-ref": "n-closed", "kind": "final", "name": "Closed" }
-]
+{ // ...
+  "nodes": [
+    {
+      "bom-ref": "n-init",
+      "kind": "initial"
+    },
+    {
+      "bom-ref": "n-active",
+      "kind": "state",
+      "name": "Active",
+      "ordinal": 1,
+      "onEntry": "bi-log",
+      "doActivity": "bi-log",
+      "onExit": "bi-log"
+    },
+    {
+      "bom-ref": "n-timeout",
+      "kind": "event",
+      "name": "Idle timeout",
+      "eventType": "scheduled"
+    },
+    {
+      "bom-ref": "n-gate",
+      "kind": "gateway",
+      "name": "Re-auth?",
+      "gatewayKind": "exclusive"
+    },
+    {
+      "bom-ref": "n-closed",
+      "kind": "final",
+      "name": "Closed"
+    }
+  ]
+}
 ```
 
 The `Active` state logs an event on entry, throughout, and on exit, each pointing at the `bi-log` instance, and the `Idle timeout` event is `scheduled`.
@@ -164,12 +223,32 @@ The `Active` state logs an event on entry, throughout, and on exit, each pointin
 A `transition` connects nodes: it requires `source` and `target`, and it can add a `trigger`, a `guard` condition, a `default` flag for the fall-through branch out of a gateway, and an `effect` naming a behavior instance the transition itself runs.
 
 ```json5
-"transitions": [
-  { "source": "n-init", "target": "n-active", "trigger": "user-initiated" },
-  { "source": "n-active", "target": "n-timeout", "trigger": "scheduled" },
-  { "source": "n-gate", "target": "n-active", "guard": "re-auth succeeds", "effect": "bi-log" },
-  { "source": "n-gate", "target": "n-closed", "default": true }
-]
+{
+  // ...
+  "transitions": [
+    {
+      "source": "n-init",
+      "target": "n-active",
+      "trigger": "user-initiated"
+    },
+    {
+      "source": "n-active",
+      "target": "n-timeout",
+      "trigger": "scheduled"
+    },
+    {
+      "source": "n-gate",
+      "target": "n-active",
+      "guard": "re-auth succeeds",
+      "effect": "bi-log"
+    },
+    {
+      "source": "n-gate",
+      "target": "n-closed",
+      "default": true
+    }
+  ]
+}
 ```
 
 The gateway has two ways out: a guarded edge back to `Active` when re-authentication succeeds, which logs an event as its `effect`, and a `default` edge to `Closed` for everything else. In the Acme activity graph the same pattern routes a refund request to a human with `"guard": "request involves a refund"` and sends everything else to the end with `"default": true`.

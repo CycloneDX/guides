@@ -5,10 +5,12 @@ Every consequential judgment about a system leans on intent. A regulator assessi
 Intent lives in `definitions`, the declarative library: it holds reusable declared objects, and everything else references them.
 
 ```json5
-"definitions": {
-  "businessObjectives": [ ... ],
-  "useCases": [ ... ],
-  "requirements": [ ... ]
+{ // ...
+  "definitions": {
+    "businessObjectives": [ /* ... */ ],
+    "useCases": [ /* ... */ ],
+    "requirements": [ /* ... */ ]
+  }
 }
 ```
 
@@ -27,7 +29,7 @@ A `businessObjective` is deliberately small: a `name`, a `description`, a `criti
 | `critical` | Critical importance |
 
 ```json5
-{
+{ // ...
   "bom-ref": "obj-protect-data",
   "name": "Protect customer data",
   "description": "Customer order and payment data is protected against theft and misuse.",
@@ -43,7 +45,7 @@ Its power is in what references it: use cases declare which objectives they serv
 A `useCase` object declares intended use with the classic fields of requirements engineering. It carries `actors`, `preconditions`, and a `mainFlow` of numbered steps, with `alternativeFlows` and `exceptions` for the paths off the expected one. `postconditions`, `successCriteria`, and `notes` complete the flow, and the object references the `requirements` it depends on and the `businessObjectives` it serves.
 
 ```json5
-{
+{ // ...
   "bom-ref": "uc-support-chat",
   "name": "Ask the support agent about an order",
   "description": "A customer asks the AI support agent about order status; the agent uses the order lookup tool and answers.",
@@ -71,7 +73,7 @@ For regulated contexts this object is the anchor point: intended purpose declara
 A `step` is the unit of a flow: a `number`, a `description`, and an optional `actor` that pins responsibility to that step, as Acme's checkout flow does.
 
 ```json5
-{
+{ // ...
   "number": 1,
   "description": "The customer submits the order.",
   "actor": "urn:cdx:11111111-1111-4111-8111-111111111111/1#party-customer"
@@ -81,18 +83,33 @@ A `step` is the unit of a flow: a `number`, a `description`, and an optional `ac
 The main flow is the expected path, and an entry in `alternativeFlows` is a `flow` (a `name`, the `condition` that selects it, and its own `steps`) for a sanctioned variation. An entry in `exceptions` is an `exception` (a `name`, a `condition`, and its `handling`) for an error path. `postconditions` state what holds once the flow ends, and `notes` capture what the flow leaves implicit. Acme's reporting use case in `feature-tour.cdx.json` exercises all of these fields at once.
 
 ```json5
-"postconditions": [ "A report is produced and access is logged." ],
-"alternativeFlows": [
-  {
-    "name": "Cached report",
-    "condition": "A recent report exists",
-    "steps": [ { "number": 1, "description": "The service returns the cached report." } ]
-  }
-],
-"exceptions": [
-  { "name": "Unauthorized", "condition": "The analyst lacks reporting rights", "handling": "The request is denied and logged." }
-],
-"notes": [ "Row-level order data is never exposed through reporting." ]
+{ // ...
+  "postconditions": [
+    "A report is produced and access is logged."
+  ],
+  "alternativeFlows": [
+    {
+      "name": "Cached report",
+      "condition": "A recent report exists",
+      "steps": [
+        {
+          "number": 1,
+          "description": "The service returns the cached report."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "name": "Unauthorized",
+      "condition": "The analyst lacks reporting rights",
+      "handling": "The request is denied and logged."
+    }
+  ],
+  "notes": [
+    "Row-level order data is never exposed through reporting."
+  ]
+}
 ```
 
 Alternative flows are the sanctioned variations, exceptions are the error paths, and keeping both separate from the main flow lets a reviewer see at a glance what counts as normal operation and what counts as recovery.
@@ -125,7 +142,7 @@ A `priority` ranks the statement, and a lifecycle `status` tracks it, with five 
 | `obsolete` | No longer applicable |
 
 ```json5
-{
+{ // ...
   "bom-ref": "req-tool-allowlist",
   "id": "AS-REQ-014",
   "name": "Agent tool allowlist",
@@ -186,7 +203,11 @@ Acme records its step-up rule as already passing.
 Requirements relate to each other two ways: `parent` nests a requirement under a broader one, so `req-tour` rolls up to `req-tour-parent`. A `dependency` is a typed edge with a `ref` and a `type` of `requires`, `implements`, or `conflicts-with`.
 
 ```json5
-{ "ref": "req-tour-parent", "type": "implements", "description": "Implements part of the parent objective." }
+{
+  "ref": "req-tour-parent",
+  "type": "implements",
+  "description": "Implements part of the parent objective."
+}
 ```
 
 Two kinds of requirement coexist in CycloneDX, on purpose: the generic requirement is the organization's own, internal engineering and product requirements on their own lifecycle. The `standard` object, also in `definitions`, carries the requirements of published standards, identified and versioned as the standard publishes them. Refer to the Managing Controls chapter. Controls `satisfy` either kind, and the distinction preserves the difference between the two without forcing one structure onto both.

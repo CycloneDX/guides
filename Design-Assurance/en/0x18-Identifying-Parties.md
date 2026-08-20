@@ -13,13 +13,15 @@ Parties are not a document of their own, appearing wherever a model needs to nam
 A `party` is a single actor. It carries a `bom-ref` so other documents can point at it, a required `roles` array, exactly one identity, and optional `relations`, `tags`, and `properties`. The identity is a `oneOf`: a party is an organization, a person, a system, or a persona, and never two at once, each described in its own section below. That exclusivity forces the author to decide what kind of thing is acting before describing it, and it lets a consumer switch on identity type without ambiguity. `parties` is the array of `party` used at a call site:
 
 ```json5
-"parties": [
-  {
-    "bom-ref": "party-acme",
-    "roles": [ { "role": "supplier", "order": 1 }, { "role": "manufacturer" } ],
-    "organization": { "name": "Acme", "legalName": "Acme Corporation" }
-  }
-]
+{ // ...
+  "parties": [
+    {
+      "bom-ref": "party-acme",
+      "roles": [ { "role": "supplier", "order": 1 }, { "role": "manufacturer" } ],
+      "organization": { "name": "Acme", "legalName": "Acme Corporation" }
+    }
+  ]
+}
 ```
 
 Roles are required, and every party has at least one. A role says what the party does in this context, not who it is, so the same organization can be a `supplier` in one binding and an `issuer` in another. Each entry is a `preDefinedRole`: a `role` value plus an optional `order` integer that ranks parties sharing a role, lower being higher preference. Acme above is the order-1 supplier, and a second party with `role` `supplier` and `order` 2 would read as the alternate. The role vocabulary is a predefined enum, with a custom branch of `{ name, description }` for anything not listed:
@@ -45,14 +47,16 @@ Where a field names a single party rather than an array, it uses a `partyChoice`
 An `organization` is a named legal or informal body, ranging from a one-line stub to a full record:
 
 ```json5
-"organization": {
-  "name": "Acme",
-  "legalName": "Acme Corporation",
-  "description": "Retailer operating the storefront.",
-  "jurisdiction": "US",
-  "foundingDate": "1998-03-01",
-  "formerNames": [ "Acme Retail LLC" ],
-  "aliases": [ "Acme Store" ]
+{ // ...
+  "organization": {
+    "name": "Acme",
+    "legalName": "Acme Corporation",
+    "description": "Retailer operating the storefront.",
+    "jurisdiction": "US",
+    "foundingDate": "1998-03-01",
+    "formerNames": [ "Acme Retail LLC" ],
+    "aliases": [ "Acme Store" ]
+  }
 }
 ```
 
@@ -63,15 +67,17 @@ An `organization` is a named legal or informal body, ranging from a one-line stu
 A `person` is an individual whose `name`, following W3C internationalization guidance on personal names, is a single freeform full-name string, not a split of given and family parts that many cultures do not honor:
 
 ```json5
-"person": {
-  "name": "Jordan Kim",
-  "sortName": "Kim, Jordan",
-  "honorificPrefix": "Dr",
-  "jobTitle": "Security Architect",
-  "email": [ { "name": "work", "address": "jordan.kim@acme.example" } ],
-  "phone": [ { "name": "office", "number": "+1-555-0142" } ],
-  "url": [ { "name": "profile", "url": "https://acme.example/people/jkim" } ],
-  "affiliation": "party-acme"
+{// ...
+  "person": {
+    "name": "Jordan Kim",
+    "sortName": "Kim, Jordan",
+    "honorificPrefix": "Dr",
+    "jobTitle": "Security Architect",
+    "email": [ { "name": "work", "address": "jordan.kim@acme.example" } ],
+    "phone": [ { "name": "office", "number": "+1-555-0142" } ],
+    "url": [ { "name": "profile", "url": "https://acme.example/people/jkim" } ],
+    "affiliation": "party-acme"
+  }
 }
 ```
 
@@ -82,13 +88,15 @@ A `person` is an individual whose `name`, following W3C internationalization gui
 A `system` is a non-human actor: a service account, an autonomous agent, a machine identity, a bot, a device, a robot, and more. `kind` uses the predefined-or-custom pattern, a plain string for a known kind or an object for a custom one:
 
 ```json5
-"system": {
-  "kind": "service-account",
-  "ref": "comp-web",
-  "identifiers": [
-    { "scheme": "spiffe", "value": "spiffe://acme.example/ci/deployer" }
-  ],
-  "permissions": [ "deploy:storefront", "read:artifacts" ]
+{// ...
+  "system": {
+    "kind": "service-account",
+    "ref": "comp-web",
+    "identifiers": [
+      { "scheme": "spiffe", "value": "spiffe://acme.example/ci/deployer" }
+    ],
+    "permissions": [ "deploy:storefront", "read:artifacts" ]
+  }
 }
 ```
 
@@ -99,12 +107,14 @@ A `system` is a non-human actor: a service account, an autonomous agent, a machi
 A `persona` is an abstract archetype, a role a class of actor plays rather than a named instance:
 
 ```json5
-"persona": {
-  "archetype": "customer",
-  "description": "A retail customer of the storefront.",
-  "scope": "external",
-  "assumedPosture": "authenticated",
-  "permissions": [ "place-orders", "view-own-orders" ]
+{// ...
+  "persona": {
+    "archetype": "customer",
+    "description": "A retail customer of the storefront.",
+    "scope": "external",
+    "assumedPosture": "authenticated",
+    "permissions": [ "place-orders", "view-own-orders" ]
+  }
 }
 ```
 
@@ -124,10 +134,12 @@ A `persona` is an abstract archetype, a role a class of actor plays rather than 
 Adversaries need no special mechanism, and an abstract attacker is a persona:
 
 ```json5
-"persona": {
-  "archetype": "attacker",
-  "scope": "external",
-  "assumedPosture": "unauthenticated"
+{ // ...
+  "persona": {
+    "archetype": "attacker",
+    "scope": "external",
+    "assumedPosture": "unauthenticated"
+  }
 }
 ```
 
@@ -138,11 +150,13 @@ A named threat group, by contrast, is an `organization`, and its tracked designa
 `relations` records how one party stands to another: `parent` expresses hierarchy or group membership, while `delegatedBy` records that an autonomous actor operates under another party's authority and lives on the delegated party, not the principal. The support agent's system identity uses both, bound into the blueprint as an actor whose `party` is again a `partyChoice`:
 
 ```json5
-"party": {
-  "bom-ref": "party-agent-sys",
-  "roles": [ { "role": "agent" } ],
-  "system": { "kind": "agent", "ref": "comp-web" },
-  "relations": { "parent": "party-acme", "delegatedBy": "party-acme" }
+{ // ...
+  "party": {
+    "bom-ref": "party-agent-sys",
+    "roles": [ { "role": "agent" } ],
+    "system": { "kind": "agent", "ref": "comp-web" },
+    "relations": { "parent": "party-acme", "delegatedBy": "party-acme" }
+  }
 }
 ```
 
@@ -153,20 +167,25 @@ That single object is the difference between an agent that acts and a principal 
 An `identifier` is a scheme-scoped external key, where `scheme` is predefined-or-custom and `value` holds the key itself. The optional `schemeVersion`, `issuedDate`, `expirationDate`, and `issuer` fields capture validity and provenance:
 
 ```json5
-"identifiers": [
-  {
-    "scheme": "lei",
-    "value": "5493001KJTIIGC8Y1R12",
-    "issuedDate": "2019-01-01",
-    "expirationDate": "2027-01-01",
-    "issuer": "party-giin"
-  },
-  {
-    "scheme": { "name": "acme-vendor-id", "description": "Internal vendor registry identifier." },
-    "schemeVersion": "2",
-    "value": "V-10293"
-  }
-]
+{ // ...
+  "identifiers": [
+    {
+      "scheme": "lei",
+      "value": "5493001KJTIIGC8Y1R12",
+      "issuedDate": "2019-01-01",
+      "expirationDate": "2027-01-01",
+      "issuer": "party-giin"
+    },
+    {
+      "scheme": {
+        "name": "acme-vendor-id",
+        "description": "Internal vendor registry identifier."
+      },
+      "schemeVersion": "2",
+      "value": "V-10293"
+    }
+  ]
+}
 ```
 
 `lei` is one of the predefined schemes. A private key uses the custom object form, as the internal vendor id does with its own `schemeVersion`. `issuer` references the party that assigned the identifier, which is why the registry appears as its own minimal party in the document, `{ "bom-ref": "party-giin", "roles": [ { "role": "issuer" } ], "organization": { "name": "Global Identifier Registry" } }`.
@@ -174,7 +193,7 @@ An `identifier` is a scheme-scoped external key, where `scheme` is predefined-or
 A `postalAddress` records a location, with `isoCode` (an ISO 3166-2 subdivision code) beside the human-readable fields and optional `coordinates`:
 
 ```json5
-{
+{ // ...
   "bom-ref": "addr-hq",
   "country": "US",
   "region": "California",

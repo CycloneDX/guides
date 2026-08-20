@@ -7,7 +7,7 @@ These definitions supports consistent identification, classification, and report
 ## Algorithm Family Definition Structure
 
 The format for each algorithm entry is:
-```
+```text
 AlgorithmFamily: Pattern[-{optionalParameter}]
 ```
 
@@ -24,12 +24,19 @@ Where:
 The following example defines the RSASSA-PKCS1 algorithm family, a signature scheme that may be used with different digest (hash) algorithms and key sizes. It is standardized in RFC 8017 and in IEEE 1363.
 
 ```json5
-"algorithms": [
+{ // ...
+  "algorithms": [
     {
       "family": "RSASSA-PKCS1",
       "standard": [
-        {"name": "RFC8017", "url": "https://doi.org/10.17487/RFC8017"},
-        {"name": "IEEE1363", "url": "https://doi.org/10.1109/IEEESTD.2000.92290"}
+        {
+          "name": "RFC8017",
+          "url": "https://doi.org/10.17487/RFC8017"
+        },
+        {
+          "name": "IEEE1363",
+          "url": "https://doi.org/10.1109/IEEESTD.2000.92290"
+        }
       ],
       "variant": [
         {
@@ -38,13 +45,15 @@ The following example defines the RSASSA-PKCS1 algorithm family, a signature sch
         }
       ]
     }
-]
+  ]
+}
 ```
 
 A cryptographic asset can reference the pattern in the component `name`. The following example defines RSASSA-PKCS1 using SHA-256 and a 2048 bit key length.
 
 ```json5
-"components": [
+{ // ...
+  "components": [
     {
       "type": "cryptographic-asset",
       "bom-ref": "asset-1",
@@ -57,7 +66,8 @@ A cryptographic asset can reference the pattern in the component `name`. The fol
         }
       }
     }
-]
+  ]
+}
 ```
 
 ## Elliptic Curve Definitions
@@ -73,7 +83,8 @@ The cryptography definitions also define a list of elliptic curves. The definiti
 The following example defines the P-256 NIST curve, along with its aliases secp256r1 and prime256v1.
 
 ```json5
-"ellipticCurves": [
+{ // ...
+  "ellipticCurves": [
     {
       "name": "nist",
       "description": "RECOMMENDED ELLIPTIC CURVES FOR FEDERAL GOVERNMENT USE  July 1999",
@@ -96,7 +107,8 @@ The following example defines the P-256 NIST curve, along with its aliases secp2
         }
       ]
     }
-]
+  ]
+}
 ```
 
 All elliptic curves are defined in the enum `cryptography-defs.schema.json#/definitions/algorithmFamiliesEnum`.

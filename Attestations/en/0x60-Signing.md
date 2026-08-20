@@ -56,14 +56,16 @@ The following are examples of digital signatures in a CycloneDX attestation:
 
 ### JSON
 ```json5
-"signature": {
-  "algorithm": "RS512",
-  "publicKey": {
-    "kty": "RSA",
-    "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
-    "e": "AQAB"
-  },
-  "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+{ // ...
+  "signature": {
+    "algorithm": "RS512",
+    "publicKey": {
+      "kty": "RSA",
+      "n": "qOSWbDOGS31lv3aUZVOgqZyLVrKXXRfmxFQxEylc...",
+      "e": "AQAB"
+    },
+    "value": "HGIX_ccdIcqmaOpkxDzKH_j0ozSHUAUyBxGpXS..."
+  }
 }
 ```
 

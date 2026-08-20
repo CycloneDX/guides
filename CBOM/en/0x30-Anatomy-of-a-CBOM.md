@@ -63,12 +63,14 @@ These key states play a critical role in the lifecycle management of cryptograph
 CycloneDX fully supports key states as detailed in the example below:
 
 ```json5
-"cryptoProperties": {
-  "assetType": "related-crypto-material",
-  "relatedCryptoMaterialProperties": {
-    "type": "private-key",
-    "state": "compromised",
-    ...
+{ // ...
+  "cryptoProperties": {
+    "assetType": "related-crypto-material",
+    "relatedCryptoMaterialProperties": {
+      "type": "private-key",
+      "state": "compromised",
+      // ...
+    }
   }
 }
 ```

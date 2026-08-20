@@ -39,17 +39,19 @@ The following example illustrates a simple application with a dependency on a cr
 implements AES-128-GCM. The cryptographic library also depends on another library.
 
 ```json5
-"dependencies": [
-  {
-    "ref": "acme-application",
-    "dependsOn": ["crypto-library"]
-  },
-  {
-    "ref": "crypto-library",
-    "provides": ["aes128gcm"],
-    "dependsOn": ["some-library"]
-  }
-]
+{ // ...
+  "dependencies": [
+    {
+      "ref": "acme-application",
+      "dependsOn": ["crypto-library"]
+    },
+    {
+      "ref": "crypto-library",
+      "provides": ["aes128gcm"],
+      "dependsOn": ["some-library"]
+    }
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">
