@@ -5,12 +5,12 @@ systems or other BOMs. This deep-linking capability is referred to as BOM-Link a
 and compliant with [RFC-8141](https://www.rfc-editor.org/rfc/rfc8141.html). 
 
 **Syntax**:
-```ini
+```text
 urn:cdx:serialNumber/version#bom-ref
 ```
 
 **Examples**:
-```ini
+```text
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
 ```
@@ -32,22 +32,27 @@ components, services, or to the BOM itself.
 
 The following example illustrates how an application in an SBOM can reference an external CBOM:
 
-```json
-"components": [
-  {
-    "type": "application",
-    "name": "Acme Application",
-    "version": "1.0.0",
-    "externalReferences": [
-      {
-        "type": "bom",
-        "url": "https://example.com/bom/acme-application-1.0.0-cbom.cdx.json",
-        "hashes": [ {
-            "alg": "SHA-256",
-            "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
-        } ]
-      }
-    ]
-  }
-]
+```json5
+{
+  //...
+  "components": [
+    {
+      "type": "application",
+      "name": "Acme Application",
+      "version": "1.0.0",
+      "externalReferences": [
+        {
+          "type": "bom",
+          "url": "https://example.com/bom/acme-application-1.0.0-cbom.cdx.json",
+          "hashes": [
+            {
+              "alg": "SHA-256",
+              "content": "708f1f53b41f11f02d12a11b1a38d2905d47b099afc71a0f1124ef8582ec7313"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```

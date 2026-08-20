@@ -44,7 +44,7 @@ Models are trained to support processing and analysis of one or more types of in
 
 ###### Example: Tagging a model with its modalities
 
-```json
+```json5
 "component":
 {
   "type": "machine-learning-model",
@@ -73,7 +73,7 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 ###### Example: Tagging a model with its supported languages
 
-```json
+```json5
 "component":
 {
   "type": "machine-learning-model",
@@ -99,7 +99,7 @@ This section describes how to "tag" model components with non-standard keywords 
 
 ###### Example: Tagging a model with its supported languages
 
-```json
+```json5
 "component":
 {
   "type": "machine-learning-model",
@@ -126,7 +126,7 @@ Model usage policies can be provided using `externalReferences` associated with 
 
 ###### Example: Providing a link to a model's usage policy
 
-```json
+```json5
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -154,7 +154,7 @@ It is best practice to treat tokenizers and prompt (or chat) templates as annota
 
 Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging Face, its tokenizer is published (as a Python file) within the model repository and can be represented as a component. We can then utilize the CycloneDX "assembly" composition to declare the tokenizer as a component part of the model. This extends the example from the previous section "[Describing a model repository as a CycloneDX assembly](0x20-Design-Model-Component-Metadata.md#example-qwenqwen-7b-model-repository-files)":
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
     // ...
@@ -196,7 +196,7 @@ Using the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model in Hugging F
 
 For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat template uses the standard [`ChatML`](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats) format (see [Hugging Face "Common Template Formats"](https://huggingface.co/learn/llm-course/en/chapter11/2#common-template-formats)), which can be referenced on the model component as follows:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
@@ -236,7 +236,7 @@ In short, this is accomplished by using objects from the [CycloneDX Manufacturin
 
 First, create entries for all the "components" used in the training process as part of the `formulation` object:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
@@ -308,7 +308,7 @@ After the hardware and software "stack" of training components has been declared
 
 ###### Example: Declaring a training workflow & tasks
 
-```json
+```json5
 "formulation": {
   // ...,
   "workflows": [
@@ -336,7 +336,7 @@ Lastly, you would describe the component "stack" as a graph of `runtimeTopology`
 
 ###### Example: Declaring the runtime topology used for the training workflow tasks
 
-```json
+```json5
 "formulation": {
   "workflows": [
     {

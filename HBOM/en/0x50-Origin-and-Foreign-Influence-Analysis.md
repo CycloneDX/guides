@@ -27,7 +27,7 @@ The `basis` is what makes a declared percentage trustworthy: 60 percent by net w
 
 A stage outside the predefined set takes the custom form, an object with a required `name` and an optional description, so a magnet producer that tracks sintering as its own transformation declares `"stage": { "name": "sintered" }` rather than stretching `processed`. The following example declares the tin provenance of a solder paste: mined in two countries, smelted by a named Malaysian smelter, and manufactured into paste in Germany:
 
-```json
+```json5
 "origins": [
   {
     "stage": "mined",
@@ -60,7 +60,7 @@ A compliance reviewer reads the smelter identity straight from the `smelted` sta
 
 Declared origin is an assertion, and the party data supports checking it. Three party facts feed the derivation, starting with the manufacturer party's `addresses`, which locate the plants. For origin purposes the address on the manufacturing party is read as where that party performs its work. The organization's `jurisdiction` records where the company is registered, which is a different fact: a German-registered manufacturer with a Penang plant contributes Malaysia to origin and Germany to ownership. And `relations.parent` chains ownership upward, so control surfaces even when the direct manufacturer looks domestic:
 
-```json
+```json5
 "parties": [
   {
     "bom-ref": "party-northwave",
@@ -86,7 +86,7 @@ A FOCI review reads this in one pass: the radio module is made in the Netherland
 
 A consumer with both paths cross-checks them, the same way declared behavior is checked against observed behavior. The Devkit One board declares its manufacturing origin as a distribution on a stated basis:
 
-```json
+```json5
 "origins": [
   {
     "stage": "manufactured",

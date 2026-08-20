@@ -36,28 +36,30 @@ CycloneDX for cryptographic use cases.
 A cryptographic algorithm is added in the components array of the BOM. The examples below list the algorithm
 AES-128-GCM.
 
-```json
-"components": [
-  {
-    "type": "cryptographic-asset",
-    "name": "AES-128-GCM",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "primitive": "ae",
-        "parameterSetIdentifier": "128",
-        "mode": "gcm",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "certificationLevel": [ "none" ],
-        "cryptoFunctions": [ "keygen", "encrypt", "decrypt", "tag" ],
-        "classicalSecurityLevel": 128,
-        "nistQuantumSecurityLevel": 1
-      },
-      "oid": "2.16.840.1.101.3.4.1.6"
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "name": "AES-128-GCM",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "ae",
+          "parameterSetIdentifier": "128",
+          "mode": "gcm",
+          "executionEnvironment": "software-plain-ram",
+          "implementationPlatform": "x86_64",
+          "certificationLevel": [ "none" ],
+          "cryptoFunctions": [ "keygen", "encrypt", "decrypt", "tag" ],
+          "classicalSecurityLevel": 128,
+          "nistQuantumSecurityLevel": 1
+        },
+        "oid": "2.16.840.1.101.3.4.1.6"
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

@@ -11,7 +11,8 @@ comprehensive insights necessary for the management and security of cryptographi
 A cryptographic algorithm is added in the components array of the BOM. The examples below list the algorithm 
 AES-128-GCM-128-12 and RSA-PKCS1-1.5-SHA-512-2048.
 
-```json
+```json5
+{ //...
   "components": [
     {
       "type": "cryptographic-asset",
@@ -52,34 +53,46 @@ AES-128-GCM-128-12 and RSA-PKCS1-1.5-SHA-512-2048.
       }
     }
   ]
+}
 ```
 A complete example can be found at [https://cyclonedx.org/shortcut/example/algorithm](https://cyclonedx.org/shortcut/example/algorithm)  
 
 An example with the QSC Signature algorithm ML-DSA-44 is listed below.
 
-```json
-"components": [ {
-    "name": "ML-DSA-44",
-    "type": "cryptographic-asset",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "algorithmFamily": "ML-DSA",
-        "primitive": "signature",
-        "executionEnvironment": "software-plain-ram",
-        "implementationPlatform": "x86_64",
-        "certificationLevel": [ "none" ],
-        "cryptoFunctions": ["keygen", "sign", "verify"],
-        "nistQuantumSecurityLevel": 1
-      },
-      "oid": "2.16.840.1.101.3.4.3.17"
+```json5
+{ //...
+  "components": [
+    {
+      "name": "ML-DSA-44",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "ML-DSA",
+          "primitive": "signature",
+          "executionEnvironment": "software-plain-ram",
+          "implementationPlatform": "x86_64",
+          "certificationLevel": [
+            "none"
+          ],
+          "cryptoFunctions": [
+            "keygen",
+            "sign",
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 1
+        },
+        "oid": "2.16.840.1.101.3.4.3.17"
+      }
     }
-  } ]
+  ]
+}
 ```
 
 An example with a hybrid scheme combining ML-KEM-1024 and ECDH-secp521r1 is listed below. The relation between the combiner `draftietftlshybriddesign13` and the algorithms is expressed as dependency.
 
-```json
+```json5
+{ //...
   "components": [
     {
       "name": "ECDH-secp521r1",
@@ -133,7 +146,7 @@ An example with a hybrid scheme combining ML-KEM-1024 and ECDH-secp521r1 is list
           "nistQuantumSecurityLevel": 0
         },
         "oid": "1.3.101.110"
-     }
+      }
     }
   ],
   "dependencies": [
@@ -142,51 +155,54 @@ An example with a hybrid scheme combining ML-KEM-1024 and ECDH-secp521r1 is list
       "dependsOn": ["mlkem1024", "ecdhsecp521r1"]
     }
   ]
+}
 ```
 
 ## Key
 The following example demonstrates how an RSA-2048 public key can be included in a CBOM.
 
-```json
-"components": [ {
-    "name": "RSA-2048",
-    "type": "cryptographic-asset",
-    "bom-ref": "crypto/key/rsa-2048@1.2.840.113549.1.1.1",
-    "cryptoProperties": {
-      "assetType": "related-crypto-material",
-      "relatedCryptoMaterialProperties": {
-        "type": "public-key",
-        "id": "2e9ef09e-dfac-4526-96b4-d02f31af1b22",
-        "state": "active",
-        "size": 2048,
-        "algorithmRef": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
-        "creationDate": "2024-01-01T00:00:00.000Z",
-        "activationDate": "2024-01-02T00:00:00.000Z",
-        "updateDate": "2024-01-03T00:00:00.000Z",
-        "expirationDate": "2026-01-01T00:00:00.000Z",
-        "size": 2048,
-        "format": "PKCS#8",
-        "securedBy": {
-          "mechanism": "Software",
-          "algorithmRef": "crypto/algorithm/aes-128-gcm@2.16.840.1.101.3.4.1.6"
+```json5
+{ // ...
+  "components": [
+    {
+      "name": "RSA-2048",
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto/key/rsa-2048@1.2.840.113549.1.1.1",
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key",
+          "id": "2e9ef09e-dfac-4526-96b4-d02f31af1b22",
+          "state": "active",
+          "algorithmRef": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
+          "creationDate": "2024-01-01T00:00:00.000Z",
+          "activationDate": "2024-01-02T00:00:00.000Z",
+          "updateDate": "2024-01-03T00:00:00.000Z",
+          "expirationDate": "2026-01-01T00:00:00.000Z",
+          "size": 2048,
+          "format": "PKCS#8",
+          "securedBy": {
+            "mechanism": "Software",
+            "algorithmRef": "crypto/algorithm/aes-128-gcm@2.16.840.1.101.3.4.1.6"
+          }
         },
-        "creationDate": "2016-11-21T08:00:00Z",
-        "activationDate": "2016-11-21T08:20:00Z"
-      },
-      "oid": "1.2.840.113549.1.1.1"
+        "oid": "1.2.840.113549.1.1.1"
+      }
+    },
+    {
+      "name": "RSA-PSS-SHA-256-32-2048",
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
+      "cryptoProperties": { /* ... */ }
+    },
+    {
+      "name": "AES-128-GCM-16-12",
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto/algorithm/aes-128-gcm@2.16.840.1.101.3.4.1.6",
+      "cryptoProperties": { /* ... */ }
     }
-  }, {
-    "name": "RSA-PSS-SHA-256-32-2048",
-    "type": "cryptographic-asset",
-    "bom-ref": "crypto/algorithm/rsa-2048@1.2.840.113549.1.1.1",
-    "cryptoProperties": { ... }
-  }, {
-    "name": "AES-128-GCM-16-12",
-    "type": "cryptographic-asset",
-    "bom-ref": "crypto/algorithm/aes-128-gcm@2.16.840.1.101.3.4.1.6",
-    "cryptoProperties": { ... }
-  } 
-]
+  ]
+}
 ```
 A complete example can be found at [https://cyclonedx.org/shortcut/example/key](https://cyclonedx.org/shortcut/example/key)
 
@@ -194,7 +210,8 @@ A complete example can be found at [https://cyclonedx.org/shortcut/example/key](
 ## Protocol
 The following example lists an instance of the TLS v1.2 protocol with a number of cipher suites.
 
-```json
+```json5
+{ // ...
   "components": [
     {
       "name": "google.com",
@@ -352,6 +369,7 @@ The following example lists an instance of the TLS v1.2 protocol with a number o
       }
     }
   ]
+}
 ```
 A complete example can be found at [https://cyclonedx.org/shortcut/example/protocol](https://cyclonedx.org/shortcut/example/protocol)
 
@@ -362,8 +380,9 @@ A complete example can be found at [https://cyclonedx.org/shortcut/example/proto
 ## Certificate 
 The following example details an advanced X.509 certificate in a CBOM.
 
-```json
-"components": [
+```json5
+{ // ...
+  "components": [
     {
       "name": "revoked-internal-ca.example.com",
       "type": "cryptographic-asset",
@@ -628,271 +647,295 @@ The following example details an advanced X.509 certificate in a CBOM.
       }
     }
   ]
+}
 ```
 
 ## Cryptographic configuration with CBOM and OBOM
 
 The following example presents an Operations Bill of Materials (OBOM) in which cryptographic assets are configured through an OpenSSL 3 configuration file.
 
-```json
-"components": [ 
-  {
-    "name": "ML-KEM-768",
-    "type": "cryptographic-asset",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "algorithmFamily": "ML-DSA",
-        "primitive": "kem",
-        "executionEnvironment": "software-plain-ram",
-        "cryptoFunctions": ["keygen", "encapsulate", "decapsulate"],
-        "nistQuantumSecurityLevel": 3
-      }
-    }
-  },
-  {
-    "name": "x25519",
-    "type": "cryptographic-asset",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "algorithmFamily": "ECDH",
-        "primitive": "key-agree",
-        "executionEnvironment": "software-plain-ram",
-        "cryptoFunctions": ["keygen", "keyderive"],
-        "nistQuantumSecurityLevel": 0
-      }
-    }
-  },
-  {
-    "name": "ECDH-P-256",
-    "type": "cryptographic-asset",
-    "cryptoProperties": {
-      "assetType": "algorithm",
-      "algorithmProperties": {
-        "algorithmFamily": "ECDH",
-        "primitive": "key-agree",
-        "executionEnvironment": "software-plain-ram",
-        "cryptoFunctions": ["keygen", "keyderive"],
-        "nistQuantumSecurityLevel": 0
-      }
-    }
-  },
-  {
-    "name": "openssl-config",
-    "type": "data",
-    "data": {
-      "bom-ref": "config-001",
-      "type": "configuration",
-      "url": "/etc/openssl/ssl/openssl.cnf",
-      "contents": {
-        "attachment": {
-          "contentType": "text/plain",
-          "encoding": "utf8",
-          "content": "DEFAULT_GROUPS	= x25519:SecP256r1MLKEM768"
+```json5
+{ // ...
+  "components": [
+    {
+      "name": "ML-KEM-768",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "ML-DSA",
+          "primitive": "kem",
+          "executionEnvironment": "software-plain-ram",
+          "cryptoFunctions": ["keygen", "encapsulate", "decapsulate"],
+          "nistQuantumSecurityLevel": 3
         }
       }
-    }
-  },
-  "dependencies": [
-    {
-      "ref": "ML-KEM-768",
-      "dependsOn": ["openssl-config"]
     },
     {
-      "ref": "x25519",
-      "dependsOn": ["openssl-config"]
+      "name": "x25519",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "ECDH",
+          "primitive": "key-agree",
+          "executionEnvironment": "software-plain-ram",
+          "cryptoFunctions": ["keygen", "keyderive"],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
     },
     {
-      "ref": "ECDH-P-256",
-      "dependsOn": ["openssl-config"]
-    }
+      "name": "ECDH-P-256",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "ECDH",
+          "primitive": "key-agree",
+          "executionEnvironment": "software-plain-ram",
+          "cryptoFunctions": ["keygen", "keyderive"],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "name": "openssl-config",
+      "type": "data",
+      "data": {
+        "bom-ref": "config-001",
+        "type": "configuration",
+        "url": "/etc/openssl/ssl/openssl.cnf",
+        "contents": {
+          "attachment": {
+            "contentType": "text/plain",
+            "encoding": "utf8",
+            "content": "DEFAULT_GROUPS	= x25519:SecP256r1MLKEM768"
+          }
+        }
+      }
+    },
+    "dependencies": [
+      {
+        "ref": "ML-KEM-768",
+        "dependsOn": ["openssl-config"]
+      },
+      {
+        "ref": "x25519",
+        "dependsOn": ["openssl-config"]
+      },
+      {
+        "ref": "ECDH-P-256",
+        "dependsOn": ["openssl-config"]
+      }
+    ]
   ]
-]
+}
 ```
 
 ## Hardware BOM with cryptographic assets
 
 The following example describes a Hardware Security Module (HSM) with dependencies to cryptographic assets.
 
-```json
+```json5
 {
-    "bomFormat": "CycloneDX",
-    "specVersion": "1.7",
-    "version": 1,
-    "metadata": {
-        "timestamp": "2025-08-27T09:21:22.948466Z",
-        "component": {
-            "type": "device",
-            "name": "Hardware Security Module",
-            "version": "1.0",
-            "bom-ref": "hsm-001"
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.7",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2025-08-27T09:21:22.948466Z",
+    "component": {
+      "type": "device",
+      "name": "Hardware Security Module",
+      "version": "1.0",
+      "bom-ref": "hsm-001"
+    }
+  },
+  "components": [
+    {
+      "type": "device",
+      "bom-ref": "crypto-processor-001",
+      "name": "cryptoprocessor",
+      "supplier": {
+        "name": "CryptoSuperSecure Inc."
+      },
+      "version": "3.2",
+      "description": "Cryptographic Co-processor, Post-Quantum Enabled",
+      "properties": [
+        {
+          "name": "cdx:device:quantity",
+          "value": "4"
+        },
+        {
+          "name": "cdx:device:function",
+          "value": "coprocessor"
+        },
+        {
+          "name": "cdx:device:location",
+          "value": "mainboard"
+        },
+        {
+          "name": "cdx:device:deviceType",
+          "value": "smd"
+        },
+        {
+          "name": "cdx:device:lotNumber",
+          "value": "1234-4567"
         }
+      ]
     },
-    "components": [
+    {
+      "type": "device",
+      "bom-ref": "secure-memory-001",
+      "name": "memory",
+      "version": "1.0",
+      "description": "Secure Memory Module",
+      "properties": [
         {
-          "type": "device",
-          "bom-ref": "crypto-processor-001",
-          "name": "cryptoprocessor",
-          "supplier": {
-            "name": "CryptoSuperSecure Inc."
-          },
-          "version": "3.2",
-          "description": "Cryptographic Co-processor, Post-Quantum Enabled",
-          "properties": [
-            {
-              "name": "cdx:device:quantity",
-              "value": "4"
-            },
-            {
-              "name": "cdx:device:function",
-              "value": "coprocessor"
-            },
-            {
-              "name": "cdx:device:location",
-              "value": "mainboard"
-            },
-            {
-              "name": "cdx:device:deviceType",
-              "value": "smd"
-            },
-            {
-              "name": "cdx:device:lotNumber",
-              "value": "1234-4567"              
-            }
-          ]
+          "name": "cdx:device:quantity",
+          "value": "4"
         },
         {
-          "type": "device",
-          "bom-ref": "secure-memory-001",
-          "name": "memory",
-          "version": "1.0",
-          "description": "Secure Memory Module",
-          "properties": [
-            {
-              "name": "cdx:device:quantity",
-              "value": "4"
-            },
-            {
-              "name": "cdx:device:function",
-              "value": "memory"
-            },
-            {
-              "name": "cdx:device:location",
-              "value": "mainboard"
-            },
-            {
-              "name": "cdx:device:deviceType",
-              "value": "smd"
-            }
-          ]
+          "name": "cdx:device:function",
+          "value": "memory"
         },
         {
-          "type": "device",
-          "bom-ref": "tamper-detect-001",
-          "name": "tamper",
-          "version": "2.1",
-          "description": "Tamper Detection Circuit",
-          "properties": [
-            {
-              "name": "cdx:device:quantity",
-              "value": "1"
-            },
-            {
-              "name": "cdx:device:function",
-              "value": "tamper-detection"
-            },
-            {
-              "name": "cdx:device:location",
-              "value": "mainboard"
-            },
-            {
-              "name": "cdx:device:deviceType",
-              "value": "smd"
-            }
-          ]
+          "name": "cdx:device:location",
+          "value": "mainboard"
         },
         {
-          "type": "device",
-          "bom-ref": "hrng-001",
-          "name": "trng",
-          "version": "2.1",
-          "description": "Hardware true random number generator",
-          "properties": [
-            {
-              "name": "cdx:device:quantity",
-              "value": "1"
-            },
-            {
-              "name": "cdx:device:function",
-              "value": "trng"
-            },
-            {
-              "name": "cdx:device:location",
-              "value": "mainboard"
-            },
-            {
-              "name": "cdx:device:deviceType",
-              "value": "smd"
-            }
-          ]
-        },
-        {
-          "name": "ML-DSA-87",
-          "type": "cryptographic-asset",
-          "cryptoProperties": {
-            "assetType": "algorithm",
-            "algorithmProperties": {
-              "algorithmFamily": "ML-DSA",
-              "primitive": "signature",
-              "executionEnvironment": "hardware",
-              "implementationPlatform": "other",
-              "certificationLevel": [ "fips140-3-l3" ],
-              "cryptoFunctions": ["keygen", "sign", "verify"],
-              "nistQuantumSecurityLevel": 5
-            },
-            "oid": "2.16.840.1.101.3.4.3.19"
-          }
-        },
-        {
-          "name": "SLH-DSA-SHA2-256s",
-          "type": "cryptographic-asset",
-          "cryptoProperties": {
-            "assetType": "algorithm",
-            "algorithmProperties": {
-              "algorithmFamily": "SLH-DSA",
-              "primitive": "signature",
-              "executionEnvironment": "hardware",
-              "implementationPlatform": "other",
-              "certificationLevel": [ "fips140-3-l3" ],
-              "cryptoFunctions": ["keygen", "sign", "verify"],
-              "nistQuantumSecurityLevel": 5
-            },
-            "oid": "2.16.840.1.101.3.4.3.39"
-          }
-        },
-        {
-          "name": "AES-256-Wrap-PAD",
-          "type": "cryptographic-asset",
-          "cryptoProperties": {
-            "assetType": "algorithm",
-            "algorithmProperties": {
-              "algorithmFamily": "AES",
-              "primitive": "key-wrap",
-              "executionEnvironment": "hardware",
-              "implementationPlatform": "other",
-              "certificationLevel": [ "fips140-3-l3" ],
-              "cryptoFunctions": ["encrypt", "decrypt", "other"],
-              "nistQuantumSecurityLevel": 5
-            }
-          }
+          "name": "cdx:device:deviceType",
+          "value": "smd"
         }
-
-    ],
-    "dependencies": [
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "tamper-detect-001",
+      "name": "tamper",
+      "version": "2.1",
+      "description": "Tamper Detection Circuit",
+      "properties": [
+        {
+          "name": "cdx:device:quantity",
+          "value": "1"
+        },
+        {
+          "name": "cdx:device:function",
+          "value": "tamper-detection"
+        },
+        {
+          "name": "cdx:device:location",
+          "value": "mainboard"
+        },
+        {
+          "name": "cdx:device:deviceType",
+          "value": "smd"
+        }
+      ]
+    },
+    {
+      "type": "device",
+      "bom-ref": "hrng-001",
+      "name": "trng",
+      "version": "2.1",
+      "description": "Hardware true random number generator",
+      "properties": [
+        {
+          "name": "cdx:device:quantity",
+          "value": "1"
+        },
+        {
+          "name": "cdx:device:function",
+          "value": "trng"
+        },
+        {
+          "name": "cdx:device:location",
+          "value": "mainboard"
+        },
+        {
+          "name": "cdx:device:deviceType",
+          "value": "smd"
+        }
+      ]
+    },
+    {
+      "name": "ML-DSA-87",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "ML-DSA",
+          "primitive": "signature",
+          "executionEnvironment": "hardware",
+          "implementationPlatform": "other",
+          "certificationLevel": [
+            "fips140-3-l3"
+          ],
+          "cryptoFunctions": [
+            "keygen",
+            "sign",
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 5
+        },
+        "oid": "2.16.840.1.101.3.4.3.19"
+      }
+    },
+    {
+      "name": "SLH-DSA-SHA2-256s",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "SLH-DSA",
+          "primitive": "signature",
+          "executionEnvironment": "hardware",
+          "implementationPlatform": "other",
+          "certificationLevel": [
+            "fips140-3-l3"
+          ],
+          "cryptoFunctions": [
+            "keygen",
+            "sign",
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 5
+        },
+        "oid": "2.16.840.1.101.3.4.3.39"
+      }
+    },
+    {
+      "name": "AES-256-Wrap-PAD",
+      "type": "cryptographic-asset",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "algorithmFamily": "AES",
+          "primitive": "key-wrap",
+          "executionEnvironment": "hardware",
+          "implementationPlatform": "other",
+          "certificationLevel": [
+            "fips140-3-l3"
+          ],
+          "cryptoFunctions": [
+            "encrypt",
+            "decrypt",
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 5
+        }
+      }
+    }
+  ],
+  "dependencies": [
     {
       "ref": "crypto-processor-001",
-      "provides": ["ML-DSA-87", "SLH-DSA-SHA2-256s", "AES-256-Wrap-PAD"]
+      "provides": [
+        "ML-DSA-87",
+        "SLH-DSA-SHA2-256s",
+        "AES-256-Wrap-PAD"
+      ]
     }
   ]
 }

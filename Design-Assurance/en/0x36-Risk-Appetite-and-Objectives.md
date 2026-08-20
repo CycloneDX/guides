@@ -8,7 +8,7 @@ Risk appetite lives in the `risks` container, in a `riskAppetites` array beside 
 
 A `riskAppetite` records one party's tolerance for risk. `party` is the party whose appetite it is, and `owner` is the party accountable for setting and maintaining it, both given as references to a party. `level` is the overall stance drawn from the appetite scale, and `statement` puts that stance in plain language. `categories` refines it per domain: each entry carries a `domain` and its own `level`, and may add a local `statement`. Acme is `cautious` overall but splits its appetite by domain.
 
-```json
+```json5
 {
   "bom-ref": "rap-acme",
   "party": "urn:cdx:11111111-1111-4111-8111-111111111111/1#party-acme",
@@ -45,7 +45,7 @@ The top value, `hungry`, expresses deliberate risk-seeking rather than mere tole
 
 A `businessObjective` names something the organization is trying to achieve or protect: the anchor that gives a risk its "so what". The object is small on purpose: a `name`, an optional `description`, a `criticality`, and an `owner`, and Acme declares its objectives once in the definitions library.
 
-```json
+```json5
 {
   "bom-ref": "obj-protect-data",
   "name": "Protect customer data",
@@ -61,7 +61,7 @@ Three vertices reference the same objective, forming a traceability triangle. A 
 
 Trimmed to its objective link, the support-chat use case advances protection of customer data:
 
-```json
+```json5
 {
   "bom-ref": "uc-support-chat",
   "name": "Ask the support agent about an order",
@@ -72,7 +72,7 @@ Trimmed to its objective link, the support-chat use case advances protection of 
 
 The account-takeover risk endangers the same objective, naming it across documents by BOM-Link:
 
-```json
+```json5
 {
   "bom-ref": "risk-ato",
   "name": "Customer account takeover",

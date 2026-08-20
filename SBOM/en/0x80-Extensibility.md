@@ -25,13 +25,15 @@ potentially having different values. CycloneDX properties are a core part of the
 in all serialization formats, including XML, JSON, and protocol buffers.
 
 ### JSON Example
-```json
-"properties": [
-  {
-    "name": "Foo",
-    "value": "Bar"
-  }
-]
+```json5
+{ // ...
+  "properties": [
+    {
+      "name": "Foo",
+      "value": "Bar"
+    }
+  ]
+}
 ```
 
 ### XML Example
@@ -48,7 +50,7 @@ prefix the property name and are defined by the organization or project that reg
 
 Namespaces are hierarchical and delimited with a `:` and may optionally start with `urn:`. Examples include:
 
-```
+```text
 cdx:gomod:binary
 cdx:npm:package:bundled
 cdx:pipenv:package
@@ -69,7 +71,7 @@ signing.
      serialNumber="urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79"
      version="1">
     <components>
-        ...
+        <!-- ... -->
     </components>
     <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
         <ds:SignedInfo>
@@ -87,11 +89,11 @@ signing.
         <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
             <ds:X509Data>
                 <ds:X509SubjectName>CN=bomsigner,OU=development,O=cyclonedx</ds:X509SubjectName>
-                <ds:X509Certificate>...</ds:X509Certificate>
+                <ds:X509Certificate><!--- ... --></ds:X509Certificate>
             </ds:X509Data>
             <ds:KeyValue>
                 <ds:RSAKeyValue>
-                    <ds:Modulus>...</ds:Modulus>
+                    <ds:Modulus><!-- ... --></ds:Modulus>
                     <ds:Exponent>AQAB</ds:Exponent>
                 </ds:RSAKeyValue>
             </ds:KeyValue>

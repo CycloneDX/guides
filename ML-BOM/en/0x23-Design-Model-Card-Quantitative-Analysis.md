@@ -90,7 +90,7 @@ This appears as a table that includes all Qwen models, along with other similar 
 
 The MMLU score from the table would be declared as a performance metric as follows:
 
-```json
+```json5
   "component":
   {
     "type": "machine-learning-model",
@@ -123,7 +123,7 @@ The MMLU score from the table would be declared as a performance metric as follo
 
 This example shows how to provide an [F1 score](https://en.wikipedia.org/wiki/F-score) (i.e., the harmonic mean of precision and recall measurements) for a model's performance on classification tasks within the [GLUE benchmark](https://zilliz.com/glossary/glue-benchmark).
 
-```json
+```json5
 "quantitativeAnalysis": {
   "performanceMetrics": [
     {
@@ -152,7 +152,7 @@ The [QwenLM/Qwen](https://github.com/QwenLM/Qwen) GitHub repository includes the
 
 This could be encoded in a CycloneDX ML-BOM model card as follows:
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,

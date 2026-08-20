@@ -60,20 +60,22 @@ In addition, a custom phase (platform-integration-testing) was involved as well.
 \emptyparagraph
 </div>
 
-```json
-"metadata": {
-  "lifecycles": [
-    {
-      "phase": "build"
-    },
-    {
-      "phase": "post-build"
-    },
-    {
-      "name": "platform-integration-testing",
-      "description": "Integration testing specific to the runtime platform"
-    }
-  ]
+```json5
+{ // ...
+  "metadata": {
+    "lifecycles": [
+      {
+        "phase": "build"
+      },
+      {
+        "phase": "post-build"
+      },
+      {
+        "name": "platform-integration-testing",
+        "description": "Integration testing specific to the runtime platform"
+      }
+    ]
+  }
 }
 ```
 

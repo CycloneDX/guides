@@ -4,7 +4,7 @@ A certification is a third party's statement that a subject meets a named standa
 
 A certification requires the `standard` and optionally carries the certificate `identifier`, the `issuer` as a reference to a party, issue and expiration dates, the `scope` of what was assessed, the `jurisdiction` where the mark applies, the `level` where the scheme defines grades, and a URL to the certificate record. The following example records an automotive qualification issued by a test laboratory:
 
-```json
+```json5
 "certifications": [
   {
     "bom-ref": "cert-aecq100",
@@ -27,7 +27,7 @@ The issuer is a party like any other, so the certification body carries its own 
 
 A certification names a conclusion. CycloneDX Attestations (CDXA) carries the reasoning: claims about a target, the evidence and counter evidence behind each claim, and the signatures of the parties standing behind them. The optional `relatedClaims` array ties the two together by referencing the CDXA claims that substantiate the certification:
 
-```json
+```json5
 "declarations": {
   "claims": [
     {

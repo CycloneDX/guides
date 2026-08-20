@@ -46,23 +46,25 @@ The following table details the makeup of a claim.
 
 For example, consider the requirement, "All developers must receive security training." An appropriate claim might be that "All members of the Acme development team have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test." The target is "All members of the Acme development team," and the predicate is "have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test."
 
-```json
-"claims": [
-  {
-    "bom-ref": "claim-1",
-    "target": "acme-inc",
-    "predicate": "Developers have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test.",
-    "mitigationStrategies": [ "mitigationStrategy-1" ],
-    "reasoning": "The provided evidence shows that 70% of developers have been trained this year.",
-    "evidence": [ "evidence-1" ],
-    "counterEvidence": [ "counterEvidence-1" ],
-    "signature": {
-      "algorithm": "ES256",
-      "certificatePath": [ "MIIB...", "MIID..." ],
-      "value": "tqIT..."
+```json5
+{ // ...
+  "claims": [
+    {
+      "bom-ref": "claim-1",
+      "target": "acme-inc",
+      "predicate": "Developers have taken the HackMe Secure Coding for Java training course and received a passing grade on the final test.",
+      "mitigationStrategies": [ "mitigationStrategy-1" ],
+      "reasoning": "The provided evidence shows that 70% of developers have been trained this year.",
+      "evidence": [ "evidence-1" ],
+      "counterEvidence": [ "counterEvidence-1" ],
+      "signature": {
+        "algorithm": "ES256",
+        "certificatePath": [ "MIIB...", "MIID..." ],
+        "value": "tqIT..."
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 <div style="page-break-after: always; visibility: hidden">

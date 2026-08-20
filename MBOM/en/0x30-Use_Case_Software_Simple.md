@@ -70,7 +70,7 @@ The `component` objects are defined as follows:
 
 - `helloworld.c`:
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
       "type": "file",
@@ -89,7 +89,7 @@ The `component` objects are defined as follows:
 
 - `Makefile`
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
       "type": "file",
@@ -106,7 +106,7 @@ The `component` objects are defined as follows:
 
 - `gcc` - GCC compiler
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
       "type": "application",
@@ -117,7 +117,7 @@ The `component` objects are defined as follows:
 
 - `make` utility
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
       "type": "application",
@@ -156,7 +156,7 @@ The trigger provides context about an event, as well as describing any additiona
 
 This could be represented as follows:
 
-```jsonc
+```json5
 {
   “timeActivated”: “2025-01-01T14:00:00+00:00”,
   “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
@@ -181,7 +181,7 @@ This could be represented as follows:
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "uid": "uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
@@ -198,7 +198,7 @@ As you can see we provide the two logical `taskType` values of `clean` and `buil
 
 The single command-line, build `step` can be added to the task:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -219,7 +219,7 @@ The single command-line, build `step` can be added to the task:
 
 The `trigger` defined previously can be added to the task as follows:
 
-```jsonc
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
@@ -240,7 +240,7 @@ The `trigger` defined previously can be added to the task as follows:
 
 In this example, the workflow represents the single `task` execution as follows:
 
-```jsonc
+```json5
 {
   “bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
   “uid": ”uuid:431ff656-8f90-410b-a614-c3916b842036",
@@ -274,7 +274,7 @@ In this example, the workflow represents the single `task` execution as follows:
 
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
-```jsonc
+```json5
 {
   components: [ 
        // component content goes here
@@ -287,7 +287,7 @@ The `formula`for building this example application, in addition to describing th
 
 and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname of the Software Bill of Materials (SBOM):
 
-```jsonc
+```json5
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
@@ -336,7 +336,7 @@ For this example, we can choose to represent the key platform elements used to r
 
 - The `Bash` shell used to run the `make` command:
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "file:///bin/bash",
       "type": "platform",
@@ -347,7 +347,7 @@ For this example, we can choose to represent the key platform elements used to r
 
 - The `OS X` operating system the Bash terminal was running on:
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "urn:cdx:os://macosx@14.6.1+23G93",
       "type": "operating-system",
@@ -362,7 +362,7 @@ Additionally, we could describe the actual device used for the build process to 
 
 - `Mac OS X` machine
     </br>
-    ```json
+    ```json5
     {
       "bom-ref": "urn:cdx:device:sn:CBFX71DM3",
       "type": "device",

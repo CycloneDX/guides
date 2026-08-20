@@ -10,7 +10,7 @@ AI governance draws on every model, and the support agent appears across all six
 
 The blueprint types the agent, its model, and its tool as distinct assets:
 
-```json
+```json5
 { "bom-ref": "asset-agent", "componentRef": "comp-agent", "type": "agent", "zone": "zone-internal" }
 ```
 

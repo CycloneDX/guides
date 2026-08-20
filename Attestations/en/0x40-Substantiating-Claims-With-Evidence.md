@@ -30,36 +30,38 @@ The following table details the makeup of evidence.
 | reviewer     | The reviewer of the evidence.                                                     |
 
 
-```json
-"evidence": [
-  {
-    "bom-ref": "evidence-1",
-    "propertyName": "internal.com.acme.someProperty",
-    "description": "Description here",
-    "data": [
-      {
-        "name": "Name of the data",
-        "contents": {
-          "attachment": {
-            "content": "Evidence here",
-            "contentType": "text/plain"
-          }
-        },
-        "classification": "PII",
-        "sensitiveData": [ "Describe sensitive data here" ]
+```json5
+{ // ...
+  "evidence": [
+    {
+      "bom-ref": "evidence-1",
+      "propertyName": "internal.com.acme.someProperty",
+      "description": "Description here",
+      "data": [
+        {
+          "name": "Name of the data",
+          "contents": {
+            "attachment": {
+              "content": "Evidence here",
+              "contentType": "text/plain"
+            }
+          },
+          "classification": "PII",
+          "sensitiveData": [ "Describe sensitive data here" ]
+        }
+      ],
+      "created": "2023-04-25T00:00:00+00:00",
+      "expires": "2023-05-25T00:00:00+00:00",
+      "author": { "name": "Mary" },
+      "reviewer": { "name": "Sanford" },
+      "signature": {
+        "algorithm": "ES256",
+        "certificatePath": [ "MIIB...", "MIID..." ],
+        "value": "tqIT..."
       }
-    ],
-    "created": "2023-04-25T00:00:00+00:00",
-    "expires": "2023-05-25T00:00:00+00:00",
-    "author": { "name": "Mary" },
-    "reviewer": { "name": "Sanford" }, 
-    "signature": {
-      "algorithm": "ES256",
-      "certificatePath": [ "MIIB...", "MIID..." ],
-      "value": "tqIT..."
     }
-  }
-]
+  ]
+}
 ```
 
 ## Reasoning

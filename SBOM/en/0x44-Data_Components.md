@@ -36,35 +36,37 @@ Other possible scenarios include:
 This example, similar to the previous illustration, involves Acme Application which includes the Javascript source code 
 for a shutdown hook. In this case, both are from different suppliers.
 
-```json
-"components": [
-  {
-    "bom-ref": "acme-application",
-    "type": "application",
-    "name": "Acme Application",
-    "version": "1.0.0",
-    "supplier": { "name": "Acme Inc" },
-    "components": [
-      {
-        "type": "data",
-        "name": "Shutdown Hook",
-        "supplier": { "name": "Example Company" },      
-        "data": [
-          {
-            "type": "source-code",
-            "contents": {
-              "attachment": {
-                "contentType": "text/javascript",
-                "encoding": "base64",
-                "content": "Y29uc29sZS5sb2coJ0dvb2RCeWUnKQ=="
+```json5
+{ // ...
+  "components": [
+    {
+      "bom-ref": "acme-application",
+      "type": "application",
+      "name": "Acme Application",
+      "version": "1.0.0",
+      "supplier": { "name": "Acme Inc" },
+      "components": [
+        {
+          "type": "data",
+          "name": "Shutdown Hook",
+          "supplier": { "name": "Example Company" },
+          "data": [
+            {
+              "type": "source-code",
+              "contents": {
+                "attachment": {
+                  "contentType": "text/javascript",
+                  "encoding": "base64",
+                  "content": "Y29uc29sZS5sb2coJ0dvb2RCeWUnKQ=="
+                }
               }
             }
-          }
-        ]
-      }
-    ]
-  }
-]
+          ]
+        }
+      ]
+    }
+  ]
+}
 ```
 
 CycloneDX does not attempt to normalize configurations into a common vocabulary. Systems and applications may have 

@@ -12,27 +12,29 @@ applied to a component with detailed pedigree information serves as affirmation 
 
 The following example illustrates two important aspects of pedigree, namely identity and provenance.
 
-```json
-"components": [
-{
-    "type": "library", 
-    "group": "com.example",
-    "name": "log4j-core",
-    "version": "2.14.0",
-    "purl": "pkg:maven/com.example/log4j-core@2.14.0?repository_url=registry.example.com",
-    "pedigree": {
-      "ancestors": [
-        {
-          "type": "library",
-          "group": "org.apache.logging.log4j",
-          "name": "log4j-core",
-          "version": "2.14.0",
-          "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0"
-        }
-      ]
+```json5
+{ // ...
+  "components": [
+    {
+      "type": "library",
+      "group": "com.example",
+      "name": "log4j-core",
+      "version": "2.14.0",
+      "purl": "pkg:maven/com.example/log4j-core@2.14.0?repository_url=registry.example.com",
+      "pedigree": {
+        "ancestors": [
+          {
+            "type": "library",
+            "group": "org.apache.logging.log4j",
+            "name": "log4j-core",
+            "version": "2.14.0",
+            "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.0"
+          }
+        ]
+      }
     }
-  }
-]
+  ]
+}
 ```
 
 The example above illustrates two important aspects of pedigree:
@@ -43,21 +45,23 @@ The pedigree capabilities in CycloneDX go much further than establishing relatio
 optionally provide transparency into the changes that were made and their purpose. For example, the precise commits 
 made to the version control system can be represented.
 
-```json
-"pedigree": {
-  "ancestors": [ ... ],
-  "commits": [
-    {
-      "uid": "7638417db6d59f3c431d3e1f261cc637155684cd",
-      "url": "https://location/to/7638417db6d59f3c431d3e1f261cc637155684cd",
-      "committer": {
-        "timestamp": "2022-02-13T20:20:39+00:00",
-        "name": "Astra Snyder",
-        "email": "astra.snyder@example.com"
-      },
-      "message": "Fixes security issue"
-    }
-  ]
+```json5
+{ // ...
+  "pedigree": {
+    "ancestors": [ /* ... */ ],
+    "commits": [
+      {
+        "uid": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "url": "https://location/to/7638417db6d59f3c431d3e1f261cc637155684cd",
+        "committer": {
+          "timestamp": "2022-02-13T20:20:39+00:00",
+          "name": "Astra Snyder",
+          "email": "astra.snyder@example.com"
+        },
+        "message": "Fixes security issue"
+      }
+    ]
+  }
 }
 ```
 
@@ -66,32 +70,34 @@ available, modifiable, and redistributable. In the following example, a patch is
 the modification was to backport a security fix. In addition, the diff can be attached or referenced via a URL so that
 SBOM consumers can independently verify the validity and correctness of the patch.
 
-```json
-"pedigree": {
-  "ancestors": [ ... ],
-  "patches": [
-    {
-      "type": "backport",
-      "diff": {
-        "text": {
-          "contentType": "text/plain",
-          "encoding": "base64",
-          "content": "ZXhhbXBsZSBkaWZmIGhlcmU="
+```json5
+{ // ...
+  "pedigree": {
+    "ancestors": [ /* ... */ ],
+    "patches": [
+      {
+        "type": "backport",
+        "diff": {
+          "text": {
+            "contentType": "text/plain",
+            "encoding": "base64",
+            "content": "ZXhhbXBsZSBkaWZmIGhlcmU="
+          },
+          "url": "https://example.com/path/to/changes.diff"
         },
-        "url": "https://example.com/path/to/changes.diff"
-      },
-      "resolves": [
-        {
-          "type": "security",
-          "id": "CVE-2021-45105",
-          "source": {
-            "name": "NVD",
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45105"
+        "resolves": [
+          {
+            "type": "security",
+            "id": "CVE-2021-45105",
+            "source": {
+              "name": "NVD",
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-45105"
+            }
           }
-        }
-      ]
-    }
-  ]
+        ]
+      }
+    ]
+  }
 }
 ```
 
