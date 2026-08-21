@@ -345,7 +345,7 @@ Lastly, you would describe the component "stack" as a graph of `runtimeTopology`
        "runtimeTopology": [
        {
           "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
-          "dependsOn": "nvidia-h100-pcie-gpu-1",
+          "dependsOn": [ "nvidia-h100-pcie-gpu-1" ],
           "provides": [
             "cuda-toolkit",
             "pkg:oci/nvidia-pytorch@sha256:f398a0",
