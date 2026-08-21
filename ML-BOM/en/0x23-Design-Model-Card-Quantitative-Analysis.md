@@ -104,8 +104,8 @@ The MMLU score from the table would be declared as a performance metric as follo
             "type": "MMLU (5-shot)",
             "value": "58.2",
             "confidenceInterval": {
-              "lowerBound": "94.28",
-              "upperBound": "95.72"
+              "lowerBound": "57.48",
+              "upperBound": "58.92"
             }
           }
         ]
