@@ -17,28 +17,30 @@ DRAFT=1
 ARGS=()
 for arg in "$@"; do
   case $arg in
-    (--final|--no-draft) DRAFT=0;;
-    (--draft) DRAFT=1;;
-    (*) ARGS+=("$arg");;
+    --final|--no-draft) DRAFT=0 ;;
+    --draft) DRAFT=1 ;;
+    *) ARGS+=("$arg") ;;
   esac
 done
 set -- ${ARGS[@]+"${ARGS[@]}"}
 
+shopt -s nocasematch
 case ${1:-} in
-  ([Ss][Bb][Oo][Mm]) BOMTYPE="SBOM";;
-  ([Cc][Bb][Oo][Mm]) BOMTYPE="CBOM";;
-  ([Ss][Aa][Aa][Ss][Bb][Oo][Mm]) BOMTYPE="SaaSBOM";;
-  ([Vv][Dd][Rr]|[Vv][Ee][Xx]|[Vv][Ee][Xx]_[Vv][Dd][Rr]|[Vv][Dd][Rr]_[Vv][Ee][Xx]) BOMTYPE="VDR_VEX";;
-  ([Aa][Tt][Tt][Ee][Ss][Tt][Aa][Tt][Ii][Oo][Nn][Ss]) BOMTYPE="Attestations";;
-  ([Dd][Ee][Ss][Ii][Gg][Nn][-][Aa][Ss][Ss][Uu][Rr][Aa][Nn][Cc][Ee]) BOMTYPE="Design-Assurance";;
-  ([Mm][Ll][Bb][Oo][Mm]|[Mm][Ll]-[Bb][Oo][Mm]) BOMTYPE="ML-BOM";;
-  ([Mm][Bb][Oo][Mm]) BOMTYPE="MBOM";;
-  ([Hh][Bb][Oo][Mm]) BOMTYPE="HBOM";;
-  ([Oo][Bb][Oo][Mm]) BOMTYPE="OBOM";;
-  ([Aa][Ll][Ll]) BOMTYPE="ALL";;
-  (*)
-    echo "Usage: $0 <SBOM|CBOM|SaaSBOM|VDR|VEX|Attestations|Design-Assurance|MLBOM|MBOM|HBOM|OBOM|ALL> [lang] [--final]"
-    exit 1;;
+  SBOM ) BOMTYPE="SBOM" ;;
+  CBOM ) BOMTYPE="CBOM" ;;
+  SaaSBOM ) BOMTYPE="SaaSBOM" ;;
+  VDR_VEX ) BOMTYPE="VDR_VEX" ;;
+  Attestations ) BOMTYPE="Attestations" ;;
+  Design-Assurance ) BOMTYPE="Design-Assurance" ;;
+  ML-BOM) BOMTYPE="ML-BOM" ;;
+  MBOM ) BOMTYPE="MBOM" ;;
+  HBOM) BOMTYPE="HBOM" ;;
+  OBOM ) BOMTYPE="OBOM" ;;
+  ALL ) BOMTYPE="ALL" ;;
+  * ) echo "Usage: $0" \
+    "<SBOM|CBOM|SaaSBOM|VDR|VEX|Attestations|Design-Assurance|MLBOM|MBOM|HBOM|OBOM|ALL>" \
+    "[lang] [--final]"
+    exit 1 ;;
 esac
 
 LANG_CODE=${2:-en}
@@ -60,8 +62,8 @@ fi
 
 # human-facing name for PDF metadata (directory slugs are not display names)
 case $BOMTYPE in
-  (VDR_VEX) DISPLAYNAME="VDR and VEX";;
-  (*) DISPLAYNAME="$BOMTYPE";;
+  VDR_VEX) DISPLAYNAME="VDR and VEX" ;;
+  *) DISPLAYNAME="$BOMTYPE" ;;
 esac
 
 SRCDIR="$ROOT/$BOMTYPE/$LANG_CODE"
