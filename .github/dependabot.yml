@@ -1,0 +1,40 @@
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+    cooldown:
+      default-days: 7
+    labels: [ 'dependencies' ]
+    commit-message:
+      prefix: 'chore'   ## prefix maximum string length of 15
+      include: 'scope'
+    open-pull-requests-limit: 999
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+    cooldown:
+      default-days: 7
+    labels: [ 'dependencies' ]
+    commit-message:
+      prefix: 'chore'   ## prefix maximum string length of 15
+      include: 'scope'
+    open-pull-requests-limit: 999
+  - package-ecosystem: 'pip'
+    directories:
+      - '/templates/*'
+    schedule:
+      interval: 'weekly'
+      day: 'saturday'
+    cooldown:
+      default-days: 7
+    labels: [ 'dependencies' ]
+    commit-message:
+      prefix: 'chore'   ## prefix maximum string length of 15
+      include: 'scope'
+    open-pull-requests-limit: 999
