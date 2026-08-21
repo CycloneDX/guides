@@ -46,7 +46,7 @@ This example shows a list of what kind of user and use case information would be
         "Implementing the model on specialized hardware for real-time visual perception and \"Thinking Mode\" reasoning to help an intelligent device navigate and interact with its environment based on natural language commands",
         "Running a self-hosted instance to analyze internal security logs for anomalies, ensuring that sensitive infrastructure data never leaves the organization's firewall.",
         "Running a personal assistant locally on a laptop to answer questions or process private information such as emails or calendars without sending data to an external server."
-      ],
+      ]
     }
   }
 }

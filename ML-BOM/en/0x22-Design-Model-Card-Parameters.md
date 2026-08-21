@@ -99,6 +99,7 @@ This example demonstrates best practices for the Qwen-7B model using information
             "type": "supervised"
           }
         // ...
+        }
       }
     }
   }
