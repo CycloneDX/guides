@@ -282,7 +282,7 @@ CycloneDX allows for declarations of software compositions (e.g., hardware produ
 
 In the case of a model repository like those hosted in Hugging Face, one can describe the files that comprise it as a composition with an ML-BOM.  Specifically, it would be declared as a composition of an assembly type.
 
-Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
+Specifically, a `component` entry would be created for each file and declared in the ML-BOM's `components` array hierarchically under the model's `component` then declare the assembly relationship within the BOM's `compositions` array under `assemblies` by providing the `bom-ref` link to the model component that contains the hierarchy of the constituting (file) components within the model repository.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
@@ -416,7 +416,7 @@ It is important to capture any of these transformations in the model's lineage (
       "purl": "pkg:huggingface/unsloth/Llama-3.2-3B-Instruct@1.0.0",
       "bom-ref": "pkg:huggingface/unsloth/Llama-3.2-3B-Instruct@1.0.0",
       "publisher": "Unsloth",
-      "description": "A pre-optimized, specialized versions of the meta-llama/Llama-3.2-3B-Instruct model designed to work seamlessly with Unsloth's training framework",
+      "description": "A pre-optimized, specialized version of the meta-llama/Llama-3.2-3B-Instruct model designed to work seamlessly with Unsloth's training framework",
       // ...,
       "pedigree": {
         "ancestors": [

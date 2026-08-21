@@ -1,4 +1,4 @@
-# Appendix C: References
+# Appendix C: Complete Example
 
 This appendix includes a complete AI/ML BOM example that combines most of the isolated examples for the Qwen model shown throughout this guide.
 
