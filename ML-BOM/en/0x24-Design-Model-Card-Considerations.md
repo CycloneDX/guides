@@ -258,7 +258,7 @@ Each "consumption" entry consists of the following, which are explained in more 
   | Value | Description |
   |---|---|
   | **design** | A model design including problem framing, goal definition and algorithm selection.|
-  | **data-collection** |Model data acquisition including search, selection and transfer.|
+  | **data-collection** | Model data acquisition including search, selection and transfer. |
   | **data-preparation** | Model data preparation including data cleaning, labeling and conversion. |
   | **training** | Model building, training and generalized tuning. |
   | **fine-tuning** | Refining a trained model to produce desired outputs for a given problem space. |
