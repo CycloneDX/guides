@@ -103,6 +103,8 @@ fi
 mkdir -p "$OUTDIR"
 
 pandoc -s -f gfm -t html5 $DRAFT_META \
+  --syntax-definition "$ROOT/templates/syntax/json5.xml" \
+  --syntax-definition "$ROOT/templates/syntax/jsonc.xml" \
   --template "$ROOT/templates/pdf/guide.html" \
   --lua-filter "$ROOT/templates/pdf/filters/pagebreak-html.lua" \
   --columns 10000 \

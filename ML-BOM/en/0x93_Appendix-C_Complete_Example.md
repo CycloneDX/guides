@@ -7,7 +7,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
 
 > **Note**: For brevity, the `formulation` entry for the model's training only describes the top-level `workflow` topology (i.e., the run-time "stack"), but none of the `tasks` or `steps` that could be detailed.
 
-```json
+```jsonc
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -49,11 +49,10 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
-            },
+            }
             // ...
           ]
-        }
-      },
+        },
       "externalReferences": [
         {
           "type": "vcs",
@@ -197,8 +196,8 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
               "type": "MMLU (5-shot)",
               "value": "58.2",
               "confidenceInterval": {
-                "lowerBound": "94.28",
-                "upperBound": "95.72"
+                "lowerBound": "57.48",
+                "upperBound": "58.92"
               }
             },
             {
@@ -381,13 +380,13 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
       "version": "7c41481f57cb95916b40956ab2f0b139b296d974"
     },
     {
-      "name": "UltraFeed-back dataset",
+      "name": "UltraFeedback dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365",
       "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e"
     },
     {
-      "name": "UltraFeed-back dataset",
+      "name": "Snorkel-Mistral-PairRM-DPO dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a",
       "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511"
@@ -435,7 +434,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
         {
           "type": "library",
           "name": "nccl",
-          "version": "2.19.3",
+          "version": "2.29.2",
           "bom-ref": "pkg:generic/nccl@2.29.2",
           "purl": "pkg:generic/nccl@2.29.2"
         },

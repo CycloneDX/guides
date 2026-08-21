@@ -265,7 +265,6 @@ It is important to disclose information regarding a model's release.  This is ac
             // ...
           ]
         }
-      ]
     },
     // ...
   }
@@ -374,11 +373,11 @@ Then the model component's new hierarchy of composing files would be described a
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
-  "composition": [
+  "compositions": [
     {
       "aggregate": "complete",
       "assemblies": [
-        "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
+        "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9"
       ]
     }
   ],

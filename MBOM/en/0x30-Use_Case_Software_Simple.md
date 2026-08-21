@@ -8,7 +8,7 @@ This example shows how a simple `helloworld` application's build process can be 
 
 The application itself is composed a single "C" source file, `helloworld.c`, which contains the following code:
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -21,25 +21,25 @@ int main() {
 
 The application is built using the GCC compiler using the following `Makefile`:
 
-```
+```makefile
 CC = gcc
 CFLAGS = -Wall
 
 build: clean hello
 
 hello: helloworld.c
-    $(CC) $(CFLAGS) -o hello helloworld.c
+	$(CC) $(CFLAGS) -o hello helloworld.c
 
 clean:
-    rm -f hello
+	rm -f hello
 ```
 
 #### Build process
 
 The application can be built by manually running the following command in a terminal/shell of a suitable operating system:
 
-```
-$ make build
+```bash
+make build
 ```
 
 which would cause the Makefile's `build` target (task) to be executed which would, in turn, case the dependent `clean` and `hello` targets to be executed in order and result in the creation of an executable file called `hello`.
@@ -70,7 +70,7 @@ The `component` objects are defined as follows:
 
 - `helloworld.c`:
     </br>
-    ```
+    ```json
     {
       "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/helloworld.c",
       "type": "file",
@@ -89,7 +89,7 @@ The `component` objects are defined as follows:
 
 - `Makefile`
     </br>
-    ```
+    ```json
     {
       "bom-ref": "file:///CycloneDX/MBOM-examples/simple-application-makefile/Makefile",
       "type": "file",
@@ -106,7 +106,7 @@ The `component` objects are defined as follows:
 
 - `gcc` - GCC compiler
     </br>
-    ```
+    ```json
     {
       "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/gcc",
       "type": "application",
@@ -117,7 +117,7 @@ The `component` objects are defined as follows:
 
 - `make` utility
     </br>
-    ```
+    ```json
     {
       "bom-ref": "file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/make",
       "type": "application",
@@ -136,16 +136,18 @@ This section describes how the human action `make build` can be represented in `
 
 In all cases, workflows are triggered by some sort of explicit, human or automated event. In this example, a person manually executed the following command in a Bash command prompt:
 
-```
+```shell
 make build
 ```
 
 this event could be represented as follows:
 
-```
-timestamp: “2025-01-01T14:00:00+00:00”,
-name: “make build”,
-description: “Command line build”
+```json
+{
+  "timestamp": "2025-01-01T14:00:00+00:00",
+  "name": "make build",
+  "description": "Command line build"
+}
 ```
 
 **Note**: *Workflows may be triggered by events dynamically received from other systems or services. In these cases, the event could include the raw event `data` itself as well as information.about the `source` system or service the event was sent by.* 
@@ -156,18 +158,18 @@ The trigger provides context about an event, as well as describing any additiona
 
 This could be represented as follows:
 
-```
+```json5
 {
-  “timeActivated”: “2025-01-01T14:00:00+00:00”,
-  “bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
-  “uid": ”uuid:1a9b…",
-  “type": "manual",
-  “name": "make trigger",
-  “description": "Bash, command-line build trigger”
-  “event”: {
+  "timeActivated": "2025-01-01T14:00:00+00:00",
+  "bom-ref": "cdx:mbom:trigger:uuid:1a9b…",
+  "uid": "uuid:1a9b…",
+  "type": "manual",
+  "name": "make trigger",
+  "description": "Bash, command-line build trigger"
+  "event": {
     // event content goes here
-  },
-  ...
+  }
+  // ...
 }
 ```
 
@@ -181,14 +183,14 @@ This could be represented as follows:
 
 In this example, there is only one logical "task"; that is, the build process initiated by the `make build` command step. This task itself can be represented as:
 
-```
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "uid": "uuid:dbb6c5c0-6958-4a18-ac67-d897dbee76b6",
   "taskTypes": ["clean", "build"],
   "name": "make build task",
-  "description": "A task that captures 'make build' step.",
-  ...
+  "description": "A task that captures 'make build' step."
+  // ...
 }
 ```
 
@@ -198,12 +200,12 @@ As you can see we provide the two logical `taskType` values of `clean` and `buil
 
 The single command-line, build `step` can be added to the task:
 
-```
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
   "name": "make build task",
-  ...
+  // ...
   "steps": [
     {
       "name": "run make build",
@@ -219,20 +221,20 @@ The single command-line, build `step` can be added to the task:
 
 The `trigger` defined previously can be added to the task as follows:
 
-```
+```json5
 {
   "bom-ref": "cdx:mbom:task:uuid:dbb6....",
   "uid": "uuid:dbb6...",
   "name": "make build task",
-  ...
+  // ...
   "trigger": {
     "bom-ref": "cdx:mbom:trigger:uuid:1a9b...",
     "uid": "uuid:1a9b....",
     "type": "manual",
     "name": "make trigger",
     "description": "Bash, command-line build trigger",
-  },
-  ...
+  }
+  // ...
 }
 ```
 
@@ -240,25 +242,29 @@ The `trigger` defined previously can be added to the task as follows:
 
 In this example, the workflow represents the single `task` execution as follows:
 
-```
+```json5
 {
-  “bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “uid": ”uuid:431ff656-8f90-410b-a614-c3916b842036",
-  “taskTypes”: [“clean”, “build”],
-  “tasks”: [
+  "bom-ref": "cdx:mbom:workflow:uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "uid": "uuid:431ff656-8f90-410b-a614-c3916b842036",
+  "taskTypes": ["clean", "build"],
+  "tasks": [
     // task goes here
   ],
-  “taskDependencies”: [
+  "taskDependencies": [
     { 
-      “ref”: “cdx:mbom:task:uuid:dbb6…"
+      "ref": "cdx:mbom:task:uuid:dbb6…"
     }
   ],
-  “trigger”: {
+  "trigger": {
     // trigger goes here
   },
-  “resourceReferences”: [...],
-  “runtimeTopology”: [...],
-  ...
+  "resourceReferences": [
+    // ...
+  ],
+  "runtimeTopology": [
+    // ...
+  ],
+  // ...
 }
 ```
 
@@ -270,7 +276,7 @@ In this example, the workflow represents the single `task` execution as follows:
 
 The `formula`for building this example application, in addition to describing the single `workflow` for this example, also includes the full listing (or manifest) of resources referenced by the workflow and its task. These elements can be represented as follows:
 
-```
+```json5
 {
   components: [ 
        // component content goes here
@@ -283,7 +289,7 @@ The `formula`for building this example application, in addition to describing th
 
 and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyname of the Software Bill of Materials (SBOM):
 
-```
+```json5
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
@@ -291,16 +297,15 @@ and finally the `formula` is placed under the CycloneDX BOM's `formulation` keyn
   "metadata": {
     "component": {
       "type": "application",
-      "name": "simple-application",
-      ...
+      "name": "simple-application"
+      // ...
     },
-    ...
+    // ...
   },
-  "formulation: [{
+  "formulation": [ {
       // formula content goes here
-    }
-  ],
-  ...
+    } ]
+  // ...
 }
 ```
 
@@ -332,7 +337,7 @@ For this example, we can choose to represent the key platform elements used to r
 
 - The `Bash` shell used to run the `make` command:
     </br>
-    ```
+    ```json
     {
       "bom-ref": "file:///bin/bash",
       "type": "platform",
@@ -343,7 +348,7 @@ For this example, we can choose to represent the key platform elements used to r
 
 - The `OS X` operating system the Bash terminal was running on:
     </br>
-    ```
+    ```json
     {
       "bom-ref": "urn:cdx:os://macosx@14.6.1+23G93",
       "type": "operating-system",
@@ -358,7 +363,7 @@ Additionally, we could describe the actual device used for the build process to 
 
 - `Mac OS X` machine
     </br>
-    ```
+    ```json
     {
       "bom-ref": "urn:cdx:device:sn:CBFX71DM3",
       "type": "device",
