@@ -1,4 +1,8 @@
 name: Generate Guide
+run-name: >-
+  Generate Guide
+  ${{ inputs.document_type }}
+  (${{ github.event.inputs.draft == 'false' && 'final' || 'draft' }})
 
 on:
   workflow_dispatch:
@@ -30,7 +34,8 @@ on:
 permissions: {}
 
 jobs:
-  build_and_run:
+  generate:
+    name: Generate
     runs-on: ubuntu-latest
 
     steps:
