@@ -11,7 +11,6 @@ For convenience, here are links to the specific sections for some of these ackno
   * [Annotating a model's supported languages](#annotating-a-models-supported-languages)
   * [Providing a model's usage policy](#providing-a-models-usage-policy)
   * [Providing free-form tags for search](#providing-free-form-tags-for-search)
-  * [Providing a model's usage policy](#providing-a-models-usage-policy)
 * [Tokenizers and prompt templates](#tokenizers-and-prompt-templates)
 * [Including manufacturing information for the ML model](#including-manufacturing-information-for-the-ml-model)
   * [Declaring hardware and software training components](#declaring-hardware-and-software-training-components)
@@ -117,7 +116,7 @@ This section describes how to "tag" model components with non-standard keywords 
 
 ###### Field discussion
 
-* **properties** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
+* **tags** - The tag values shown above might be used to search for models in a catalog that are compatible with the `pytorch` framework and (the Hugging Face) `transformers` library.  The `text-to-speech` and `speech-to-speech` tags could identify the model with those input/output capabilities.
 
 
 ### Providing a model's usage policy
@@ -218,6 +217,8 @@ For the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model, the chat temp
   // ...
 }
 ```
+
+###### Field discussion
 
 * **properties** - Utilizes the reserved CycloneDX property name `cdx:ai-ml:model:template:chat`, with the name widely used `ChatML` template.
 
