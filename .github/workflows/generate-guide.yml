@@ -2,7 +2,7 @@ name: Generate Guide
 run-name: >-
   Generate Guide
   ${{ inputs.document_type }}
-  (${{ github.event.inputs.draft == 'false' && 'final' || 'draft' }})
+  (${{ inputs.draft == 'false' && 'final' || 'draft' }})
 
 on:
   workflow_dispatch:
