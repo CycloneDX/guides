@@ -229,7 +229,7 @@ way to automate the publishing, versioning, and archiving of BOMs.
     }
   ],
   "copyright": [
-    { "text": "Copyright 2012 Amce Inc. All Rights Reserved." },
+    { "text": "Copyright 2012 Acme Inc. All Rights Reserved." },
     { "text": "Copyright (C) 2004,2005 Example Co" }
   ]
 }

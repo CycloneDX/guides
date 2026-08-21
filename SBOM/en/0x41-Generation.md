@@ -87,7 +87,7 @@ SBOMs from source files typically occur in the "pre build" lifecycle.
 ## Integrating CycloneDX Into The Build Process
 Integrating SBOM generation into the software's build system is the preferred starting point for producing SBOMs for
 cybersecurity use cases. Modern build systems rely on package manifests which describe the intent to use specific
-dependencies. Examples of manifests include `pom.xml` (Java/Maven), `package-lock.json` (Javascript/npm), and
+dependencies. Examples of manifests include `pom.xml` (Java/Maven), `package-lock.json` (JavaScript/npm), and
 `requirements.txt` (Python).
 
 There are three primary strategies for producing SBOMs during a build.
@@ -99,10 +99,10 @@ There are three primary strategies for producing SBOMs during a build.
 Many build systems have a "lifecycle" that can affect dependency resolution. These lifecycles are often
 configurable by the developers and can profoundly affect component inventory and versions. For example, Maven resolves 
 dependencies as it progresses through its lifecycle. A Maven build may also include optional profiles, which can alter 
-what dependencies are included or excluded from the final deliverable. Analyzing `pom.xml` outside of Mavens' lifecycle 
-will typically lead to erroneous results. On the Javascript front, many plugins to npm or web frameworks can dramatically
+what dependencies are included or excluded from the final deliverable. Analyzing `pom.xml` outside of Maven's lifecycle
+will typically lead to erroneous results. On the JavaScript front, many plugins to npm or web frameworks can dramatically
 affect component inventory. For example, many web frontends are optimized using a process called bundling which removes 
-unused dependencies and/or functions through a process called "tree-shaking" and aggregates the Javascript into highly 
+unused dependencies and/or functions through a process called "tree-shaking" and aggregates the JavaScript into highly
 optimized bundles for efficient delivery to web and mobile browsers. In these scenarios, relying on `package-lock.json`
 as the source of truth would lead to an erroneous SBOM containing an inventory of components that are not distributed in 
 the final artifact. In the case of software vendors, it is important only to include the components that are distributed 
