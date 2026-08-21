@@ -21,7 +21,7 @@ Used to provide a list describing the intended users of the model, along with a 
 
 This example shows a list of what kind of user and use case information would be expected for a typical `7B` parameter size Large Language Model (LLM) that is multi-lingual and supports code/instruct capabilities.
 
-```json
+```jsonc
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -75,7 +75,7 @@ Some of these limitations include:
 
 This example shows a list of technical limitations that might be associated with a typical multi-lingual, code-/instruction-capable Large Language Model (LLM) with a similar parameter size.
 
-```json
+```jsonc
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -111,7 +111,7 @@ Some of these tradeoff considerations include:
 
 This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 &B parameter model.
 
-```json
+```jsonc
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -147,7 +147,7 @@ Used to provide a list describing known ethical considerations when using a mode
 
 Based on technical reports and safety evaluations such as Qwen3Guard, the following ethical considerations and mitigations are documented and typical of a multi-lingual LLM of similar parameter size and with a dense architecture:
 
-```json
+```jsonc
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -179,7 +179,7 @@ Based on technical reports and safety evaluations such as Qwen3Guard, the follow
         {
           "name": "Instruction Misalignment. In-context learning can sometimes lead to \"emergent misalignment\", where the model prioritizes following a user's conversational style over established safety boundaries.",
           "mitigationStrategy": "Standardize output formats using system prompts and utilize the \"hard switch\" to disable the model's internal thinking mode when maximum safety and predictability are required."
-        },
+        }
         // ...
       ]
     }
@@ -206,7 +206,7 @@ Assessments consider evaluations at all stages of the model development lifecycl
 
 This example shows how fairness assessment information would be included in a CycloneDX `modelCard` object.
 
-```json
+```jsonc
 "component": {
   "type": "machine-learning-model",
   "bom-ref": "pkg:huggingface/Qwen/Qwen-7B@ef3c5c9",
@@ -225,7 +225,7 @@ This example shows how fairness assessment information would be included in a Cy
           "groupAtRisk": "Non-English/Non-Chinese speakers, speakers of regional dialects or specific geographic regions (e.g., Southeast Asia or the Middle East) on thinking or \"reasoning\" tasks.",
           "harms": "Quality-of-Service Harm: The model may provide high-quality, nuanced reasoning in English or Mandarin but offer oversimplified, factually incorrect, or \"hallucinated\" information when queried in other supported languages.",
           "mitigationStrategy": "Cross-Lingual Alignment: Developers can use multilingual Supervised Fine-Tuning (SFT). By training on additional high-quality, parallel corpora from other languages on \"reasoning capabilities\" (e.g., logic, math, coding)."
-        },
+        }
         // ...
       ]
     }
@@ -284,7 +284,7 @@ Each "consumption" entry consists of the following, which are explained in more 
 
 This example is for a "fake" model based upon the llama3 architecture.
 
-```json
+```jsonc
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",

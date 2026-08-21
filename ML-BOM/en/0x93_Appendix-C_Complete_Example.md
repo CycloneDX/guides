@@ -7,7 +7,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
 
 > **Note**: For brevity, the `formulation` entry for the model's training only describes the top-level `workflow` topology (i.e., the run-time "stack"), but none of the `tasks` or `steps` that could be detailed.
 
-```json
+```jsonc
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -49,11 +49,10 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
             {
               "locale": "en-US",
               "text": "United States (US), English release date."
-            },
+            }
             // ...
           ]
-        }
-      },
+        },
       "externalReferences": [
         {
           "type": "vcs",
@@ -435,7 +434,7 @@ This appendix includes a complete AI/ML BOM example that combines most of the is
         {
           "type": "library",
           "name": "nccl",
-          "version": "2.19.3",
+          "version": "2.29.2",
           "bom-ref": "pkg:generic/nccl@2.29.2",
           "purl": "pkg:generic/nccl@2.29.2"
         },

@@ -2,7 +2,7 @@
 
 This directory contains everything that styles and assembles the Authoritative Guide PDFs
 
-```
+```text
 markdown (GFM) --pandoc--> HTML --WeasyPrint--> body PDF
 cover.pdf + body + back.pdf --pypdf--> final PDF
 ```
@@ -23,7 +23,7 @@ the on-page display size is controlled here in CSS, never in the markdown.
 
 Build a guide:
 
-```
+```shell
 build/build-pdf.sh SBOM en
 ```
 
