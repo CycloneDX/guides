@@ -221,7 +221,7 @@ Information about the actual volume instance, if applicable, allocated to worksp
 
 ## inputType relationships
 
-![Object Model - output type](images/Object-Model/inputType.svg)
+![Object Model - input type](images/Object-Model/inputType.svg)
 
 #### `inputType`
 
@@ -249,7 +249,7 @@ An `attachment` Specifies the metadata (e.g., content type, encoding, etc.) and 
 
 ## outputType relationships
 
-![Object Model - input type](images/Object-Model/inputType.svg)
+![Object Model - output type](images/Object-Model/outputType.svg)
 
 #### `outputType`
 
