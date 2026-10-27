@@ -40,7 +40,7 @@ Incoming inspection asks whether the parts in the tray are what the label says, 
 
 ## Scoping Recalls and Field Failures
 
-A quality engineer learns that a supplier shipped a defective capacitor lot and asks which products, revisions, and units carry it. Identifiers name the affected part across every document that lists it, reference designators locate each placement on each board, and nested assemblies bound the affected products. Dependency entries widen the search past the enclosure, because an optional module that depends on a recalled system is affected inventory even though no assembly contains both. A scoping exercise that once meant a week of cross-referencing ERP exports becomes a query over published documents. Refer to Inventorying a Hardware Assembly for placements and dependencies and to Substantiating Part Identity for confirming suspect units.
+A quality engineer learns that a supplier shipped a defective capacitor lot and asks which products, revisions, and units carry it. Identifiers name the affected part across every document that lists it, reference designators locate each placement on each board, and nested assemblies bound the affected products. A physical blueprint widens the search past the enclosure, because an optional module that draws power and signals from a recalled system is affected inventory even though no assembly contains both. A scoping exercise that once meant a week of cross-referencing ERP exports becomes a query over published documents. Refer to Inventorying a Hardware Assembly for placements and physical blueprints and to Substantiating Part Identity for confirming suspect units.
 
 ## Conducting Merger and Acquisition Due Diligence
 

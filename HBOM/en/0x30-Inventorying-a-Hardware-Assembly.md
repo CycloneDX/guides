@@ -118,7 +118,11 @@ A scheme outside the predefined set takes the custom form, an object with a requ
 { "scheme": { "name": "acme-erp-sku" }, "value": "100-4417" }
 ```
 
-Attribution matters because part numbers collide. The manufacturer asserts the MPN, a distributor asserts its own SKU for the same part, and a consumer can weigh each claim by who made it.
+Attribution matters because part numbers collide. The manufacturer asserts the MPN, a distributor asserts its own SKU for the same part, and a consumer can weigh each claim by who made it. The order number a buyer places on a purchase order is a third number, and it often matches neither: a manufacturer may sell the AVR8-328-PU in tubes and on reels under two ordering codes. It takes the custom form, attributed to the party that accepts the order:
+
+```json
+{ "scheme": { "name": "order-number", "description": "Ordering code accepted on a purchase order, including packaging suffix." }, "value": "AVR8-328-PU-TR" }
+```
 
 ## Component Assemblies
 
@@ -140,22 +144,63 @@ The board itself is a `device` component in document metadata, and its parts sit
 
 Nesting is containment and nothing more. In the figure, the metadata component includes Components A through F, and Component C contains an assembly of D and E, which states how D and E entered the product and nothing about who needs whom. A recipient walks the hierarchy from the finished product down to the last passive without leaving the document, and a subassembly, with its own parts nested inside it, can be signed by the supplier who built it.
 
-## Dependencies
+## Physical Blueprints
 
-A `dependencies` entry records function rather than structure: the components a part requires to operate, each named by `bom-ref` in a flat graph. Hardware depends across assembly boundaries. The Touchkit ships outside every Devkit One assembly and connects over a ribbon cable, yet without the board it has no power and nothing to drive it, so a document describing the deployed pair lists both components, nests neither inside the other, and records the functional relationship in one entry:
+A blueprint with the `physical` model type records connection rather than containment: which products join, what flows between them, and which one cannot operate without the other. Hardware connects across assembly boundaries. The Touchkit ships outside every Devkit One assembly and attaches over a ribbon cable, yet without the board it has no power and nothing to drive it. A document describing the deployed pair lists both components, nests neither inside the other, and adds a blueprint whose assets reference the two components by `componentRef`. Each flow names its `source` and `destination` asset and a `type`, and the flow types that describe physical products form the following subset of the shared vocabulary, which omits the event, message, financial, and business process flows used in software and organizational models.
+
+| Value | Description |
+|---|---|
+| `control` | Control or command flow, such as an enable or reset line |
+| `data` | Data or information flow, such as a display bus |
+| `energy` | Power or energy flow |
+| `physical` | Physical movement of goods or materials, such as coolant |
+| `signal` | Hardware or system signal, such as an interrupt or clock |
+
+A flow outside the predefined set takes the custom form, an object with a required `name` and an optional description, so a thermal design that conducts heat from a module into a host chassis records `"type": { "name": "thermal" }` rather than filing heat under `energy`. The blueprint for the Devkit One and Touchkit pair records one power flow, the display data, and the touch interrupt that returns to the board, and states the requirement those flows imply as a `dependsOn` relationship:
 
 ```json
-"dependencies": [
+"blueprints": [
   {
-    "ref": "mod-touchkit",
-    "dependsOn": [ "asm-devkit-one" ]
+    "bom-ref": "bp-devkit-touchkit",
+    "name": "Devkit One with Touchkit display",
+    "modelTypes": [ "physical" ],
+    "assets": [
+      { "bom-ref": "asset-devkit", "componentRef": "asm-devkit-one" },
+      { "bom-ref": "asset-touchkit", "componentRef": "mod-touchkit" }
+    ],
+    "flows": [
+      {
+        "bom-ref": "flow-power",
+        "name": "5 V supply over the ribbon cable",
+        "type": "energy",
+        "source": "asset-devkit",
+        "destination": "asset-touchkit"
+      },
+      {
+        "bom-ref": "flow-display",
+        "name": "SPI display data",
+        "type": "data",
+        "source": "asset-devkit",
+        "destination": "asset-touchkit"
+      },
+      {
+        "bom-ref": "flow-touch",
+        "name": "Touch controller interrupt",
+        "type": "signal",
+        "source": "asset-touchkit",
+        "destination": "asset-devkit"
+      }
+    ],
+    "relationships": [
+      { "ref": "asset-touchkit", "dependsOn": [ "asset-devkit" ] }
+    ]
   }
 ]
 ```
 
-![Hardware dependencies](images/hardware-dependencies.svg)
+![Physical blueprint of the Devkit One and Touchkit](images/hardware-blueprint.svg)
 
-Containment and dependency answer different questions, and a consumer reads both. The nested inventory prices and sources the module part by part, while the dependency graph warns that a Devkit One recall reaches every Touchkit in the field, a conclusion no amount of walking the assembly hierarchy would produce.
+Containment and connection answer different questions, and a consumer reads both. The nested inventory prices and sources the module part by part, while the blueprint shows that a Devkit One recall reaches every Touchkit in the field, because every Touchkit draws its power and display data from the board. No amount of walking the assembly hierarchy would produce that conclusion.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

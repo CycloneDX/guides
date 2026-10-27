@@ -34,9 +34,10 @@ Working Draft
 \emptyparagraph
 </div>
 
-| Version        | Changes                    | Updated On | Updated By                       |
-|----------------|----------------------------|------------|----------------------------------|
-| Working Draft  | Initial draft              | 2026-07-21 | CycloneDX Hardware Working Group |
+| Version       | Changes       | Updated On | Updated By                       |
+|---------------|---------------|------------|----------------------------------|
+| Working Draft | Second draft  | 2026-10-13 | CycloneDX Hardware Working Group |
+| Working Draft | Initial draft | 2026-07-21 | CycloneDX Hardware Working Group |
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage

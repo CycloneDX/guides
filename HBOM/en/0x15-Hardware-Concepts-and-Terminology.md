@@ -8,13 +8,14 @@ Hardware and software teams use different words for the same structures, and man
 
 | Manufacturing term | Meaning | CycloneDX representation |
 |---|---|---|
-| Line item | One row of a bill of materials: a part and its placements | A component of type `device` |
+| Line item | An entry in a bill of materials listing one part, its quantity, and every reference designator it occupies | A component of type `device` with its `quantity` and `boardLocation.designators` |
 | Assembly, subassembly | A product built from parts, possibly containing other assemblies | Nested `components` |
 | Reference designator | The label locating a part on a board, such as U5 or C3 | `boardLocation.designators` |
 | EBOM, MBOM | The engineering and manufacturing views of a bill of materials | One inventory, with choices resolving design intent to built configuration |
 | MPN, SPN | Manufacturer and supplier part numbers | `identifiers` entries attributed to the asserting party |
+| Order number | The number a buyer orders against, which often differs from both the MPN and the SPN, for example by a packaging or reel suffix | An `identifiers` entry with the custom scheme `order-number`, attributed to the party that accepts the order |
 | AVL, AML | Approved vendor and manufacturer lists | Ranked `supplier` and `manufacturer` parties on the component |
-| Second source | An approved alternate supplier or alternate part | A `supplier` role with `order: 2`, or a component-choice |
+| Second source, secondary supplier, alternative supplier | An approved alternate supplier or alternate part | A `supplier` role with `order: 2`, or a component-choice |
 | Form, fit, function | The test for whether one part can substitute for another | The rationale recorded on a component-choice |
 | Kit | Parts that are only installed together | A component-choice with the `AND` operator |
 | Country of origin | Where a part or material came from | A declared origin distribution, or the manufacturer party's address |
@@ -23,9 +24,18 @@ Hardware and software teams use different words for the same structures, and man
 | Lead time | How long procurement of a part takes | `leadTime` on the component |
 | Package | The physical case and mounting style of a part | `deviceType` |
 
-Most of the predefined vocabularies behind these representations extend through one pattern: where the schema allows values outside a predefined set, the custom form is an object with a required `name` and an optional `description`. The pattern covers device packages, material forms, identifier schemes, origin stages, party roles, and analysis techniques, so a private vocabulary travels as data without posing as a standard value.
+Most of the predefined vocabularies behind these representations extend through one pattern: where the schema allows values outside a predefined set, the custom form is an object with a required `name` and an optional `description`. The pattern covers device packages, material forms, identifier schemes, origin stages, party roles, and analysis techniques, so a private vocabulary travels as data without posing as a standard value. A predefined value is a plain string. `deviceType`, which names a part's package and mounting style, takes `"deviceType": "bga"` for a ball grid array, one of its 14 predefined values. A land grid array is not among them, so a part in that package declares the custom form instead:
 
-Two habits from software BOMs need adjustment on the hardware side. In a software BOM the dependency graph carries most of the structure, while a hardware inventory splits structure and function across two constructs: nested `components` state what an assembly contains, and a `dependencies` entry states what a component requires to operate. The two often disagree, because an optional board designed for a specific system ships outside every assembly of that system yet depends on it for power and signaling. And a hardware part rarely appears once: a single capacitor record legitimately covers six placements, all listed in its reference designators, which is why placement counts rather than component counts drive most hardware calculations.
+```json
+"deviceType": {
+  "name": "lga",
+  "description": "Land grid array, surface-mount, flat contacts on the underside."
+}
+```
+
+A consumer that recognizes `lga` acts on it, and one that does not still knows the value is custom rather than misspelled. The custom form extends the vocabulary a property already defines and never changes its meaning: `deviceType` stays a package, so what a part does, such as regulating power, belongs in its classification.
+
+Two habits from software BOMs need adjustment on the hardware side. In a software BOM the dependency graph carries most of the structure, while a hardware inventory separates structure from connection: nested `components` state what an assembly contains, and a blueprint with the `physical` model type states how separately shipped products connect and what flows between them. The two often disagree, because an optional board designed for a specific system ships outside every assembly of that system yet draws its power and signals from it. And a hardware part rarely appears once: a single capacitor record legitimately covers six placements, all listed in its reference designators, which is why placement counts rather than component counts drive most hardware calculations.
 
 ## One Part, Many Placements
 

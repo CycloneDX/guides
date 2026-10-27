@@ -25,7 +25,7 @@ Regulation and industry practice both drive the demand for structured hardware i
 
 Hardware inventory data exists today, but it rarely travels. Engineering and manufacturing bills of materials live in PLM and ERP systems, approved vendor lists in procurement spreadsheets, certificates in filing cabinets and PDF scans, and country-of-origin data in customs declarations. Each system speaks its own dialect, so a buyer who asks "who made every part on this board, where, and who owns those companies" assembles the answer by hand, and the answer is stale the day it ships.
 
-CycloneDX carries that data in one signed, validatable document, where every part is a component with its manufacturer, suppliers, identifiers, classification, and placement. Approved alternates are recorded as choices with defined logic rather than as footnotes in a drawing. Certifications name their issuer and can cite the attestation evidence behind them. A recipient resolves the answer from data instead of reconstructing it from correspondence.
+CycloneDX carries that data in one signed, validatable document, where every part is a component with its manufacturer, suppliers, identifiers, classification, and placement. Approved alternates are recorded as choices with defined logic rather than as footnotes in a drawing.
 
 ## High-Level HBOM Use Cases
 
@@ -45,14 +45,23 @@ Risk and compliance teams compute origin exposure: what percentage of a board's 
 | Verify part authenticity | identity evidence, physical analysis techniques |
 | Manage availability | lead time, ranked suppliers, alternates |
 | Manage vendor risk | ranked suppliers, origins, certifications, party jurisdiction |
-| Scope recalls and field failures | identifiers, board location, dependencies |
+| Scope recalls and field failures | identifiers, board location, physical blueprints |
 | Screen an acquisition target | origins, parent relations, certifications, lead time |
 
 ## Capabilities
 
-For inventory, the specification provides the `device` component type with hierarchical classification, codes from external taxonomies such as HS, NAICS, and JEDEC, board placement by reference designator, package and mounting style, and supplier lead time, and the `material` component type for raw and processed substances with their supplied form. Declared origins state where a component or material came from as percentage distributions on a stated basis, scoped to stages from mined and smelted through manufactured, with the performing party named per share. For sourcing, one party model covers manufacturers, suppliers, distributors, and assemblers, with a preference order that makes primary and secondary sources explicit and identifiers attributed to the party that asserts them.
+Four capabilities underpin every one of these use cases, and an HBOM that carries only these already answers most procurement, inventory, and recall questions:
 
-For substitution, a component-choice wrapper expresses alternates and required groups with OR, XOR, and AND logic, and choices nest so that one part can stand in for a group of parts. For assurance, certifications attach to any component and can cite CycloneDX Attestations (CDXA) claims, and the evidence model records visual inspection, x-ray inspection, electrical testing, material analysis, and decapsulation, with photographs as supporting material. Every document can be signed and carries its own distribution constraints.
+* Parts and substances as components: the `device` type for finished parts and the `material` type for raw and processed substances.
+* Assemblies and placements: nested `components` state what each assembly contains, and reference designators locate every placement of a part on a board.
+* Parties with roles: one party model names manufacturers, suppliers, distributors, and assemblers, and a preference `order` ranks primary and secondary sources.
+* Attributed identifiers: manufacturer part numbers, supplier part numbers, order numbers, and serial numbers each name the party that asserts them.
+
+Every other capability attaches to those records. For inventory, a part carries a hierarchical classification with codes from external taxonomies such as HS, NAICS, and JEDEC, its package and mounting style, its supplier lead time, and for a material, the form in which it is supplied. A physical blueprint records what an assembly hierarchy cannot: how separately shipped products connect, and the power and signals that flow between them.
+
+Component substitution is a design consideration, and the specification records it as one. A component-choice wrapper lists the approved alternates for a position and states whether exactly one (XOR), any combination (OR), or all together (AND) may be installed, with the form, fit, and function rationale on the wrapper. Choices nest, so a design can approve one integrated part or a group of discrete parts for the same function, and a document describing a built unit resolves each choice to the part actually installed.
+
+Declared origins state where a component or material came from as percentage distributions on a stated basis, with the total the percentages divide, scoped to stages from mined and smelted through manufactured, and with the performing party named per share. For assurance, certifications attach to any component and can cite CycloneDX Attestations (CDXA) claims. The evidence model records how a part's identity was verified, including visual inspection, x-ray inspection, electrical testing, material analysis, and decapsulation, with photographs, radiographs, and test reports attached and classified by sensitivity. Every document can be signed and carries its own distribution constraints.
 
 <div style="page-break-after: always; visibility: hidden">
 \newpage
