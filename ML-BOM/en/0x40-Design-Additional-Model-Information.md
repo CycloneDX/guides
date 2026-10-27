@@ -281,7 +281,7 @@ First, create entries for all the "components" used in the training process as p
       {
         "type": "library",
         "name": "nccl",
-        "version": "2.19.3",
+        "version": "2.29.2",
         "bom-ref": "pkg:generic/nccl@2.29.2",
         "purl": "pkg:generic/nccl@2.29.2"
       },
@@ -345,7 +345,7 @@ Lastly, you would describe the component "stack" as a graph of `runtimeTopology`
        "runtimeTopology": [
        {
           "ref": "pkg:oci/nvidia-pytorch@sha256:f398a0",
-          "dependsOn": "nvidia-h100-pcie-gpu-1",
+          "dependsOn": [ "nvidia-h100-pcie-gpu-1" ],
           "provides": [
             "cuda-toolkit",
             "pkg:oci/nvidia-pytorch@sha256:f398a0",

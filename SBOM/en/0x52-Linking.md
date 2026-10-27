@@ -5,12 +5,12 @@ other BOMs. This deep-linking capability is referred to as BOM-Link and is a
 and compliant with [RFC-8141](https://www.rfc-editor.org/rfc/rfc8141.html).
 
 **Syntax**:
-```ini
+```text
 urn:cdx:serialNumber/version#bom-ref
 ```
 
 **Examples**:
-```ini
+```text
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1
 urn:cdx:f08a6ccd-4dce-4759-bd84-c626675d60a7/1#componentA
 ```

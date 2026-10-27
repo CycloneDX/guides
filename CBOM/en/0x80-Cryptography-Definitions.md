@@ -7,7 +7,7 @@ These definitions supports consistent identification, classification, and report
 ## Algorithm Family Definition Structure
 
 The format for each algorithm entry is:
-```
+```text
 AlgorithmFamily: Pattern[-{optionalParameter}]
 ```
 

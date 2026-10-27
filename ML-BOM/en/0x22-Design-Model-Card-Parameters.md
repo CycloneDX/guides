@@ -79,7 +79,7 @@ These are typically found in one of several locations relative to the model:
 
 This example demonstrates best practices for the Qwen-7B model using information published within and for the model's repository on Hugging Face.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
@@ -97,8 +97,9 @@ This example demonstrates best practices for the Qwen-7B model using information
           "modelArchitecture": "QWenLMHeadModel",
           "approach": {
             "type": "supervised"
-          },
+          }
         // ...
+        }
       }
     }
   }
@@ -117,7 +118,7 @@ Most models are fully described in terms of research papers, articles, and other
 
 This shows how the Qwen research team disclosed comprehensive details about the Qwen model's design, training, implementation, and evaluation as a formal research paper in Cornell University's arXiv scholarly article distribution service.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "metadata":
@@ -137,7 +138,6 @@ This shows how the Qwen research team disclosed comprehensive details about the 
     }
   }
 }
-
 ```
 
 ## Datasets
@@ -173,7 +173,7 @@ Key applications:
 
 This example shows a model fine-tuned (by a fictional "ACME Health" company) from the public [m42-health/Llama3-Med42-8B](https://huggingface.co/m42-health/Llama3-Med42-8B) model using a private dataset.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -210,7 +210,7 @@ back dataset",
                 "url": "https://acme.ai/adatasets/health/patient?region=midwest"
               }
             }
-          ],
+          ]
           // ...
         }
       }
@@ -236,7 +236,7 @@ The public datasets, as documented in the model's research paper, include:
 * [openbmb/UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback)
 * [snorkelai/Snorkel-Mistral-PairRM-DPO](https://huggingface.co/snorkelai/Snorkel-Mistral-PairRM-DPO)
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
@@ -268,17 +268,17 @@ The public datasets, as documented in the model's research paper, include:
   },
   "components": [
     {
-      "name": "UltraFeed-back dataset",
+      "name": "UltraFeedback dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/openbmb/UltraFeedback@40b4365",
-      "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e",
+      "purl": "pkg:huggingface/openbmb/UltraFeedback@40b436560ca83a8dba36114c22ab3c66e43f6d5e"
       // ...
     },
     {
-      "name": "UltraFeed-back dataset",
+      "name": "Snorkel-Mistral-PairRM-DPO dataset",
       "type": "data",
       "bom-ref": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a",
-      "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511",
+      "purl": "pkg:huggingface/snorkelai/Snorkel-Mistral-PairRM-DPO@07af5d0a875b4c692dfaff6c675b10af07b45511"
       // ...
     }
   ]
@@ -297,7 +297,7 @@ Describes the input and output data types (formats) of the model.
 
 In order to provide information on model parameters and hyperparameters using the existing CycloneDX schema, it is recommended to follow the best practice as shown in the next section "[Declaring other properties](#declaring-other-properties)" and its "[Example: Model parameters & hyperparameters for the Qwen-7B model](#example-model-parameters--hyperparameters-for-the-qwen-7b-model)".
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,
@@ -347,7 +347,7 @@ As shown in the [Qwen/Qwen-7B model repository files](0x20-Design-Model-Componen
 
 The JSON below shows how a few of the [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model's parameters, as contained in the [config.json](https://huggingface.co/Qwen/Qwen-7B/blob/main/config.json) configuration file, would be declared within the CycloneDX `modelCard` object's `properties` array using the CycloneDX reserved namespace for AI/ML.
 
-```json
+```json5
 {
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   // ...,

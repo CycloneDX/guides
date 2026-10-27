@@ -1,4 +1,8 @@
 name: Generate Guide
+run-name: >-
+  Generate Guide
+  ${{ inputs.document_type }}
+  (${{ inputs.draft && 'draft' || 'final' }})
 
 on:
   workflow_dispatch:
@@ -30,15 +34,18 @@ on:
 permissions: {}
 
 jobs:
-  build_and_run:
+  generate:
+    name: Generate
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c # v4.2.0
 
       - name: Build Docker image
         run: docker build -t cdx-guides-builder .
@@ -47,13 +54,21 @@ jobs:
         run: mkdir -p docs
 
       - name: Run Docker container
-        run: docker run -v $(pwd)/docs:/workspace/docs cdx-guides-builder ${{ github.event.inputs.document_type }} ${{ github.event.inputs.draft == 'false' && '--final' || '' }}
+        env:
+          DOCUMENT_TYPE: ${{ github.event.inputs.document_type }}
+          DRAFT_FLAG: ${{ github.event.inputs.draft == 'false' && '--final' || '' }}
+        run: >-
+          docker run
+          -v "$(pwd)/docs:/workspace/docs"
+          cdx-guides-builder
+          "$DOCUMENT_TYPE"
+          "$DRAFT_FLAG"
 
       - name: List files in docs directory
         run: ls -l docs
 
       - name: Upload .pdf files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: docs
           path: docs/**

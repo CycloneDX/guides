@@ -33,7 +33,7 @@ Other possible scenarios include:
 \newpage
 </div>
 
-This example, similar to the previous illustration, involves Acme Application which includes the Javascript source code 
+This example, similar to the previous illustration, involves Acme Application which includes the JavaScript source code
 for a shutdown hook. In this case, both are from different suppliers.
 
 ```json
