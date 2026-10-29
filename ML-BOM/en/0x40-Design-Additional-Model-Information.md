@@ -90,7 +90,7 @@ Models can be trained in one or more languages (i.e., multilingual models).
 
 ###### Field discussion
 
-* **properties** - The `value` reflects the set (list) of ISO 639-1 language codes the model was trained to on and thus capable of understanding as input and generating as output.
+* **properties** - The `value` reflects the set (list) of ISO 639-1 language codes the model was trained on and thus capable of understanding as input and generating as output.
 
 
 ### Providing free-form tags for search

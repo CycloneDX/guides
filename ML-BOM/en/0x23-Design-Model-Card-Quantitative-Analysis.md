@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-quant-analysis.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `quantitativeAnalysis` object and its subcomponents, including:
+This section will feature guidance on filling out information in the CycloneDX model card's `quantitativeAnalysis` object and its subcomponents, including:
 
 * [Metrics](#metrics)
   * [Performance metrics](#performance-metrics)

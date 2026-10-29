@@ -34,7 +34,7 @@ A neural network consists of connected units or nodes called artificial neurons,
 
 ##### Prompt engineering
 
-The process of structuring or crafting an instruction in order to produce better outputs from a generative artificial intelligence (AI) model. It typically involves designing clear queries, adding relevant context, and refining wording to guide the model toward more accurate, useful, and consistent responses/ [1]
+The process of structuring or crafting an instruction in order to produce better outputs from a generative artificial intelligence (AI) model. It typically involves designing clear queries, adding relevant context, and refining wording to guide the model toward more accurate, useful, and consistent responses. [1]
 
 [1] [Wikipedia - prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 
@@ -62,7 +62,7 @@ The transformer's neural network architecture takes input data, converts it to n
 
 ##### Natural Language Processing (NLP)
 
-is the processing of natural language information by a computer. NLP is a subfield of computer science and is closely associated with artificial intelligence. NLP is also related to information retrieval, knowledge representation, computational linguistics, and linguistics more broadly.
+Natural Language Processing (NLP) is the processing of natural language information by a computer. NLP is a subfield of computer science and is closely associated with artificial intelligence. NLP is also related to information retrieval, knowledge representation, computational linguistics, and linguistics more broadly.
 
 Major processing tasks in an NLP system include: speech recognition, text classification, natural language understanding (NLU), and natural language generation. [1]
 
@@ -79,7 +79,7 @@ Safetensors addresses security and efficiency limitations present in traditional
 A safetensors file contains:
 
 * A metadata section saved in JSON format. This section provides information on all tensors in the model, including their shapes, data types, and names. It can optionally also contain custom metadata.
-* A section for the tensor data.* A section for the tensor data.
+* A section for the tensor data.
 
 [1] https://huggingface.co/blog/ngxson/common-ai-model-formats
 
