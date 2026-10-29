@@ -1,4 +1,4 @@
-# Appendix A: ML-BOM mappings to the European Union's Artificial Intelligence Act (EU AI Act)
+# Appendix C: ML-BOM mappings to the European Union's Artificial Intelligence Act (EU AI Act)
 
 This appendix maps the [EU's AI Act](https://artificialintelligenceact.eu/) prose requirements and the more prescriptive [Explanatory Notice and Template for the Public Summary of Training Content for general-purpose AI models](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models) to CycloneDX ML-BOM as documented in specific sections of this guide.
 
