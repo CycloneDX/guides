@@ -99,7 +99,7 @@ A GGUF file comprises:
 
 #### ONNX
 
-Open Neural Network Exchange (ONNX) format offers a vendor-neutral representation of machine learning models. It is part of the ONNX ecosystem, which includes tools and libraries for interoperability across frameworks such as PyTorch, TensorFlow, and MXNet.
+Open Neural Network Exchange (ONNX) format offers a vendor-neutral representation of machine learning models. It is part of the ONNX ecosystem, which includes tools and libraries for interoperability across frameworks such as PyTorch, TensorFlow, JAX, and others
 
 ONNX models are saved in a single file with the .onnx extension. Unlike GGUF or Safetensors, ONNX contains not only the model's tensors and metadata but also its computation graph. [1]
 
