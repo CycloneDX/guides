@@ -95,7 +95,7 @@ This example shows a list of technical limitations that might be associated with
 ```
 
 
-## Performance Tradeoffs
+## Performance tradeoffs
 
 When creating Machine Learning (ML) models, developers must navigate several core performance tradeoffs to align model capabilities with business needs and technical constraints.
 
@@ -109,7 +109,7 @@ Some of these tradeoff considerations include:
 
 ###### Example: Performance tradeoffs for Qwen-7B
 
-This example shows how to provide performance trade-offs for a few acknowledged parameters in the Qwen3 &B parameter model.
+This example shows how to provide performance tradeoffs for a few acknowledged parameters in the Qwen3 7B parameter model.
 
 ```jsonc
 "component": {
@@ -240,7 +240,7 @@ This example shows how fairness assessment information would be included in a Cy
 
 This section describes how model providers can publish the energy costs incurred at different stages of the model's lifecycle to address potential regulatory requirements.  This information includes the energy sources (i.e., for the datacenters) as well as disclosure of CO2 emission cost equivalents and CO2 offsets (credits).
 
-The intent is for CycloneDX to be able to support the general requirements referenced by the [EU’s AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), which refers to ‘environmental protection’ in its subject matter.
+The intent is for CycloneDX to be able to support the general requirements referenced by the [EU's AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng), which refers to 'environmental protection' in its subject matter.
 
 Summary of EU AI Act Environmental Disclosure Rules for GPAI Models:
 
