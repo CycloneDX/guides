@@ -12,14 +12,72 @@ AlgorithmFamily: Pattern[-{optionalParameter}]
 ```
 
 Where:
-- `AlgorithmFamily` is the algorithm family
-- `Pattern` shows how the algorithm should be referenced
-- Elements in `[]` are optional parameters
-- Elements in `()` indicate choices
-- The `|` symbol indicates alternative choices
-- Elements in `{}` indicate placeholders
 
-### Example
+- `AlgorithmFamily` identifies the algorithm family.
+- `Pattern` describes how to construct an algorithm name.
+- `{name}` is a placeholder for an algorithm-specific value.
+- `[ ... ]` marks optional content, including any separators inside the brackets.
+- `( ... )` groups content. A group without alternatives or repetition contributes its content once.
+- `|` separates alternatives, exactly one of which is selected, either across the whole pattern or within a group. For example, `(SHA256|SHAKE)` selects `SHA256` or `SHAKE`.
+- `( ... )+` repeats the grouped content one or more times.
+- `<Name>` references another variant's naming pattern, as described below.
+
+Braces, brackets, parentheses, angle brackets, `|`, and a `+` immediately
+following `)` are notation rather than characters in the constructed name.
+Other characters are literal, including `-`, `_`, `/`, and the `+` in
+`SPAKE2+`. This notation is not a regular expression.
+
+### Pattern references
+
+`<Name>` identifies the variant pattern whose initial literal text, before
+its first notation construct, is `Name`. For example, `<LMS>` references
+the pattern beginning `LMS[`, not the entire LMS algorithm family.
+
+Each reference shall resolve to exactly one variant pattern. References
+shall not form cycles. A reference expands to a name constructed using
+the referenced pattern, including its optional-content rules.
+
+### Optional content and partial identification
+
+Omitting an optional parameter leaves that parameter unspecified. A name
+can therefore identify an algorithm partially without specifying its
+complete parameter configuration.
+
+An optional fixed literal has a different meaning: its absence selects
+the form without that literal. For example, omitting `[-PKCS7]` selects
+the form without the `-PKCS7` suffix.
+
+### LMS, LMOTS, and HSS
+
+In the LMS pattern, `{bytesPerNode}` is measured in bytes. In the LMOTS
+pattern, `{hashOutputLength}` is the hash output length in bytes.
+
+HSS uses the following pattern:
+
+~~~text
+HSS[_L{levels}][(_<LMS>_<LMOTS>)+]
+~~~
+
+Each repeated group describes one level using an LMS name followed by
+an LMOTS name. Levels are listed starting at the root and proceeding
+downward.
+
+When both `{levels}` and the repeated pairs are present, the number of
+pairs shall equal `{levels}`. Omitting the pairs leaves the per-level
+parameters unspecified. Parameters omitted from a pair are unspecified
+and are not inherited from another pair.
+
+Examples:
+
+- `HSS_L2` identifies two levels without specifying their parameter sets.
+- `HSS_LMS_LMOTS` lists one pair with its algorithm parameters unspecified.
+- `HSS_L2_LMS_LMOTS_LMS_LMOTS` explicitly lists two pairs with their algorithm parameters unspecified.
+
+These examples illustrate naming syntax and partial identification;
+they do not establish that a parameter configuration satisfies a
+particular cryptographic standard or profile.
+
+### RSA naming example
 
 The following example defines the RSASSA-PKCS1 algorithm family, a signature scheme that may be used with different digest (hash) algorithms and key sizes. It is standardized in RFC 8017 and in IEEE 1363.
 
