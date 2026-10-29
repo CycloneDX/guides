@@ -174,7 +174,7 @@ If the model being described by an ML-BOM is instead hosted in a GitHub reposito
 
 ##### Adding domain-specific identifiers
 
-Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](), which is the authoritative source of official namespaces used in CycloneDX `properties`.
+Organizations that produce BOMs for hardware or software components they produce may have multiple domain-specific identifiers for the same component.  In these cases, it is best practice to register (reserve) an official namespace for these domains with the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy), which is the authoritative source of official namespaces used in CycloneDX `properties`.
 
 ###### Example: domain-specific identifiers
 
