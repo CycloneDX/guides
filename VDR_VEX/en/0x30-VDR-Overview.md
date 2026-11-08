@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ipsum sapien, v
 
 ![VDR+VEX-BOM-Cascade.png](images/VDR+VEX-BOM-Cascade.svg)
 
-## Some other section
+## Alignment With Industry Standards
 CycloneDX exceeds the data field requirements defined in [ISO/IEC 29147:2018](https://www.iso.org/standard/72311.html)
 for vulnerability disclosure information and provides a simple path for including Vulnerability Exploitability eXchange
 (VEX) information. VEX is covered is subsequent chapters.
