@@ -445,7 +445,7 @@ The following example illustrates the reliance on libcurl, provided externally:
 CycloneDX can describe declared and observed formulations for reproducibility throughout the product lifecycle of components
 and services. This advanced capability provides transparency into how components were made, how a model was trained, or
 how a service was created or deployed. Generally, the formulation is externalized from the SBOM into a dedicated Manufacturing
-Bill of Material (MBOM). The SBOM references the MBOM that describes the environment, configuration, tools, and
+Bill of Materials (MBOM). The SBOM references the MBOM that describes the environment, configuration, tools, and
 all other considerations necessary to replicate a build with utmost precision. This capability allows other parties to
 independently verify inputs and outputs from a build which can increase the software's assurance.
 

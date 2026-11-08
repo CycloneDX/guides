@@ -23,7 +23,7 @@ The following is a high-level architecture illustrating how cryptographic assets
 ![CBOM Component Architecture](../../CBOM/en/images/CBOM-Component-Architecture.svg)
 
 Organizations should consider including cryptographic assets in their SBOMs and optionally producing a BOM specific for
-cryptographic material, otherwise known as a Cryptographic Bill of Material (CBOM).
+cryptographic material, otherwise known as a Cryptography Bill of Materials (CBOM).
 
 Refer to the [Authoritative Guide to CBOM](https://cyclonedx.org/guides/) for in-depth information about leveraging
 CycloneDX for cryptographic use cases.

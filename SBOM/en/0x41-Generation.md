@@ -69,9 +69,9 @@ approaches are listed below along with the lifecycles they could be executed in.
 | Approach         | Lifecycles                   | Description                                                                                                                                                           |
 |------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Build Plugin     | Build                        | Specialized tool that integrates directly into native build systems                                                                                                   |
-| Software Factory | Pre Build, Build, Post Build | An approach whereby the system that orchestrates builds directly generates SBOMs                                                                                      |
-| SCA              | Pre Build, Build, Post Build | Software Composition Analysis, which may inspect manifests in version control pre-build, be integrated into builds, or perform analysis of built artifacts post-build |
-| IAST/RASP        | Post Build, Operations       | Specialized tool that often involves instrumentation against running systems                                                                                          |
+| Software Factory | Pre-build, Build, Post-build | An approach whereby the system that orchestrates builds directly generates SBOMs                                                                                      |
+| SCA              | Pre-build, Build, Post-build | Software Composition Analysis, which may inspect manifests in version control pre-build, be integrated into builds, or perform analysis of built artifacts post-build |
+| IAST/RASP        | Post-build, Operations       | Specialized tool that often involves instrumentation against running systems                                                                                          |
 
 Each approach may use multiple methods and techniques to identify components and other relevant data. The techniques 
 used, the confidence, and call stack reachability can all be described granularly at the component level in CycloneDX. 
@@ -82,7 +82,7 @@ SBOMs may describe individual source files and other digital assets in a directo
 of SBOMs typically include file components, file hashes, and evidence of license and copyright statements. The primary
 purpose of this type of BOM is for license compliance and intellectual property use cases. They may also be used
 as an OpenChain Compliance Artifact. Oftentimes, license attribution reports can be derived from source SBOMs. Generating
-SBOMs from source files typically occur in the "pre build" lifecycle.
+SBOMs from source files typically occur in the "pre-build" lifecycle.
 
 ## Integrating CycloneDX Into The Build Process
 Integrating SBOM generation into the software's build system is the preferred starting point for producing SBOMs for
