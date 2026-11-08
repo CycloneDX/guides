@@ -49,7 +49,7 @@ which allows bill of materials to be evaluated. The model consists of:
 
 The model can be used to evaluate:
 
-- Incoming BOMs adherance to organizational policy by supporting the data required by various stakeholders
+- Incoming BOMs adherence to organizational policy by supporting the data required by various stakeholders
 - BOM generation and consumption tools
 - Current and future BOM formats against each other and their alignment with organizational requirements
 
@@ -72,7 +72,7 @@ of dimensions to consider in determining quality.
 | Depth         | SCVS        | The amount of detail or difficulty needed to represent data within a BOM.                                           |
 | Lifecycles    | CycloneDX   | The number of lifecycles or the favorability of specific lifecycles in the creation of a BOM.                       |
 | Techniques    | CycloneDX   | The approaches used to determine component identity.                                                                |
-| Confidence    | CycloneDX   | The confidence of individual techniques, and the analysis of the sum of all techniques used to identity components. |
+| Confidence    | CycloneDX   | The confidence of individual techniques, and the analysis of the sum of all techniques used to identify components. |
 
 <div style="page-break-after: always; visibility: hidden">
 \emptyparagraph

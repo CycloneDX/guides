@@ -87,7 +87,7 @@ SBOMs should ideally contain all direct and transitive components and the depend
 
 ### Software-as-a-Service BOM (SaaSBOM)
 SaaSBOMs provide an inventory of services, endpoints, and data flows and classifications that power cloud-native applications.
-CycloneDX is capable of describing any type of service, including microservices, Service Orientated Architecture (SOA),
+CycloneDX is capable of describing any type of service, including microservices, Service Oriented Architecture (SOA),
 Function as a Service (FaaS), and System of Systems.
 
 SaaSBOMs complement Infrastructure-as-Code (IaC) by providing a logical representation of a complex system, complete
