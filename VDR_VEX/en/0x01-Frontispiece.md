@@ -3,7 +3,7 @@
 </div>
 # Frontispiece
 
-## About the guide
+## About the Guide
 
 TODO
 
