@@ -27,7 +27,7 @@ The Manufacturing Bill of Materials supports diverse manufacturing scenarios acr
 - Captures assembly instructions, quality control procedures, and testing protocols
 - Links physical manufacturing to digital twins and simulation models
 
-**Machine Learning Operations (MLBOM Integration)**
+**Machine Learning Operations (ML-BOM Integration)**
 - Describes ML model training, quantization, optimization, and deployment processes
 - Captures data preprocessing pipelines, model validation procedures, and inference deployment
 - Documents MLOps workflows including model versioning and A/B testing
