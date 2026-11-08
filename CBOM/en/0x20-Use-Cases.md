@@ -54,7 +54,7 @@ in an automated way.
 ## Identify Expiring and Long-Term Cryptographic Material
 An RSA certificate expiring in one week poses less cryptographic risk than the same certificate expiring in 20 years. 
 Service downtime due to an expired certificate is another risk to be considered. Therefore, we argue that an inventory 
-that captures the life cycle of cryptographic material as allowed by CBOM gives context to an inventory that is 
+that captures the lifecycle of cryptographic material as allowed by CBOM gives context to an inventory that is 
 instrumental for managing cryptographic risk.
 
 ## Ensure Cryptographic Certifications
