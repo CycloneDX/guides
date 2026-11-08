@@ -6,7 +6,7 @@ standard began life in 2017 in the Open Web Application Security Project (OWASP)
 matured into an OWASP Flagship project, has adopted a formal standardization process and governance model, and is 
 supported by the global information security community.
 
-## Design Philosophy and Guiding Principals
+## Design Philosophy and Guiding Principles
 Simplicity of design is at the forefront of the CycloneDX philosophy. The format is easily approachable by a wide range
 of technical and non-technical roles. CycloneDX is a full-stack BOM format with many advanced capabilities which are
 achieved without sacrificing its design philosophy. Some guiding principals influencing its design include:
