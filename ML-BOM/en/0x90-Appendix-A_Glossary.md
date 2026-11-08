@@ -72,7 +72,7 @@ Major processing tasks in an NLP system include: speech recognition, text classi
 
 ### Model format terms
 
-#### Huggingface Safetensors
+#### Hugging Face Safetensors
 
 Safetensors addresses security and efficiency limitations present in traditional Python serialization approaches like pickle, used by PyTorch. The format uses a restricted deserialization process to prevent code execution vulnerabilities.
 

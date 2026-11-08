@@ -4,7 +4,7 @@
 
 An ML-BOM typically documents the identifying elements, architecture, components, and its supply chain along with any configurations and developmental or executional considerations, inclusive of the following areas:
 
-- **Model identifiers**: Identifying information such as the model's [Package URL (PURL)](https://tc54.org/purl/) (e.g., from Huggingface `pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd51602`) or other domain-specific identifiers within other registries.
+- **Model identifiers**: Identifying information such as the model's [Package URL (PURL)](https://tc54.org/purl/) (e.g., from Hugging Face `pkg:huggingface/distilbert-base-uncased@043235d6088ecd3dd5fb5ca3592b6913fd51602`) or other domain-specific identifiers within other registries.
 
 - **Model metadata**: Descriptive details such as the model's name, version, license, developer, purpose, use cases, architecture, (hyper)parameters and any additional identifying elements.
 
@@ -14,7 +14,7 @@ An ML-BOM typically documents the identifying elements, architecture, components
 
 - **Tokenizers and prompt templates**: Descriptive details of specific tokenizers (e.g., libraries, files, configurations) and prompt templates used to train and/or interact with the model during runtime.
 
-- **Hardware, software & frameworks**: A list of all hardware and software components including libraries, packages, frameworks (e.g., TensorFlow, PyTorch, Huggingface), along with specific versions and associated licenses used in aspects of the model's lifecycle. This informational category may also include operational and application aspects of models (perhaps as agents) used within compositional frameworks and workflows, along with the protocols used for communication.
+- **Hardware, software & frameworks**: A list of all hardware and software components including libraries, packages, frameworks (e.g., TensorFlow, PyTorch, Hugging Face), along with specific versions and associated licenses used in aspects of the model's lifecycle. This informational category may also include operational and application aspects of models (perhaps as agents) used within compositional frameworks and workflows, along with the protocols used for communication.
 
 - **Training & testing details**: Information about the computational environment and systems (software, hardware, operating system, and GPUs) used for training or evaluation along with necessary configurations, hyperparameters, and evaluation metrics.
 

@@ -2,9 +2,9 @@
 
 ## Overview
 
-A Machine Learning Bill-of-Materials (MLBOM or ML-BOM) is an object model to describe a machine learning model, its compositional assets, and other descriptive information often used to assess risk and compliance. Support for MLBOM is included in CycloneDX v1.5 and higher.
+A Machine Learning Bill-of-Materials (ML-BOM) is an object model to describe a machine learning model, its compositional assets, and other descriptive information often used to assess risk and compliance. Support for ML-BOM is included in CycloneDX v1.5 and higher.
 
-An MLBOM relies on many of the common, core elements of the CycloneDX schema, as well as unique aspects specific to ML components, their architectures, metadata, training, and other information used to gauge regulatory compliance.
+An ML-BOM relies on many of the common, core elements of the CycloneDX schema, as well as unique aspects specific to ML components, their architectures, metadata, training, and other information used to gauge regulatory compliance.
 
 This guide will provide specifics and best practices for conveying ML-related information using the CycloneDX schema.
 
@@ -94,7 +94,7 @@ If possible, these model repositories should be treated as a software "package" 
 
 The following example shows how the Hugging Face [Qwen/Qwen-7B](https://huggingface.co/Qwen/Qwen-7B) model repository would be declared as a CycloneDX `component` of type `machine-learning-model` in a CycloneDX ML-BOM as its subject component.
 
-Since the model repository is hosted on Hugging Face, the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
+Since the model repository is hosted on Hugging Face, the [Hugging Face package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) may be used [Package URL specification](https://github.com/package-url/purl-spec) to identify the model.
 
 ```json
 {
@@ -143,18 +143,18 @@ Since the model repository is hosted on Hugging Face, the [Huggingface package t
 This section provides best practice guidance on how the component fields were filled out for this example.
 
 - **bom-ref** - Since a PURL is available, it can also be used as the `bom-ref`.
-- **purl** - The Package URL (PURL) follows the [Huggingface package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) using a commit hash.
+- **purl** - The Package URL (PURL) follows the [Hugging Face package type](https://github.com/package-url/purl-spec/blob/main/types/huggingface-definition.json) using a commit hash.
 - **manufacturer** - The name of the company which built the Qwen model.
 - **group** - In this example, we chose to include the optional group field to acknowledge the specific model repository is part of the Qwen family of models.
 - **name** - The model name reflects how the model is identified under Hugging Face using the `<owner_name>/<repository_name>` format.
-- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Huggingface, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash matches the `purl` value.
+- **version** - Models are not always versioned in the way software packages are (e.g., using `semver` format); however, within repositories such as Hugging Face, the version is determined by its version control system's *commit hash*, *tag*, or *branch*. In the above example, the model's commit hash matches the `purl` value.
 - **externalReferences** - Used to provide unambiguous links to component's model repository and originating model card.
   - **vcs** - Provides a link to the version control system (i.e., the model provider aka. `supplier`). In this example, Hugging Face is used to affirm the associated PURL identifier.
   - **model-card** - Provides a link to the model's Hugging Face model card which is comprised of mostly unstructured information in the form of a markdown file (i.e., README.md).</br>*The CycloneDX representation of model card information will be detailed in a subsequent section.
 
 #### Model identifier(s)
 
-As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Huggingface model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
+As you can see in the above example, the `component` has a `bom-ref` that is also a valid [Package URL (PURL)](https://github.com/package-url/purl-spec) for a ["Qwen-7B" model hosted in a Hugging Face model repository](https://huggingface.co/Qwen/Qwen-7B) using the [Hugging Face PURL type](https://github.com/package-url/purl-spec/blob/main/types-doc/huggingface-definition.md). When a valid `purl` value is available for a model, it is recommended that it also be used as its component's `bom-ref`.
 
 If the model being described by an ML-BOM is instead hosted in a GitHub repository, it can also be referenced using a [GitHub Package URL](https://github.com/package-url/purl-spec/blob/main/types-doc/github-definition.md). For example, the ONNX vision model: [tiny-yolov2](https://github.com/onnx/models/tree/main/validated/vision/object_detection_segmentation/tiny-yolov2/model) would have a `github` PURL type.
 
@@ -289,7 +289,7 @@ Specifically, a `component` entry would be created for each file and declared in
 
 ###### Example: Qwen/Qwen-7B model repository files
 
-If we look inside the repository for the [Qwen/Qwen-7B model in Huggingface](https://huggingface.co/Qwen/Qwen-7B), we see the complete list of files that make up the "model" in its repository:
+If we look inside the repository for the [Qwen/Qwen-7B model in Hugging Face](https://huggingface.co/Qwen/Qwen-7B), we see the complete list of files that make up the "model" in its repository:
 
 <img src="images/hf-model-repo-Qwen-7B-file-list.png" width="280" />
 

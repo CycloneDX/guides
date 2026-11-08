@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-considerations.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's design `considerations` object and its subcomponents, including:
+This section will feature guidance on filling out information in the CycloneDX model card's design `considerations` object and its subcomponents, including:
 
 * [Users](#users) - Who are the intended users of the model?
 * [Use cases](#use-cases)-  What are the intended use cases for the model inclusive of the Operational Design Domains (ODD)?

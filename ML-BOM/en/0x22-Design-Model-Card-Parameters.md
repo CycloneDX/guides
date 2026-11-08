@@ -2,7 +2,7 @@
 
 ![](images/ml-anatomy-model-card-parameters.svg)
 
-This section will feature guidance on filling out information in the Cyclone model card's `modelParameters` object and its subcomponents, including:
+This section will feature guidance on filling out information in the CycloneDX model card's `modelParameters` object and its subcomponents, including:
 
 * [Model metadata](#model-metadata)
   * [Approach](#approach) - The overall approach to learning used by the model for problem solving.
