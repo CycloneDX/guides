@@ -1,10 +1,10 @@
 # Lifecycle Phases
-The Software Development Life Cycle (SDLC) is a process that outlines the phases involved in software development from
+The Software Development Lifecycle (SDLC) is a process that outlines the phases involved in software development from
 conception to deployment and maintenance. It typically includes planning, analysis, design, implementation, testing,
 deployment, and maintenance; each phase has its own activities and deliverables. The purpose of the SDLC is
 to provide a structured and systematic approach to software development that ensures the final product meets the customer's
 requirements, is of high quality, is delivered on time and within budget, and can be maintained and supported throughout
-its' lifecycle.
+its lifecycle.
 
 Lifecycle phases communicate the stage in which data in the BOM was captured. This support extends beyond software to 
 capture hardware, IoT, and cloud-native use cases. Different types of data may be available at various phases of a 

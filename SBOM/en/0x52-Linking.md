@@ -96,7 +96,7 @@ The following example helps to illustrate what Component F may look like when re
 
 Another common case involves individual BOMs, per layer, in a deployed stack. For example, a BOM may contain multiple 
 components, each with external references to its own individual BOMs. A hardware component could link to the 
-corresponding Hardware Bill of Material (HBOM), the operating system component could link to its corresponding SBOM, 
+corresponding Hardware Bill of Materials (HBOM), the operating system component could link to its corresponding SBOM, 
 and an application component could do the same.
 
 A third case involves a service defined in a BOM where the provider of the service has published a SaaSBOM containing 
