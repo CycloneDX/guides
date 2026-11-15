@@ -45,6 +45,61 @@ CycloneDX can represent the following types of cryptographic assets:
 \newpage
 </div>
 
+## Security Level Properties
+
+Algorithm entries may carry up to two numeric security level properties:
+
+| Property | Meaning |
+| --- | --- |
+| `classicalSecurityLevel` | The classical (non-quantum) security strength the algorithm provides, in bits. |
+| `nistQuantumSecurityLevel` | The NIST security strength category the algorithm is assessed against. |
+
+Both describe a property of the algorithm, not of a deployment. The same algorithm can be keyed,
+configured, or implemented in ways that void the claim, so a value here is not by itself evidence
+that an asset is quantum-safe.
+
+### NIST Quantum Security Level
+
+`nistQuantumSecurityLevel` carries a NIST security strength category, as defined in
+[NIST's evaluation criteria](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)).
+A value of `0` states that none of the NIST-defined categories are met. Values `1` through `5`
+correspond to the categories NIST uses to compare algorithms.
+
+The property may be absent, and absence is not the same statement as `0`:
+
+| JSON / XML | Protobuf | Meaning |
+| --- | --- | --- |
+| member or element absent | field not set | no NIST category is asserted |
+| `0` | `0`, explicitly set | an assessment was made and none of the categories are met |
+
+Absence does not tell you why no category is asserted. It may be because no assessment was
+performed, or because the producer chose not to report one. In neither case can the absence be
+read as `0`, and in neither case is it evidence that the asset is quantum-safe.
+
+#### Reading the property
+
+Decide from presence, not from the numeric value. In JSON and XML the distinction is visible
+directly: the member or element is either there or not. In Protocol Buffers the field is declared
+`optional int32`, which means the generated accessor returns `0` for a field that was never set.
+Compare presence before comparing the value:
+
+```text
+if (msg.has_nist_quantum_security_level()) {
+    level = msg.nist_quantum_security_level();   // 0 means "none of the categories are met"
+} else {
+    // no category asserted
+}
+```
+
+Treating an unset field as `0` silently turns "no assertion" into "assessed, and none of the
+categories are met", which is a stronger claim than the document makes.
+
+#### Reporting the property
+
+- If an assessment was performed and none of the NIST-defined categories are met, emit `0`.
+- If no assessment was performed, omit the property instead of emitting `0`.
+- If the assessment result is unknown, omit the property: there is no value that means "unknown".
+
 ## Key Management
 [NIST Special Publication 800-57](https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final) outlines key management guidelines,
 including various key states and their purposes. The key states defined in SP 800-57 include:
